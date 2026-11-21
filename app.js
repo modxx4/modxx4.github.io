@@ -98,8 +98,11 @@ function renderFirmwareInfo() {
 
 select.addEventListener('change', renderFirmwareInfo);
 document.getElementById('initialize').addEventListener('click', () => {
-  renderFirmwareInfo();
-  document.getElementById('status-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (select.value !== '9.00') {
+    notice.textContent = 'NEXUS cache is currently available for firmware 9.00 only. Select 9.00 to continue.';
+    return;
+  }
+  window.location.href = './firmwares/9.00/cache.html';
 });
 
 document.querySelector('.menu-toggle').addEventListener('click', () => {
