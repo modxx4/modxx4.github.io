@@ -136,6 +136,10 @@ h1 em{color:#7897ff}
             };
             appCache.onnoupdate = function () { openHost('upToDate'); };
             appCache.onerror = function () {
+                if (appCache.status === appCache.IDLE) {
+                    openHost('offlineReady');
+                    return;
+                }
                 setCached(false);
                 window.modxSetText(progressLabel,'failed');
                 window.modxSetText(cacheStatus,'stayOnline');
