@@ -1,6 +1,14 @@
 {
   "firmware": "9.00",
-  "status": "awaiting-payloads",
-  "payloads": [],
-  "note": "Add only verified payload files and compatibility metadata for this firmware."
+  "status": "payload-uploaded-unverified",
+  "payloads": [
+    {
+      "name": "GoldHEN",
+      "file": "goldhen.bin",
+      "path": "firmwares/9.00/goldhen.bin",
+      "status": "uploaded-unverified",
+      "note": "Binary is present in the repository. Verify its source, version, and integrity before using it."
+    }
+  ],
+  "note": "Only verified payloads should be used on-console."
 }
