@@ -26,3 +26,9 @@ footer{border-top:1px solid #087fc8;min-height:76px;display:flex;align-items:cen
 .detail-row strong{font-size:12px;line-height:1.55;color:#e1efff;font-weight:600}
 .source-note{grid-column:1/-1!important;max-width:none!important;margin:0!important;padding-top:12px;border-top:1px solid #164e79;font-size:11px!important}
 @media(max-width:700px){.info-panel{display:grid;grid-template-columns:1fr;gap:12px}.detail-row{grid-template-columns:1fr;gap:6px}.source-note{grid-column:auto!important}}
+
+.goldhen-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.goldhen-link,.goldhen-source{display:inline-flex;align-items:center;justify-content:center;padding:11px 14px;border-radius:9px;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.5px}
+.goldhen-link{background:linear-gradient(110deg,#9c7410,#d5a51d);border:1px solid #ffdb57;color:#fff8d8}
+.goldhen-source{border:1px solid #8a6c20;color:#f2d77e;background:#161306}
+.goldhen-link:hover,.goldhen-source:hover{filter:brightness(1.15);transform:translateY(-1px)}
