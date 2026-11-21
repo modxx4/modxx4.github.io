@@ -1,6 +1,23 @@
 {
   "firmware": "6.72",
-  "status": "awaiting-payloads",
-  "payloads": [],
-  "note": "Add only verified payload files and compatibility metadata for this firmware."
+  "status": "host-configured-awaiting-device-test",
+  "cache": "cache.html",
+  "cache_manifest": "cache.manifest",
+  "entry": "index.html",
+  "payload_loader": "pl_loader.js",
+  "payloads": [
+    "goldhen.bin",
+    "ftp.bin",
+    "ps4debug.bin",
+    "app2usb.bin",
+    "backup.bin",
+    "restore.bin",
+    "disable-updates.bin",
+    "enable-updates.bin",
+    "rif-renamer.bin",
+    "appcache-install.bin",
+    "history-blocker.bin",
+    "pup-decrypt.bin"
+  ],
+  "note": "Files are present in the repository and listed in the offline cache manifest. Device-side exploit and payload compatibility still require PS4 testing."
 }
