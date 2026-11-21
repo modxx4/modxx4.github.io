@@ -110,3 +110,53 @@ document.querySelectorAll('nav a').forEach(link => link.addEventListener('click'
 }));
 
 renderFirmwareInfo();
+
+
+const cacheButton = document.getElementById('installCache');
+const cacheStatus = document.getElementById('cacheStatus');
+
+if ('serviceWorker' in navigator && window.isSecureContext) {
+  navigator.serviceWorker.register('./service-worker.js')
+    .then(() => navigator.serviceWorker.ready)
+    .then(() => {
+      if (cacheStatus) cacheStatus.textContent = 'Ready to save for offline use';
+    })
+    .catch(() => {
+      if (cacheStatus) cacheStatus.textContent = 'Offline cache unavailable in this browser';
+    });
+} else if (cacheStatus) {
+  cacheStatus.textContent = 'Offline cache not supported by this browser';
+}
+
+if (cacheButton) {
+  cacheButton.addEventListener('click', async () => {
+    if (!('serviceWorker' in navigator) || !('caches' in window) || !window.isSecureContext) {
+      if (cacheStatus) cacheStatus.textContent = 'This browser does not support offline caching';
+      return;
+    }
+    cacheButton.disabled = true;
+    if (cacheStatus) cacheStatus.textContent = 'Installing cache…';
+    try {
+      await navigator.serviceWorker.register('./service-worker.js');
+      const registration = await navigator.serviceWorker.ready;
+      const worker = registration.active || navigator.serviceWorker.controller;
+      if (!worker) throw new Error('Service worker is not active yet. Reload and try again.');
+      const result = await new Promise((resolve, reject) => {
+        const channel = new MessageChannel();
+        const timeout = setTimeout(() => reject(new Error('Cache operation timed out')), 30000);
+        channel.port1.onmessage = event => {
+          clearTimeout(timeout);
+          resolve(event.data);
+        };
+        worker.postMessage({ type: 'NEXUS_PRECACHE' }, [channel.port2]);
+      });
+      if (!result.ok) throw new Error(result.message || 'Cache failed');
+      if (cacheStatus) cacheStatus.textContent = 'Cache installed • ' + result.count + ' files saved';
+      notice.textContent = 'NEXUS offline cache installed. Open the host once while online before using it offline.';
+    } catch (error) {
+      if (cacheStatus) cacheStatus.textContent = 'Cache failed: ' + error.message;
+    } finally {
+      cacheButton.disabled = false;
+    }
+  });
+}
