@@ -53,9 +53,10 @@
       <a class="tile tile-green" href="#status-panel"><span class="tile-icon">▤</span><span><b>Offline Cache</b><small>Offline support</small></span><i>›</i></a>
     </section>
 
-    <section class="info-panel" id="status-panel">
-      <div><p class="eyebrow">SYSTEM STATUS</p><h2>Built for a smoother PS4 host experience.</h2></div>
-      <p>This is the NEXUS visual prototype. Firmware selection and navigation are demonstrations; no exploit, GoldHEN, payload, or offline-cache files are included or executed yet.</p>
+    <section class="info-panel" id="status-panel" aria-live="polite">
+      <div class="exploit-heading"><p class="eyebrow">FIRMWARE COMPATIBILITY</p><h2 id="firmwareTitle">Firmware 5.05</h2><p id="firmwareSummary">Compatibility overview based on the selected firmware.</p></div>
+      <div class="exploit-details"><div class="detail-row"><span class="detail-label">USERLAND / ENTRY POINT</span><strong id="entryPoint">Loading…</strong></div><div class="detail-row"><span class="detail-label">KERNEL EXPLOIT</span><strong id="kernelExploit">Loading…</strong></div><div class="detail-row"><span class="detail-label">NOTES</span><strong id="requirements">Loading…</strong></div><div class="detail-row"><span class="detail-label">GOLDHEN</span><strong id="goldhenStatus">Check release compatibility separately</strong></div></div>
+      <p class="source-note">Reference: ConsoleMods PS4 Exploit Chart. This panel is an informational compatibility guide only; NEXUS does not execute exploits or load GoldHEN/payload files yet.</p>
     </section>
   </main>
 
