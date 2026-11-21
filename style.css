@@ -213,3 +213,81 @@ html[dir="rtl"] .hero-copy,html[dir="rtl"] .hero-meta,html[dir="rtl"] .section-b
  .card-bottom{font-size:7px}
  footer{gap:9px;flex-wrap:wrap;padding:13px 10px;font-size:7px}
 }
+
+
+/* MODX / FIELD NOTES — clean light utility layout */
+:root{
+ color-scheme:light;
+ --bg:#edf0eb;--panel:#ffffff;--line:#d7ddd5;
+ --text:#171a17;--muted:#626a61;--dim:#858d83;
+ --blue:#252a25;--violet:#252a25;--cyan:#252a25;--green:#3f754c;
+}
+html{background:#edf0eb;scroll-behavior:auto}
+body{background:#edf0eb;color:#171a17;font-family:Arial,Helvetica,sans-serif}
+body:before,.ambient,.hero-art{display:none!important}
+.topbar{height:68px;padding:0 max(22px,calc((100% - 1060px)/2));background:#f8faf6;border-bottom:1px solid #d8ded6}
+.brand-mark{border:1px solid #252a25;border-radius:3px;background:#252a25;color:#fff;box-shadow:none}
+.brand-mark b{color:#fff}.brand-mark em{color:#c7f36b}
+.brand-mark i{background:#c7f36b;box-shadow:none}
+.brand-copy strong{color:#171a17;font-family:Arial,Helvetica,sans-serif;letter-spacing:2.4px}
+.brand-copy small{color:#777f75}
+.ready-indicator{color:#3f754c}
+.ready-indicator i{background:#3f754c;box-shadow:none;animation:none}
+.language-toggle{border:1px solid #cbd2c8;border-radius:3px;background:#fff;color:#242924}
+.language-toggle:hover{border-color:#777f75;background:#f2f5ef}
+.page{width:min(100% - 44px,1060px);padding-bottom:36px}
+.hero{min-height:0;padding:43px 3px 0;overflow:visible}
+.eyebrow{color:#586257;font:600 9px Consolas,monospace;letter-spacing:1.1px}
+.eyebrow-line{background:#a5c94f;width:22px}
+h1{font:700 clamp(43px,6vw,62px)/.98 Arial,Helvetica,sans-serif;letter-spacing:-2.8px;color:#171a17}
+h1 span{color:#647c37;text-shadow:none}
+.intro-copy{max-width:560px;color:#626a61;font-size:12px;line-height:1.8}
+.boot-status{color:#747d72;font:500 9px Consolas,monospace}
+.boot-status b{color:#3f754c}
+.hero-meta{margin-top:29px;padding:13px 0;border-bottom:1px solid #cbd2c8;color:#687166;font:600 8px Consolas,monospace;letter-spacing:1px}
+.firmware-section{padding-top:24px}
+.section-bar{margin-bottom:13px}
+.section-title{color:#20251f;font:700 10px Consolas,monospace;letter-spacing:1px}
+.legend{color:#747d72;font:500 8px Consolas,monospace}
+.legend-ready{background:#4b8757}.legend-soon{background:#9aa196}
+.firmware-grid{max-width:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.firmware-card{min-height:124px;padding:13px 14px;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:8px;border:1px solid #d6ddd4;border-radius:3px;background:#f9fbf7;box-shadow:none}
+.firmware-card:before,.firmware-card:after{display:none!important}
+.firmware-card.ready{border-color:#d2d9d0}
+.firmware-card.ready:hover{transform:none;border-color:#87977a;background:#fff;box-shadow:none}
+.firmware-card.featured{border-color:#a8bd79;background:#f5f8ed}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.card-index{color:#7a8377;font:600 8px Consolas,monospace;letter-spacing:.8px}
+.card-status{color:#3f754c;font:600 7px Consolas,monospace;letter-spacing:.5px}
+.firmware-card>strong,.firmware-card>strong.compact{order:2;margin-top:2px;color:#171a17;font:700 23px/1 Arial,Helvetica,sans-serif;letter-spacing:-.8px}
+.firmware-card>strong small,.firmware-card>strong.compact small{color:#747d72;font-size:.62em;letter-spacing:-.2px}
+.card-description{order:3;color:#626a61;font:400 10px/1.4 Arial,Helvetica,sans-serif}
+.card-description i{color:#789344}
+.card-bottom{order:4;display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:9px;border-top:1px solid #e1e6df;color:#4e584b;font:600 8px Consolas,monospace;letter-spacing:.7px}
+.card-bottom b,.featured .card-bottom b{color:#6b853c;font-size:14px}
+.section-note{color:#747d72;font-size:9px;line-height:1.7}
+.help-note{margin-top:22px;padding:13px 14px;border:1px solid #d6ddd4;border-radius:3px;background:#f8faf6}
+.help-mark{border-radius:2px;background:#e8eee1;color:#647c37}
+.help-note p{color:#626a61;font-size:10px}
+.help-note strong{color:#252a25}
+footer{min-height:58px;background:#f8faf6;border-top:1px solid #d8ded6;color:#747d72;font:500 8px Consolas,monospace;letter-spacing:.8px}
+.footer-brand{color:#171a17;font-family:Arial,Helvetica,sans-serif}
+.footer-brand span,.footer-brand~span:last-child i{color:#6b853c}
+.nodeplay-link{border:1px solid #d6ddd4;border-radius:3px;background:#f9fbf7}
+html[dir="rtl"] .firmware-card{text-align:right}
+@media(max-width:760px){.firmware-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){
+ .topbar{height:62px;padding:0 14px}
+ .page{width:calc(100% - 28px);padding-bottom:26px}
+ .hero{padding-top:32px}
+ h1{font-size:43px;letter-spacing:-1.5px}
+ .hero-meta{margin-top:23px;font-size:7px}
+ .section-bar{flex-direction:row;align-items:center;gap:8px}
+ .legend{gap:5px;font-size:7px;letter-spacing:.2px}
+ .firmware-grid{grid-template-columns:1fr;gap:8px}
+ .firmware-card{min-height:112px;padding:12px}
+ .firmware-card>strong,.firmware-card>strong.compact{font-size:21px}
+ .card-index{font-size:8px}.card-status{font-size:7px}
+ .card-description{font-size:9px}.card-bottom{font-size:7px}
+ footer{gap:9px;flex-wrap:wrap;padding:13px 10px;font-size:7px}
+}
