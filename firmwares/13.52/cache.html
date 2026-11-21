@@ -110,14 +110,15 @@ button:focus-visible,.grid button:focus-visible,.grid-goldhen button:focus-visib
 .progress-wrapper,.track{background:#0d1015!important;border:1px solid var(--line)!important;border-radius:6px!important;overflow:hidden}.progress-bar{background:#20252d!important;border-color:var(--line)!important;border-radius:5px!important}.progress-fill,#myBar{background:var(--accent)!important;box-shadow:none!important;border-radius:4px!important}.progress-text{color:#fff!important;text-shadow:none!important}#progressText{color:var(--accent)!important}
 .step{background:#171a20!important}.step b{color:var(--accent)!important}.foot,footer{border-color:var(--line)!important;color:var(--dim)!important;font:500 8px/1.6 Consolas,monospace!important;letter-spacing:.8px!important}
 .pspulse-support{border:1px solid #414955!important;border-radius:6px!important;background:#20252d!important;color:#c4d8ff!important;box-shadow:none!important}#out{border-color:var(--line)!important;background:#15191f!important;font-family:Consolas,monospace!important;overflow:auto!important}
-@media(max-width:760px){.app,.shell{width:calc(100% - 24px)!important;padding-left:0!important;padding-right:0!important}.bar,.topbar{gap:9px}h1{letter-spacing:-1px!important}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}</style></head>
+@media(max-width:760px){.app,.shell{width:calc(100% - 24px)!important;padding-left:0!important;padding-right:0!important}.bar,.topbar{gap:9px}h1{letter-spacing:-1px!important}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}</style><link rel="stylesheet" href="../../modx-clock.css">
+</head>
 
 <body>
     <div class="app">
         <header class="bar">
             <span><b>MODX</b> // ps4 hosts</span>
             <span class="bar-fw">cache update</span>
-        </header>
+        <div class="modx-clock" role="timer" aria-label="Egypt local date and time"><time>--:--:--</time><span>-- --- ----</span></div></header>
 
         <main class="layout">
             <p class="kicker">$ ./cache --install</p>
@@ -217,6 +218,7 @@ button:focus-visible,.grid button:focus-visible,.grid-goldhen button:focus-visib
     </script>
 
 
+<script src="../../modx-clock.js"></script>
 </body>
 
 </html>
