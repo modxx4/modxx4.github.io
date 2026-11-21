@@ -29,6 +29,7 @@ h1{font-size:clamp(38px,6vw,61px);line-height:.98;letter-spacing:-2.8px;margin:1
 .notice{margin-top:15px;padding:11px 13px;border-left:2px solid var(--blue);background:#718dff0d;color:#a6b4d0;font-size:10px;line-height:1.7}
 footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #9aafff22;padding:14px 3px 0;color:#8290ad;font:500 8px monospace;letter-spacing:1.1px}
 @media(max-width:620px){.shell{width:calc(100% - 24px);padding-top:11px}.topbar{height:62px;padding:0 12px}.brand{font-size:16px}.mark{width:34px;height:34px}.fw{font-size:8px;padding:7px 8px}main{padding:38px 0}.panel{padding:17px 14px;margin-top:23px}.steps{gap:6px}.step{padding:8px 7px}.step span{font-size:8px}footer{font-size:7px;letter-spacing:.7px}}
+h1 span,h1 em{color:var(--accent)}
 </style><style>
 .language-toggle{margin-inline-start:auto;padding:7px 11px;border:1px solid #52699a;border-radius:7px;background:#111a30;color:#dce6ff;font:600 10px Manrope,Arial,sans-serif;cursor:pointer}
 .language-toggle:hover{border-color:#67dff2;background:#172440}
@@ -80,14 +81,14 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
  var appCache=window.applicationCache,progressLabel=document.getElementById('progress'),bar=document.getElementById('myBar'),pct=document.getElementById('progressText'),status=document.getElementById('cacheStatus'),state=document.getElementById('stateLabel'),dot=document.getElementById('statusDot'),redirecting=false;
  function cached(v){try{localStorage.is672Cached=v?'true':'false';}catch(e){}}
  function progress(v){v=Math.max(0,Math.min(100,v));bar.style.width=v+'%';pct.textContent=v+'%';}
- function setState(s,c){state.textContent=s;dot.style.background=c;dot.style.boxShadow='0 0 12px '+c;}
+ function setState(s,c){state.textContent=window.modxT(s);dot.style.background=c;dot.style.boxShadow='0 0 12px '+c;}
  function fail(msg,detail){cached(false);setState('error','#ff7185');progressLabel.textContent=window.modxT(msg);status.textContent=window.modxT(detail);}
- function openHost(msg){if(redirecting)return;redirecting=true;cached(true);progress(100);setState('ready','#63e2bd');progressLabel.textContent=msg;status.textContent=window.modxT('completeOpen');setTimeout(function(){location.replace('index.html');},1000);}
- if(!appCache){fail('Cache engine unavailable.','Open this page in the PS4 browser that supports Application Cache.');return;}
+ function openHost(msg){if(redirecting)return;redirecting=true;cached(true);progress(100);setState('ready','#63e2bd');progressLabel.textContent=window.modxT(msg);status.textContent=window.modxT('completeOpen');setTimeout(function(){location.replace('index.html');},1000);}
+ if(!appCache){fail('cacheEngineUnavailable','supportedBrowser');return;}
  if(appCache.status===appCache.DOWNLOADING){cached(false);setState('stateDownloading','#27b8ff');}
- appCache.onchecking=function(){setState('stateChecking','#27b8ff');progressLabel.textContent=window.modxT('checking');status.textContent='Contacting the cache manifest.';};
- appCache.ondownloading=function(){cached(false);setState('DOWNLOADING','#27b8ff');progressLabel.textContent=window.modxT('installing');status.textContent='Downloading MODX 6.72 resources. Please wait.';};
- appCache.onprogress=function(e){if(e.lengthComputable&&e.total>0)progress(Math.round(100*e.loaded/e.total));status.textContent='Receiving host resources. Keep the browser open.';};
+ appCache.onchecking=function(){setState('stateChecking','#27b8ff');progressLabel.textContent=window.modxT('checking');status.textContent=window.modxT('manifestContact');};
+ appCache.ondownloading=function(){cached(false);setState('stateDownloading','#27b8ff');progressLabel.textContent=window.modxT('installing');status.textContent=window.modxT('downloadingResources');};
+ appCache.onprogress=function(e){if(e.lengthComputable&&e.total>0)progress(Math.round(100*e.loaded/e.total));status.textContent=window.modxT('receiving');};
  appCache.oncached=function(){openHost(window.modxT('installed'));};
  appCache.onupdateready=function(){try{appCache.swapCache();}catch(e){}openHost(window.modxT('updated'));};
  appCache.onnoupdate=function(){openHost(window.modxT('alreadyUpdated'));};
