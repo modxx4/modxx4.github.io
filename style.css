@@ -151,7 +151,7 @@ footer {
 .version-option.ready:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 @media (max-width: 760px) { .firmware-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 540px) {
-  .firmware-groups { grid-template-columns: 1fr; gap: 8px; }
+  .firmware-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .group-card { min-height: 108px; }
   .group-card > strong { margin: 13px 0 9px; font-size: 25px; }
 }
