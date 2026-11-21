@@ -42,7 +42,7 @@ h1 span{color:var(--blue);text-shadow:0 5px 35px #718dff45}
 .legend{display:flex;align-items:center;gap:7px;color:#8f9fbd;font:500 8px DM Mono,monospace;letter-spacing:.8px}
 .legend-ready,.legend-soon{width:6px;height:6px;border-radius:50%;background:var(--green)}.legend-soon{margin-left:9px;background:#7b8aa8}
 .firmware-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-.firmware-card{position:relative;isolation:isolate;min-height:112px;padding:13px 16px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr;column-gap:14px;overflow:hidden;border:1px solid #293958;border-radius:11px;background:linear-gradient(115deg,#121c32 0%,#101729 65%,#12182b 100%);text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.firmware-card{position:relative;isolation:isolate;min-height:94px;padding:10px 14px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr;column-gap:11px;overflow:hidden;border:1px solid #293958;border-radius:11px;background:linear-gradient(115deg,#121c32 0%,#101729 65%,#12182b 100%);text-decoration:none;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .firmware-card:before{content:"";position:absolute;z-index:-1;width:130px;height:130px;right:-75px;top:-90px;border-radius:50%;background:#718dff;filter:blur(48px);opacity:.16}
 .firmware-card.ready{border-color:#435a88;cursor:pointer}
 .firmware-card.ready:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(110deg,#718dff0c,transparent 62%,#a58bff0c)}
@@ -50,15 +50,15 @@ h1 span{color:var(--blue);text-shadow:0 5px 35px #718dff45}
 .firmware-card:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 .firmware-card.featured{border-color:#426c82;background:linear-gradient(115deg,#102234,#101729 68%,#12182b)}
 .firmware-card.featured:before{background:var(--cyan);opacity:.14}
-.card-top{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.card-top{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:5px}
 .card-index{color:#8190b0;font:500 8px DM Mono,monospace;letter-spacing:.8px}
 .card-status{color:#9aa9c6;font:500 7px DM Mono,monospace;letter-spacing:.8px;white-space:nowrap}
 .ready .card-status{color:var(--green)}
-.firmware-card>strong{align-self:center;margin:0 0 3px;font:700 30px/.95 Space Grotesk,sans-serif;letter-spacing:-1.6px;color:#f5f7ff}
+.firmware-card>strong{align-self:center;margin:0 0 3px;font:700 27px/.95 Space Grotesk,sans-serif;letter-spacing:-1.6px;color:#f5f7ff}
 .firmware-card>strong small{font-size:.58em;letter-spacing:-.7px;color:#aebcda}
-.firmware-card>strong.compact{font-size:25px;letter-spacing:-1.2px}
+.firmware-card>strong.compact{font-size:22px;letter-spacing:-1.2px}
 .firmware-card>strong.compact small{font-size:.68em;letter-spacing:-.5px}
-.card-description{align-self:center;color:#a6b4d0;font-size:9px;font-weight:600;letter-spacing:.1px}
+.card-description{align-self:center;color:#a6b4d0;font-size:8px;font-weight:600;letter-spacing:.1px}
 .card-description i{color:var(--blue);font-style:normal;padding:0 2px}
 .card-bottom{grid-column:2;grid-row:2;align-self:center;display:flex;align-items:center;justify-content:flex-end;gap:8px;margin:0;padding:0;border:0;color:#8b9aba;font:500 7px DM Mono,monospace;letter-spacing:.7px;white-space:nowrap}
 .ready .card-bottom{color:#c4d0ed}.card-bottom b{color:var(--blue);font-size:16px;font-weight:500}
@@ -77,8 +77,8 @@ footer{min-height:62px;display:flex;align-items:center;justify-content:center;ga
  h1{font-size:57px;letter-spacing:-3px}.intro-copy{font-size:11px}
  .hero-meta{font-size:7px;letter-spacing:.7px}.section-bar{align-items:flex-start;flex-direction:column;gap:10px}
  .firmware-grid{grid-template-columns:1fr;gap:9px}
- .firmware-card{min-height:100px;padding:12px 13px;column-gap:9px}
- .firmware-card>strong{font-size:29px}.firmware-card>strong.compact{font-size:22px}.firmware-card>strong small{font-size:.55em}
+ .firmware-card{min-height:88px;padding:10px 12px;column-gap:8px}
+ .firmware-card>strong{font-size:26px}.firmware-card>strong.compact{font-size:20px}.firmware-card>strong small{font-size:.55em}
  .card-description{font-size:8px;line-height:1.5}.card-index{font-size:7px}.card-status{font-size:6px;letter-spacing:.45px}.card-bottom{font-size:6px}
  footer{gap:9px;flex-wrap:wrap;font-size:7px;letter-spacing:.7px}
 }
