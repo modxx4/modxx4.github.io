@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" type="image/png" href="../pspulse.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEXUS // PS4 9.00-9.60 HOST / VERSION</title>
@@ -174,9 +173,9 @@
                         data-version="latest">
                         <span class="card-index">01</span>
                         <span>
-                            <span class="version-badge latest">Latest</span>
-                            <span class="version-title">GoldHEN <span class="version-number">v2.4b18.12</span></span>
-                            <span class="version-description">Latest release with improved stability, new features, and better compatibility. Recommended for most users.</span>
+                            <span class="version-badge latest">Available build</span>
+                            <span class="version-title">GoldHEN <span class="version-number">GoldHEN BIN</span></span>
+                            <span class="version-description">Uploaded GoldHEN binary for Firmware 9.00. Version details still need verification.</span>
                         </span>
                         <span class="card-action">[ SELECT ]</span>
                     </div>
@@ -194,8 +193,6 @@
 
     <script>
         function selectVersion(version) {
-            // Normalize the old selector value; the shipped previous build is b18.10.
-            if (version === 'v2.4b18.5') version = 'v2.4b18.10';
             // Store the selected version in localStorage
             try { localStorage.setItem('selectedGoldHENVersion', version); } catch (error) {}
 
