@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101216">
+<meta name="description" content="Support the MODXX4 PlayStation 4 host project through Vodafone Cash.">
+<title>Support MODXX4</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="MODXX4 home"><span class="brand-mark">M<span>X</span></span><span class="brand-copy"><strong>MODXX4</strong><small>PLAYSTATION HOST</small></span></a>
+  <div class="header-right">
+    <a class="support-back" href="./">BACK TO HOST ↗</a>
+    <span class="ready-indicator" role="status"><i aria-hidden="true"></i>READY</span>
+  </div>
+</header>
+<main class="page support-page">
+  <section class="intro">
+    <p class="eyebrow">MODXX4 / COMMUNITY</p>
+    <h1>Support<br><span>the project.</span></h1>
+    <p class="intro-copy">Your optional contribution helps keep MODXX4 maintained and improving for the PS4 community. Thank you for your support.</p>
+  </section>
+  <section class="support-section" aria-labelledby="supportTitle">
+    <div class="section-bar">
+      <div><span class="section-kicker">MODXX4 / 02</span><h2 id="supportTitle">DONATION METHOD</h2></div>
+      <span class="section-hint">VOLUNTARY SUPPORT</span>
+    </div>
+    <article class="donation-card">
+      <div class="donation-head">
+        <span class="vodafone-mark" aria-hidden="true">V</span>
+        <div><strong>Vodafone Cash</strong><small>EGYPT · MOBILE WALLET</small></div>
+        <span class="donation-status">AVAILABLE</span>
+      </div>
+      <p class="donation-copy">Send your contribution to this Vodafone Cash number:</p>
+      <div class="number-panel">
+        <span class="number-label">VODAFONE CASH NUMBER</span>
+        <strong id="cashNumber" dir="ltr">01035400444</strong>
+        <button class="copy-button" id="copyNumber" type="button">COPY NUMBER</button>
+        <span class="copy-feedback" id="copyFeedback" role="status" aria-live="polite"></span>
+      </div>
+      <ol class="donation-steps">
+        <li>Open Vodafone Cash or your mobile wallet menu.</li>
+        <li>Choose transfer to another wallet and enter the number above.</li>
+        <li>Before confirming, verify the recipient name shown by your wallet.</li>
+      </ol>
+      <p class="donation-note">Contributions are completely optional. Never share your wallet PIN or one-time verification codes. Only confirm a transfer after checking the recipient details and amount.</p>
+    </article>
+  </section>
+  <aside class="help-note"><span class="help-mark">i</span><p><strong>Need technical help instead?</strong> Use the project repository to report a host issue or request assistance.</p></aside>
+  <p class="support-github"><a href="https://github.com/modxx4/modxx4.github.io/issues" target="_blank" rel="noopener noreferrer">REPORT A PROBLEM ON GITHUB ↗</a></p>
+</main>
+<footer><span class="footer-brand">MODXX4<span>®</span></span><span>INDEPENDENT PS4 HOST PROJECT</span><span>THANK YOU FOR YOUR SUPPORT</span></footer>
+<script>
+(function(){
+  var button=document.getElementById("copyNumber");
+  var number=document.getElementById("cashNumber");
+  var feedback=document.getElementById("copyFeedback");
+  if(!button||!number||!feedback)return;
+  button.addEventListener("click",function(){
+    var value=number.textContent.trim();
+    function copied(){feedback.textContent="NUMBER COPIED";button.textContent="COPIED";}
+    function failed(){feedback.textContent="PLEASE COPY THE NUMBER MANUALLY";}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(value).then(copied).catch(failed);
+    }else{
+      var field=document.createElement("textarea");
+      field.value=value;field.setAttribute("readonly","");
+      field.style.position="absolute";field.style.left="-9999px";
+      document.body.appendChild(field);field.select();
+      try{if(document.execCommand("copy"))copied();else failed();}catch(error){failed();}
+      document.body.removeChild(field);
+    }
+  });
+})();
+</script>
+</body>
+</html>
