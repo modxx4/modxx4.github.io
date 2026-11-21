@@ -1,7 +1,7 @@
 CACHE MANIFEST
 # resource-path-fix-20261021-main-v2
 # offline-manifests-v1-20261021
-#VERSION 3.2 - NEXUS 9.00 alternate cache
+#VERSION 3.3 - MODX 9.xx GoldHEN 2.4b18.10 cache UI refresh
 
 CACHE:
 goldhen10.bin
