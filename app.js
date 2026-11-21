@@ -1,7 +1,7 @@
 // MODX Firmware Hub — automatic device-language detection with a manual override.
 const translations = {
   en: {
-    brandSub:"PLAYSTATION HOST", launchCommand:"$ ./launch --select-host", routesDetected:"7 host routes detected",
+    brandSub:"PLAYSTATION HOST", launchCommand:"$ ./launch --select-host", routesDetected:"6 host routes detected",
     heading:"Choose<br><span>firmware.</span>",
     intro:"Pick the host matching the firmware installed on your PlayStation 4.",
     artLabel:"MODX / HOST SYSTEM", directory:"FIRMWARE DIRECTORY",
@@ -20,7 +20,7 @@ const translations = {
     footerCommunity:"BUILT FOR THE COMMUNITY"
   },
   ar: {
-    brandSub:"هوست بلايستيشن", launchCommand:"$ ./launch --select-host", routesDetected:"تم العثور على 7 مسارات للهوست",
+    brandSub:"هوست بلايستيشن", launchCommand:"$ ./launch --select-host", routesDetected:"تم العثور على 6 مسارات للهوست",
     heading:"اختر<br><span>إصدار النظام.</span>",
     intro:"اختر الهوست المطابق لإصدار النظام المثبّت على جهاز PlayStation 4.",
     artLabel:"MODX / نظام الهوست", directory:"قائمة إصدارات النظام",
