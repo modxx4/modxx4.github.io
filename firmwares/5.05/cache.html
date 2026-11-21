@@ -85,21 +85,101 @@ footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid 
   var stateLabel=document.getElementById('stateLabel');
   var statusDot=document.getElementById('statusDot');
   var redirectPending=false;
-  function setCached(value){try{localStorage.is900Cached=value?'true':'false';}catch(e){}}
-  function setProgress(value){var p=Math.max(0,Math.min(100,value));progressBar.style.width=p+'%';progressText.textContent=p+'%';}
-  function setState(label,color){stateLabel.textContent=label;statusDot.style.background=color;statusDot.style.boxShadow='0 0 12px '+color;}
-  function openHost(message){if(redirectPending)return;redirectPending=true;setCached(true);setProgress(100);setState('READY','#63e6b0');progressLabel.textContent=message;cacheStatus.textContent='Cache complete. Opening the MODX host...';setTimeout(function(){window.location.replace('index.html');},1200);}
-  function fail(message,detail){setCached(false);setState('ERROR','#ff7185');progressLabel.textContent=message;cacheStatus.textContent=detail;}
-  if(!appCache){fail('Cache engine unavailable.','Open this page in the PS4 browser that supports the host cache system.');return;}
-  if(appCache.status===appCache.DOWNLOADING){setCached(false);setState('DOWNLOADING','#27b8ff');}
-  appCache.onchecking=function(){setState('CHECKING','#27b8ff');progressLabel.textContent='Checking for host updates...';cacheStatus.textContent='Contacting the cache manifest.';};
-  appCache.ondownloading=function(){setCached(false);setState('DOWNLOADING','#27b8ff');progressLabel.textContent='Installing offline cache...';cacheStatus.textContent='Downloading MODX host resources. Please wait.';};
-  appCache.onprogress=function(event){if(event.lengthComputable&&event.total>0){setProgress(Math.round(100*event.loaded/event.total));}cacheStatus.textContent='Receiving host resources. Keep the browser open.';};
-  appCache.oncached=function(){openHost('Offline cache installed successfully.');};
-  appCache.onupdateready=function(){try{appCache.swapCache();}catch(e){}openHost('Offline cache updated successfully.');};
-  appCache.onnoupdate=function(){openHost('Offline cache is already up to date.');};
-  appCache.onerror=function(){fail('Cache installation failed.','The browser could not complete the manifest download. Check that all manifest files are present, then reload.');};
-  appCache.onobsolete=function(){fail('Cache manifest is unavailable.','The cache manifest could not be used. Check the host files and reload.');};
+  var timeoutId=null;
+
+  function setCached(value){
+    try {
+      if(value) localStorage.setItem('cached505','yes');
+      else localStorage.removeItem('cached505');
+    } catch(e) {}
+  }
+  function setProgress(value){
+    var p=Math.max(0,Math.min(100,value));
+    progressBar.style.width=p+'%';
+    progressText.textContent=p+'%';
+  }
+  function setState(label,color){
+    stateLabel.textContent=label;
+    statusDot.style.background=color;
+    statusDot.style.boxShadow='0 0 12px '+color;
+  }
+  function stopTimeout(){
+    if(timeoutId!==null){clearTimeout(timeoutId);timeoutId=null;}
+  }
+  function openHost(message){
+    if(redirectPending)return;
+    redirectPending=true;
+    stopTimeout();
+    setCached(true);
+    setProgress(100);
+    setState('READY','#63e6b0');
+    progressLabel.textContent=message;
+    cacheStatus.textContent='Cache complete. Opening the MODX 5.05 host...';
+    setTimeout(function(){window.location.replace('index.html');},900);
+  }
+  function fail(message,detail){
+    if(redirectPending)return;
+    stopTimeout();
+    setCached(false);
+    setState('ERROR','#ff7185');
+    progressLabel.textContent=message;
+    cacheStatus.textContent=detail;
+  }
+  if(!appCache){
+    fail('Cache engine unavailable.','Open this page in the PS4 browser that supports Application Cache.');
+    return;
+  }
+
+  appCache.addEventListener('checking',function(){
+    setState('CHECKING','#27b8ff');
+    progressLabel.textContent='Checking host resources...';
+    cacheStatus.textContent='Contacting the MODX 5.05 cache manifest.';
+  },false);
+  appCache.addEventListener('downloading',function(){
+    setCached(false);
+    setState('DOWNLOADING','#27b8ff');
+    progressLabel.textContent='Installing offline cache...';
+    cacheStatus.textContent='Downloading MODX 5.05 resources. Keep the browser open.';
+  },false);
+  appCache.addEventListener('progress',function(event){
+    if(event&&event.lengthComputable&&event.total>0){
+      setProgress(Math.round(100*event.loaded/event.total));
+    }
+    cacheStatus.textContent='Receiving host resources. Keep the browser open.';
+  },false);
+  appCache.addEventListener('cached',function(){
+    openHost('Offline cache installed successfully.');
+  },false);
+  appCache.addEventListener('noupdate',function(){
+    openHost('Offline cache is already up to date.');
+  },false);
+  appCache.addEventListener('updateready',function(){
+    try{appCache.swapCache();}catch(e){}
+    openHost('Offline cache updated successfully.');
+  },false);
+  appCache.addEventListener('error',function(){
+    fail('Cache installation failed.','The browser could not complete the manifest download. Check the connection and manifest files, then reload.');
+  },false);
+  appCache.addEventListener('obsolete',function(){
+    fail('Cache manifest is unavailable.','The manifest was marked obsolete. Check the host configuration and reload.');
+  },false);
+
+  // Handle a cache that completed before this script attached its listeners.
+  if(appCache.status===appCache.UPDATEREADY){
+    try{appCache.swapCache();}catch(e){}
+    openHost('Offline cache updated successfully.');
+  }else if(appCache.status===appCache.IDLE){
+    openHost('Offline cache is already installed.');
+  }else if(appCache.status===appCache.OBSOLETE){
+    fail('Cache manifest is unavailable.','The manifest was marked obsolete. Check the host configuration and reload.');
+  }else{
+    setState(appCache.status===appCache.DOWNLOADING?'DOWNLOADING':'CHECKING','#27b8ff');
+    progressLabel.textContent='Waiting for cache installation...';
+    cacheStatus.textContent='Keep the PS4 browser open while the offline resources are downloaded.';
+    timeoutId=setTimeout(function(){
+      fail('Cache check timed out.','The browser did not finish checking or downloading the cache. Reload the page and try again.');
+    },90000);
+  }
 })();
 </script>
 </body>
