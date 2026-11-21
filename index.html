@@ -3,96 +3,106 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1018">
+  <meta name="theme-color" content="#100d19">
   <meta name="description" content="MODX — PlayStation 4 exploit host and firmware hub.">
-  <title>MODX | PS4 HOST</title>
+  <title>MODX — PlayStation Host</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
   <header class="topbar">
     <a class="brand" href="./" aria-label="MODX home">
-      <span class="brand-mark">M<span>X</span></span>
+      <span class="brand-mark"><i></i><b>M</b><em>X</em></span>
       <span class="brand-copy"><strong>MODX</strong><small>PLAYSTATION HOST</small></span>
     </a>
-    <div class="system-status"><span class="status-dot"></span> SYSTEM ONLINE</div>
+    <div class="system-status"><span class="status-dot"></span> HOST NETWORK <b>ONLINE</b></div>
   </header>
 
   <main class="page">
-    <section class="intro">
-      <div>
-        <p class="eyebrow">PLAYSTATION 4 <span>/</span> EXPLOIT HOST</p>
-        <h1>Firmware library</h1>
-        <p class="intro-copy">Select your system software version to open its host.</p>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> PS4 EXPLOIT ENVIRONMENT <span class="eyebrow-code">/ 001</span></p>
+        <h1>Choose your<br><span>firmware.</span></h1>
+        <p class="intro-copy">One hub. Multiple host environments.<br>Pick your system software to get started.</p>
       </div>
-      <div class="summary">
-        <div><strong>16</strong><span>VERSIONS</span></div>
-        <i></i>
-        <div><strong>02</strong><span>READY</span></div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div><div class="horizon"></div><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <span class="art-label">MODX / SYSTEM READY</span>
+        <span class="art-number">PS4</span>
       </div>
+      <div class="hero-meta"><span>FIRMWARE DIRECTORY</span><span>SELECT YOUR SYSTEM VERSION <i>↓</i></span></div>
     </section>
 
-    <section class="firmware-section" aria-label="Available firmware versions">
+    <section class="firmware-section" aria-label="Available firmware hosts">
       <div class="section-bar">
-        <span>SELECT YOUR FIRMWARE</span>
-        <div class="legend"><span class="ready-key"></span> READY <span class="soon-key"></span> IN PREPARATION</div>
+        <span class="section-title">HOST LIBRARY <small>— SELECT A HOST</small></span>
+        <div class="legend"><span class="legend-ready"></span> READY <span class="legend-soon"></span> IN PREPARATION</div>
       </div>
 
       <div class="firmware-grid">
-        <a class="firmware-card ready" href="./firmwares/5.05/cache.html"><span class="card-top"><span class="card-index">01</span><span class="card-status">READY</span></span><strong>5.05</strong><span class="card-bottom">OPEN HOST <b>↗</b></span></a>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">02</span><span class="card-status">SOON</span></span><strong>6.72</strong><span class="card-bottom">IN PREPARATION</span></article>
-        <a class="firmware-card ready featured" href="./firmwares/9.00/cache.html" aria-label="Open cache for firmware 9.00; 9.60 support is being prepared"><span class="card-top"><span class="card-index">04</span><span class="card-status">9.00 READY</span></span><strong>9.00 / 9.60</strong><span class="card-bottom">OPEN CACHE <b>↗</b></span></a>
-      </div>
-      <div class="firmware-groups">
-        <article class="firmware-group-card soon">
-          <span class="group-top"><span class="card-index">03</span><span class="group-count">SOON</span></span>
-          <strong>7.xx</strong>
-          <span class="group-versions">7.02&nbsp; / &nbsp;7.55</span>
-          <span class="group-bottom">AUTO-DETECT WHEN READY</span>
+        <a class="firmware-card ready" href="./firmwares/5.05/cache.html">
+          <span class="card-top"><span class="card-index">01 / LEGACY</span><span class="card-status">● READY</span></span>
+          <strong>5.05</strong>
+          <span class="card-description">Dedicated host <i>//</i> Utility payloads</span>
+          <span class="card-bottom">OPEN HOST <b>↗</b></span>
+        </a>
+
+        <article class="firmware-card soon">
+          <span class="card-top"><span class="card-index">02 / LEGACY</span><span class="card-status">IN PREPARATION</span></span>
+          <strong>6.72</strong>
+          <span class="card-description">Dedicated host <i>//</i> Utility payloads</span>
+          <span class="card-bottom">HOST BUILD IN PROGRESS</span>
         </article>
-        <article class="firmware-group-card soon">
-          <span class="group-top"><span class="card-index">05</span><span class="group-count">SOON</span></span>
+
+        <article class="firmware-card soon">
+          <span class="card-top"><span class="card-index">03 / PSFREE</span><span class="card-status">IN PREPARATION</span></span>
+          <strong>7.00 <small>— 8.52</small></strong>
+          <span class="card-description">PSFree / Lapse / GoldHEN host</span>
+          <span class="card-bottom">HOST BUILD IN PROGRESS</span>
+        </article>
+
+        <a class="firmware-card ready featured" href="./firmwares/9.00/cache.html" aria-label="Open the shared 9.00 and 9.60 host cache">
+          <span class="card-top"><span class="card-index">04 / PSFREE</span><span class="card-status">● 9.00 READY</span></span>
+          <strong>9.00 <small>/ 9.60</small></strong>
+          <span class="card-description">PSFree / Lapse / GoldHEN host</span>
+          <span class="card-bottom">OPEN HOST <b>↗</b></span>
+        </a>
+
+        <article class="firmware-card soon">
+          <span class="card-top"><span class="card-index">05 / PSFREE</span><span class="card-status">IN PREPARATION</span></span>
           <strong>10.xx</strong>
-          <span class="group-versions">10.01&nbsp; / &nbsp;10.71</span>
-          <span class="group-bottom">AUTO-DETECT WHEN READY</span>
+          <span class="card-description">10.01 / 10.71 <i>//</i> Host environment</span>
+          <span class="card-bottom">HOST BUILD IN PROGRESS</span>
         </article>
-        <article class="firmware-group-card soon">
-          <span class="group-top"><span class="card-index">06</span><span class="group-count">SOON</span></span>
-          <strong>11.xx</strong>
-          <span class="group-versions">11.00&nbsp; / &nbsp;11.02&nbsp; / &nbsp;11.52</span>
-          <span class="group-bottom">AUTO-DETECT WHEN READY</span>
+
+        <article class="firmware-card soon">
+          <span class="card-top"><span class="card-index">06 / SLOPKIT</span><span class="card-status">IN PREPARATION</span></span>
+          <strong class="compact">11.00 <small>/ 12.02 / 12.50 / 13.00</small></strong>
+          <span class="card-description">SlopKit WebKit <i>//</i> Current build</span>
+          <span class="card-bottom">HOST BUILD IN PROGRESS</span>
         </article>
-        <article class="firmware-group-card soon">
-          <span class="group-top"><span class="card-index">07</span><span class="group-count">SOON</span></span>
-          <strong>12.xx</strong>
-          <span class="group-versions">12.02&nbsp; / &nbsp;12.50</span>
-          <span class="group-bottom">AUTO-DETECT WHEN READY</span>
-        </article>
-        <article class="firmware-group-card soon">
-          <span class="group-top"><span class="card-index">08</span><span class="group-count">SOON</span></span>
-          <strong>13.xx</strong>
-          <span class="group-versions">13.00&nbsp; / &nbsp;13.52</span>
-          <span class="group-bottom">AUTO-DETECT WHEN READY</span>
-        </article>
-        <article class="firmware-group-card soon">
-          <span class="group-top"><span class="card-index">09</span><span class="group-count">SOON</span></span>
-          <strong>14.xx</strong>
-          <span class="group-versions">14.02</span>
-          <span class="group-bottom">AUTO-DETECT WHEN READY</span>
+
+        <article class="firmware-card soon">
+          <span class="card-top"><span class="card-index">07 / SLOPKIT</span><span class="card-status">IN PREPARATION</span></span>
+          <strong>13.02 <small>/ 13.52</small></strong>
+          <span class="card-description">SlopKit GoldHEN <i>//</i> Offline host</span>
+          <span class="card-bottom">HOST BUILD IN PROGRESS</span>
         </article>
       </div>
-      <p class="section-note">Grouped firmware cards will detect the console firmware automatically once their host files are configured.</p>
+      <p class="section-note">Firmware groups use a shared host layout where supported. Only cards marked READY currently open a configured host.</p>
     </section>
 
     <aside class="help-note">
       <span class="help-mark">i</span>
-      <p><strong>Need help finding your firmware?</strong> On your PS4, open Settings → System → System Information.</p>
+      <p><strong>Not sure which firmware you have?</strong> On your PS4, go to Settings → System → System Information.</p>
     </aside>
   </main>
 
-  <footer><span class="footer-brand">MODX<span>.</span></span><span>PS4 HOST INTERFACE</span><span>FIRMWARE HUB</span></footer>
+  <footer><span class="footer-brand">MODX<span>®</span></span><span>INDEPENDENT PS4 HOST PROJECT</span><span>BUILT FOR THE COMMUNITY <i>✳</i></span></footer>
   <script src="app.js"></script>
 </body>
 </html>
