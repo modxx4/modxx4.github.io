@@ -1,7 +1,7 @@
 CACHE MANIFEST
-# resource-path-fix-20261021-main-v2
+# MODX-9.00-auto-goldhen-2.4b18.14-20261121
 # offline-manifests-v1-20261021
-#VERSION 3.2 - NEXUS 9.00 uploaded GoldHEN
+#VERSION 3.3 - MODX 9.00 auto GoldHEN 2.4b18.14
 
 CACHE:
 alert.js

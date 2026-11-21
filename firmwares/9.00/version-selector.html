@@ -1,45 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b17">
-<title>MODX — GoldHEN Version Selector</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{color-scheme:dark;--text:#f3f6ff;--muted:#9ba9c7;--blue:#7897ff;--cyan:#67dff2;--green:#63e2bd}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 78% 8%,#334f9b35,transparent 34%),radial-gradient(ellipse at 12% 42%,#573d9b28,transparent 32%),linear-gradient(145deg,#080b17,#0b1020 52%,#090d1b);color:var(--text);font-family:Manrope,Arial,sans-serif}
-body:before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.16;background-image:linear-gradient(#8aa5ff0b 1px,transparent 1px),linear-gradient(90deg,#8aa5ff0b 1px,transparent 1px);background-size:48px 48px}
-.shell{position:relative;z-index:1;width:min(100% - 36px,900px);min-height:100vh;margin:auto;display:flex;flex-direction:column;padding:20px 0 16px}
-.topbar{height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 17px;border:1px solid #9aafff22;border-radius:11px;background:#080d1bd9}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:2px;font-size:19px;color:inherit;text-decoration:none}.mark{position:relative;width:37px;height:37px;border:1px solid #7897ff88;border-radius:10px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,#7897ff25,#9a70ff20);font:700 15px Space Grotesk,sans-serif;box-shadow:0 0 24px #647fff20}
-.brand small{display:block;color:var(--muted);font:600 8px DM Mono,monospace;letter-spacing:1.5px;margin-top:4px}
-.fw{border:1px solid #7897ff66;background:#7897ff12;border-radius:7px;padding:8px 11px;color:#aebfff;font:500 9px DM Mono,monospace;letter-spacing:1.1px;white-space:nowrap}
-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:48px 0}.eyebrow{display:flex;align-items:center;gap:9px;color:var(--cyan);font:500 9px DM Mono,monospace;letter-spacing:1.5px}.eyebrow:before{content:"";width:22px;height:1px;background:var(--blue)}
-h1{font:700 clamp(38px,6vw,62px)/.98 Space Grotesk,sans-serif;letter-spacing:-2.8px;margin:15px 0 12px}h1 span{color:var(--blue);text-shadow:0 5px 35px #718dff45}
-.intro{color:#aab7d2;font-size:12px;line-height:1.9;max-width:650px;margin:0}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:32px 1px 13px;color:#e8edff;font:600 9px DM Mono,monospace;letter-spacing:1.2px}.section-head span{color:#8190b0;font-size:8px}
-.builds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.build-card{position:relative;display:flex;flex-direction:column;min-height:185px;padding:18px;border:1px solid #435a88;border-radius:12px;background:linear-gradient(115deg,#121c32,#101729 65%,#12182b);text-decoration:none;overflow:hidden;transition:transform .18s,border-color .18s,box-shadow .18s}
-.build-card:before{content:"";position:absolute;width:150px;height:150px;right:-85px;top:-100px;border-radius:50%;background:var(--blue);filter:blur(48px);opacity:.22}.build-card:hover{transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 12px 35px #0006,0 0 22px #718dff16}.build-card:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
-.card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#91a2c4;font:500 8px DM Mono,monospace;letter-spacing:1px}.tag{color:var(--green)}
-.build-card h2{position:relative;margin:22px 0 7px;font:700 25px Space Grotesk,sans-serif;letter-spacing:-.7px}.build-card p{position:relative;margin:0;color:#a6b4d0;font-size:10px;line-height:1.7}
-.action{position:relative;display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:20px;color:#d5def6;font:500 8px DM Mono,monospace;letter-spacing:1px}.action b{color:var(--cyan);font-size:17px;font-weight:500}
-.note{display:flex;gap:10px;margin-top:18px;padding:12px 14px;border:1px solid #293958;border-radius:9px;background:#10182bcc;color:#a6b4d0;font-size:9px;line-height:1.8}.note b{color:var(--cyan);font:600 8px DM Mono,monospace;letter-spacing:1px;white-space:nowrap}
-.back{display:inline-flex;align-self:flex-start;margin-top:22px;color:#aebfff;text-decoration:none;font:500 9px DM Mono,monospace;letter-spacing:.7px}.back:hover{color:var(--cyan)}
-footer{display:flex;justify-content:space-between;gap:12px;padding:15px 4px 3px;border-top:1px solid #9aafff18;color:#8290ad;font:500 8px DM Mono,monospace;letter-spacing:1px}
-@media(max-width:560px){.shell{width:calc(100% - 28px);padding-top:14px}.topbar{height:60px;padding:0 12px}.brand{font-size:16px}.fw{font-size:8px;padding:7px 8px}main{padding:40px 0}.builds{grid-template-columns:1fr}.build-card{min-height:160px}.section-head{align-items:flex-start;flex-direction:column;gap:7px}footer{font-size:7px;letter-spacing:.6px}}
-</style></head>
-<body><div class="shell">
-<header class="topbar"><a class="brand" href="../../"><span class="mark">M</span><span>MODX<small>PLAYSTATION HOST</small></span></a><span class="fw">PSFREE / LAPSE · 9.xx</span></header>
-<main>
-<div class="eyebrow">HOST MODULE // GOLDHEN</div>
-<h1>Select your <span>GoldHEN.</span></h1>
-<p class="intro">Select the GoldHEN version to cache and use with the PSFree 9.xx host.</p>
-<div class="section-head"><strong>AVAILABLE GOLDHEN BUILDS</strong><span>CHOOSE ONE BUILD TO CACHE</span></div>
-<section class="builds" aria-label="Available GoldHEN versions">
-<a class="build-card" href="./cache.html"><div class="card-top"><span>BUILD 01 / STANDARD</span><span class="tag">● CONFIGURED</span></div><h2>GoldHEN 2.4b18.14</h2><p>Primary GoldHEN package configured for the 9.00 PSFree host route.</p><div class="action"><span>CACHE THIS VERSION</span><b>↗</b></div></a>
-<a class="build-card" href="./cache5.html"><div class="card-top"><span>BUILD 02 / ALTERNATE</span><span class="tag">● CONFIGURED</span></div><h2>GoldHEN 2.4b18.10</h2><p>Alternate GoldHEN package configured with the separate 9.60 cache manifest.</p><div class="action"><span>CACHE THIS VERSION</span><b>↗</b></div></a>
-</section>
-<div class="note"><b>IMPORTANT</b><span>Choose the build intended for your PS4 firmware. The alternate 9.60 cache route is configured but still requires testing on a physical 9.60 console.</span></div>
-<a class="back" href="../../">← BACK TO MODX FIRMWARE LIBRARY</a>
-</main>
-<footer><span>MODX HOST PROJECT</span><span>PSFREE / LAPSE · 9.xx GOLDHEN SELECTOR</span></footer>
-</div></body></html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b17">
+<title>MODX // PS4 9.xx HOST</title>
+<script>
+(function () {
+  window.location.replace("./cache.html");
+})();
+</script>
+</head>
+<body style="margin:0;background:#080b17;color:#f3f6ff;font:16px Arial,sans-serif;padding:24px">
+  <p>Opening MODX 9.xx offline cache for GoldHEN 2.4b18.14...</p>
+  <p><a href="./cache.html" style="color:#67dff2">Continue</a></p>
+</body>
+</html>
