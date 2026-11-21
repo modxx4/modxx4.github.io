@@ -1,8 +1,10 @@
 CACHE MANIFEST
-# MODX-6.72-cache-v2-goldhen-2.4b18.14
+# MODX-6.72-cache-v3-goldhen-2.4b18.14
 # Updated 2026-11-21
 
 CACHE:
+../../modx-clock.css
+../../modx-clock.js
 cache.html
 index.html
 manifest.json

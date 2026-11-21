@@ -1,9 +1,11 @@
 CACHE MANIFEST
-# MODX host shell update 20261121-v1
+# MODX host shell update 20261121-v2
 # v15 - poops: no auto-reload, cache-only (no online fallback) 20261010
 # v16 - add 11.52 lapse routing 20261022
 
 CACHE:
+../../modx-clock.css
+../../modx-clock.js
 index.html
 run_lapse.html
 run_poops.html

@@ -1,8 +1,10 @@
 CACHE MANIFEST
-# MODX 5.05 offline cache - v3
+# MODX 5.05 offline cache - v4
 # MODX PS4 5.05 HOST
 
 CACHE:
+../../modx-clock.css
+../../modx-clock.js
 # NEXUS cache installer
 cache.html
 # Core files

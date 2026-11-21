@@ -4,6 +4,8 @@ CACHE MANIFEST
 #VERSION 3.3 - MODX 9.00 auto GoldHEN 2.4b18.14
 
 CACHE:
+../../modx-clock.css
+../../modx-clock.js
 alert.js
 cache.html
 config.js
