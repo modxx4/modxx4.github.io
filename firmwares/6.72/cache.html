@@ -64,10 +64,12 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
   var saved=localStorage.getItem('modx-language');
   var language=(saved==='ar'||saved==='en')?saved:((navigator.language||'').toLowerCase().startsWith('ar')?'ar':'en');
   window.modxT=function(key){return (translations[key]&&translations[key][language])||key;};
+  window.modxSetText=function(el,key){if(el){el.setAttribute('data-i18n-current',key);el.innerHTML=window.modxT(key);}};
   function applyLanguage(){
     document.documentElement.lang=language;
     document.documentElement.dir=language==='ar'?'rtl':'ltr';
     document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n'));});
+    document.querySelectorAll('[data-i18n-current]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n-current'));});
     var button=document.getElementById('languageToggle');
     if(button){button.textContent=language==='ar'?'English':'عربي';button.setAttribute('aria-label',language==='ar'?'Switch to English':'التبديل إلى الإنجليزية');}
   }
@@ -81,17 +83,17 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
  var appCache=window.applicationCache,progressLabel=document.getElementById('progress'),bar=document.getElementById('myBar'),pct=document.getElementById('progressText'),status=document.getElementById('cacheStatus'),state=document.getElementById('stateLabel'),dot=document.getElementById('statusDot'),redirecting=false;
  function cached(v){try{localStorage.is672Cached=v?'true':'false';}catch(e){}}
  function progress(v){v=Math.max(0,Math.min(100,v));bar.style.width=v+'%';pct.textContent=v+'%';}
- function setState(s,c){state.textContent=window.modxT(s);dot.style.background=c;dot.style.boxShadow='0 0 12px '+c;}
- function fail(msg,detail){cached(false);setState('error','#ff7185');progressLabel.textContent=window.modxT(msg);status.textContent=window.modxT(detail);}
- function openHost(msg){if(redirecting)return;redirecting=true;cached(true);progress(100);setState('ready','#63e2bd');progressLabel.textContent=window.modxT(msg);status.textContent=window.modxT('completeOpen');setTimeout(function(){location.replace('index.html');},1000);}
+ function setState(s,c){window.modxSetText(state,s);dot.style.background=c;dot.style.boxShadow='0 0 12px '+c;}
+ function fail(msg,detail){cached(false);setState('error','#ff7185');window.modxSetText(progressLabel,msg);window.modxSetText(status,detail);}
+ function openHost(msg){if(redirecting)return;redirecting=true;cached(true);progress(100);setState('ready','#63e2bd');progressLabel.textContent=window.modxT(msg);window.modxSetText(status,'completeOpen');setTimeout(function(){location.replace('index.html');},1000);}
  if(!appCache){fail('cacheEngineUnavailable','supportedBrowser');return;}
  if(appCache.status===appCache.DOWNLOADING){cached(false);setState('stateDownloading','#27b8ff');}
- appCache.onchecking=function(){setState('stateChecking','#27b8ff');progressLabel.textContent=window.modxT('checking');status.textContent=window.modxT('manifestContact');};
- appCache.ondownloading=function(){cached(false);setState('stateDownloading','#27b8ff');progressLabel.textContent=window.modxT('installing');status.textContent=window.modxT('downloadingResources');};
+ appCache.onchecking=function(){setState('stateChecking','#27b8ff');window.modxSetText(progressLabel,'checking');status.textContent=window.modxT('manifestContact');};
+ appCache.ondownloading=function(){cached(false);setState('stateDownloading','#27b8ff');window.modxSetText(progressLabel,'installing');status.textContent=window.modxT('downloadingResources');};
  appCache.onprogress=function(e){if(e.lengthComputable&&e.total>0)progress(Math.round(100*e.loaded/e.total));status.textContent=window.modxT('receiving');};
- appCache.oncached=function(){openHost(window.modxT('installed'));};
- appCache.onupdateready=function(){try{appCache.swapCache();}catch(e){}openHost(window.modxT('updated'));};
- appCache.onnoupdate=function(){openHost(window.modxT('alreadyUpdated'));};
+ appCache.oncached=function(){openHost('installed');};
+ appCache.onupdateready=function(){try{appCache.swapCache();}catch(e){}openHost('updated');};
+ appCache.onnoupdate=function(){openHost('alreadyUpdated');};
  appCache.onerror=function(){fail('installationFailed','manifestFailed');};
  appCache.onobsolete=function(){fail('manifestUnavailable','manifestCouldNotUse');};
 })();
