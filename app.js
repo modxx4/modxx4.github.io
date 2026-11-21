@@ -92,7 +92,7 @@ function renderFirmwareInfo() {
   document.getElementById('entryPoint').textContent = info.entry;
   document.getElementById('kernelExploit').textContent = info.kernel;
   document.getElementById('requirements').textContent = info.notes;
-  document.getElementById('goldhenStatus').textContent = 'Check the exact GoldHEN release notes separately';
+  document.getElementById('goldhenStatus').textContent = 'Listed as supported by the linked community host. GoldHEN v2.4b18.14 is a beta; confirm the selected firmware on the host before launching.';
   notice.textContent = `Compatibility information loaded for firmware ${version}. No exploit has been launched.`;
 }
 
