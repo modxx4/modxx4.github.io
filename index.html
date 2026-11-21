@@ -1,66 +1,98 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#050b16">
-  <title>NEXUS | Future PS4 Host</title>
+  <meta name="theme-color" content="#070b14">
+  <meta name="description" content="NEXUS PS4 Host — اختر إصدار نظام جهازك وابدأ مباشرة.">
+  <title>NEXUS | PS4 HOST</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="glow glow-b" aria-hidden="true"></div>
+
   <header class="topbar">
-    <a class="brand" href="#" aria-label="NEXUS home"><span class="brand-mark">N</span><span>NEXUS</span></a>
-    <nav aria-label="Main navigation">
-      <a class="nav-link active" href="#home">⌂ <span>Home</span></a>
-      <a class="nav-link" href="#firmware">▦ <span>Firmware</span></a>
-      <a class="nav-link" href="#exploit">ϟ <span>Exploit</span></a>
-      <a class="nav-link" href="#payloads">⬡ <span>Payloads</span></a>
-      <a class="nav-link" href="#settings">⚙ <span>Settings</span></a>
-      <a class="nav-link" href="#about">ⓘ <span>About</span></a>
-    </nav>
-    <div class="status"><i></i> Interface preview</div>
-    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+    <a class="brand" href="./" aria-label="NEXUS home">
+      <span class="brand-icon">N</span>
+      <span class="brand-name">NEXUS<span class="brand-dot">.</span><small>PS4 HOST</small></span>
+    </a>
+    <div class="top-status"><span class="status-light"></span> نظام الهوست</div>
   </header>
 
-  <main id="home">
+  <main>
     <section class="hero">
-      <div class="hero-art" aria-hidden="true">
-        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-        <div class="console"><div class="console-line"></div><div class="ps-symbol">✦</div></div>
-        <div class="controller"><span></span><b>＋</b><b>×</b><b>○</b><b>□</b></div>
-      </div>
       <div class="hero-copy">
-        <p class="eyebrow">PLAYSTATION 4 • HOST INTERFACE</p>
-        <h1>NEX<span>U</span>S</h1>
-        <p class="subhead">F U T U R E&nbsp; P S 4&nbsp; H O S T</p>
-        <p class="tagline">Your Console. <strong>Your Control.</strong></p>
-        <div class="launch-row" id="firmware">
-          <label class="firmware-select"><span class="chip-icon">▦</span><span><small>SELECT FIRMWARE VERSION</small>
-            <select id="firmwareSelect" aria-label="Select firmware">
-              <option>5.05</option><option>6.72</option><option>7.02</option><option>7.55</option><option selected>9.00</option><option>9.60</option><option>10.01</option><option>10.71</option><option>11.00</option><option>11.02</option><option>11.52</option><option>12.02</option><option>12.50</option><option>13.00</option><option>13.52</option><option>14.02</option>
-            </select></span><span class="chevron">⌄</span></label>
-          <button class="primary-btn" id="initialize">➤ <span>Initialize Host</span> <b>›</b></button>
+        <p class="eyebrow"><span></span> PLAYSTATION 4 • EXPLOIT HOST</p>
+        <h1>اختار السوفت<br><span>وادخل على طول.</span></h1>
+        <p class="hero-desc">كل إصدارات النظام في مكان واحد. اختار رقم السوفت الموجود على جهازك واضغط دخول.</p>
+        <div class="hero-meta">
+          <span><b>16</b> إصدار مدرج</span>
+          <i></i>
+          <span><b>2</b> هوست مجهز حاليًا</span>
         </div>
-        <p class="notice" id="notice" role="status">Choose a firmware to preview the host interface. Exploit functions are not connected yet.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-ring ring-one"></div>
+        <div class="visual-ring ring-two"></div>
+        <div class="visual-core"><span>N</span><small>READY</small></div>
+        <div class="visual-chip chip-one">PS4</div>
+        <div class="visual-chip chip-two">NEXUS HOST</div>
       </div>
     </section>
 
-    <section class="tiles" aria-label="Host sections">
-      <a class="tile tile-cyan" id="exploit" href="#status-panel"><span class="tile-icon">ϟ</span><span><b>Exploit Center</b><small>Firmware tools</small></span><i>›</i></a>
-      <a class="tile tile-gold" href="https://patnawa.github.io/GoldhenPS4/g2all/" target="_blank" rel="noopener noreferrer"><span class="tile-icon">♛</span><span><b>GoldHEN</b><small>Launch compatible host ↗</small></span><i>›</i></a>
-      <a class="tile tile-violet" id="payloads" href="#status-panel"><span class="tile-icon">⬡</span><span><b>Payload Hub</b><small>Payload library</small></span><i>›</i></a>
-      <button class="tile tile-green offline-cache-btn" id="installCache" type="button"><span class="tile-icon">▤</span><span><b>Open Cache Page</b><small id="cacheStatus">Firmware 9.00 • Offline setup</small></span><i>›</i></button>
+    <section class="firmware-section" id="firmwares">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">FIRMWARE LIBRARY</p>
+          <h2>إصدارات السوفت <span>Firmware</span></h2>
+          <p>اضغط على إصدار جهازك لفتح صفحة الهوست والكاش الخاصة به.</p>
+        </div>
+        <div class="legend"><span class="legend-ready"></span> جاهز للدخول <span class="legend-soon"></span> تحت التجهيز</div>
+      </div>
+
+      <div class="firmware-grid">
+        <a class="firmware-card ready" href="./firmwares/5.05/cache.html">
+          <span class="card-top"><span class="card-index">01</span><span class="card-status"><i></i> جاهز</span></span>
+          <strong class="firmware-number">5.05</strong>
+          <span class="card-label">FIRMWARE VERSION</span>
+          <span class="card-action">دخول الهوست <b>←</b></span>
+        </a>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">02</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">6.72</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">03</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">7.02</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">04</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">7.55</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <a class="firmware-card ready featured" href="./firmwares/9.00/cache.html">
+          <span class="card-top"><span class="card-index">05</span><span class="card-status"><i></i> جاهز</span></span>
+          <strong class="firmware-number">9.00</strong>
+          <span class="card-label">FIRMWARE VERSION</span>
+          <span class="card-action">دخول الهوست <b>←</b></span>
+        </a>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">06</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">9.60</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">07</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">10.01</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">08</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">10.71</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">09</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">11.00</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">10</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">11.02</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">11</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">11.52</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">12</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">12.02</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">13</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">12.50</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">14</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">13.00</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">15</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">13.52</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">16</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">14.02</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+      </div>
+      <p class="section-footnote">ملاحظة: ظهور إصدار في القائمة لا يعني أن ملفاته جاهزة. الدخول متاح حاليًا للإصدارات المعلّمة «جاهز» فقط.</p>
     </section>
 
-    <section class="info-panel" id="status-panel" aria-live="polite">
-      <div class="exploit-heading"><p class="eyebrow">FIRMWARE COMPATIBILITY</p><h2 id="firmwareTitle">Firmware 5.05</h2><p id="firmwareSummary">Compatibility overview based on the selected firmware.</p></div>
-      <div class="exploit-details"><div class="detail-row"><span class="detail-label">USERLAND / ENTRY POINT</span><strong id="entryPoint">Loading…</strong></div><div class="detail-row"><span class="detail-label">KERNEL EXPLOIT</span><strong id="kernelExploit">Loading…</strong></div><div class="detail-row"><span class="detail-label">NOTES</span><strong id="requirements">Loading…</strong></div><div class="detail-row"><span class="detail-label">GOLDHEN</span><strong id="goldhenStatus">Check release compatibility separately</strong></div></div>
-      <p class="source-note">Reference: ConsoleMods PS4 Exploit Chart. This panel is an informational compatibility guide only; NEXUS does not execute exploits or load GoldHEN/payload files yet.</p>
+    <section class="help-strip">
+      <div class="help-icon">?</div>
+      <div><strong>مش عارف إصدار جهازك؟</strong><p>من جهاز PS4 افتح Settings ثم System ثم System Information، وهتلاقي رقم إصدار النظام.</p></div>
     </section>
   </main>
 
-  <footer id="about"><span class="ps4-wordmark">◉ PS4</span><span class="footer-line"></span><span>N E X U S&nbsp; • &nbsp;N E X T&nbsp; L E V E L&nbsp; E X P E R I E N C E</span><span class="version">v1.0.0 • UI PREVIEW</span></footer>
+  <footer><span class="footer-brand">NEXUS<span>.</span></span><span>PS4 HOST INTERFACE</span><span class="footer-version">v2.0 • FIRMWARE HUB</span></footer>
   <script src="app.js"></script>
 </body>
 </html>
