@@ -69,7 +69,7 @@ h1 span{color:var(--blue);text-shadow:0 5px 35px #718dff45}
 .help-note p{margin:0;color:#a6b4d0;font-size:9px;line-height:1.7}.help-note strong{color:#eef2ff;font-weight:700}
 footer{min-height:62px;display:flex;align-items:center;justify-content:center;gap:25px;padding:13px 20px;border-top:1px solid #9aafff18;background:#080d1b;color:#8290ad;font:500 8px DM Mono,monospace;letter-spacing:1.1px}
 .footer-brand{color:#eef2ff;font:700 16px Space Grotesk,sans-serif;letter-spacing:2px}.footer-brand span{color:var(--blue);font-size:9px;vertical-align:top}.footer-brand~span:last-child i{color:var(--cyan);font-style:normal}
-@media(max-width:760px){.hero-art{right:-2%;opacity:.48}.firmware-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.firmware-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){
  .topbar{height:66px;padding:0 16px}
  .page{width:calc(100% - 30px);padding-bottom:30px}
