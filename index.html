@@ -25,21 +25,22 @@
   <main class="page">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-line"></span> <span data-i18n="eyebrow">PS4 EXPLOIT ENVIRONMENT</span> <span class="eyebrow-code">/ 001</span></p>
+        <p class="eyebrow"><span class="eyebrow-line"></span> <span data-i18n="launchCommand">$ ./launch --select-host</span></p>
         <h1 data-i18n="heading">Choose<br><span>firmware.</span></h1>
-        <p class="intro-copy" data-i18n="intro">One hub. Seven host routes.<br>Select the route that matches your PS4 system software.</p>
+        <p class="intro-copy" data-i18n="intro">Pick the host matching the firmware installed on your PlayStation 4.</p>
+        <ul class="boot-status"><li>[ <b>ok</b> ] <span data-i18n="routesDetected">7 host routes detected</span></li></ul>
       </div>
       <div class="hero-art" aria-hidden="true">
         <div class="sun"></div><div class="horizon"></div><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
         <span class="art-label" data-i18n="artLabel">MODX / HOST SYSTEM</span>
         <span class="art-number">PS4</span>
       </div>
-      <div class="hero-meta"><span data-i18n="directory">FIRMWARE DIRECTORY</span><span data-i18n="systemVersion">SELECT YOUR SYSTEM VERSION <i>↓</i></span></div>
+      <div class="hero-meta"><span data-i18n="directory">FIRMWARE DIRECTORY</span><span data-i18n="systemVersion">↑ ↓ MOVE &nbsp; X SELECT</span></div>
     </section>
 
     <section class="firmware-section" aria-label="Available firmware hosts">
       <div class="section-bar">
-        <span class="section-title" data-i18n="hostLibrary">HOST LIBRARY <small>— SELECT A HOST</small></span>
+        <span class="section-title" data-i18n="hostLibrary">AVAILABLE ROUTES</span>
         <div class="legend"><span class="legend-ready"></span> <span data-i18n="configured">CONFIGURED</span> <span class="legend-soon"></span> <span data-i18n="preparation">IN PREPARATION</span></div>
       </div>
 
@@ -47,7 +48,7 @@
         <article class="firmware-card soon">
           <span class="card-top"><span class="card-index">01 / SLOPKIT</span><span class="card-status" data-i18n="preparation">IN PREPARATION</span></span>
           <strong>13.02 <small>/ 13.52</small></strong>
-          <span class="card-description">SlopKit <i>//</i> <span data-i18n="goldhenOffline">GoldHEN offline host</span></span>
+          <span class="card-description">SlopKit GoldHEN <i>//</i> <span data-i18n="goldhenOffline">offline host</span></span>
           <span class="card-bottom" data-i18n="buildProgress">HOST BUILD IN PROGRESS</span>
         </article>
 
@@ -95,6 +96,8 @@
       </div>
       <p class="section-note" data-i18n="sectionNote">Only configured routes are clickable. Firmware compatibility and offline-cache behavior still require testing on the matching PS4 system software.</p>
     </section>
+
+    <a class="nodeplay-link" href="https://nodeplay.net/" target="_blank" rel="noopener"><span><small data-i18n="premiumServers">Premium game servers</small><strong>Node<span>Play</span></strong></span><b data-i18n="openExternal">OPEN ↗</b></a>
 
     <aside class="help-note">
       <span class="help-mark">i</span>
