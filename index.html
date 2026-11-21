@@ -1,98 +1,90 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#070b14">
-  <meta name="description" content="NEXUS PS4 Host — اختر إصدار نظام جهازك وابدأ مباشرة.">
+  <meta name="theme-color" content="#090711">
+  <meta name="description" content="NEXUS PS4 Host — choose your system firmware and enter the host.">
   <title>NEXUS | PS4 HOST</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
-  <div class="glow glow-a" aria-hidden="true"></div>
-  <div class="glow glow-b" aria-hidden="true"></div>
+  <div class="horizon-glow" aria-hidden="true"></div>
+  <div class="glow glow-pink" aria-hidden="true"></div>
+  <div class="glow glow-cyan" aria-hidden="true"></div>
 
   <header class="topbar">
     <a class="brand" href="./" aria-label="NEXUS home">
       <span class="brand-icon">N</span>
-      <span class="brand-name">NEXUS<span class="brand-dot">.</span><small>PS4 HOST</small></span>
+      <span class="brand-name">NEXUS<span class="brand-dot">.</span><small>PLAYSTATION 4 HOST</small></span>
     </a>
-    <div class="top-status"><span class="status-light"></span> نظام الهوست</div>
+    <div class="top-status"><span class="status-light"></span> HOST SYSTEM ONLINE</div>
   </header>
 
   <main>
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> PLAYSTATION 4 • EXPLOIT HOST</p>
-        <h1>اختار السوفت<br><span>وادخل على طول.</span></h1>
-        <p class="hero-desc">كل إصدارات النظام في مكان واحد. اختار رقم السوفت الموجود على جهازك واضغط دخول.</p>
+        <p class="eyebrow"><span></span> PLAYSTATION 4 &nbsp; / &nbsp; EXPLOIT HOST</p>
+        <h1>YOUR FIRMWARE.<br><em>YOUR WAY IN.</em></h1>
+        <p class="hero-desc">Pick your PS4 system version and jump straight into the host. No menus. No extra steps.</p>
         <div class="hero-meta">
-          <span><b>16</b> إصدار مدرج</span>
+          <span><b>16</b> FIRMWARE VERSIONS</span>
           <i></i>
-          <span><b>2</b> هوست مجهز حاليًا</span>
+          <span><b>02</b> HOSTS READY</span>
         </div>
+        <a class="hero-jump" href="#firmwares">EXPLORE FIRMWARES <span>↓</span></a>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <div class="visual-ring ring-one"></div>
-        <div class="visual-ring ring-two"></div>
-        <div class="visual-core"><span>N</span><small>READY</small></div>
-        <div class="visual-chip chip-one">PS4</div>
-        <div class="visual-chip chip-two">NEXUS HOST</div>
+        <div class="sunset-disc"><span class="disc-line line-one"></span><span class="disc-line line-two"></span><span class="disc-line line-three"></span><span class="disc-line line-four"></span></div>
+        <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+        <div class="visual-mark">N<span>.</span></div>
+        <div class="visual-chip chip-one">PS4 / HOST</div>
+        <div class="visual-chip chip-two">SELECT · CONNECT · PLAY</div>
       </div>
     </section>
 
     <section class="firmware-section" id="firmwares">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">FIRMWARE LIBRARY</p>
-          <h2>إصدارات السوفت <span>Firmware</span></h2>
-          <p>اضغط على إصدار جهازك لفتح صفحة الهوست والكاش الخاصة به.</p>
+          <p class="eyebrow">THE COLLECTION</p>
+          <h2>CHOOSE YOUR <em>FIRMWARE</em></h2>
+          <p>Select the version currently installed on your PlayStation 4.</p>
         </div>
-        <div class="legend"><span class="legend-ready"></span> جاهز للدخول <span class="legend-soon"></span> تحت التجهيز</div>
+        <div class="legend"><span class="legend-ready"></span> READY <span class="legend-soon"></span> COMING SOON</div>
       </div>
 
       <div class="firmware-grid">
-        <a class="firmware-card ready" href="./firmwares/5.05/cache.html">
-          <span class="card-top"><span class="card-index">01</span><span class="card-status"><i></i> جاهز</span></span>
-          <strong class="firmware-number">5.05</strong>
-          <span class="card-label">FIRMWARE VERSION</span>
-          <span class="card-action">دخول الهوست <b>←</b></span>
-        </a>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">02</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">6.72</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">03</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">7.02</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">04</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">7.55</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <a class="firmware-card ready featured" href="./firmwares/9.00/cache.html">
-          <span class="card-top"><span class="card-index">05</span><span class="card-status"><i></i> جاهز</span></span>
-          <strong class="firmware-number">9.00</strong>
-          <span class="card-label">FIRMWARE VERSION</span>
-          <span class="card-action">دخول الهوست <b>←</b></span>
-        </a>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">06</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">9.60</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">07</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">10.01</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">08</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">10.71</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">09</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">11.00</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">10</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">11.02</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">11</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">11.52</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">12</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">12.02</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">13</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">12.50</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">14</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">13.00</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">15</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">13.52</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
-        <article class="firmware-card soon"><span class="card-top"><span class="card-index">16</span><span class="card-status"><i></i> قريبًا</span></span><strong class="firmware-number">14.02</strong><span class="card-label">FIRMWARE VERSION</span><span class="card-action">تحت التجهيز</span></article>
+        <a class="firmware-card ready" href="./firmwares/5.05/cache.html"><span class="card-top"><span class="card-index">01 / 16</span><span class="card-status"><i></i> READY</span></span><strong class="firmware-number">5.05</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">OPEN HOST <b>↗</b></span></a>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">02 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">6.72</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">03 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">7.02</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">04 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">7.55</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <a class="firmware-card ready featured" href="./firmwares/9.00/cache.html"><span class="card-top"><span class="card-index">05 / 16</span><span class="card-status"><i></i> READY</span></span><strong class="firmware-number">9.00</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">OPEN HOST <b>↗</b></span></a>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">06 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">9.60</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">07 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">10.01</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">08 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">10.71</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">09 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">11.00</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">10 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">11.02</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">11 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">11.52</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">12 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">12.02</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">13 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">12.50</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">14 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">13.00</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">15 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">13.52</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
+        <article class="firmware-card soon"><span class="card-top"><span class="card-index">16 / 16</span><span class="card-status"><i></i> SOON</span></span><strong class="firmware-number">14.02</strong><span class="card-label">SYSTEM SOFTWARE</span><span class="card-action">IN DEVELOPMENT</span></article>
       </div>
-      <p class="section-footnote">ملاحظة: ظهور إصدار في القائمة لا يعني أن ملفاته جاهزة. الدخول متاح حاليًا للإصدارات المعلّمة «جاهز» فقط.</p>
+      <p class="section-footnote">Only versions marked READY currently link to a configured host. Other firmware pages are still being prepared.</p>
     </section>
 
     <section class="help-strip">
       <div class="help-icon">?</div>
-      <div><strong>مش عارف إصدار جهازك؟</strong><p>من جهاز PS4 افتح Settings ثم System ثم System Information، وهتلاقي رقم إصدار النظام.</p></div>
+      <div><strong>NOT SURE WHICH VERSION YOU HAVE?</strong><p>On your PS4, go to Settings → System → System Information and check the System Software field.</p></div>
     </section>
   </main>
 
-  <footer><span class="footer-brand">NEXUS<span>.</span></span><span>PS4 HOST INTERFACE</span><span class="footer-version">v2.0 • FIRMWARE HUB</span></footer>
+  <footer><span class="footer-brand">NEXUS<span>.</span></span><span>PS4 HOST INTERFACE</span><span class="footer-version">FIRMWARE HUB &nbsp; / &nbsp; v2.1</span></footer>
   <script src="app.js"></script>
 </body>
 </html>
