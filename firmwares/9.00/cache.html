@@ -89,10 +89,12 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
   var saved=localStorage.getItem('modx-language');
   var language=(saved==='ar'||saved==='en')?saved:((navigator.language||'').toLowerCase().startsWith('ar')?'ar':'en');
   window.modxT=function(key){return (translations[key]&&translations[key][language])||key;};
+  window.modxSetText=function(el,key){if(el){el.setAttribute('data-i18n-current',key);el.innerHTML=window.modxT(key);}};
   function applyLanguage(){
     document.documentElement.lang=language;
     document.documentElement.dir=language==='ar'?'rtl':'ltr';
     document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n'));});
+    document.querySelectorAll('[data-i18n-current]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n-current'));});
     var button=document.getElementById('languageToggle');
     if(button){button.textContent=language==='ar'?'English':'عربي';button.setAttribute('aria-label',language==='ar'?'Switch to English':'التبديل إلى الإنجليزية');}
   }
@@ -113,17 +115,17 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
   var redirectPending=false;
   function setCached(value){try{localStorage.is900Cached=value?'true':'false';}catch(e){}}
   function setProgress(value){var p=Math.max(0,Math.min(100,value));progressBar.style.width=p+'%';progressText.textContent=p+'%';}
-  function setState(label,color){stateLabel.textContent=window.modxT(label);statusDot.style.background=color;statusDot.style.boxShadow='0 0 12px '+color;}
-  function openHost(message){if(redirectPending)return;redirectPending=true;setCached(true);setProgress(100);setState('ready','#63e6b0');progressLabel.textContent=message;cacheStatus.textContent=window.modxT('completeOpen');setTimeout(function(){window.location.replace('index.html');},1200);}
-  function fail(message,detail){setCached(false);setState('error','#ff7185');progressLabel.textContent=window.modxT(message);cacheStatus.textContent=window.modxT(detail);}
+  function setState(label,color){window.modxSetText(stateLabel,label);statusDot.style.background=color;statusDot.style.boxShadow='0 0 12px '+color;}
+  function openHost(message){if(redirectPending)return;redirectPending=true;setCached(true);setProgress(100);setState('ready','#63e6b0');window.modxSetText(progressLabel,message);window.modxSetText(cacheStatus,'completeOpen');setTimeout(function(){window.location.replace('index.html');},1200);}
+  function fail(message,detail){setCached(false);setState('error','#ff7185');window.modxSetText(progressLabel,message);window.modxSetText(cacheStatus,detail);}
   if(!appCache){fail('cacheEngineUnavailable','supportedBrowser');return;}
   if(appCache.status===appCache.DOWNLOADING){setCached(false);setState('stateDownloading','#27b8ff');}
-  appCache.onchecking=function(){setState('stateChecking','#27b8ff');progressLabel.textContent=window.modxT('checkingUpdates');cacheStatus.textContent=window.modxT('manifestContact');};
-  appCache.ondownloading=function(){setCached(false);setState('stateDownloading','#27b8ff');progressLabel.textContent=window.modxT('installing');cacheStatus.textContent=window.modxT('downloadingResources');};
-  appCache.onprogress=function(event){if(event.lengthComputable&&event.total>0){setProgress(Math.round(100*event.loaded/event.total));}cacheStatus.textContent=window.modxT('receiving');};
-  appCache.oncached=function(){openHost(window.modxT('installed'));};
-  appCache.onupdateready=function(){try{appCache.swapCache();}catch(e){}openHost(window.modxT('updated'));};
-  appCache.onnoupdate=function(){openHost(window.modxT('alreadyUpdated'));};
+  appCache.onchecking=function(){setState('stateChecking','#27b8ff');window.modxSetText(progressLabel,'checkingUpdates');window.modxSetText(cacheStatus,'manifestContact');};
+  appCache.ondownloading=function(){setCached(false);setState('stateDownloading','#27b8ff');window.modxSetText(progressLabel,'installing');window.modxSetText(cacheStatus,'downloadingResources');};
+  appCache.onprogress=function(event){if(event.lengthComputable&&event.total>0){setProgress(Math.round(100*event.loaded/event.total));}window.modxSetText(cacheStatus,'receiving');};
+  appCache.oncached=function(){openHost('installed');};
+  appCache.onupdateready=function(){try{appCache.swapCache();}catch(e){}openHost('updated');};
+  appCache.onnoupdate=function(){openHost('alreadyUpdated');};
   appCache.onerror=function(){fail('installationFailed','manifestFailed');};
   appCache.onobsolete=function(){fail('manifestUnavailable','manifestCouldNotUse');};
 })();
