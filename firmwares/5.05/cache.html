@@ -89,10 +89,12 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
   var saved=localStorage.getItem('modx-language');
   var language=(saved==='ar'||saved==='en')?saved:((navigator.language||'').toLowerCase().startsWith('ar')?'ar':'en');
   window.modxT=function(key){return (translations[key]&&translations[key][language])||key;};
+  window.modxSetText=function(el,key){if(el){el.setAttribute('data-i18n-current',key);el.innerHTML=window.modxT(key);}};
   function applyLanguage(){
     document.documentElement.lang=language;
     document.documentElement.dir=language==='ar'?'rtl':'ltr';
     document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n'));});
+    document.querySelectorAll('[data-i18n-current]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n-current'));});
     var button=document.getElementById('languageToggle');
     if(button){button.textContent=language==='ar'?'English':'عربي';button.setAttribute('aria-label',language==='ar'?'Switch to English':'التبديل إلى الإنجليزية');}
   }
@@ -125,7 +127,7 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
     progressText.textContent=p+'%';
   }
   function setState(label,color){
-    stateLabel.textContent=window.modxT(label);
+    window.modxSetText(stateLabel,label);
     statusDot.style.background=color;
     statusDot.style.boxShadow='0 0 12px '+color;
   }
@@ -139,8 +141,8 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
     setCached(true);
     setProgress(100);
     setState('ready','#63e6b0');
-    progressLabel.textContent=window.modxT(message);
-    cacheStatus.textContent=window.modxT('completeOpen');
+    window.modxSetText(progressLabel,message);
+    window.modxSetText(cacheStatus,'completeOpen');
     setTimeout(function(){window.location.replace('index.html');},900);
   }
   function fail(message,detail){
@@ -148,8 +150,8 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
     stopTimeout();
     setCached(false);
     setState('error','#ff7185');
-    progressLabel.textContent=message;
-    cacheStatus.textContent=window.modxT(detail);
+    window.modxSetText(progressLabel,message);
+    window.modxSetText(cacheStatus,detail);
   }
   if(!appCache){
     fail('cacheEngineUnavailable','supportedBrowser');
@@ -158,30 +160,30 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
 
   appCache.addEventListener('checking',function(){
     setState('stateChecking','#27b8ff');
-    progressLabel.textContent=window.modxT('checking');
-    cacheStatus.textContent=window.modxT('contacting');
+    window.modxSetText(progressLabel,'checking');
+    window.modxSetText(cacheStatus,'contacting');
   },false);
   appCache.addEventListener('downloading',function(){
     setCached(false);
     setState('stateDownloading','#27b8ff');
-    progressLabel.textContent=window.modxT('installing');
-    cacheStatus.textContent=window.modxT('downloading');
+    window.modxSetText(progressLabel,'installing');
+    window.modxSetText(cacheStatus,'downloading');
   },false);
   appCache.addEventListener('progress',function(event){
     if(event&&event.lengthComputable&&event.total>0){
       setProgress(Math.round(100*event.loaded/event.total));
     }
-    cacheStatus.textContent=window.modxT('receiving');
+    window.modxSetText(cacheStatus,'receiving');
   },false);
   appCache.addEventListener('cached',function(){
-    openHost(window.modxT('installed'));
+    openHost('installed');
   },false);
   appCache.addEventListener('noupdate',function(){
-    openHost(window.modxT('alreadyUpdated'));
+    openHost('alreadyUpdated');
   },false);
   appCache.addEventListener('updateready',function(){
     try{appCache.swapCache();}catch(e){}
-    openHost(window.modxT('updated'));
+    openHost('updated');
   },false);
   appCache.addEventListener('error',function(){
     fail('installationFailed','manifestFailed');
@@ -195,13 +197,13 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
     try{appCache.swapCache();}catch(e){}
     openHost(window.modxT('updated'));
   }else if(appCache.status===appCache.IDLE){
-    openHost(window.modxT('alreadyInstalled'));
+    openHost('alreadyInstalled');
   }else if(appCache.status===appCache.OBSOLETE){
     fail('manifestUnavailable','manifestObsolete');
   }else{
     setState(appCache.status===appCache.DOWNLOADING?'stateDownloading':'stateChecking','#27b8ff');
     progressLabel.textContent=window.modxT('installing');
-    cacheStatus.textContent=window.modxT('keepOpen');
+    window.modxSetText(cacheStatus,'keepOpen');
     timeoutId=setTimeout(function(){
       fail('timedOut','timeoutDetail');
     },90000);
