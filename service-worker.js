@@ -1,9 +1,10 @@
-const CACHE_NAME = "nexus-ps4-v1";
+const CACHE_NAME = "modxx4-host-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./style.css",
   "./app.js",
+  "./support.html",
   "./firmwares/9.00/manifest.json",
   "./firmwares/9.00/goldhen.bin"
 ];
