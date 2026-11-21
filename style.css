@@ -130,3 +130,86 @@ body:before,.ambient,.hero-art{display:none!important}
 .firmware-card.ready{border-color:#40577f}
 .help-note{background:#10182b;border-radius:7px}
 footer{background:#080d1b}
+
+
+/* MODX calm PSX8-inspired interface */
+:root{
+  color-scheme:dark;
+  --bg:#111214;--panel:#191a1c;--line:#343639;
+  --text:#ededed;--muted:#a1a3a6;--dim:#777a7e;
+  --blue:#d65b5b;--violet:#d65b5b;--cyan:#d65b5b;--green:#83c69b;
+}
+html{scroll-behavior:auto;background:#111214}
+body{background:#111214;color:var(--text);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+body:before,.ambient,.hero-art,.horizon,.orbit,.art-label,.art-number{display:none!important}
+.topbar{height:66px;padding:0 max(22px,calc((100% - 1040px)/2));background:#151618;border-bottom:1px solid #303235;backdrop-filter:none}
+.brand{gap:10px}
+.brand-mark{width:34px;height:34px;border:1px solid #55585c;border-radius:5px;background:#202225;box-shadow:none;font-family:Arial,Helvetica,sans-serif}
+.brand-mark em{color:#e16a6a}
+.brand-mark i{background:#83c69b;box-shadow:none}
+.brand-copy strong{font-family:Arial,Helvetica,sans-serif;font-size:18px;letter-spacing:2px}
+.brand-copy small{color:#8e9195;font-family:Consolas,monospace;font-size:8px;letter-spacing:1.2px}
+.topbar-controls{gap:14px}
+.ready-indicator{color:#83c69b;font-family:Consolas,monospace;letter-spacing:1px}
+.ready-indicator i{background:#83c69b;box-shadow:none;animation:none}
+.language-toggle{padding:7px 11px;border:1px solid #414448;border-radius:4px;background:#202225;color:#e5e5e5;font-family:Arial,Helvetica,sans-serif}
+.language-toggle:hover{border-color:#777;background:#25272a}
+.page{width:min(100% - 40px,1040px);padding-bottom:34px}
+.hero{min-height:0;padding:39px 2px 0;overflow:visible}
+.eyebrow{margin-bottom:12px;color:#c96b6b;font-family:Consolas,monospace;font-size:10px;letter-spacing:.6px}
+.eyebrow-line{width:16px;background:#c96b6b}
+h1{font-family:Arial,Helvetica,sans-serif;font-size:clamp(38px,5vw,52px);font-weight:700;line-height:1.05;letter-spacing:-1.8px}
+h1 span{color:#d66a6a;text-shadow:none}
+.intro-copy{max-width:540px;margin-top:12px;color:#a5a7aa;font-size:12px;line-height:1.7}
+.boot-status{margin-top:12px;color:#8f9296;font-family:Consolas,monospace;font-size:9px}
+.boot-status b{color:#83c69b}
+.hero-meta{margin-top:29px;padding:12px 0;border-bottom:1px solid #343639;color:#85888c;font-family:Consolas,monospace;font-size:9px;letter-spacing:.7px}
+.firmware-section{padding-top:22px}
+.section-bar{margin-bottom:12px}
+.section-title{color:#e1e1e1;font-family:Consolas,monospace;font-size:10px;letter-spacing:.8px}
+.legend{color:#929599;font-family:Consolas,monospace;font-size:8px}
+.legend-ready,.legend-soon{width:6px;height:6px}
+.legend-ready{background:#83c69b}.legend-soon{background:#777a7e}
+.firmware-grid{max-width:none;gap:9px}
+.firmware-card{min-height:78px;padding:12px 14px;grid-template-columns:55px minmax(0,1fr) auto;column-gap:12px;border:1px solid #383a3d;border-radius:4px;background:#191a1c;box-shadow:none}
+.firmware-card:before,.firmware-card:after{display:none!important}
+.firmware-card.ready{border-color:#3a3d40}
+.firmware-card.ready:hover{transform:none;border-color:#777;box-shadow:none;background:#1d1e20}
+.firmware-card.featured{border-color:#704343;background:#1b191a}
+.card-index{color:#929599;font-size:9px;letter-spacing:.45px}
+.card-status{color:#83c69b;font-size:8px;letter-spacing:.35px}
+.firmware-card>strong{font-family:Arial,Helvetica,sans-serif;font-size:20px;letter-spacing:-.4px}
+.firmware-card>strong small{color:#b2b4b7;font-size:.68em}
+.firmware-card>strong.compact{font-size:17px}
+.card-description{color:#a5a7aa;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:400}
+.card-description i{color:#d66a6a}
+.card-bottom{color:#b4b6b9;font-family:Consolas,monospace;font-size:8px;letter-spacing:.45px}
+.card-bottom b,.featured .card-bottom b{color:#d66a6a;font-size:15px}
+.section-note{color:#85888c;font-size:9px}
+.help-note{margin-top:22px;padding:12px 14px;border:1px solid #343639;border-radius:4px;background:#191a1c}
+.help-mark{border-radius:3px;background:#292a2d;color:#d66a6a;font-family:Arial,Helvetica,sans-serif}
+.help-note p{color:#a5a7aa;font-size:10px}
+.help-note strong{color:#e4e4e4}
+footer{min-height:56px;gap:22px;background:#151618;border-top:1px solid #303235;color:#85888c;font-family:Consolas,monospace;font-size:8px;letter-spacing:.7px}
+.footer-brand{color:#e5e5e5;font-family:Arial,Helvetica,sans-serif}
+.footer-brand span,.footer-brand~span:last-child i{color:#d66a6a}
+.nodeplay-link{border-radius:4px;background:#191a1c}
+html[dir="rtl"] .hero-copy,html[dir="rtl"] .hero-meta,html[dir="rtl"] .section-bar,html[dir="rtl"] .section-note,html[dir="rtl"] .help-note{text-align:right}
+@media(max-width:560px){
+ .topbar{height:62px;padding:0 14px}
+ .page{width:calc(100% - 28px);padding-bottom:26px}
+ .hero{padding-top:32px;min-height:0}
+ h1{font-size:43px;letter-spacing:-1.2px}
+ .hero-meta{margin-top:23px;font-size:7px}
+ .section-bar{flex-direction:row;align-items:center;gap:8px}
+ .legend{gap:5px;font-size:7px;letter-spacing:.2px}
+ .firmware-grid{grid-template-columns:1fr;gap:8px}
+ .firmware-card{min-height:72px;padding:10px 11px;grid-template-columns:43px minmax(0,1fr) auto;column-gap:9px}
+ .firmware-card>strong{font-size:18px}
+ .firmware-card>strong.compact{font-size:15px}
+ .card-index{font-size:8px}
+ .card-status{font-size:7px}
+ .card-description{font-size:9px}
+ .card-bottom{font-size:7px}
+ footer{gap:9px;flex-wrap:wrap;padding:13px 10px;font-size:7px}
+}
