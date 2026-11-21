@@ -84,8 +84,8 @@ footer{min-height:62px;display:flex;align-items:center;justify-content:center;ga
 }
 
 /* Language selector and Arabic layout */
-.language-toggle{display:flex;flex-direction:row;align-items:center;gap:9px;margin-inline-start:auto;padding:7px 13px;border:1px solid #52699a;border-radius:8px;background:#111a30;color:#dce6ff;font:600 11px Manrope,Arial,sans-serif;cursor:pointer;transition:border-color .18s,background .18s}
-.language-toggle::before{content:"READY";color:#72d9bd;font:500 8px 'DM Mono',monospace;letter-spacing:1.8px;line-height:1}
+.topbar-controls{display:flex;align-items:center;gap:15px;margin-inline-start:auto}.ready-indicator{display:inline-flex;align-items:center;gap:7px;color:#72d9bd;font:500 8px "DM Mono",monospace;letter-spacing:1.8px;white-space:nowrap}.ready-indicator i{width:6px;height:6px;border-radius:50%;background:#72d9bd;box-shadow:0 0 8px #72d9bd;animation:readyPulse 1.5s ease-in-out infinite}@keyframes readyPulse{0%,100%{opacity:1;box-shadow:0 0 9px #72d9bd}50%{opacity:.22;box-shadow:0 0 1px #72d9bd}}.language-toggle{display:flex;align-items:center;gap:9px;padding:7px 13px;border:1px solid #52699a;border-radius:8px;background:#111a30;color:#dce6ff;font:600 11px Manrope,Arial,sans-serif;cursor:pointer;transition:border-color .18s,background .18s}
+
 .language-toggle:hover{border-color:var(--cyan);background:#172440}
 .language-toggle:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 html[dir="rtl"] body{font-family:Manrope,Tahoma,Arial,sans-serif}
@@ -94,7 +94,7 @@ html[dir="rtl"] .eyebrow{letter-spacing:.4px}
 html[dir="rtl"] .card-top,html[dir="rtl"] .card-description,html[dir="rtl"] .card-bottom{direction:rtl}
 html[dir="rtl"] .help-note{flex-direction:row-reverse}
 html[dir="rtl"] footer{direction:rtl}
-@media(max-width:560px){.language-toggle{margin-inline-start:auto}}
+@media(max-width:560px){.topbar-controls{gap:11px;margin-inline-start:auto}}
 
 
 /* PSX8-inspired terminal labels and partner route, styled for MODX */
