@@ -44,37 +44,62 @@ h1 span{color:var(--blue);text-shadow:0 5px 35px #718dff45}
 .notice{margin-top:15px;padding:11px 13px;border-left:2px solid var(--blue);background:#718dff0d;color:#a6b4d0;font-size:10px;line-height:1.7}
 footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #9aafff22;padding:14px 3px 0;color:#8290ad;font:500 8px monospace;letter-spacing:1.1px}
 @media(max-width:620px){.shell{width:calc(100% - 24px);padding-top:11px}.topbar{height:62px;padding:0 12px}.brand{font-size:16px}.mark{width:34px;height:34px}.fw{font-size:8px;padding:7px 8px}main{padding:38px 0}.panel{padding:17px 14px;margin-top:23px}.steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.step{display:block;padding:8px 7px}.step b{margin:0 0 4px;min-width:0}footer{font-size:7px;letter-spacing:.7px}}
+</style><style>
+.language-toggle{margin-inline-start:auto;padding:7px 11px;border:1px solid #52699a;border-radius:7px;background:#111a30;color:#dce6ff;font:600 10px Manrope,Arial,sans-serif;cursor:pointer}
+.language-toggle:hover{border-color:#67dff2;background:#172440}
+html[dir="rtl"] body{text-align:right}
+html[dir="rtl"] .topbar,html[dir="rtl"] .bar{direction:rtl}
+html[dir="rtl"] .steps{direction:rtl}
+html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
 </style>
 </head>
 <body>
 <div class="shell">
 <header class="topbar">
   <div class="brand"><div class="mark">N</div><div>MODX<small>PLAYSTATION 4 HOST</small></div></div>
-  <div class="fw">FIRMWARE&nbsp; 5.05</div>
+  <div class="fw">FIRMWARE&nbsp; 5.05</div><button class="language-toggle" id="languageToggle" type="button">عربي</button>
 </header>
 <main>
-  <div class="eyebrow">SYSTEM // OFFLINE MODULE</div>
-  <h1>Offline <span>Cache</span><br>Installer</h1>
-  <p class="intro">Preparing the MODX host for offline use. Keep the PS4 browser open and connected to the internet until the cache process finishes.</p>
+  <div class="eyebrow" data-i18n="command">$ ./cache --install</div>
+  <h1 data-i18n="heading">Loading <span>offline cache</span></h1>
+  <p class="intro" data-i18n="intro">Preparing the MODX host for offline use. Keep the PS4 browser open and connected to the internet until the cache process finishes.</p>
   <section class="panel" aria-live="polite">
     <div class="panel-head">
-      <div class="panel-title">CACHE DEPLOYMENT</div>
-      <div class="state"><i class="dot" id="statusDot"></i><span id="stateLabel">INITIALIZING</span></div>
+      <div class="panel-title" data-i18n="cacheTitle">CACHE DEPLOYMENT</div>
+      <div class="state"><i class="dot" id="statusDot"></i><span id="stateLabel" data-i18n="initializing">INITIALIZING</span></div>
     </div>
-    <div class="progress-meta"><span>Download progress</span><span id="progressText">0%</span></div>
+    <div class="progress-meta"><span data-i18n="downloadProgress">Download progress</span><span id="progressText">0%</span></div>
     <div class="track"><div id="myBar"></div></div>
-    <div id="progress">Starting cache service...</div>
-    <div id="cacheStatus">Waiting for the PS4 browser cache engine.</div>
+    <div id="progress" data-i18n="starting">Starting cache service...</div>
+    <div id="cacheStatus" data-i18n="waiting">Waiting for the PS4 browser cache engine.</div>
     <div class="steps">
-      <div class="step"><b>01 / CHECK</b><span>Check cache manifest</span></div>
-      <div class="step"><b>02 / SYNC</b><span>Download host resources</span></div>
-      <div class="step"><b>03 / READY</b><span>Open offline host</span></div>
+      <div class="step"><b data-i18n="check">01 / CHECK</b><span data-i18n="checkManifest">Check cache manifest</span></div>
+      <div class="step"><b data-i18n="sync">02 / SYNC</b><span data-i18n="downloadResources">Download host resources</span></div>
+      <div class="step"><b data-i18n="readyStep">03 / READY</b><span data-i18n="openHost">Open offline host</span></div>
     </div>
-    <div class="notice">Do not close this page or turn off the console during cache installation. The host will open automatically when the browser reports that caching is complete.</div>
+    <div class="notice" data-i18n="notice">Do not close this page or turn off the console during cache installation. The host will open automatically when caching is complete.</div>
   </section>
 </main>
-<footer><span>MODX HOST PROJECT</span><span>5.05 // CACHE SYSTEM</span></footer>
+<footer><span data-i18n="project">MODX HOST PROJECT</span><span>5.05 // <span data-i18n="cacheSystem">CACHE SYSTEM</span></span></footer>
 </div>
+<script>
+(function(){
+  var translations={"command":{"en":"$ ./cache --install","ar":"$ ./cache --install"},"heading":{"en":"Loading <em>offline cache</em>","ar":"جاري تحميل <em>الكاش أوفلاين</em>"},"intro":{"en":"Preparing the MODX host for offline use. Keep the PS4 browser open and connected to the internet until the cache process finishes.","ar":"بنجهّز هوست MODX للعمل بدون إنترنت. سيب متصفح PS4 مفتوح ومتصل بالإنترنت لحد ما تثبيت الكاش يكتمل."},"cacheTitle":{"en":"CACHE DEPLOYMENT","ar":"تثبيت الكاش"},"initializing":{"en":"INITIALIZING","ar":"جاري التجهيز"},"downloadProgress":{"en":"Download progress","ar":"تقدم التحميل"},"starting":{"en":"Starting cache service...","ar":"جاري تشغيل خدمة الكاش..."},"waiting":{"en":"Waiting for the PS4 browser cache engine.","ar":"في انتظار محرك الكاش في متصفح PS4."},"check":{"en":"01 / CHECK","ar":"01 / فحص"},"checkManifest":{"en":"Check cache manifest","ar":"فحص ملف إعدادات الكاش"},"sync":{"en":"02 / SYNC","ar":"02 / مزامنة"},"downloadResources":{"en":"Download host resources","ar":"تحميل ملفات الهوست"},"readyStep":{"en":"03 / READY","ar":"03 / جاهز"},"openHost":{"en":"Open offline host","ar":"فتح الهوست أوفلاين"},"notice":{"en":"Do not close this page or turn off the console during cache installation. The host will open automatically when caching is complete.","ar":"ما تقفلش الصفحة أو تطفي الجهاز أثناء تثبيت الكاش. الهوست هيفتح تلقائيًا بعد اكتمال التثبيت."},"project":{"en":"MODX HOST PROJECT","ar":"مشروع هوست MODX"},"cacheSystem":{"en":"CACHE SYSTEM","ar":"نظام الكاش"},"cacheUpdate":{"en":"CACHE UPDATE","ar":"تحديث الكاش"},"bootReady":{"en":"PS4 host cache system ready","ar":"نظام كاش هوست PS4 جاهز"},"bootDownload":{"en":"downloading host files","ar":"جاري تحميل ملفات الهوست"},"loadingWait":{"en":"Loading... Please Wait","ar":"جاري التحميل... برجاء الانتظار"},"initializingCache":{"en":"Initializing cache system...","ar":"جاري تهيئة نظام الكاش..."},"checking":{"en":"Checking host resources...","ar":"جاري فحص ملفات الهوست..."},"contacting":{"en":"Contacting the MODX cache manifest.","ar":"جاري الاتصال بملف كاش MODX."},"installing":{"en":"Installing offline cache...","ar":"جاري تثبيت الكاش أوفلاين..."},"downloading":{"en":"Downloading host files. Do not close the browser.","ar":"جاري تحميل ملفات الهوست. لا تغلق المتصفح."},"receiving":{"en":"Receiving host resources. Keep the browser open.","ar":"جاري استقبال ملفات الهوست. اترك المتصفح مفتوحًا."},"installed":{"en":"Page Cached Successfully!!!","ar":"تم حفظ الصفحة في الكاش بنجاح!!!"},"updated":{"en":"Cache Updated Successfully!!!","ar":"تم تحديث الكاش بنجاح!!!"},"upToDate":{"en":"Offline Cache Ready","ar":"الكاش أوفلاين جاهز"},"opening":{"en":"Opening the cached host...","ar":"جاري فتح الهوست المحفوظ في الكاش..."},"completeOpen":{"en":"Cache complete. Opening the MODX host...","ar":"اكتمل الكاش. جاري فتح هوست MODX..."},"unavailable":{"en":"Offline cache is not supported by this browser.","ar":"الكاش أوفلاين غير مدعوم في هذا المتصفح."},"openPS4":{"en":"Open this page in the PS4 browser.","ar":"افتح الصفحة دي من متصفح PS4."},"failed":{"en":"Offline cache failed.","ar":"فشل تثبيت الكاش أوفلاين."},"stayOnline":{"en":"Stay online, clear browser data, and reload this page.","ar":"اتأكد إن الإنترنت شغال، وامسح بيانات المتصفح، وبعدها أعد تحميل الصفحة."},"cacheEngineUnavailable":{"en":"Cache engine unavailable.","ar":"محرك الكاش غير متاح."},"supportedBrowser":{"en":"Open this page in the PS4 browser that supports Application Cache.","ar":"افتح الصفحة دي من متصفح PS4 الداعم لـ Application Cache."},"checkingUpdates":{"en":"Checking for host updates...","ar":"جاري البحث عن تحديثات الهوست..."},"manifestContact":{"en":"Contacting the cache manifest.","ar":"جاري الاتصال بملف إعدادات الكاش."},"downloadingResources":{"en":"Downloading MODX host resources. Please wait.","ar":"جاري تحميل ملفات هوست MODX. برجاء الانتظار."},"installationFailed":{"en":"Cache installation failed.","ar":"فشل تثبيت الكاش."},"manifestFailed":{"en":"The browser could not complete the manifest download. Check the connection and manifest files, then reload.","ar":"المتصفح لم يتمكن من تحميل ملف الكاش. افحص الاتصال وملفات manifest ثم أعد المحاولة."},"manifestUnavailable":{"en":"Cache manifest is unavailable.","ar":"ملف إعدادات الكاش غير متاح."},"manifestObsolete":{"en":"The manifest was marked obsolete. Check the host configuration and reload.","ar":"تم اعتبار ملف الكاش منتهي الصلاحية. افحص إعدادات الهوست ثم أعد التحميل."},"manifestCouldNotUse":{"en":"The cache manifest could not be used. Check the host files and reload.","ar":"تعذر استخدام ملف الكاش. افحص ملفات الهوست ثم أعد التحميل."},"alreadyInstalled":{"en":"Offline cache is already installed.","ar":"الكاش أوفلاين مثبت بالفعل."},"alreadyUpdated":{"en":"Offline cache is already up to date.","ar":"الكاش أوفلاين محدث بالفعل."},"timedOut":{"en":"Cache check timed out.","ar":"انتهت مهلة فحص الكاش."},"timeoutDetail":{"en":"The browser did not finish checking or downloading the cache. Reload the page and try again.","ar":"المتصفح لم ينتهِ من فحص أو تحميل الكاش. أعد تحميل الصفحة وحاول مرة أخرى."},"keepOpen":{"en":"Keep the PS4 browser open while the offline resources are downloaded.","ar":"اترك متصفح PS4 مفتوحًا أثناء تحميل الملفات المطلوبة للعمل أوفلاين."},"ready":{"en":"READY","ar":"جاهز"},"error":{"en":"ERROR","ar":"خطأ"},"stateChecking":{"en":"CHECKING","ar":"فحص"},"stateDownloading":{"en":"DOWNLOADING","ar":"تحميل"}};
+  var saved=localStorage.getItem('modx-language');
+  var language=(saved==='ar'||saved==='en')?saved:((navigator.language||'').toLowerCase().startsWith('ar')?'ar':'en');
+  window.modxT=function(key){return (translations[key]&&translations[key][language])||key;};
+  function applyLanguage(){
+    document.documentElement.lang=language;
+    document.documentElement.dir=language==='ar'?'rtl':'ltr';
+    document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n'));});
+    var button=document.getElementById('languageToggle');
+    if(button){button.textContent=language==='ar'?'English':'عربي';button.setAttribute('aria-label',language==='ar'?'Switch to English':'التبديل إلى الإنجليزية');}
+  }
+  var button=document.getElementById('languageToggle');
+  if(button)button.addEventListener('click',function(){language=language==='ar'?'en':'ar';try{localStorage.setItem('modx-language',language);}catch(e){}applyLanguage();});
+  applyLanguage();
+})();
+</script>
 <script>
 (function(){
   var appCache=window.applicationCache;
@@ -99,7 +124,7 @@ footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid 
     progressText.textContent=p+'%';
   }
   function setState(label,color){
-    stateLabel.textContent=label;
+    stateLabel.textContent=window.modxT(label);
     statusDot.style.background=color;
     statusDot.style.boxShadow='0 0 12px '+color;
   }
@@ -112,16 +137,16 @@ footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid 
     stopTimeout();
     setCached(true);
     setProgress(100);
-    setState('READY','#63e6b0');
+    setState('ready','#63e6b0');
     progressLabel.textContent=message;
-    cacheStatus.textContent='Cache complete. Opening the MODX 5.05 host...';
+    cacheStatus.textContent=window.modxT('completeOpen');
     setTimeout(function(){window.location.replace('index.html');},900);
   }
   function fail(message,detail){
     if(redirectPending)return;
     stopTimeout();
     setCached(false);
-    setState('ERROR','#ff7185');
+    setState('error','#ff7185');
     progressLabel.textContent=message;
     cacheStatus.textContent=detail;
   }
@@ -131,37 +156,37 @@ footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid 
   }
 
   appCache.addEventListener('checking',function(){
-    setState('CHECKING','#27b8ff');
-    progressLabel.textContent='Checking host resources...';
-    cacheStatus.textContent='Contacting the MODX 5.05 cache manifest.';
+    setState('stateChecking','#27b8ff');
+    progressLabel.textContent=window.modxT('checking');
+    cacheStatus.textContent=window.modxT('contacting');
   },false);
   appCache.addEventListener('downloading',function(){
     setCached(false);
-    setState('DOWNLOADING','#27b8ff');
-    progressLabel.textContent='Installing offline cache...';
-    cacheStatus.textContent='Downloading MODX 5.05 resources. Keep the browser open.';
+    setState('stateDownloading','#27b8ff');
+    progressLabel.textContent=window.modxT('installing');
+    cacheStatus.textContent=window.modxT('downloading');
   },false);
   appCache.addEventListener('progress',function(event){
     if(event&&event.lengthComputable&&event.total>0){
       setProgress(Math.round(100*event.loaded/event.total));
     }
-    cacheStatus.textContent='Receiving host resources. Keep the browser open.';
+    cacheStatus.textContent=window.modxT('receiving');
   },false);
   appCache.addEventListener('cached',function(){
-    openHost('Offline cache installed successfully.');
+    openHost(window.modxT('installed'));
   },false);
   appCache.addEventListener('noupdate',function(){
-    openHost('Offline cache is already up to date.');
+    openHost(window.modxT('alreadyUpdated'));
   },false);
   appCache.addEventListener('updateready',function(){
     try{appCache.swapCache();}catch(e){}
-    openHost('Offline cache updated successfully.');
+    openHost(window.modxT('updated'));
   },false);
   appCache.addEventListener('error',function(){
-    fail('Cache installation failed.','The browser could not complete the manifest download. Check the connection and manifest files, then reload.');
+    fail('installationFailed','manifestFailed');
   },false);
   appCache.addEventListener('obsolete',function(){
-    fail('Cache manifest is unavailable.','The manifest was marked obsolete. Check the host configuration and reload.');
+    fail('manifestUnavailable','manifestObsolete');
   },false);
 
   // Handle a cache that completed before this script attached its listeners.
@@ -169,13 +194,13 @@ footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid 
     try{appCache.swapCache();}catch(e){}
     openHost('Offline cache updated successfully.');
   }else if(appCache.status===appCache.IDLE){
-    openHost('Offline cache is already installed.');
+    openHost(window.modxT('alreadyInstalled'));
   }else if(appCache.status===appCache.OBSOLETE){
     fail('Cache manifest is unavailable.','The manifest was marked obsolete. Check the host configuration and reload.');
   }else{
     setState(appCache.status===appCache.DOWNLOADING?'DOWNLOADING':'CHECKING','#27b8ff');
-    progressLabel.textContent='Waiting for cache installation...';
-    cacheStatus.textContent='Keep the PS4 browser open while the offline resources are downloaded.';
+    progressLabel.textContent=window.modxT('installing');
+    cacheStatus.textContent=window.modxT('keepOpen');
     timeoutId=setTimeout(function(){
       fail('Cache check timed out.','The browser did not finish checking or downloading the cache. Reload the page and try again.');
     },90000);
