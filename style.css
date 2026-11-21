@@ -109,3 +109,24 @@ html[dir="rtl"] footer{direction:rtl}
 .nodeplay-link strong span{color:var(--violet)}
 .nodeplay-link>b{color:var(--blue);font:500 8px DM Mono,monospace;letter-spacing:.8px}
 @media(max-width:560px){.boot-status{font-size:8px}.nodeplay-link{margin-top:16px}}
+
+
+/* MODX PS4 performance profile: keep the UI light on the PS4 browser. */
+html{scroll-behavior:auto}
+body{
+ background:#080b17;
+ font-family:Arial,Helvetica,sans-serif;
+ -webkit-font-smoothing:auto;
+}
+body:before,.ambient,.hero-art{display:none!important}
+.topbar{background:#080d1b;border-color:#263653;backdrop-filter:none;-webkit-backdrop-filter:none}
+.brand-copy strong,h1,.firmware-card>strong,.footer-brand,.help-mark{font-family:Arial,Helvetica,sans-serif}
+.brand-copy small,.eyebrow,.hero-meta,.section-title,.legend,.card-index,.card-status,.card-bottom,.ready-indicator,footer{font-family:Consolas,"Liberation Mono",monospace}
+.firmware-card,.firmware-card:before,.firmware-card:after,.language-toggle,.nodeplay-link{transition:none!important;filter:none!important;box-shadow:none!important}
+.firmware-card:before{display:none!important}
+.firmware-card.ready:hover,.nodeplay-link:hover{transform:none;box-shadow:none}
+.ready-indicator i{animation:none!important;box-shadow:none}
+.firmware-card{background:#111a2d;border-radius:6px}
+.firmware-card.ready{border-color:#40577f}
+.help-note{background:#10182b;border-radius:7px}
+footer{background:#080d1b}
