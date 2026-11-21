@@ -17,58 +17,59 @@
   <header class="topbar">
     <a class="brand" href="./" aria-label="MODX home">
       <span class="brand-mark"><i></i><b>M</b><em>X</em></span>
-      <span class="brand-copy"><strong>MODX</strong><small>PLAYSTATION HOST</small></span>
+      <span class="brand-copy"><strong>MODX</strong><small data-i18n="brandSub">PLAYSTATION HOST</small></span>
+    <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">عربي</button>
     </a>
   </header>
 
   <main class="page">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-line"></span> PS4 EXPLOIT ENVIRONMENT <span class="eyebrow-code">/ 001</span></p>
-        <h1>Choose<br><span>firmware.</span></h1>
-        <p class="intro-copy">One hub. Seven host routes.<br>Select the route that matches your PS4 system software.</p>
+        <p class="eyebrow"><span class="eyebrow-line"></span> <span data-i18n="eyebrow">PS4 EXPLOIT ENVIRONMENT</span> <span class="eyebrow-code">/ 001</span></p>
+        <h1 data-i18n="heading">Choose<br><span>firmware.</span></h1>
+        <p class="intro-copy" data-i18n="intro">One hub. Seven host routes.<br>Select the route that matches your PS4 system software.</p>
       </div>
       <div class="hero-art" aria-hidden="true">
         <div class="sun"></div><div class="horizon"></div><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-        <span class="art-label">MODX / HOST SYSTEM</span>
+        <span class="art-label" data-i18n="artLabel">MODX / HOST SYSTEM</span>
         <span class="art-number">PS4</span>
       </div>
-      <div class="hero-meta"><span>FIRMWARE DIRECTORY</span><span>SELECT YOUR SYSTEM VERSION <i>↓</i></span></div>
+      <div class="hero-meta"><span data-i18n="directory">FIRMWARE DIRECTORY</span><span data-i18n="systemVersion">SELECT YOUR SYSTEM VERSION <i>↓</i></span></div>
     </section>
 
     <section class="firmware-section" aria-label="Available firmware hosts">
       <div class="section-bar">
-        <span class="section-title">HOST LIBRARY <small>— SELECT A HOST</small></span>
-        <div class="legend"><span class="legend-ready"></span> CONFIGURED <span class="legend-soon"></span> IN PREPARATION</div>
+        <span class="section-title" data-i18n="hostLibrary">HOST LIBRARY <small>— SELECT A HOST</small></span>
+        <div class="legend"><span class="legend-ready"></span> <span data-i18n="configured">CONFIGURED</span> <span class="legend-soon"></span> <span data-i18n="preparation">IN PREPARATION</span></div>
       </div>
 
       <div class="firmware-grid">
         <article class="firmware-card soon">
-          <span class="card-top"><span class="card-index">01 / SLOPKIT</span><span class="card-status">IN PREPARATION</span></span>
+          <span class="card-top"><span class="card-index">01 / SLOPKIT</span><span class="card-status" data-i18n="preparation">IN PREPARATION</span></span>
           <strong>13.02 <small>/ 13.52</small></strong>
-          <span class="card-description">SlopKit <i>//</i> GoldHEN offline host</span>
-          <span class="card-bottom">HOST BUILD IN PROGRESS</span>
+          <span class="card-description">SlopKit <i>//</i> <span data-i18n="goldhenOffline">GoldHEN offline host</span></span>
+          <span class="card-bottom" data-i18n="buildProgress">HOST BUILD IN PROGRESS</span>
         </article>
 
         <article class="firmware-card soon">
           <span class="card-top"><span class="card-index">02 / SLOPKIT</span><span class="card-status">IN PREPARATION</span></span>
           <strong class="compact">11.00 <small>— 12.02 / 12.50 — 13.00</small></strong>
-          <span class="card-description">SlopKit WebKit <i>//</i> Current build</span>
+          <span class="card-description">SlopKit WebKit <i>//</i> <span data-i18n="currentBuild">Current build</span></span>
           <span class="card-bottom">HOST BUILD IN PROGRESS</span>
         </article>
 
         <article class="firmware-card soon">
           <span class="card-top"><span class="card-index">03 / CSSFONTFACE</span><span class="card-status">IN PREPARATION</span></span>
           <strong>6.00 <small>— 11.02</small></strong>
-          <span class="card-description">CSSFontFace <i>//</i> GoldHEN host</span>
+          <span class="card-description">CSSFontFace <i>//</i> <span data-i18n="goldhenHost">GoldHEN host</span></span>
           <span class="card-bottom">HOST BUILD IN PROGRESS</span>
         </article>
 
         <a class="firmware-card ready featured" href="./firmwares/9.00/version-selector.html" aria-label="Choose firmware 9.00 or 9.60">
-          <span class="card-top"><span class="card-index">04 / PSFREE</span><span class="card-status">● CONFIGURED</span></span>
+          <span class="card-top"><span class="card-index">04 / PSFREE</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span>
           <strong>9.00 <small>— 9.60</small></strong>
-          <span class="card-description">PSFree / Lapse <i>//</i> GoldHEN host</span>
-          <span class="card-bottom">SELECT FIRMWARE <b>↗</b></span>
+          <span class="card-description">PSFree / Lapse <i>//</i> <span data-i18n="goldhenHost">GoldHEN host</span></span>
+          <span class="card-bottom"><span data-i18n="selectFirmware">SELECT FIRMWARE</span> <b>↗</b></span>
         </a>
 
         <article class="firmware-card soon">
@@ -81,8 +82,8 @@
         <a class="firmware-card ready" href="./firmwares/6.72/cache.html">
           <span class="card-top"><span class="card-index">06 / LEGACY</span><span class="card-status">● CONFIGURED</span></span>
           <strong>6.72</strong>
-          <span class="card-description">Dedicated host <i>//</i> Utility payloads</span>
-          <span class="card-bottom">OPEN HOST <b>↗</b></span>
+          <span class="card-description"><span data-i18n="dedicatedHost">Dedicated host</span> <i>//</i> <span data-i18n="utilityPayloads">Utility payloads</span></span>
+          <span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span> <b>↗</b></span>
         </a>
 
         <a class="firmware-card ready" href="./firmwares/5.05/cache.html">
@@ -92,16 +93,16 @@
           <span class="card-bottom">OPEN HOST <b>↗</b></span>
         </a>
       </div>
-      <p class="section-note">Only configured routes are clickable. Firmware compatibility and offline-cache behavior still require testing on the matching PS4 system software.</p>
+      <p class="section-note" data-i18n="sectionNote">Only configured routes are clickable. Firmware compatibility and offline-cache behavior still require testing on the matching PS4 system software.</p>
     </section>
 
     <aside class="help-note">
       <span class="help-mark">i</span>
-      <p><strong>Not sure which firmware you have?</strong> On your PS4, go to Settings → System → System Information.</p>
+      <p><strong data-i18n="helpTitle">Not sure which firmware you have?</strong> <span data-i18n="helpText">On your PS4, go to Settings → System → System Information.</span></p>
     </aside>
   </main>
 
-  <footer><span class="footer-brand">MODX<span>®</span></span><span>INDEPENDENT PS4 HOST PROJECT</span><span>BUILT FOR THE COMMUNITY <i>✳</i></span></footer>
+  <footer><span class="footer-brand">MODX<span>®</span></span><span data-i18n="footerProject">INDEPENDENT PS4 HOST PROJECT</span><span><span data-i18n="footerCommunity">BUILT FOR THE COMMUNITY</span> <i>✳</i></span></footer>
   <script src="app.js"></script>
 </body>
 </html>
