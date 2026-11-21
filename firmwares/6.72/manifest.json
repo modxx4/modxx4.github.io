@@ -19,5 +19,6 @@
     "history-blocker.bin",
     "pup-decrypt.bin"
   ],
-  "note": "Files are present in the repository and listed in the offline cache manifest. Device-side exploit and payload compatibility still require PS4 testing."
+  "note": "GoldHEN 2.4b18.14 is configured to launch automatically after the offline cache opens the host. Device-side compatibility still requires PS4 testing.",
+  "goldhen": "2.4b18.14"
 }

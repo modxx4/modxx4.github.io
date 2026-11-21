@@ -2,22 +2,22 @@
 <html manifest="cache.manifest">
 
 <head>
-    <link rel="icon" type="image/png" href="../pspulse.png">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSPULSE // PS4 6.72 HOST</title>
+    <title>MODX // PS4 6.72 HOST</title>
     <style>
         :root {
-            --bg: #151515;
-            --panel: #1c1c1c;
-            --panel-2: #242424;
-            --line: #2e2e2e;
-            --line-bright: #454545;
-            --text: #f5f5f5;
-            --muted: #b5b5b5;
-            --dim: #828282;
-            --accent: #a294ff;
-            --red: #ff9b9b;
+            --bg: #080b17;
+            --panel: #10172a;
+            --panel-2: #121c32;
+            --line: #293653;
+            --line-bright: #435a88;
+            --text: #f3f6ff;
+            --muted: #9ba9c7;
+            --dim: #8290ad;
+            --accent: #7897ff;
+            --red: #ff7185;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,8 +25,8 @@
         html, body { min-height: 100%; }
         body {
             background-color: var(--bg);
-            background-image: linear-gradient(rgba(162, 148, 255, .05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(162, 148, 255, .05) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(120, 151, 255, .05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(120, 151, 255, .05) 1px, transparent 1px);
             background-size: 36px 36px;
             color: var(--text);
             display: flex;
@@ -129,25 +129,6 @@
         }
         .grid-goldhen button:focus, .grid button:focus { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
 
-        /* NodePlay */
-        .nodeplay {
-            align-items: center;
-            background: var(--panel);
-            border: 1px solid var(--line-bright);
-            display: flex;
-            justify-content: space-between;
-            margin-top: 14px;
-            min-height: 68px;
-            padding: 10px 18px;
-            text-decoration: none;
-        }
-        .nodeplay:hover, .nodeplay:focus { background: var(--panel-2); border-color: var(--accent); outline: 0; }
-        .nodeplay:focus { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
-        .np-label { color: var(--dim); display: block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
-        .np-name { color: var(--text); display: block; font-size: 24px; margin-top: 2px; }
-        .np-name b { color: var(--accent); font-weight: 400; }
-        .np-open { color: var(--accent); font-size: 14px; }
-
         /* Footer */
         .foot {
             border-top: 1px solid var(--line);
@@ -204,19 +185,20 @@
             }
         }
     </script>
+<style id="modx-theme">:root{color-scheme:dark}body{background:radial-gradient(ellipse at 78% 5%,#334f9b35,transparent 38%),radial-gradient(ellipse at 12% 48%,#573d9b28,transparent 34%),linear-gradient(145deg,#080b17,#0b1020 55%,#090d1b);color:#f3f6ff;font-family:Arial,Helvetica,sans-serif}.bar,.status,.controls{border-color:#435a88;background:linear-gradient(115deg,#121c32,#101729 65%,#12182b);border-radius:12px;box-shadow:0 12px 38px #0004}.bar{border:1px solid #435a88}.bar b,.bar-fw:before,.kicker,h1 em,.boot b,.status-pass{color:#7897ff}.grid button{background:#121d33;border:1px solid #40577f;border-radius:8px;transition:.18s}.grid button:hover,.grid button:focus{background:#1a2947;border-color:#67dff2;color:#67dff2}.section-title{border-bottom-color:#293653;color:#aebfff}.foot{border-top-color:#293653;color:#8290ad;text-align:left}</style>
 </head>
 
 <body>
     <div class="app">
         <header class="bar">
-            <span><b>PSPULSE</b> // ps4 hosts</span>
+            <span><b>MODX</b> // PLAYSTATION 4 HOST</span>
             <span class="bar-fw">fw 6.72 ready</span>
         </header>
 
         <main class="layout">
             <p class="kicker">$ ./launch --fw-672</p>
             <h1>FW <em>6.72</em> host</h1>
-            <p class="sub">Offline auto GoldHEN loader by PlayStation Pulse.</p>
+            <p class="sub">Offline auto GoldHEN loader for PlayStation 4.</p>
             <ul class="boot">
                 <li>[ <b>ok</b> ] exploit chain ready</li>
                 <li>[ <b>ok</b> ] offline cache ready</li>
@@ -233,18 +215,6 @@
             </div>
 
             <div class="controls" id="controls">
-                <div class="section-title">GoldHEN</div>
-                <div class="grid-goldhen">
-                    <button onclick="load_goldhen18()" onmouseover="msgs.innerHTML='GoldHEN v2.4b18.12 for 6.72 FW'"
-                        onmouseout="msgs.innerHTML='Ready to Jailbreak'">
-                        GoldHEN v2.4b18.12
-                    </button>
-                    <button onclick="load_goldhen5()" onmouseover="msgs.innerHTML='GoldHEN v2.4b18.10 for 6.72 FW'"
-                        onmouseout="msgs.innerHTML='Ready to Jailbreak'">
-                        GoldHEN v2.4b18.10
-                    </button>
-                </div>
-
                 <div class="section-title">Payloads</div>
                 <div class="grid">
                     <button onclick="load_ftp()"
@@ -301,14 +271,7 @@
                 </div>
             </div>
 
-            <a class="nodeplay" href="https://nodeplay.net/" target="_blank" rel="noopener">
-                <span><span class="np-label">Premium game servers</span><span class="np-name">Node<b>Play</b></span></span>
-                <span class="np-open">OPEN &#8599;</span>
-            </a>
-
-            <footer class="foot">
-                Author: <a href="https://t.me/sudoBlackArch">BlackArch</a> // Telegram: <a href="https://t.me/PlayStation_Pulse">PlayStation Pulse</a>
-            </footer>
+            <footer class="foot">MODX HOST PROJECT // 6.72 GOLDHEN 2.4B18.14</footer>
         </main>
     </div>
     <script>
@@ -331,20 +294,13 @@
         if (!window.msgs3) window.msgs3 = msgs;
 
         function load_goldhen18() {
-            msgs.innerHTML = "Loading GoldHEN v2.4b18.12 ...";
-            LoadedMSG = "GoldHEN v2.4b18.12 Loaded ✔";
+            msgs.innerHTML = "Loading GoldHEN v2.4b18.14 ...";
+            LoadedMSG = "GoldHEN v2.4b18.14 Loaded ✔";
             PLfile = "goldhen.bin";
             setTimeout(jailbreak, 500);
         }
 
-        function load_goldhen5() {
-            msgs.innerHTML = "Loading GoldHEN v2.4b18.10 ...";
-            LoadedMSG = "GoldHEN v2.4b18.10 Loaded ✔";
-            PLfile = "goldhen10.bin";
-            setTimeout(jailbreak, 500);
-        }
-
-        function load_ftp() {
+function load_ftp() {
             msgs.innerHTML = "Loading FTP Server ...";
             LoadedMSG = "FTP Server Loaded ✔";
             PLfile = "ftp.bin";
@@ -422,12 +378,7 @@
         }
     </script>
 
-<!-- PSPulse support link: intentionally lightweight for the PS4 browser. -->
-<style id="pspulse-support-style">
-.pspulse-support{position:fixed;right:18px;bottom:18px;z-index:2147483647;display:block;padding:10px 15px;border:1px solid #9b87ff;border-radius:4px;background:#17151f;color:#b7a9ff!important;font:600 13px Arial,sans-serif;letter-spacing:.2px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.32)}
-.pspulse-support:hover,.pspulse-support:focus{background:#9b87ff;color:#101014!important;outline:none}
-</style>
-<a class="pspulse-support" href="https://sudoblackarch.github.io/support/" aria-label="Support me">Support me!</a>
+<script>window.addEventListener("load",function(){if(!window.modx672AutoGoldHEN){window.modx672AutoGoldHEN=true;msgs.innerHTML="Starting GoldHEN v2.4b18.14 ...";setTimeout(function(){load_goldhen18();},700);}});</script>
 </body>
 
 </html>
