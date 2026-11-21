@@ -1,95 +1,20 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#edf0eb">
-  <meta name="description" content="MODX — PlayStation 4 exploit host and firmware hub.">
-  <title>MODX — PlayStation Host</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080714"><meta name="description" content="MODX — enter the PlayStation firmware dimension."><title>MODX — Digital Dimension</title><link rel="stylesheet" href="style.css"></head>
 <body>
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
-  <header class="topbar">
-    <a class="brand" href="./" aria-label="MODX home">
-      <span class="brand-mark"><i></i><b>M</b><em>X</em></span>
-      <span class="brand-copy"><strong>MODX</strong><small data-i18n="brandSub">PLAYSTATION HOST</small></span>
-    </a>
-    <div class="topbar-controls"><span class="ready-indicator"><i></i>READY</span><button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">عربي</button></div>
-  </header>
-
-  <main class="page">
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-line"></span> <span data-i18n="launchCommand">$ ./launch --select-host</span></p>
-        <h1 data-i18n="heading">Choose<br><span>firmware.</span></h1>
-        <p class="intro-copy" data-i18n="intro">Pick the host matching the firmware installed on your PlayStation 4.</p>
-        <ul class="boot-status"><li>[ <b>ok</b> ] <span data-i18n="routesDetected">7 host routes detected</span></li></ul>
-      </div>
-      <div class="hero-meta"><span data-i18n="directory">FIRMWARE DIRECTORY</span><span data-i18n="systemVersion">↑ ↓ MOVE &nbsp; X SELECT</span></div>
-    </section>
-
-    <section class="firmware-section" aria-label="Available firmware hosts">
-      <div class="section-bar">
-        <span class="section-title" data-i18n="hostLibrary">AVAILABLE ROUTES</span>
-        <div class="legend"><span class="legend-ready"></span> <span data-i18n="configured">CONFIGURED</span> <span class="legend-soon"></span> <span data-i18n="preparation">IN PREPARATION</span></div>
-      </div>
-
-      <div class="firmware-grid">
-        <a class="firmware-card ready" href="./firmwares/13.52/index.html" aria-label="Open SlopKit host for firmware 13.02, 13.50 and 13.52">
-          <span class="card-top"><span class="card-index">01 / SLOPKIT</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span>
-          <strong>13.02 <small>/ 13.50 / 13.52</small></strong>
-          <span class="card-description">SlopKit GoldHEN <i>//</i> <span data-i18n="goldhenOffline">offline host</span></span>
-          <span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span> <b>↗</b></span>
-        </a>
-
-        <a class="firmware-card ready" href="./firmwares/13.00/index.html" aria-label="Open SlopKit host for firmware 11.00 through 12.02 and 12.50 through 13.00">
-          <span class="card-top"><span class="card-index">02 / SLOPKIT</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span>
-          <strong class="compact">11.00 <small>— 12.02 / 12.50 — 13.00</small></strong>
-          <span class="card-description">SlopKit WebKit <i>//</i> <span data-i18n="currentBuild">Current build</span></span>
-          <span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span> <b>↗</b></span>
-        </a>
-
-        <a class="firmware-card ready featured" href="./firmwares/9.00/version-selector.html" aria-label="Choose firmware 9.00 or 9.60">
-          <span class="card-top"><span class="card-index">03 / PSFREE</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span>
-          <strong>9.00 <small>— 9.60</small></strong>
-          <span class="card-description">PSFree / Lapse <i>//</i> <span data-i18n="goldhenHost">GoldHEN host</span></span>
-          <span class="card-bottom"><span data-i18n="selectFirmware">SELECT FIRMWARE</span> <b>↗</b></span>
-        </a>
-
-        <a class="firmware-card ready" href="./firmwares/7.00/version-selector.html" aria-label="Choose firmware 7.00 through 8.52">
-          <span class="card-top"><span class="card-index">04 / PSFREE</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span>
-          <strong>7.00 <small>— 8.52</small></strong>
-          <span class="card-description">PSFree / Lapse <i>//</i> <span data-i18n="goldhenHost">GoldHEN host</span></span>
-          <span class="card-bottom"><span data-i18n="selectFirmware">SELECT FIRMWARE</span> <b>↗</b></span>
-        </a>
-
-        <a class="firmware-card ready" href="./firmwares/6.72/cache.html">
-          <span class="card-top"><span class="card-index">05 / LEGACY</span><span class="card-status">● CONFIGURED</span></span>
-          <strong>6.72</strong>
-          <span class="card-description"><span data-i18n="dedicatedHost">Dedicated host</span> <i>//</i> <span data-i18n="utilityPayloads">Utility payloads</span></span>
-          <span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span> <b>↗</b></span>
-        </a>
-
-        <a class="firmware-card ready" href="./firmwares/5.05/cache.html">
-          <span class="card-top"><span class="card-index">06 / LEGACY</span><span class="card-status">● CONFIGURED</span></span>
-          <strong>5.05</strong>
-          <span class="card-description">Dedicated host <i>//</i> Utility payloads</span>
-          <span class="card-bottom">OPEN HOST <b>↗</b></span>
-        </a>
-      </div>
-      <p class="section-note" data-i18n="sectionNote">Only configured routes are clickable. Firmware compatibility and offline-cache behavior still require testing on the matching PS4 system software.</p>
-    </section>
-
-
-    <aside class="help-note">
-      <span class="help-mark">i</span>
-      <p><strong data-i18n="helpTitle">Not sure which firmware you have?</strong> <span data-i18n="helpText">On your PS4, go to Settings → System → System Information.</span></p>
-    </aside>
-  </main>
-
-  <footer><span class="footer-brand">MODX<span>®</span></span><span data-i18n="footerProject">INDEPENDENT PS4 HOST PROJECT</span><span><span data-i18n="footerCommunity">BUILT FOR THE COMMUNITY</span> <i>✳</i></span></footer>
-  <script src="app.js"></script>
-</body>
-</html>
+<div class="universe" aria-hidden="true"><div class="nebula nebula-a"></div><div class="nebula nebula-b"></div><div class="dimension-grid"></div><div class="rift rift-a"></div><div class="rift rift-b"></div><span class="star star-1"></span><span class="star star-2"></span><span class="star star-3"></span><span class="star star-4"></span><span class="star star-5"></span></div>
+<header class="topbar"><a class="brand" href="./" aria-label="MODX home"><span class="brand-mark"><i></i><b>M</b><em>X</em></span><span class="brand-copy"><strong>MODX</strong><small data-i18n="brandSub">PLAYSTATION HOST</small></span></a><div class="topbar-controls"><span class="ready-indicator"><i></i><span>DIMENSION ONLINE</span></span><button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">عربي</button></div></header>
+<main class="page">
+<section class="hero"><div class="hero-copy"><p class="eyebrow"><span class="eyebrow-line"></span><span>MODX // THE DIGITAL DIMENSION</span></p><h1>ENTER THE<br><span>UNKNOWN.</span></h1><p class="intro-copy" data-i18n="intro">Pick the host matching the firmware installed on your PlayStation 4.</p><div class="hero-coordinates"><span>SECTOR 04</span><i></i><span>ACCESS GATEWAY</span><i></i><span>PS4 SYSTEMS</span></div></div>
+<div class="portal-scene" aria-hidden="true"><div class="portal-halo"></div><div class="portal-ring ring-outer"></div><div class="portal-ring ring-mid"></div><div class="portal-core"><span>MODX</span><small>GATEWAY</small></div><div class="portal-floor"></div><span class="portal-coordinate coord-a">04 : 09 : 00</span><span class="portal-coordinate coord-b">SIGNAL STABLE</span></div>
+<div class="hero-meta"><span data-i18n="directory">FIRMWARE DIRECTORY</span><span data-i18n="systemVersion">↑ ↓ MOVE &nbsp; X SELECT</span></div></section>
+<section class="firmware-section" aria-label="Available firmware hosts"><div class="section-bar"><div><span class="section-kicker">CHOOSE YOUR DESTINATION</span><span class="section-title" data-i18n="hostLibrary">AVAILABLE ROUTES</span></div><div class="legend"><span class="legend-ready"></span><span data-i18n="configured">CONFIGURED</span><span class="legend-soon"></span><span data-i18n="preparation">IN PREPARATION</span></div></div>
+<div class="firmware-grid">
+<a class="firmware-card ready" href="./firmwares/13.52/index.html" aria-label="Open SlopKit host for firmware 13.02, 13.50 and 13.52"><span class="card-top"><span class="card-index">GATE 01</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span><span class="gate-symbol symbol-cyan"><i></i></span><strong>13.02 <small>/ 13.50 / 13.52</small></strong><span class="card-description">SlopKit GoldHEN <i>//</i> <span data-i18n="goldhenOffline">offline host</span></span><span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span><b>↗</b></span></a>
+<a class="firmware-card ready" href="./firmwares/13.00/index.html" aria-label="Open SlopKit host for firmware 11.00 through 12.02 and 12.50 through 13.00"><span class="card-top"><span class="card-index">GATE 02</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span><span class="gate-symbol symbol-violet"><i></i></span><strong class="compact">11.00 <small>— 12.02 / 12.50 — 13.00</small></strong><span class="card-description">SlopKit WebKit <i>//</i> <span data-i18n="currentBuild">Current build</span></span><span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span><b>↗</b></span></a>
+<a class="firmware-card ready featured" href="./firmwares/9.00/version-selector.html" aria-label="Choose firmware 9.00 or 9.60"><span class="card-top"><span class="card-index">GATE 03</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span><span class="gate-symbol symbol-blue"><i></i></span><strong>9.00 <small>— 9.60</small></strong><span class="card-description">PSFree / Lapse <i>//</i> <span data-i18n="goldhenHost">GoldHEN host</span></span><span class="card-bottom"><span data-i18n="selectFirmware">SELECT FIRMWARE</span><b>↗</b></span></a>
+<a class="firmware-card ready" href="./firmwares/7.00/version-selector.html" aria-label="Choose firmware 7.00 through 8.52"><span class="card-top"><span class="card-index">GATE 04</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span><span class="gate-symbol symbol-pink"><i></i></span><strong>7.00 <small>— 8.52</small></strong><span class="card-description">PSFree / Lapse <i>//</i> <span data-i18n="goldhenHost">GoldHEN host</span></span><span class="card-bottom"><span data-i18n="selectFirmware">SELECT FIRMWARE</span><b>↗</b></span></a>
+<a class="firmware-card ready" href="./firmwares/6.72/cache.html"><span class="card-top"><span class="card-index">GATE 05</span><span class="card-status">● CONFIGURED</span></span><span class="gate-symbol symbol-gold"><i></i></span><strong>6.72</strong><span class="card-description"><span data-i18n="dedicatedHost">Dedicated host</span> <i>//</i> <span data-i18n="utilityPayloads">Utility payloads</span></span><span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span><b>↗</b></span></a>
+<a class="firmware-card ready" href="./firmwares/5.05/cache.html"><span class="card-top"><span class="card-index">GATE 06</span><span class="card-status">● CONFIGURED</span></span><span class="gate-symbol symbol-green"><i></i></span><strong>5.05</strong><span class="card-description"><span data-i18n="dedicatedHost">Dedicated host</span> <i>//</i> <span data-i18n="utilityPayloads">Utility payloads</span></span><span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span><b>↗</b></span></a>
+</div><p class="section-note" data-i18n="sectionNote">Only configured routes are clickable. Firmware compatibility and offline-cache behavior still require testing on the matching PS4 system software.</p></section>
+<aside class="help-note"><span class="help-mark">i</span><p><strong data-i18n="helpTitle">Not sure which firmware you have?</strong> <span data-i18n="helpText">On your PS4, go to Settings → System → System Information.</span></p></aside>
+</main><footer><span class="footer-brand">MODX<span>®</span></span><span data-i18n="footerProject">INDEPENDENT PS4 HOST PROJECT</span><span><span data-i18n="footerCommunity">BUILT FOR THE COMMUNITY</span> <i>✳</i></span></footer><script src="app.js"></script></body></html>
