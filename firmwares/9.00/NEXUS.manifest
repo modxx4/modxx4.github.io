@@ -1,7 +1,7 @@
 CACHE MANIFEST
 # MODXX4-9.00-psx8-upstream-rebuild-20261122
 # offline-manifests-v1-20261021
-#VERSION 3.5 - MODXX4 9.00 PSX8 upstream PSFree
+#VERSION 3.6 - MODXX4 9.00 GoldHEN 2.4b18.12 selector
 
 CACHE:
 ../../modx-clock.css
@@ -10,6 +10,7 @@ alert.js
 cache.html
 config.js
 goldhen.bin
+goldhen12.bin
 index.html
 lapse.js
 loader.js

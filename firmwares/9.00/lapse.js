@@ -171,7 +171,7 @@ window.toogle_payload = toogle_payload;
 
 function Exploit_done(){
 load_exploit_done();
-toogle_payload('goldhen.bin');
+toogle_payload((localStorage.getItem('modxx4GoldHEN') === '12') ? 'goldhen12.bin' : 'goldhen.bin');
 }
 
 // sys/socket.h
