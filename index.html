@@ -11,7 +11,13 @@
 <body>
 <header class="topbar">
   <a class="brand" href="./" aria-label="MODX home"><span class="brand-mark">M<span>X</span></span><span class="brand-copy"><strong>MODX</strong><small data-i18n="brandSub">PLAYSTATION HOST</small></span></a>
-  <span class="ready-indicator" role="status" aria-label="Host status: ready"><i aria-hidden="true"></i>READY</span>
+  <div class="header-right">
+    <div class="datetime" aria-label="Egypt local date and time">
+      <time id="hostClock" aria-label="Current time">--:--:--</time>
+      <span id="hostDate">---</span>
+    </div>
+    <span class="ready-indicator" role="status" aria-label="Host status: ready"><i aria-hidden="true"></i>READY</span>
+  </div>
 </header>
 <main class="page">
   <section class="intro">
