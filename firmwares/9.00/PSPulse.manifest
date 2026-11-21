@@ -1,7 +1,7 @@
 CACHE MANIFEST
 # resource-path-fix-20261021-main-v2
 # offline-manifests-v1-20261021
-#VERSION 3.1 - NEXUS 9.00 offline host
+#VERSION 3.2 - NEXUS 9.00 uploaded GoldHEN
 
 CACHE:
 alert.js
@@ -49,7 +49,6 @@ payloads/WebRTE_900.bin
 rop/900.js
 rop/950.js
 
-../pspulse.png
 
 NETWORK:
 *
