@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PSPULSE // PS4 13.02-13.52 HOST / GOLDHEN</title>
-<link rel="icon" type="image/png" href="../pspulse.png">
+<title>MODX // PS4 13.02–13.52 HOST / GOLDHEN</title>
+
 <style>
     :root {
-        --bg: #151515;
-        --panel: #1c1c1c;
-        --panel-2: #242424;
-        --line: #2e2e2e;
-        --line-bright: #454545;
-        --text: #f5f5f5;
-        --muted: #b5b5b5;
-        --dim: #828282;
-        --accent: #a294ff;
+        --bg: #080B17;
+        --panel: #0D1324;
+        --panel-2: #121B31;
+        --line: #1D2A45;
+        --line-bright: #2A3B5D;
+        --text: #F4F7FF;
+        --muted: #A6B2CC;
+        --dim: #7583A1;
+        --accent: #8796FF;
         --red: #ff9b9b;
         --amber: #e1bd72;
     }
@@ -25,7 +25,7 @@
     html, body { min-height: 100%; }
     body {
         background-color: var(--bg);
-        background-image: linear-gradient(rgba(162, 148, 255, .05) 1px, transparent 1px),
+        background-image: linear-gradient(rgba(124, 140, 255, .05) 1px, transparent 1px),
             linear-gradient(90deg, rgba(162, 148, 255, .05) 1px, transparent 1px);
         background-size: 36px 36px;
         color: var(--text);
@@ -81,25 +81,6 @@
     .bad { color: var(--red); }
     .warn { color: var(--amber); }
 
-    /* NodePlay */
-    .nodeplay {
-        align-items: center;
-        background: var(--panel);
-        border: 1px solid var(--line-bright);
-        display: flex;
-        justify-content: space-between;
-        margin-top: 14px;
-        min-height: 68px;
-        padding: 10px 18px;
-        text-decoration: none;
-    }
-    .nodeplay:hover, .nodeplay:focus { background: var(--panel-2); border-color: var(--accent); outline: 0; }
-    .nodeplay:focus { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
-    .np-label { color: var(--dim); display: block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
-    .np-name { color: var(--text); display: block; font-size: 24px; margin-top: 2px; }
-    .np-name b { color: var(--accent); font-weight: 400; }
-    .np-open { color: var(--accent); font-size: 14px; }
-
     /* Footer */
     .foot {
         border-top: 1px solid var(--line);
@@ -126,14 +107,14 @@
 <body>
     <div class="app">
         <header class="bar">
-            <span><b>PSPULSE</b> // ps4 hosts</span>
+            <span><b>MODX</b> // ps4 hosts</span>
             <span class="bar-fw">fw 13.02-13.52 ready</span>
         </header>
 
         <main class="layout">
             <p class="kicker">$ ./launch --slopkit relapse</p>
             <h1>SlopKit <em>13.02-13.52</em> host</h1>
-            <p class="sub">WebKit research host by PlayStation Pulse.</p>
+            <p class="sub">Independent MODX PS4 host.</p>
             <ul class="boot">
                 <li>[ <b>ok</b> ] slopkit chain ready</li>
                 <li>[ <b>ok</b> ] goldhen v2.4b18.12 staged</li>
@@ -146,13 +127,10 @@
                 <div id="cache"></div>
             </section>
 
-            <a class="nodeplay" href="https://nodeplay.net/" target="_blank" rel="noopener">
-                <span><span class="np-label">Premium game servers</span><span class="np-name">Node<b>Play</b></span></span>
-                <span class="np-open">OPEN &#8599;</span>
-            </a>
+
 
             <footer class="foot">
-                Author: <a href="https://t.me/sudoBlackArch">BlackArch</a> // Telegram: <a href="https://t.me/PlayStation_Pulse">PlayStation Pulse</a>
+                MODX // INDEPENDENT PS4 HOST PROJECT
             </footer>
         </main>
     </div>
@@ -213,8 +191,8 @@
     if (location.search.indexOf("log=") === -1)
         target += (location.search ? "&" : "?") + "log=1";
 
-    var preflightKey = "pspulse-1352-preflight:" + target;
-    var cacheReloadKey = "pspulse-1352-cache-reload";
+    var preflightKey = "modx-1352-preflight:" + target;
+    var cacheReloadKey = "modx-1352-cache-reload";
 
     function go() {
         if (launched) return;
@@ -362,11 +340,6 @@
 }());
 </script>
 
-<!-- PSPulse support link: intentionally lightweight for the PS4 browser. -->
-<style id="pspulse-support-style">
-.pspulse-support{position:fixed;right:18px;bottom:18px;z-index:2147483647;display:block;padding:10px 15px;border:1px solid #9b87ff;border-radius:4px;background:#17151f;color:#b7a9ff!important;font:600 13px Arial,sans-serif;letter-spacing:.2px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.32)}
-.pspulse-support:hover,.pspulse-support:focus{background:#9b87ff;color:#101014!important;outline:none}
-</style>
-<a class="pspulse-support" href="https://sudoblackarch.github.io/support/" aria-label="Support me">Support me!</a>
+
 </body>
 </html>
