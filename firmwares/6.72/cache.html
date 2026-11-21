@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.manifest">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080B17">
+<title>MODX // PS4 6.72 Offline Cache</title>
+<style>
+:root{color-scheme:dark;--bg:#080b17;--panel:#10172a;--line:#293653;--text:#f3f6ff;--muted:#9ba9c7;--blue:#7897ff;--violet:#a58bff;--cyan:#67dff2;--green:#63e2bd;--red:#ff7185}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+body{min-height:100vh;background:radial-gradient(ellipse at 78% 8%,#334f9b35,transparent 34%),radial-gradient(ellipse at 12% 42%,#573d9b28,transparent 32%),linear-gradient(145deg,#080b17,#0b1020 55%,#090d1b)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:linear-gradient(#8aa5ff0b 1px,transparent 1px),linear-gradient(90deg,#8aa5ff0b 1px,transparent 1px);background-size:48px 48px}
+.shell{position:relative;width:min(100% - 36px,900px);min-height:100vh;margin:auto;display:flex;flex-direction:column;padding:20px 0 16px}
+.topbar{height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 17px;border:1px solid #9aafff22;border-radius:11px;background:#080d1bd9;box-shadow:0 12px 40px #0003}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:2px;font-size:19px}.mark{width:37px;height:37px;border:1px solid #7897ff88;border-radius:10px;display:grid;place-items:center;background:linear-gradient(145deg,#7897ff25,#9a70ff20);font-size:15px}
+.brand small{display:block;color:var(--muted);font-size:8px;letter-spacing:1.5px;margin-top:4px}
+.fw{border:1px solid #7897ff66;background:#7897ff12;border-radius:7px;padding:8px 11px;color:#aebfff;font:500 9px monospace;letter-spacing:1.1px}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:44px 0}
+.eyebrow{display:flex;align-items:center;gap:9px;color:var(--cyan);font:500 9px monospace;letter-spacing:1.5px}.eyebrow:before{content:"";width:22px;height:1px;background:var(--blue)}
+h1{font-size:clamp(38px,6vw,61px);line-height:.98;letter-spacing:-2.8px;margin:14px 0 12px;font-weight:800}h1 span{color:var(--blue);text-shadow:0 5px 35px #718dff45}
+.intro{color:#aab7d2;font-size:12px;line-height:1.9;max-width:620px;margin:0}
+.panel{margin-top:28px;padding:22px;border:1px solid #293958;border-radius:12px;background:linear-gradient(115deg,#121c32,#101729 65%,#12182b);box-shadow:0 22px 70px #0004}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}.panel-title{font:600 10px monospace;letter-spacing:1.2px}
+.state{display:flex;align-items:center;gap:8px;color:var(--muted);font:500 8px monospace;letter-spacing:1px}.dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--blue);animation:pulse 1.5s infinite}@keyframes pulse{50%{opacity:.35}}
+.progress-meta{display:flex;justify-content:space-between;gap:10px;margin-bottom:10px}.progress-meta span:first-child{font-size:11px;font-weight:700}#progressText{font-size:12px;color:var(--cyan);font-weight:800}
+.track{height:11px;padding:2px;border-radius:99px;background:#080d1b;border:1px solid #293958;overflow:hidden}#myBar{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#718dff,#a58bff 65%,#67dff2);box-shadow:0 0 18px #7897ff66;transition:width .25s}
+#progress{font-size:13px;font-weight:700;margin:17px 0 6px}#cacheStatus{color:var(--muted);font-size:11px;line-height:1.7;min-height:20px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:18px}.step{padding:9px 10px;border:1px solid #293958;border-radius:7px;background:#080d1b80}.step b{display:block;color:var(--blue);font:500 7px monospace;letter-spacing:.8px;margin-bottom:5px}.step span{font-size:9px;color:#a6b4d0}
+.notice{margin-top:15px;padding:11px 13px;border-left:2px solid var(--blue);background:#718dff0d;color:#a6b4d0;font-size:10px;line-height:1.7}
+footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #9aafff22;padding:14px 3px 0;color:#8290ad;font:500 8px monospace;letter-spacing:1.1px}
+@media(max-width:620px){.shell{width:calc(100% - 24px);padding-top:11px}.topbar{height:62px;padding:0 12px}.brand{font-size:16px}.mark{width:34px;height:34px}.fw{font-size:8px;padding:7px 8px}main{padding:38px 0}.panel{padding:17px 14px;margin-top:23px}.steps{gap:6px}.step{padding:8px 7px}.step span{font-size:8px}footer{font-size:7px;letter-spacing:.7px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="topbar"><div class="brand"><div class="mark">M</div><div>MODX<small>PLAYSTATION 4 HOST</small></div></div><div class="fw">FIRMWARE&nbsp; 6.72</div></header>
+<main>
+<div class="eyebrow">SYSTEM // OFFLINE MODULE</div>
+<h1>Offline <span>Cache</span><br>Installer</h1>
+<p class="intro">Preparing the MODX 6.72 host for offline use. Keep the PS4 browser open and connected to the internet until the cache process finishes.</p>
+<section class="panel" aria-live="polite">
+<div class="panel-head"><div class="panel-title">CACHE DEPLOYMENT</div><div class="state"><i class="dot" id="statusDot"></i><span id="stateLabel">INITIALIZING</span></div></div>
+<div class="progress-meta"><span>Download progress</span><span id="progressText">0%</span></div>
+<div class="track"><div id="myBar"></div></div>
+<div id="progress">Starting cache service...</div>
+<div id="cacheStatus">Waiting for the PS4 browser cache engine.</div>
+<div class="steps"><div class="step"><b>01 / CHECK</b><span>Check cache manifest</span></div><div class="step"><b>02 / SYNC</b><span>Download host resources</span></div><div class="step"><b>03 / READY</b><span>Open offline host</span></div></div>
+<div class="notice">Do not close this page or turn off the console during cache installation. The host will open automatically when caching is complete.</div>
+</section>
+</main>
+<footer><span>MODX HOST PROJECT</span><span>6.72 // CACHE SYSTEM</span></footer>
+</div>
+<script>
+(function(){
+ var appCache=window.applicationCache,progressLabel=document.getElementById('progress'),bar=document.getElementById('myBar'),pct=document.getElementById('progressText'),status=document.getElementById('cacheStatus'),state=document.getElementById('stateLabel'),dot=document.getElementById('statusDot'),redirecting=false;
+ function cached(v){try{localStorage.is672Cached=v?'true':'false';}catch(e){}}
+ function progress(v){v=Math.max(0,Math.min(100,v));bar.style.width=v+'%';pct.textContent=v+'%';}
+ function setState(s,c){state.textContent=s;dot.style.background=c;dot.style.boxShadow='0 0 12px '+c;}
+ function fail(msg,detail){cached(false);setState('ERROR','#ff7185');progressLabel.textContent=msg;status.textContent=detail;}
+ function openHost(msg){if(redirecting)return;redirecting=true;cached(true);progress(100);setState('READY','#63e2bd');progressLabel.textContent=msg;status.textContent='Cache complete. Opening the MODX 6.72 host...';setTimeout(function(){location.replace('index.html');},1000);}
+ if(!appCache){fail('Cache engine unavailable.','Open this page in the PS4 browser that supports Application Cache.');return;}
+ if(appCache.status===appCache.DOWNLOADING){cached(false);setState('DOWNLOADING','#27b8ff');}
+ appCache.onchecking=function(){setState('CHECKING','#27b8ff');progressLabel.textContent='Checking host resources...';status.textContent='Contacting the cache manifest.';};
+ appCache.ondownloading=function(){cached(false);setState('DOWNLOADING','#27b8ff');progressLabel.textContent='Installing offline cache...';status.textContent='Downloading MODX 6.72 resources. Please wait.';};
+ appCache.onprogress=function(e){if(e.lengthComputable&&e.total>0)progress(Math.round(100*e.loaded/e.total));status.textContent='Receiving host resources. Keep the browser open.';};
+ appCache.oncached=function(){openHost('Offline cache installed successfully.');};
+ appCache.onupdateready=function(){try{appCache.swapCache();}catch(e){}openHost('Offline cache updated successfully.');};
+ appCache.onnoupdate=function(){openHost('Offline cache is already up to date.');};
+ appCache.onerror=function(){fail('Cache installation failed.','The browser could not complete the manifest download. Check the cache manifest and reload this page.');};
+ appCache.onobsolete=function(){fail('Cache manifest is unavailable.','The cache manifest could not be used. Check the host files and reload.');};
+})();
+</script>
+</body>
+</html>
