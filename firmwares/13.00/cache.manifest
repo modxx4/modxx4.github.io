@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# resource-path-fix-20261021-main-v2
+# MODX host shell update 20261121-v1
 # v15 - poops: no auto-reload, cache-only (no online fallback) 20261010
 # v16 - add 11.52 lapse routing 20261022
 
@@ -7,7 +7,6 @@ CACHE:
 index.html
 run_lapse.html
 run_poops.html
-../pspulse.png
 chain_lapse.js
 chain_poops.js
 core.js
