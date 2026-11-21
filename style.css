@@ -88,3 +88,11 @@ footer{min-height:58px;display:flex;align-items:center;justify-content:center;ga
 .support-github{margin:14px 1px}
 .support-github a{color:#a9c5ec;text-decoration:none;font:600 9px Consolas,monospace;letter-spacing:.7px}
 @media(max-width:540px){.support-promo{align-items:flex-start;flex-direction:column}.support-promo>a{width:100%;justify-content:space-between}.donation-card{padding:13px}.number-panel{grid-template-columns:1fr}.copy-button{width:100%}.donation-status{font-size:7px}}
+
+
+/* MODXX4 footer signature */
+.site-footer{min-height:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:17px 18px;text-align:center}
+.site-footer .footer-brand{font-size:14px}
+.site-footer .footer-copyright{color:#aeb6c2;font:500 9px/1.6 Consolas,monospace;letter-spacing:.25px}
+.site-footer .footer-tagline{color:#77818e;font:italic 9px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.2px}
+@media(max-width:540px){.site-footer{gap:6px;padding:15px 14px}.site-footer .footer-copyright{max-width:330px;font-size:8px}.site-footer .footer-tagline{font-size:8px}}
