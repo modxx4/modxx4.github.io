@@ -1,8 +1,10 @@
 CACHE MANIFEST
-# NEXUS 5.05 offline cache - v1
+# NEXUS 5.05 offline cache - v2
 # NEXUS PS4 5.05 HOST
 
 CACHE:
+# NEXUS cache installer
+cache.html
 # Core files
 index.html
 exploit.js
