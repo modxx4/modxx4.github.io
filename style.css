@@ -155,3 +155,25 @@ footer {
   .group-card { min-height: 108px; }
   .group-card > strong { margin: 13px 0 9px; font-size: 25px; }
 }
+
+/* Static grouped firmware cards — no version picker */
+.firmware-groups { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.firmware-group-card {
+  min-width: 0; min-height: 126px; padding: 13px 14px 11px;
+  display: flex; flex-direction: column; border: 1px solid var(--line);
+  border-radius: 8px; background: var(--surface);
+}
+.firmware-group-card > strong {
+  margin: 16px 0 5px; font: 700 clamp(23px, 2.6vw, 30px)/1 "Space Grotesk", sans-serif;
+  letter-spacing: -1px; color: var(--text);
+}
+.firmware-group-card .group-versions {
+  color: #91a3b3; font-size: 9px; font-weight: 700; letter-spacing: .1px;
+  white-space: nowrap;
+}
+.firmware-group-card .group-bottom {
+  margin-top: auto; padding-top: 9px; border-top: 1px solid #293846;
+  color: #718394; font-size: 7px; font-weight: 800; letter-spacing: .55px;
+}
+@media (max-width: 760px) { .firmware-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 540px) { .firmware-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .firmware-group-card { min-height: 108px; padding: 11px 12px 9px; } .firmware-group-card > strong { font-size: 25px; } .firmware-group-card .group-versions { font-size: 8px; } }
