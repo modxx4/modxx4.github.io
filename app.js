@@ -1,7 +1,7 @@
-// NEXUS Firmware Hub — direct firmware routing.
+// MODX Firmware Hub — firmware cards link directly to their host pages.
 document.querySelectorAll('.firmware-card.ready').forEach(card => {
   card.addEventListener('click', () => {
-    const version = card.querySelector('.firmware-number')?.textContent?.trim() || 'unknown';
-    console.info('NEXUS: opening firmware host', version);
+    const version = card.querySelector('strong')?.textContent?.trim() || 'unknown';
+    console.info('MODX: opening firmware host', version);
   });
 });
