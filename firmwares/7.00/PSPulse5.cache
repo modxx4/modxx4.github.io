@@ -1,10 +1,12 @@
 CACHE MANIFEST
-# version-label-audit-20261021-v3
+# version-label-audit-20261021-v3 + MODX Cairo clock
 # resource-path-fix-20261021-main-v2
 # offline-manifests-v1-20261021
 # v9 - goldhen b18.10 (stable branch) cache-error-guard dom-error-target-fix support-link-20261003
 
 CACHE:
+../../modx-clock.css
+../../modx-clock.js
 goldhen10.bin
 index5.html
 alert5.mjs
