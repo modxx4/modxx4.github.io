@@ -1,21 +1,11 @@
-NEXUS HOST - starter website
-================================
-This is the first visual/interface version only.
+NEXUS — Future PS4 Host UI Preview
 
 Files:
-- index.html : page structure
-- style.css  : responsive dark gaming theme
-- app.js     : firmware selector and basic keyboard behavior
+- index.html: main interface
+- style.css: visual design and responsive layout
+- app.js: small UI interactions
 
-Important:
-The firmware selector is a UI scaffold. It does NOT contain jailbreak exploits,
-GoldHEN binaries, payloads, or offline-cache files. Those must be integrated
-from trusted, version-compatible sources and tested before any launch buttons
-are enabled.
-
-Preview:
-Open index.html in a desktop browser.
-
-Publish:
-Upload the three website files to a GitHub repository, then enable
-Settings -> Pages -> Deploy from a branch -> main / root.
+This package is a visual interface prototype only. It does not include or execute
+PS4 exploits, GoldHEN, payload binaries, firmware-specific code, or offline cache.
+Before connecting any modules, verify their source, license, firmware compatibility,
+and integrity. Keep third-party project notices and attribution where required.

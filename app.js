@@ -1,22 +1,11 @@
-const firmware = document.getElementById('firmware');
-const button = document.getElementById('continue');
+const select = document.getElementById('firmwareSelect');
 const notice = document.getElementById('notice');
-
-firmware.addEventListener('change', () => {
-  button.disabled = !firmware.value;
-  notice.textContent = firmware.value
-    ? `Selected firmware: ${firmware.value}. Host routes are not connected yet.`
-    : 'Choose the exact version shown in Settings → System → System Information.';
+document.getElementById('initialize').addEventListener('click', () => {
+  notice.textContent = `NEXUS interface preview selected for firmware ${select.value}. Exploit modules are not connected in this build.`;
 });
-
-button.addEventListener('click', () => {
-  if (!firmware.value) return;
-  notice.textContent = `NEXUS HOST: firmware ${firmware.value} selected. The matching, verified host package must be added before launch is enabled.`;
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+  document.querySelector('nav').classList.toggle('open');
 });
-
-// Basic controller / keyboard navigation support.
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' && document.activeElement === firmware && firmware.value) {
-    button.focus();
-  }
-});
+document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => {
+  document.querySelector('nav').classList.remove('open');
+}));
