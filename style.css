@@ -82,3 +82,15 @@ footer{min-height:62px;display:flex;align-items:center;justify-content:center;ga
  .card-description{font-size:9px;line-height:1.5}.card-index{font-size:7px}.card-status{font-size:6px;letter-spacing:.45px}.card-bottom{font-size:6px}
  footer{gap:9px;flex-wrap:wrap;font-size:7px;letter-spacing:.7px}
 }
+
+/* Language selector and Arabic layout */
+.language-toggle{margin-left:auto;padding:8px 13px;border:1px solid #52699a;border-radius:8px;background:#111a30;color:#dce6ff;font:600 11px Manrope,Arial,sans-serif;cursor:pointer;transition:border-color .18s,background .18s}
+.language-toggle:hover{border-color:var(--cyan);background:#172440}
+.language-toggle:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+html[dir="rtl"] body{font-family:Manrope,Tahoma,Arial,sans-serif}
+html[dir="rtl"] .hero-copy,html[dir="rtl"] .hero-meta,html[dir="rtl"] .section-bar,html[dir="rtl"] .section-note,html[dir="rtl"] .help-note{text-align:right}
+html[dir="rtl"] .eyebrow{letter-spacing:.4px}
+html[dir="rtl"] .card-top,html[dir="rtl"] .card-description,html[dir="rtl"] .card-bottom{direction:rtl}
+html[dir="rtl"] .help-note{flex-direction:row-reverse}
+html[dir="rtl"] footer{direction:rtl}
+@media(max-width:560px){.language-toggle{margin-left:auto}}
