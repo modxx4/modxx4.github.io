@@ -57,3 +57,34 @@ footer{min-height:58px;display:flex;align-items:center;justify-content:center;ga
 @media(max-width:760px){.firmware-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:540px){.topbar{height:62px;padding:0 14px}.header-right{gap:10px}.datetime{min-width:84px}.datetime time{font-size:12px}.datetime span{font-size:7px;letter-spacing:.6px}.ready-indicator{padding:7px 9px;font-size:9px;gap:6px}.page{width:calc(100% - 28px);padding-bottom:27px}.intro{padding:42px 1px 29px}h1{font-size:46px;letter-spacing:-2px}.intro-copy{font-size:11px}.section-bar{align-items:flex-start;flex-direction:column;gap:9px}.firmware-grid{grid-template-columns:1fr;gap:9px}.firmware-card{min-height:137px;padding:12px 13px}.firmware-card>strong{font-size:22px}.firmware-card>strong.compact{font-size:17px}footer{gap:9px;flex-wrap:wrap;padding:13px 10px;font-size:7px;letter-spacing:.4px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* MODXX4 community support */
+.support-promo{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:22px;padding:17px 18px;border:1px solid #354353;border-radius:8px;background:linear-gradient(110deg,#1a2029,#171a20)}
+.support-promo h2{margin:6px 0;color:#eef1f5;font:600 11px Consolas,monospace;letter-spacing:1px}
+.support-promo p{margin:0;color:var(--muted);font-size:10px;line-height:1.6}
+.support-promo>a{display:inline-flex;align-items:center;gap:18px;padding:11px 13px;border:1px solid #596f8b;border-radius:6px;background:#202a37;color:#e8eef8;text-decoration:none;font:600 9px Consolas,monospace;letter-spacing:.7px;white-space:nowrap}
+.support-promo>a b{color:var(--accent);font-size:14px;font-weight:500}
+.support-promo>a:hover{border-color:var(--accent);background:#263447}
+.support-back{color:#aeb9c8;text-decoration:none;font:600 9px Consolas,monospace;letter-spacing:.7px}
+.support-page .intro{padding-bottom:34px}
+.support-section{padding-top:27px}
+.donation-card{max-width:620px;padding:18px;border:1px solid #3b4654;border-radius:9px;background:linear-gradient(145deg,#1d222a,#171a20)}
+.donation-head{display:flex;align-items:center;gap:12px}
+.vodafone-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:8px;background:#e60000;color:#fff;font:800 23px Arial,sans-serif}
+.donation-head>div{display:flex;flex-direction:column;gap:4px}
+.donation-head strong{color:#f1f3f6;font-size:14px}
+.donation-head small{color:#9ba3af;font:500 8px Consolas,monospace;letter-spacing:1px}
+.donation-status{margin-left:auto;color:var(--green);font:600 8px Consolas,monospace;letter-spacing:.7px}
+.donation-copy{margin:20px 0 10px;color:#aeb6c2;font-size:11px}
+.number-panel{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:14px;border:1px solid #394453;border-radius:7px;background:#11161d}
+.number-label{grid-column:1/-1;color:#8995a4;font:500 8px Consolas,monospace;letter-spacing:1px}
+.number-panel strong{color:#fff;font:700 clamp(21px,4vw,27px) Consolas,monospace;letter-spacing:1px}
+.copy-button{padding:10px 12px;border:1px solid #607b9f;border-radius:5px;background:#25364b;color:#e9f1fc;font:600 8px Consolas,monospace;letter-spacing:.7px;cursor:pointer}
+.copy-button:hover{background:#30465f}
+.copy-feedback{grid-column:1/-1;min-height:11px;color:var(--green);font:500 8px Consolas,monospace;letter-spacing:.5px}
+.donation-steps{margin:18px 0;padding-left:20px;color:#b4bdc9;font-size:10px;line-height:2}
+.donation-steps li{padding-left:3px}
+.donation-note{margin:0;padding-top:12px;border-top:1px solid #343b45;color:#8793a2;font-size:9px;line-height:1.8}
+.support-github{margin:14px 1px}
+.support-github a{color:#a9c5ec;text-decoration:none;font:600 9px Consolas,monospace;letter-spacing:.7px}
+@media(max-width:540px){.support-promo{align-items:flex-start;flex-direction:column}.support-promo>a{width:100%;justify-content:space-between}.donation-card{padding:13px}.number-panel{grid-template-columns:1fr}.copy-button{width:100%}.donation-status{font-size:7px}}
