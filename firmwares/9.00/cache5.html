@@ -85,10 +85,12 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
   var saved=localStorage.getItem('modx-language');
   var language=(saved==='ar'||saved==='en')?saved:((navigator.language||'').toLowerCase().startsWith('ar')?'ar':'en');
   window.modxT=function(key){return (translations[key]&&translations[key][language])||key;};
+  window.modxSetText=function(el,key){if(el){el.setAttribute('data-i18n-current',key);el.innerHTML=window.modxT(key);}};
   function applyLanguage(){
     document.documentElement.lang=language;
     document.documentElement.dir=language==='ar'?'rtl':'ltr';
     document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n'));});
+    document.querySelectorAll('[data-i18n-current]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n-current'));});
     var button=document.getElementById('languageToggle');
     if(button){button.textContent=language==='ar'?'English':'عربي';button.setAttribute('aria-label',language==='ar'?'Switch to English':'التبديل إلى الإنجليزية');}
   }
@@ -119,35 +121,35 @@ html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
                 redirectPending = true;
                 setCached(true);
                 setProgress(100);
-                progressLabel.innerHTML = message;
-                cacheStatus.innerHTML = window.modxT('opening');
+                window.modxSetText(progressLabel,message);
+                window.modxSetText(cacheStatus,'opening');
                 setTimeout(function () { window.location.replace('index5.html'); }, 1200);
             }
             if (!appCache) {
-                progressLabel.innerHTML = window.modxT('unavailable');
-                cacheStatus.innerHTML = window.modxT('openPS4');
+                window.modxSetText(progressLabel,'unavailable');
+                window.modxSetText(cacheStatus,'openPS4');
                 return;
             }
             if (appCache.status === appCache.DOWNLOADING) setCached(false);
             appCache.ondownloading = function () {
                 setCached(false);
-                progressLabel.innerHTML = window.modxT('installing');
-                cacheStatus.innerHTML = window.modxT('downloading');
+                window.modxSetText(progressLabel,'installing');
+                window.modxSetText(cacheStatus,'downloading');
             };
             appCache.onprogress = function (event) {
                 if (event.lengthComputable && event.total > 0) setProgress(Math.round(100 * event.loaded / event.total));
-                else cacheStatus.innerHTML = window.modxT('receiving');
+                else window.modxSetText(cacheStatus,'receiving');
             };
-            appCache.oncached = function () { openHost(window.modxT('installed')); };
+            appCache.oncached = function () { openHost('installed'); };
             appCache.onupdateready = function () {
                 try { appCache.swapCache(); } catch (e) {}
-                openHost(window.modxT('updated'));
+                openHost('updated');
             };
-            appCache.onnoupdate = function () { openHost(window.modxT('upToDate')); };
+            appCache.onnoupdate = function () { openHost('upToDate'); };
             appCache.onerror = function () {
                 setCached(false);
-                progressLabel.innerHTML = window.modxT('failed');
-                cacheStatus.innerHTML = window.modxT('stayOnline');
+                window.modxSetText(progressLabel,'failed');
+                window.modxSetText(cacheStatus,'stayOnline');
             };
             appCache.onobsolete = appCache.onerror;
         }());
