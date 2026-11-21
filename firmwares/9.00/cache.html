@@ -109,7 +109,7 @@ h1 span,h1 em{color:var(--accent)}
   appCache.oncached=function(){openHost('installed');};
   appCache.onupdateready=function(){try{appCache.swapCache();}catch(e){}openHost('updated');};
   appCache.onnoupdate=function(){openHost('alreadyUpdated');};
-  appCache.onerror=function(){fail('installationFailed','manifestFailed');};
+  appCache.onerror=function(){if(appCache.status===appCache.IDLE){openHost('offlineReady');}else{fail('installationFailed','manifestFailed');}};
   appCache.onobsolete=function(){fail('manifestUnavailable','manifestCouldNotUse');};
 })();
 </script>
