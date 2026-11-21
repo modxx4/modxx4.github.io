@@ -1,141 +1,115 @@
 <!DOCTYPE html>
 <html lang="en" manifest="PSPulse5.cache">
-
 <head>
-    <link rel="icon" type="image/png" href="../pspulse.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSPULSE // PS4 7.00-8.52 HOST / CACHE / 2.4B18.10</title>
+    <title>MODX // PS4 7.00-8.52 HOST / CACHE / 2.4B18.10</title>
     <script>history.replaceState(null, null, 'index5.html');</script>
     <style>
-        :root {
-            --bg: #151515;
-            --panel: #1c1c1c;
-            --panel-2: #242424;
-            --line: #2e2e2e;
-            --line-bright: #454545;
-            --text: #f5f5f5;
-            --muted: #b5b5b5;
-            --dim: #828282;
-            --accent: #a294ff;
-        }
+        :root { --bg:#151515; --panel:#1c1c1c; --panel-2:#242424; --line:#2e2e2e; --line-bright:#454545; --text:#f5f5f5; --muted:#b5b5b5; --dim:#828282; --accent:#27b8ff; }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        html { background:var(--bg); }
+        html, body { min-height:100%; }
+        body { background-color:var(--bg); background-image:linear-gradient(rgba(39,184,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(39,184,255,.055) 1px,transparent 1px); background-size:36px 36px; color:var(--text); display:flex; flex-direction:column; font:17px/1.4 Consolas,"Liberation Mono",monospace; min-height:100vh; overflow:hidden; }
+        a { color:inherit; }
+        .app { display:flex; flex:1 0 auto; flex-direction:column; margin:0 auto; padding:14px 26px 12px; width:min(100% - 52px,920px); }
+        .bar { align-items:center; border:1px solid var(--line-bright); display:flex; font-size:14px; justify-content:space-between; letter-spacing:.1em; padding:10px 16px; text-transform:uppercase; }
+        .bar b { color:var(--accent); font-weight:400; }
+        .bar-fw { color:var(--dim); }
+        .bar-fw::before { color:var(--accent); content:"\25CF "; }
+        .layout { display:flex; flex:1 0 auto; flex-direction:column; justify-content:center; padding:20px 0 0; }
+        .kicker { color:var(--accent); font-size:14px; letter-spacing:.14em; margin:0 0 12px; }
+        h1 { font-size:clamp(32px,5vw,52px); font-weight:400; letter-spacing:-.07em; line-height:1; margin:0; }
+        h1 em { color:var(--accent); font-style:normal; }
+        .boot { color:var(--dim); font-size:14px; list-style:none; margin:12px 0 0; }
+        .boot li { margin:3px 0; }
+        .boot b { color:var(--accent); font-weight:400; }
+        .progress-container { margin-top:20px; width:100%; }
+        .progress-label { color:var(--accent); font-size:15px; margin-bottom:10px; }
+        .progress-wrapper { background:var(--panel); border:1px solid var(--line-bright); padding:6px; }
+        .progress-bar { background:var(--panel-2); border:1px solid var(--line); height:62px; overflow:hidden; position:relative; }
+        .progress-fill { background:var(--accent); height:100%; width:0; }
+        .progress-text { color:var(--text); font-size:20px; font-weight:400; left:50%; position:absolute; text-shadow:0 1px 8px rgba(0,0,0,.8); top:50%; transform:translate(-50%,-50%); z-index:3; }
+        .status-message { color:var(--muted); font-size:15px; margin-top:12px; }
+        .foot { border-top:1px solid var(--line); color:var(--dim); font-size:13px; margin-top:16px; padding:12px 4px 2px; text-align:center; }
+        .foot a { color:var(--muted); }
+        .foot a:hover, .foot a:focus { color:var(--accent); }
+        @media (max-width:700px) { body { overflow:auto; } .app { padding:8px 10px; width:min(100% - 20px,560px); } .bar { font-size:12px; padding:8px 12px; } .layout { padding-top:14px; } h1 { font-size:40px; } .progress-bar { height:56px; } }
+    
+:root{--bg:#080b17;--panel:#111a2d;--panel-2:#17233b;--line:#293958;--line-bright:#40577f;--text:#f3f6ff;--muted:#aab7d2;--dim:#8290ad;--accent:#7897ff}
+body{background-image:radial-gradient(ellipse at 78% 8%,#334f9b35,transparent 34%),radial-gradient(ellipse at 12% 42%,#573d9b28,transparent 32%),linear-gradient(145deg,#080b17,#0b1020 52%,#090d1b);font-family:Manrope,Arial,sans-serif}
+.app{width:min(100% - 36px,900px);padding:20px 0 16px}
+.bar{border:1px solid #9aafff22;border-radius:11px;background:#080d1bd9;font:600 11px DM Mono,monospace}
+.bar b,.kicker,.progress-label{color:#7897ff}
+.layout{justify-content:center;padding:44px 0}
+h1{font:700 clamp(36px,6vw,58px)/1 Space Grotesk,sans-serif;letter-spacing:-2px}
+h1 em{color:#7897ff}
+.boot{color:#9ba9c7}
+.progress-wrapper{background:#101729;border:1px solid #40577f;border-radius:9px;padding:5px}
+.progress-bar{background:#0b1222;border:1px solid #293958;border-radius:5px;height:54px}
+.progress-fill{background:linear-gradient(90deg,#7897ff,#67dff2)}
+.progress-text{font:600 16px DM Mono,monospace}
+.status-message{color:#aab7d2}
+.foot{border-color:#9aafff18;color:#8290ad}
+@media(max-width:700px){.app{width:calc(100% - 28px);padding-top:14px}.layout{padding:34px 0}}
+</style>
+<style>
+.language-toggle{margin-inline-start:auto;padding:7px 11px;border:1px solid #52699a;border-radius:7px;background:#111a30;color:#dce6ff;font:600 10px Manrope,Arial,sans-serif;cursor:pointer}
+.language-toggle:hover{border-color:#67dff2;background:#172440}
+html[dir="rtl"] body{text-align:right}
+html[dir="rtl"] .topbar,html[dir="rtl"] .bar{direction:rtl}
+html[dir="rtl"] .steps{direction:rtl}
+html[dir="rtl"] .panel-head,html[dir="rtl"] .progress-meta{direction:rtl}
+</style>
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { background: var(--bg); }
-        html, body { min-height: 100%; }
-        body {
-            background-color: var(--bg);
-            background-image: linear-gradient(rgba(162, 148, 255, .05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(162, 148, 255, .05) 1px, transparent 1px);
-            background-size: 36px 36px;
-            color: var(--text);
-            display: flex;
-            flex-direction: column;
-            font: 17px/1.4 Consolas, "Liberation Mono", monospace;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-        a { color: inherit; }
-
-        .app { display: flex; flex: 1 0 auto; flex-direction: column; margin: 0 auto; padding: 14px 26px 12px; width: min(100% - 52px, 920px); }
-
-        /* Top status bar */
-        .bar {
-            align-items: center;
-            border: 1px solid var(--line-bright);
-            display: flex;
-            font-size: 14px;
-            justify-content: space-between;
-            letter-spacing: .1em;
-            padding: 10px 16px;
-            text-transform: uppercase;
-        }
-        .bar b { color: var(--accent); font-weight: 400; }
-        .bar-fw { color: var(--dim); }
-        .bar-fw::before { color: var(--accent); content: "\25CF "; }
-
-        .layout { display: flex; flex: 1 0 auto; flex-direction: column; justify-content: center; padding: 20px 0 0; }
-
-        .kicker { color: var(--accent); font-size: 14px; letter-spacing: .14em; margin: 0 0 12px; }
-        h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 400; letter-spacing: -.07em; line-height: 1; margin: 0; }
-        h1 em { color: var(--accent); font-style: normal; }
-        .sub { color: var(--muted); font-size: 17px; margin: 13px 0 0; }
-        .boot { color: var(--dim); font-size: 14px; list-style: none; margin: 12px 0 0; }
-        .boot li { margin: 3px 0; }
-        .boot b { color: var(--accent); font-weight: 400; }
-
-        .progress-container { margin-top: 20px; width: 100%; }
-        .progress-label { color: var(--accent); font-size: 15px; margin-bottom: 10px; }
-        .progress-wrapper { background: var(--panel); border: 1px solid var(--line-bright); padding: 6px; }
-        .progress-bar { background: var(--panel-2); border: 1px solid var(--line); height: 62px; overflow: hidden; position: relative; }
-        .progress-fill { background: var(--accent); height: 100%; width: 0; }
-        .progress-text { color: var(--text); font-size: 20px; font-weight: 400; left: 50%; position: absolute; text-shadow: 0 1px 8px rgba(0, 0, 0, .8); top: 50%; transform: translate(-50%, -50%); z-index: 3; }
-        .status-message { color: var(--muted); font-size: 15px; margin-top: 12px; }
-
-        .foot {
-            border-top: 1px solid var(--line);
-            color: var(--dim);
-            font-size: 13px;
-            margin-top: 16px;
-            padding: 12px 4px 2px;
-            text-align: center;
-        }
-        .foot a { color: var(--muted); }
-        .foot a:hover, .foot a:focus { color: var(--accent); }
-
-        @media (max-width: 700px) {
-            body { overflow: auto; }
-            .app { padding: 8px 10px; width: min(100% - 20px, 560px); }
-            .bar { font-size: 12px; padding: 8px 12px; }
-            .layout { padding-top: 14px; }
-            h1 { font-size: 40px; }
-            .progress-bar { height: 56px; }
-        }
-    </style>
 </head>
-
 <body>
     <div class="app">
-        <header class="bar">
-            <span><b>PSPULSE</b> // ps4 hosts</span>
-            <span class="bar-fw">cache update</span>
-        </header>
-
+        <header class="bar"><span><b>MODX</b> // ps4 hosts</span><span class="bar-fw" data-i18n="cacheUpdate">cache update</span><button class="language-toggle" id="languageToggle" type="button">عربي</button></header>
         <main class="layout">
-            <p class="kicker">$ ./cache --install</p>
-            <h1>Loading <em>offline cache</em></h1>
-            <ul class="boot">
-                <li>[ <b>ok</b> ] psfree 1.7 chain ready</li>
-                <li>[ <b>..</b> ] downloading host files</li>
-            </ul>
-
+            <p class="kicker" data-i18n="command">$ ./cache --install</p>
+            <h1 data-i18n="heading">Loading <em>offline cache</em></h1>
+            <ul class="boot"><li>[ <b>ok</b> ] <span data-i18n="bootReady">psfree 1.7 chain ready</span></li><li>[ <b>..</b> ] <span data-i18n="bootDownload">downloading host files</span></li></ul>
             <section class="progress-container">
-                <div class="progress-label" id="progress">Loading.. Please Wait !!!</div>
-                <div class="progress-wrapper">
-                    <div class="progress-bar" id="myProgress">
-                        <div class="progress-fill" id="myBar"></div>
-                        <div class="progress-text" id="progressText">0%</div>
-                    </div>
-                </div>
-                <div class="status-message">Initializing cache system...</div>
+                <div class="progress-label" id="progress" data-i18n="loadingWait">Loading.. Please Wait !!!</div>
+                <div class="progress-wrapper"><div class="progress-bar" id="myProgress"><div class="progress-fill" id="myBar"></div><div class="progress-text" id="progressText">0%</div></div></div>
+                <div class="status-message" id="cacheStatus" data-i18n="initializingCache">Initializing cache system...</div>
             </section>
         </main>
-
-        <footer class="foot">
-            Author: <a href="https://t.me/sudoBlackArch">BlackArch</a> // Telegram: <a href="https://t.me/PlayStation_Pulse">PlayStation Pulse</a>
-        </footer>
+        <footer class="foot"><span data-i18n="project">MODX HOST PROJECT</span><span>9.00 // GOLDHEN 2.4B18.10</span></footer>
     </div>
-
+    <script>
+(function(){
+  var translations={"command":{"en":"$ ./cache --install","ar":"$ ./cache --install"},"heading":{"en":"Loading <em>offline cache</em>","ar":"جاري تحميل <em>الكاش أوفلاين</em>"},"intro":{"en":"Preparing the MODX host for offline use. Keep the PS4 browser open and connected to the internet until the cache process finishes.","ar":"بنجهّز هوست MODX للعمل بدون إنترنت. سيب متصفح PS4 مفتوح ومتصل بالإنترنت لحد ما تثبيت الكاش يكتمل."},"cacheTitle":{"en":"CACHE DEPLOYMENT","ar":"تثبيت الكاش"},"initializing":{"en":"INITIALIZING","ar":"جاري التجهيز"},"downloadProgress":{"en":"Download progress","ar":"تقدم التحميل"},"starting":{"en":"Loading.. Please Wait !!!","ar":"جاري التحميل.. برجاء الانتظار !!!"},"waiting":{"en":"Initializing cache system...","ar":"جاري تهيئة نظام الكاش..."},"check":{"en":"01 / CHECK","ar":"01 / فحص"},"checkManifest":{"en":"Check cache manifest","ar":"فحص ملف إعدادات الكاش"},"sync":{"en":"02 / SYNC","ar":"02 / مزامنة"},"downloadResources":{"en":"Download host resources","ar":"تحميل ملفات الهوست"},"readyStep":{"en":"03 / READY","ar":"03 / جاهز"},"openHost":{"en":"Open offline host","ar":"فتح الهوست أوفلاين"},"notice":{"en":"Do not close this page or turn off the console during cache installation. The host will open automatically when caching is complete.","ar":"ما تقفلش الصفحة أو تطفي الجهاز أثناء تثبيت الكاش. الهوست هيفتح تلقائيًا بعد اكتمال التثبيت."},"project":{"en":"MODX HOST PROJECT","ar":"مشروع هوست MODX"},"cacheSystem":{"en":"CACHE SYSTEM","ar":"نظام الكاش"},"cacheUpdate":{"en":"CACHE UPDATE","ar":"تحديث الكاش"},"bootReady":{"en":"psfree 1.7 chain ready","ar":"سلسلة PSFree 1.7 جاهزة"},"bootDownload":{"en":"downloading host files","ar":"جاري تحميل ملفات الهوست"},"loadingWait":{"en":"Loading.. Please Wait !!!","ar":"جاري التحميل.. برجاء الانتظار !!!"},"initializingCache":{"en":"Initializing cache system...","ar":"جاري تهيئة نظام الكاش..."},"checking":{"en":"Checking host files...","ar":"جاري فحص ملفات الهوست..."},"contacting":{"en":"Initializing cache system...","ar":"جاري تهيئة نظام الكاش..."},"installing":{"en":"Page Caching Started!!","ar":"بدأ تثبيت الكاش!!"},"downloading":{"en":"Downloading host files. Do not close the browser.","ar":"جاري تحميل ملفات الهوست. لا تغلق المتصفح."},"receiving":{"en":"Downloading host files...","ar":"جاري تحميل ملفات الهوست..."},"installed":{"en":"Page Cached Successfully!!!","ar":"تم حفظ الصفحة في الكاش بنجاح!!!"},"updated":{"en":"Cache Updated Successfully!!!","ar":"تم تحديث الكاش بنجاح!!!"},"upToDate":{"en":"Offline Cache Ready","ar":"الكاش أوفلاين جاهز"},"opening":{"en":"Opening the cached host...","ar":"جاري فتح الهوست المحفوظ في الكاش..."},"completeOpen":{"en":"Opening the cached host...","ar":"جاري فتح الهوست المحفوظ في الكاش..."},"unavailable":{"en":"Offline cache is not supported by this browser.","ar":"الكاش أوفلاين غير مدعوم في هذا المتصفح."},"openPS4":{"en":"Open this page in the PS4 browser.","ar":"افتح الصفحة دي من متصفح PS4."},"failed":{"en":"Offline cache failed.","ar":"فشل تثبيت الكاش أوفلاين."},"stayOnline":{"en":"Stay online, clear browser data, and reload this page.","ar":"اتأكد إن الإنترنت شغال، وامسح بيانات المتصفح، وبعدها أعد تحميل الصفحة."},"cacheEngineUnavailable":{"en":"Cache engine unavailable.","ar":"محرك الكاش غير متاح."},"supportedBrowser":{"en":"Open this page in the PS4 browser that supports Application Cache.","ar":"افتح الصفحة دي من متصفح PS4 الداعم لـ Application Cache."},"checkingUpdates":{"en":"Checking for host updates...","ar":"جاري فحص تحديثات الهوست..."},"manifestContact":{"en":"Initializing cache system...","ar":"جاري تهيئة نظام الكاش..."},"downloadingResources":{"en":"Downloading host files. Do not close the browser.","ar":"جاري تحميل ملفات الهوست. لا تغلق المتصفح."},"installationFailed":{"en":"Offline cache failed.","ar":"فشل تثبيت الكاش أوفلاين."},"manifestFailed":{"en":"Stay online, clear browser data, and reload this page.","ar":"اتأكد إن الإنترنت شغال، وامسح بيانات المتصفح، وبعدها أعد تحميل الصفحة."},"manifestUnavailable":{"en":"Offline cache failed.","ar":"فشل تثبيت الكاش أوفلاين."},"manifestObsolete":{"en":"Stay online, clear browser data, and reload this page.","ar":"اتأكد إن الإنترنت شغال، وامسح بيانات المتصفح، وبعدها أعد تحميل الصفحة."},"manifestCouldNotUse":{"en":"Stay online, clear browser data, and reload this page.","ar":"اتأكد إن الإنترنت شغال، وامسح بيانات المتصفح، وبعدها أعد تحميل الصفحة."},"alreadyInstalled":{"en":"Offline Cache Ready","ar":"الكاش أوفلاين جاهز"},"alreadyUpdated":{"en":"Offline Cache Ready","ar":"الكاش أوفلاين جاهز"},"timedOut":{"en":"Offline cache failed.","ar":"فشل تثبيت الكاش أوفلاين."},"timeoutDetail":{"en":"Stay online, clear browser data, and reload this page.","ar":"اتأكد إن الإنترنت شغال، وامسح بيانات المتصفح، وبعدها أعد تحميل الصفحة."},"keepOpen":{"en":"Downloading host files. Do not close the browser.","ar":"جاري تحميل ملفات الهوست. لا تغلق المتصفح."},"ready":{"en":"READY","ar":"جاهز"},"error":{"en":"ERROR","ar":"خطأ"},"stateChecking":{"en":"CHECKING","ar":"فحص"},"stateDownloading":{"en":"DOWNLOADING","ar":"تحميل"}};
+  var saved=localStorage.getItem('modx-language');
+  var language=(saved==='ar'||saved==='en')?saved:((navigator.language||'').toLowerCase().startsWith('ar')?'ar':'en');
+  window.modxT=function(key){return (translations[key]&&translations[key][language])||key;};
+  window.modxSetText=function(el,key){if(el){el.setAttribute('data-i18n-current',key);el.innerHTML=window.modxT(key);}};
+  function applyLanguage(){
+    document.documentElement.lang=language;
+    document.documentElement.dir=language==='ar'?'rtl':'ltr';
+    document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n'));});
+    document.querySelectorAll('[data-i18n-current]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n-current'));});
+    var button=document.getElementById('languageToggle');
+    if(button){button.textContent=language==='ar'?'English':'عربي';button.setAttribute('aria-label',language==='ar'?'Switch to English':'التبديل إلى الإنجليزية');}
+  }
+  var button=document.getElementById('languageToggle');
+  if(button)button.addEventListener('click',function(){language=language==='ar'?'en':'ar';try{localStorage.setItem('modx-language',language);}catch(e){}applyLanguage();});
+  applyLanguage();
+})();
+</script>
     <script>
         (function () {
             var appCache = window.applicationCache;
             var progressLabel = document.getElementById('progress');
             var progressBar = document.getElementById('myBar');
             var progressText = document.getElementById('progressText');
+            var cacheStatus = document.getElementById('cacheStatus');
             var redirectPending = false;
 
             function setCached(value) {
-                try { localStorage.is755BCached = value ? 'true' : 'false'; } catch (error) {}
+                try { localStorage.is700StableCached = value ? 'true' : 'false'; } catch (e) {}
             }
             function setProgress(value) {
                 var progress = Math.max(0, Math.min(100, value));
@@ -147,42 +121,39 @@
                 redirectPending = true;
                 setCached(true);
                 setProgress(100);
-                progressLabel.innerHTML = message;
+                window.modxSetText(progressLabel,message);
+                window.modxSetText(cacheStatus,'opening');
                 setTimeout(function () { window.location.replace('index5.html'); }, 1200);
             }
             if (!appCache) {
-                progressLabel.innerHTML = 'Offline cache is not supported by this browser.';
+                window.modxSetText(progressLabel,'unavailable');
+                window.modxSetText(cacheStatus,'openPS4');
                 return;
             }
             if (appCache.status === appCache.DOWNLOADING) setCached(false);
             appCache.ondownloading = function () {
                 setCached(false);
-                progressLabel.innerHTML = 'Page Caching Started!!';
+                window.modxSetText(progressLabel,'installing');
+                window.modxSetText(cacheStatus,'downloading');
             };
             appCache.onprogress = function (event) {
-                if (event.lengthComputable && event.total > 0)
-                    setProgress(Math.round(100 * event.loaded / event.total));
+                if (event.lengthComputable && event.total > 0) setProgress(Math.round(100 * event.loaded / event.total));
+                else window.modxSetText(cacheStatus,'receiving');
             };
-            appCache.oncached = function () { openHost('Page Cached Successfully!!!'); };
+            appCache.oncached = function () { openHost('installed'); };
             appCache.onupdateready = function () {
-                try { appCache.swapCache(); } catch (error) {}
-                openHost('Cache Updated Successfully!!!');
+                try { appCache.swapCache(); } catch (e) {}
+                openHost('updated');
             };
-            appCache.onnoupdate = function () { openHost('Offline Cache Ready'); };
+            appCache.onnoupdate = function () { openHost('upToDate'); };
             appCache.onerror = function () {
                 setCached(false);
-                progressLabel.innerHTML = 'Offline cache failed. Clear browser data and reload while online.';
+                window.modxSetText(progressLabel,'failed');
+                window.modxSetText(cacheStatus,'stayOnline');
             };
             appCache.onobsolete = appCache.onerror;
         }());
     </script>
-
-<!-- PSPulse support link: intentionally lightweight for the PS4 browser. -->
-<style id="pspulse-support-style">
-.pspulse-support{position:fixed;right:18px;bottom:18px;z-index:2147483647;display:block;padding:10px 15px;border:1px solid #9b87ff;border-radius:4px;background:#17151f;color:#b7a9ff!important;font:600 13px Arial,sans-serif;letter-spacing:.2px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.32)}
-.pspulse-support:hover,.pspulse-support:focus{background:#9b87ff;color:#101014!important;outline:none}
-</style>
-<a class="pspulse-support" href="https://sudoblackarch.github.io/support/" aria-label="Support me">Support me!</a>
+    
 </body>
-
 </html>

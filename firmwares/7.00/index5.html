@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" type="image/png" href="../pspulse.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSPULSE // PS4 7.00-8.52 HOST / 2.4B18.10</title>
+    <title>MODX // PS4 7.00–8.52 HOST / GOLDHEN 2.4b18.10</title>
     <style>
         :root {
             --bg: #151515;
@@ -16,7 +16,7 @@
             --text: #f5f5f5;
             --muted: #b5b5b5;
             --dim: #828282;
-            --accent: #a294ff;
+            --accent: #27b8ff;
             --red: #ff9b9b;
         }
 
@@ -25,8 +25,8 @@
         html, body { min-height: 100%; }
         body {
             background-color: var(--bg);
-            background-image: linear-gradient(rgba(162, 148, 255, .05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(162, 148, 255, .05) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(39,184,255,.055) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(39,184,255,.055) 1px, transparent 1px);
             background-size: 36px 36px;
             color: var(--text);
             display: flex;
@@ -180,31 +180,54 @@
             .grid { grid-template-columns: 1fr; }
             h1 { font-size: 34px; }
         }
-    </style>
+    
+:root{--bg:#080b17;--panel:#111a2d;--panel-2:#17233b;--line:#293958;--line-bright:#40577f;--text:#f3f6ff;--muted:#aab7d2;--dim:#8290ad;--accent:#7897ff;--red:#ff9b9b}
+body{background-image:radial-gradient(ellipse at 78% 8%,#334f9b35,transparent 34%),radial-gradient(ellipse at 12% 42%,#573d9b28,transparent 32%),linear-gradient(145deg,#080b17,#0b1020 52%,#090d1b);font-family:Manrope,Arial,sans-serif}
+.app{width:min(100% - 36px,1100px);padding:20px 0 16px}
+.bar{border:1px solid #9aafff22;border-radius:11px;background:#080d1bd9;font:600 11px DM Mono,monospace}
+.bar b,.kicker,h1 em,.np-open,.np-name b{color:#7897ff}
+h1{font:700 clamp(36px,5vw,56px)/1 Space Grotesk,sans-serif;letter-spacing:-2px}
+.sub{color:#aab7d2;font-size:14px;line-height:1.8}
+.boot{color:#9ba9c7;font:11px/1.8 DM Mono,monospace}
+.fw-display{border:1px solid #40577f;border-radius:7px;background:#7897ff12;color:#aebfff;font:11px DM Mono,monospace}
+.status,.controls{background:#101729;border:1px solid #293958;border-radius:11px}
+.notification,.notification2{background:#0b1222;border:1px solid #40577f;border-radius:7px}
+#log{font:13px/1.6 Manrope,Arial,sans-serif}
+.jailbreak-status{color:#67dff2;border-color:#67dff2;font:12px DM Mono,monospace}
+.status-meta,.section-title{font:10px DM Mono,monospace}
+.grid button{background:#121d33;border:1px solid #40577f;border-radius:7px;font:11px Manrope,Arial,sans-serif;transition:.18s}
+.grid button:hover,.grid button:focus{background:#1a2947;border-color:#67dff2;color:#67dff2}
+.nodeplay{background:#111a2d;border:1px solid #40577f;border-radius:9px}
+.nodeplay:hover,.nodeplay:focus{border-color:#67dff2}
+.np-label,.foot{font:9px DM Mono,monospace}
+.np-name{font:700 22px Space Grotesk,sans-serif}
+.foot{border-color:#9aafff18}
+@media(max-width:820px){.app{width:calc(100% - 28px);padding-top:14px}}
+</style>
     <script>
-        if (window.applicationCache && window.applicationCache.status == 0) {
+        if (window.applicationCache.status == '0') {
             window.location.replace("cache5.html");
         }
     </script>
     <script defer src="payloads.js"></script>
     <script defer src="loader5.js"></script>
-    <script type="module" src="alert5.mjs"></script>
+    <script type="module" src="alert5.js"></script>
 </head>
 
 <body onload="if (window.ps4FirmwareSupported) load_exploit();">
     <div class="app">
         <header class="bar">
-            <span><b>PSPULSE</b> // ps4 hosts</span>
-            <span class="bar-fw">fw 7.00-8.52 ready</span>
+            <span><b>MODX</b> // ps4 hosts</span>
+            <span class="bar-fw">fw 7.00–8.52-9.60 ready</span>
         </header>
 
         <main class="layout">
-            <p class="kicker">$ ./launch --psfree-7xx</p>
-            <h1>PSFree <em>7.00-8.52</em> host</h1>
-            <p class="sub">Online and offline Lapse auto GoldHEN by PlayStation Pulse.</p>
+            <p class="kicker">$ ./launch --fw-900</p>
+            <h1>FW <em>7.00–8.52</em> host</h1>
+            <p class="sub">Offline PSFree / Lapse GoldHEN loader for PlayStation 4.</p>
             <ul class="boot">
-                <li>[ <b>ok</b> ] psfree 1.7 chain ready</li>
-                <li>[ <b>ok</b> ] goldhen v2.4b18.10 staged</li>
+                <li>[ <b>ok</b> ] PSFree 1.7 exploit chain ready</li>
+                <li>[ <b>ok</b> ] GoldHEN v2.4b18.10 payload ready</li>
                 <li>[ <b>ok</b> ] offline cache ready</li>
             </ul>
             <p class="fw-display">FW - <span id="PS4fw"></span></p>
@@ -244,53 +267,35 @@
             </a>
 
             <footer class="foot">
-                Author: <a href="https://t.me/sudoBlackArch">BlackArch</a> // Telegram: <a href="https://t.me/PlayStation_Pulse">PlayStation Pulse</a>
+                MODX // PS4 HOST PROJECT
             </footer>
         </main>
     </div>
 
-    <script>
-// Firmware detection
-        UA = navigator.userAgent.substring(navigator.userAgent.indexOf("6.72 (") + 28, navigator.userAgent.indexOf(") Apple"));
-        // 7.xx
-        if (UA == "layStation 4/7.00") UA = "7.00";
-        if (UA == "layStation 4/7.01") UA = "7.01";
-        if (UA == "layStation 4/7.02") UA = "7.02";
-        if (UA == "layStation 4/7.50") UA = "7.50";
-        if (UA == "layStation 4/7.51") UA = "7.51";
-        if (UA == "layStation 4/7.55") UA = "7.55";
-        // 8.xx
-        if (UA == "layStation 4/8.00") UA = "8.00";
-        if (UA == "layStation 4/8.01") UA = "8.01";
-        if (UA == "layStation 4/8.03") UA = "8.03";
-        if (UA == "layStation 4/8.50") UA = "8.50";
-        if (UA == "layStation 4/8.52") UA = "8.52";
+    <script>// Firmware detection for PS4 7.00–8.52.
+UA = navigator.userAgent.substring(navigator.userAgent.indexOf("6.72 (") + 28, navigator.userAgent.indexOf(") Apple"));
+if (UA == "layStation 4/7.00") UA = "7.00";
+if (UA == "layStation 4/7.01") UA = "7.01";
+if (UA == "layStation 4/7.02") UA = "7.02";
+if (UA == "layStation 4/7.50") UA = "7.50";
+if (UA == "layStation 4/7.51") UA = "7.51";
+if (UA == "layStation 4/7.55") UA = "7.55";
+if (UA == "layStation 4/8.00") UA = "8.00";
+if (UA == "layStation 4/8.01") UA = "8.01";
+if (UA == "layStation 4/8.03") UA = "8.03";
+if (UA == "layStation 4/8.50") UA = "8.50";
+if (UA == "layStation 4/8.52") UA = "8.52";
+var supportedFW = ["7.00","7.01","7.02","7.50","7.51","7.55","8.00","8.01","8.03","8.50","8.52"];
+window.ps4FirmwareSupported = supportedFW.indexOf(UA) !== -1;
+if (!window.ps4FirmwareSupported) alert("This Is For PS4 FW 7.xx - 8.xx Only!");
+document.getElementById("PS4fw").innerHTML = "" + UA + "";
+if (localStorage.passcount == null || localStorage.passcount == undefined) localStorage.passcount = 0;
+if (localStorage.failcount == null || localStorage.failcount == undefined) localStorage.failcount = 0;
+if (document.getElementById("passCounter")) document.getElementById("passCounter").innerHTML = localStorage.passcount;
+if (document.getElementById("failCounter")) document.getElementById("failCounter").innerHTML = localStorage.failcount;</script>
 
-        var supportedFW = ["7.00", "7.01", "7.02", "7.50", "7.51", "7.55", "8.00", "8.01", "8.03", "8.50", "8.52"];
-        window.ps4FirmwareSupported = supportedFW.indexOf(UA) !== -1;
-        if (!window.ps4FirmwareSupported)
-            alert("This Is For PS4 FW 7.xx - 8.xx Only!");
-        document.getElementById("PS4fw").innerHTML = "" + UA + "";
+<!-- MODX support link: intentionally lightweight for the PS4 browser. -->
 
-        // Statistics initialization
-        if (localStorage.passcount == null || localStorage.passcount == undefined) localStorage.passcount = 0;
-        if (localStorage.failcount == null || localStorage.failcount == undefined) localStorage.failcount = 0;
-
-        // Update counters on page load
-        if (document.getElementById("passCounter")) {
-            document.getElementById("passCounter").innerHTML = localStorage.passcount;
-        }
-        if (document.getElementById("failCounter")) {
-            document.getElementById("failCounter").innerHTML = localStorage.failcount;
-        }
-    </script>
-
-<!-- PSPulse support link: intentionally lightweight for the PS4 browser. -->
-<style id="pspulse-support-style">
-.pspulse-support{position:fixed;right:18px;bottom:18px;z-index:2147483647;display:block;padding:10px 15px;border:1px solid #9b87ff;border-radius:4px;background:#17151f;color:#b7a9ff!important;font:600 13px Arial,sans-serif;letter-spacing:.2px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.32)}
-.pspulse-support:hover,.pspulse-support:focus{background:#9b87ff;color:#101014!important;outline:none}
-</style>
-<a class="pspulse-support" href="https://sudoblackarch.github.io/support/" aria-label="Support me">Support me!</a>
 </body>
 
 </html>
