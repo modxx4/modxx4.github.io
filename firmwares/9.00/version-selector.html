@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="../navigation.manifest">
+<html lang="en">
 
 <head>
     <link rel="icon" type="image/png" href="../pspulse.png">
@@ -158,10 +158,10 @@
         <main class="layout">
             <p class="kicker">$ select --goldhen</p>
             <h1>Choose <em>version</em></h1>
-            <p class="sub">Select the GoldHEN version to cache and use with the PSFree 9.xx host.</p>
+            <p class="sub">Select the available GoldHEN build for the PS4 9.00 host.</p>
             <ul class="boot">
                 <li>[ <b>ok</b> ] psfree 1.7 chain ready</li>
-                <li>[ <b>ok</b> ] 2 builds available</li>
+                <li>[ <b>ok</b> ] 1 build available</li>
             </ul>
 
             <section class="menu" aria-label="GoldHEN versions">
@@ -181,22 +181,10 @@
                         <span class="card-action">[ SELECT ]</span>
                     </div>
 
-                    <div class="version-card" onclick="selectVersion('v2.4b18.10')" tabindex="0" data-version="stable">
-                        <span class="card-index">02</span>
-                        <span>
-                            <span class="version-badge">Stable</span>
-                            <span class="version-title">GoldHEN <span class="version-number">v2.4b18.10</span></span>
-                            <span class="version-description">Previous stable release with proven reliability. Choose this if the latest version causes issues or you prefer maximum stability.</span>
-                        </span>
-                        <span class="card-action">[ SELECT ]</span>
                     </div>
-                </div>
             </section>
 
-            <a class="nodeplay" href="https://nodeplay.net/" target="_blank" rel="noopener">
-                <span><span class="np-label">Premium game servers</span><span class="np-name">Node<b>Play</b></span></span>
-                <span class="np-open">OPEN &#8599;</span>
-            </a>
+            
 
             <footer class="foot">
                 NEXUS // PS4 HOST PROJECT
@@ -214,8 +202,6 @@
             // Redirect to appropriate cache page based on version
             if (version === 'v2.4b18.12') {
                 window.location.href = 'cache.html';
-            } else if (version === 'v2.4b18.10') {
-                window.location.href = 'cache5.html';
             }
         }
 
