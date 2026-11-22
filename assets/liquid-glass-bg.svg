@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs>
+ <linearGradient id="base" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fbff"/><stop offset=".48" stop-color="#dceafd"/><stop offset="1" stop-color="#eee9fb"/></linearGradient>
+ <linearGradient id="ribbonA" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".88"/><stop offset=".32" stop-color="#bfe5ff" stop-opacity=".45"/><stop offset=".68" stop-color="#8db9ec" stop-opacity=".18"/><stop offset="1" stop-color="#fff" stop-opacity=".68"/></linearGradient>
+ <linearGradient id="ribbonB" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#fff" stop-opacity=".12"/><stop offset=".38" stop-color="#c7b9f4" stop-opacity=".42"/><stop offset=".72" stop-color="#fff" stop-opacity=".74"/><stop offset="1" stop-color="#9bd8ef" stop-opacity=".28"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#fff" stop-opacity=".95"/><stop offset=".45" stop-color="#c7e2fb" stop-opacity=".38"/><stop offset="1" stop-color="#c7e2fb" stop-opacity="0"/></radialGradient>
+ <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="24"/></filter>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="16"/></filter>
+</defs>
+<rect width="1920" height="1080" fill="url(#base)"/>
+<ellipse cx="230" cy="90" rx="560" ry="330" fill="url(#glow)"/>
+<ellipse cx="1710" cy="180" rx="470" ry="360" fill="#9dc8f3" opacity=".22" filter="url(#soft)"/>
+<ellipse cx="1450" cy="1040" rx="620" ry="340" fill="#c8baf0" opacity=".28" filter="url(#soft)"/>
+<ellipse cx="120" cy="950" rx="500" ry="270" fill="#b8e3f5" opacity=".26" filter="url(#soft)"/>
+<!-- broad flowing glass ribbons kept around the perimeter -->
+<path d="M-180 270 C170 -70 450 -70 720 145 S1190 520 1530 270 S1900 40 2120 190 L2120 350 C1840 190 1690 410 1490 520 S1030 650 710 390 S180 130 -180 470Z" fill="url(#ribbonA)" stroke="#fff" stroke-opacity=".72" stroke-width="3"/>
+<path d="M-160 830 C190 570 410 610 690 800 S1110 1080 1400 820 S1820 550 2100 720 L2100 900 C1780 740 1640 980 1390 1080 L-160 1080Z" fill="url(#ribbonB)" stroke="#fff" stroke-opacity=".62" stroke-width="3"/>
+<path d="M1420 -150 C1590 30 1640 190 1510 360 S1330 590 1510 760 S1830 930 2040 1040" fill="none" stroke="#fff" stroke-opacity=".52" stroke-width="48" stroke-linecap="round" filter="url(#shadow)"/>
+<path d="M1420 -150 C1590 30 1640 190 1510 360 S1330 590 1510 760 S1830 930 2040 1040" fill="none" stroke="url(#ribbonA)" stroke-width="30" stroke-linecap="round"/>
+<path d="M-100 80 C130 250 260 300 450 240 S730 80 930 200" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="22" stroke-linecap="round"/>
+<!-- subtle translucent PlayStation-inspired geometry -->
+<g fill="none" stroke="#fff" stroke-width="8" opacity=".34">
+ <circle cx="1740" cy="520" r="58"/><path d="M1625 520h230M1740 405v230"/>
+ <rect x="180" y="570" width="104" height="104" rx="20" transform="rotate(18 232 622)"/>
+ <path d="M390 810l68-118 68 118z"/>
+</g>
+<g fill="none" stroke="#7da9d9" stroke-width="3" opacity=".18">
+ <circle cx="1740" cy="520" r="70"/><rect x="166" y="556" width="132" height="132" rx="26" transform="rotate(18 232 622)"/>
+</g>
+<rect width="1920" height="1080" fill="#fff" opacity=".08"/>
+</svg>

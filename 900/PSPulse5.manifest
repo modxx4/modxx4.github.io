@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# MODXX4 — Reimagined Apple Liquid Glass 20261122-r1
+# MODXX4 — Liquid Glass image background 20261122-r2
 # MODXX4 Crystal Optics Pass 2026-11-22 
 # MODXX4 Apple Crystal Glass Cards 2026-11-22
 # MODXX4 cache pages synchronized to 5.05 template 20261122-r1
@@ -62,6 +62,7 @@ payloads/WebRTE_900.bin
 rop/900.js
 rop/950.js
 
+../assets/liquid-glass-bg.svg
 
 NETWORK:
 *

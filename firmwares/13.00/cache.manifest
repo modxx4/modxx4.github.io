@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# MODXX4 — Reimagined Apple Liquid Glass 20261122-r1
+# MODXX4 — Liquid Glass image background 20261122-r2
 # MODXX4 Crystal Optics Pass 2026-11-22
 # MODXX4 Apple Crystal Glass Cards 2026-11-22
 # MODX Minimal Console cache restore 20261122
@@ -36,6 +36,7 @@ patches/1200.bin
 patches/1250.bin
 patches/1300.bin
 core.js?v=10
+../../assets/liquid-glass-bg.svg
 
 NETWORK:
 *
