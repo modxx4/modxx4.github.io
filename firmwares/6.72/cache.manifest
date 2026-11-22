@@ -6,6 +6,8 @@ CACHE MANIFEST
 # MODX-6.72-cache-v3-goldhen-2.4b18.14
 # Updated 2026-11-21
 
+# Liquid Glass unified redesign 20261122-v2
+
 CACHE:
 ../../liquid-glass.css
 ../../modx-clock.css
