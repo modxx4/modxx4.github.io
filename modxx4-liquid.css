@@ -1022,6 +1022,8 @@ body :is(a,.crystal-arrow,.support-back){color:#9bdfff}
 
 
 /* MODXX4 copyright footer */
+.crystal-footer{flex-wrap:wrap!important}
+.crystal-footer-love{margin-left:auto!important;justify-content:flex-end!important;text-align:right!important}
 .crystal-copyright{
   flex-basis:100%;
   width:100%;
