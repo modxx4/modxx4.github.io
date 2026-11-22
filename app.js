@@ -3,7 +3,7 @@
   const clock=document.getElementById("hostClock");
   const date=document.getElementById("hostDate");
   if(clock && date){
-    const timeOptions={timeZone:"Africa/Cairo",hour:"2-digit",minute:"2-digit",second:"2-digit",hourCycle:"h23"};
+    const timeOptions={timeZone:"Africa/Cairo",hour:"2-digit",minute:"2-digit",hourCycle:"h23"};
     const dateOptions={timeZone:"Africa/Cairo",day:"2-digit",month:"short",year:"numeric"};
     let timeFormatter,dateFormatter;
     try{
@@ -20,7 +20,7 @@
       clock.dateTime=now.toISOString();
     };
     updateClock();
-    window.setInterval(updateClock,1000);
+    window.setInterval(updateClock,30000);
   }
 })();
 document.querySelectorAll(".firmware-card.ready").forEach(card => {
