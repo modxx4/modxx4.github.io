@@ -5,6 +5,8 @@ CACHE MANIFEST
 # MODX 5.05 offline cache - v4
 # MODX PS4 5.05 HOST
 
+# Liquid Glass unified redesign 20261122-v2
+
 CACHE:
 ../../liquid-glass.css
 ../../modx-clock.css
