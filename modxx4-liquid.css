@@ -427,3 +427,178 @@ a.button:before,.btn:before,.action-button:before,[role="button"]:before{
     backdrop-filter:blur(7px) saturate(1.25);
   }
 }
+
+
+
+/* =========================================================
+   MODXX4 / APPLE LIQUID GLASS — unified host design system
+   Shared by home, firmware, cache and support views.
+   Lightweight layered materials; no scripts or exploit changes.
+   ========================================================= */
+:root{
+  --lg-ink:#172943;
+  --lg-muted:#687b96;
+  --lg-blue:#75a9ee;
+  --lg-violet:#b5a8f0;
+  --lg-edge:rgba(255,255,255,.82);
+  --lg-glass:rgba(255,255,255,.19);
+  --lg-shadow:0 18px 48px rgba(43,76,128,.15);
+}
+html{background:#dce8f8!important}
+body{
+  color:var(--lg-ink)!important;
+  background:
+    radial-gradient(ellipse 44% 42% at 8% 4%,rgba(255,255,255,.98),transparent 72%),
+    radial-gradient(ellipse 38% 48% at 94% 13%,rgba(132,180,246,.50),transparent 72%),
+    radial-gradient(ellipse 45% 40% at 72% 92%,rgba(190,169,242,.42),transparent 74%),
+    radial-gradient(ellipse 32% 32% at 8% 82%,rgba(166,207,248,.36),transparent 74%),
+    linear-gradient(135deg,#eaf2fc 0%,#dce8f7 48%,#f2effb 100%)!important;
+  background-attachment:fixed!important;
+}
+body:before{background:linear-gradient(120deg,rgba(255,255,255,.38),transparent 40%,rgba(255,255,255,.16))!important}
+.shell,.app,.page,.crystal-dashboard{position:relative;z-index:0}
+.topbar,.bar,.crystal-header{
+  min-height:72px!important;padding:13px 20px!important;
+  border:1px solid var(--lg-edge)!important;border-radius:25px!important;
+  background:linear-gradient(125deg,rgba(255,255,255,.40),rgba(255,255,255,.13) 52%,rgba(167,199,245,.18))!important;
+  box-shadow:0 14px 36px rgba(54,87,139,.12),inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(125,159,208,.16)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.55)!important;
+  backdrop-filter:blur(18px) saturate(1.55)!important;
+}
+.crystal-nav{
+  border:1px solid rgba(255,255,255,.76)!important;
+  background:rgba(255,255,255,.17)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 5px 18px rgba(61,92,143,.08)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(1.4)!important;
+  backdrop-filter:blur(14px) saturate(1.4)!important;
+}
+.crystal-nav a.active{
+  background:linear-gradient(135deg,rgba(255,255,255,.82),rgba(208,226,250,.42))!important;
+  border:1px solid rgba(255,255,255,.92);
+  box-shadow:0 4px 14px rgba(66,99,151,.12),inset 0 1px 0 #fff!important;
+}
+.crystal-hero,.hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  border:1px solid rgba(255,255,255,.88)!important;border-radius:32px!important;
+  background:
+    radial-gradient(ellipse at 85% 20%,rgba(255,255,255,.64),transparent 42%),
+    linear-gradient(125deg,rgba(255,255,255,.42),rgba(255,255,255,.13) 54%,rgba(164,196,244,.23))!important;
+  box-shadow:0 22px 54px rgba(54,86,139,.14),inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(122,157,208,.18)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(1.6)!important;
+  backdrop-filter:blur(20px) saturate(1.6)!important;
+}
+.crystal-hero:before,.hero:before{
+  content:"";position:absolute;inset:1px;z-index:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(116deg,rgba(255,255,255,.68),rgba(255,255,255,.12) 30%,transparent 58%);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.95),inset 0 -1px 1px rgba(125,159,208,.18);
+}
+.crystal-hero:after,.hero:after{
+  content:"";position:absolute;right:-7%;top:-65%;width:54%;height:180%;z-index:0;pointer-events:none;
+  border:1px solid rgba(255,255,255,.42);border-radius:50%;
+  background:radial-gradient(ellipse at 35% 36%,rgba(255,255,255,.38),rgba(183,211,250,.12) 38%,transparent 70%);
+  box-shadow:inset 12px 8px 30px rgba(255,255,255,.26),0 0 70px rgba(255,255,255,.16);
+}
+.crystal-hero-copy,.crystal-hero-art,.hero>*{position:relative;z-index:2}
+.crystal-hero h1,h1{color:#1a2e4b!important}
+.crystal-hero h1 span,h1 span,h1 em{color:#648fd0!important}
+.crystal-hero p,.subtitle,.sub,.intro,.intro-copy{color:#617692!important}
+.crystal-firmware-grid,.version-grid,.builds,.controls,.grid{gap:14px!important}
+.crystal-fw-card,.version-card,.build-card,.fw-card,.nodeplay,
+.status,.status-panel,.panel,.menu,.support-section,.donation-card,
+.help-note,.number-panel,.pspulse-support{
+  position:relative;isolation:isolate;overflow:hidden;
+  border:1px solid rgba(255,255,255,.84)!important;border-radius:24px!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.36),rgba(255,255,255,.105) 48%,rgba(158,193,243,.18))!important;
+  box-shadow:0 16px 38px rgba(50,82,135,.13),inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(112,151,207,.16)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(1.55)!important;
+  backdrop-filter:blur(16px) saturate(1.55)!important;
+}
+.crystal-fw-card:before,.version-card:before,.build-card:before,.fw-card:before,
+.nodeplay:before,.status:before,.status-panel:before,.panel:before,.menu:before,
+.support-section:before,.donation-card:before,.help-note:before,.number-panel:before,
+.pspulse-support:before{
+  content:"";position:absolute;inset:1px;z-index:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(132deg,rgba(255,255,255,.62),rgba(255,255,255,.09) 38%,transparent 62%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.88);
+}
+.crystal-fw-card:after,.version-card:after,.build-card:after,.fw-card:after,
+.nodeplay:after,.status:after,.status-panel:after,.panel:after,.menu:after,
+.support-section:after,.donation-card:after,.help-note:after,.number-panel:after,
+.pspulse-support:after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
+  background:radial-gradient(ellipse at 92% 0%,rgba(255,255,255,.26),transparent 43%),
+             linear-gradient(315deg,rgba(147,184,238,.13),transparent 46%);
+  box-shadow:inset 1px 1px 1px rgba(255,255,255,.42),inset -1px -1px 1px rgba(111,151,207,.12);
+}
+.crystal-fw-card>*,.version-card>*,.build-card>*,.fw-card>*,
+.nodeplay>*,.status>*,.status-panel>*,.panel>*,.menu>*,
+.support-section>*,.donation-card>*,.help-note>*,.number-panel>*,
+.pspulse-support>*{position:relative;z-index:2}
+.crystal-fw-card,.version-card,.build-card{transition:transform .16s ease,box-shadow .16s ease!important}
+.crystal-fw-card:hover,.version-card:hover,.build-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 20px 44px rgba(50,82,135,.17),inset 0 1px 0 #fff!important;
+}
+.crystal-ps-disc,.mark,.brand-mark,.crystal-ps-logo{
+  border:1px solid rgba(255,255,255,.96)!important;border-radius:17px!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(177,207,247,.32))!important;
+  box-shadow:inset 2px 2px 5px rgba(255,255,255,.95),inset -3px -4px 9px rgba(98,139,198,.13),0 8px 20px rgba(65,101,158,.13)!important;
+}
+.crystal-fw-copy strong,.version-title,.build-card h2,.number-panel strong{color:#29476d!important}
+.crystal-fw-copy small,.version-description,.build-card p,.number-label{color:#6f829e!important}
+.crystal-goldhen,.fw,.pill,.online,.ready-indicator,.bar-fw{
+  border:1px solid rgba(255,255,255,.82)!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.42),rgba(255,255,255,.13))!important;
+  box-shadow:inset 0 1px 0 #fff,0 5px 14px rgba(58,91,145,.08)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(1.4)!important;backdrop-filter:blur(12px) saturate(1.4)!important;
+}
+button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[role="button"]{
+  min-height:46px;position:relative;isolation:isolate;overflow:hidden;
+  border:1px solid rgba(255,255,255,.9)!important;border-radius:16px!important;
+  color:#31547f!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.48),rgba(255,255,255,.15) 56%,rgba(158,194,245,.22))!important;
+  box-shadow:0 8px 20px rgba(52,84,137,.12),inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(108,149,207,.16)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(1.5)!important;backdrop-filter:blur(12px) saturate(1.5)!important;
+}
+button:before,.grid button:before,.copy-button:before,.glass-button:before,
+a.button:before,.btn:before,.action-button:before,[role="button"]:before{
+  content:"";position:absolute;inset:1px;z-index:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(120deg,rgba(255,255,255,.65),rgba(255,255,255,.08) 46%,rgba(160,194,241,.16));
+}
+button:after,.grid button:after,.copy-button:after,.glass-button:after,
+a.button:after,.btn:after,.action-button:after,[role="button"]:after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
+  box-shadow:inset 1px 1px 1px rgba(255,255,255,.72);
+}
+button>*,.grid button>*,.copy-button>*,.glass-button>*,
+a.button>*,.btn>*,.action-button>*,[role="button"]>*{position:relative;z-index:2}
+button:active,.grid button:active,.copy-button:active,.glass-button:active,
+a.button:active,.btn:active,.action-button:active,[role="button"]:active{
+  transform:scale(.975);background:rgba(168,199,241,.28)!important;
+  box-shadow:inset 0 2px 7px rgba(50,82,135,.16)!important;
+}
+input,select,textarea{
+  border:1px solid rgba(255,255,255,.86)!important;border-radius:14px!important;
+  color:#29476d!important;background:rgba(255,255,255,.26)!important;
+  box-shadow:inset 0 1px 3px rgba(255,255,255,.82),0 5px 15px rgba(58,91,145,.07)!important;
+  -webkit-backdrop-filter:blur(10px)!important;backdrop-filter:blur(10px)!important;
+}
+.boot,.boot-status{color:#71839d!important}
+.eyebrow,.kicker,.section-kicker,.section-title,.section-head,.section-bar{color:#6688b7!important}
+#state,.jailbreak-status{color:#315f98!important}
+#console{background:rgba(31,54,86,.075)!important;border:1px solid rgba(255,255,255,.45)}
+.track{background:rgba(108,143,190,.14)!important;border:1px solid rgba(255,255,255,.88)!important}
+#myBar{background:linear-gradient(90deg,#72a8ed,#b4a5ed)!important;box-shadow:0 0 16px rgba(113,157,224,.38)!important}
+.crystal-footer,.modx-copyright,.foot{
+  color:#788ba5!important;border-color:rgba(255,255,255,.68)!important;
+}
+a,.back,.support-back,.support-github a{color:#527fb9}
+a:focus-visible,button:focus-visible{outline:2px solid rgba(81,137,217,.72)!important;outline-offset:3px}
+@media(max-width:760px){
+  .crystal-hero,.hero{border-radius:24px!important}
+  .crystal-fw-card,.version-card,.build-card,.fw-card,.nodeplay,.status,.status-panel,.panel,.menu,.support-section,.donation-card,.help-note,.number-panel,.pspulse-support{border-radius:20px!important}
+  .crystal-header,.topbar,.bar{border-radius:20px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .crystal-fw-card,.version-card,.build-card,button{transition:none!important}
+}
