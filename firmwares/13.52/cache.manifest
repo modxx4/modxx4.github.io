@@ -1,4 +1,4 @@
-# MODXX4 PS4 smooth Liquid Glass performance pass 20261123-r18
+# MODXX4 ULTRA LIGHT PS4 Liquid Glass mode 20261123-r20
 CACHE MANIFEST
 # MODXX4 PlayStation Blue Violet Glassmorphism all pages + offline cache 20261123-r15
 # MODXX4 Unified Deep Blue Apple Liquid Glass all pages 20261123-r14
@@ -30,7 +30,6 @@ CACHE MANIFEST
 
 CACHE:
 ../../modxx4-liquid.css
-../../modx-clock.js
 index.html
 jb.html
 cache.html

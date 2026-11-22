@@ -1500,3 +1500,43 @@ button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[rol
 /* r19 — remove clock/date header widget; keep header spacing balanced */
 .crystal-header-right{display:flex;align-items:center;gap:0}
 .crystal-time{display:none!important}
+
+
+/* MODXX4 r20 — ULTRA LIGHT PS4 MODE
+   Keep the Liquid Glass look through translucent fills and edge highlights.
+   Remove GPU-heavy blur, filters, animated effects and decorative layers. */
+html,body{
+ background-attachment:scroll!important;
+}
+body{
+ background-image:linear-gradient(155deg,#020b1f 0%,#06234b 52%,#020919 100%)!important;
+}
+body::before,body::after{display:none!important;content:none!important}
+*,*::before,*::after{
+ -webkit-backdrop-filter:none!important;
+ backdrop-filter:none!important;
+ animation:none!important;
+ transition:none!important;
+ filter:none!important;
+}
+:is(.crystal-header,.topbar,.bar,.crystal-hero,.hero,.crystal-main,.shell,.page,.layout,.container,.wrap,.main-panel,.content-panel,.cache-panel,.panel,.status,.status-panel,.controls,.nodeplay,.pspulse-support,.support-section,.donation-card,.help-note,.number-panel,.card,.fw-card,.version-card,.build-card,.cache-card,.section-card,.settings-panel,.about-panel,.file-panel,.menu,.boot,.boot-status,.crystal-goldhen,.fw,.bar-fw,.pill,.online,.ready-indicator){
+ box-shadow:0 5px 13px rgba(0,5,20,.24),inset 0 1px 0 rgba(255,255,255,.48)!important;
+}
+:is(.crystal-hero,.hero,.crystal-header,.topbar,.bar,.crystal-main,.shell,.page,.layout,.container,.wrap,.main-panel,.content-panel,.cache-panel,.panel,.status,.status-panel,.controls,.nodeplay,.pspulse-support,.support-section,.donation-card,.help-note,.number-panel,.card,.fw-card,.version-card,.build-card,.cache-card,.section-card,.settings-panel,.about-panel,.file-panel,.menu)::after,
+:is(.crystal-fw-card,.fw-card,.version-card,.build-card,.card,.cache-card,.section-card,.status,.status-panel,.controls,.nodeplay,.pspulse-support,.support-section,.donation-card,.help-note,.number-panel)::after{
+ display:none!important;
+}
+:is(.crystal-header,.topbar,.bar,.crystal-hero,.hero,.crystal-fw-card,.fw-card,.version-card,.build-card,.card,.cache-card,.section-card,.panel,.status,.status-panel,.controls,.nodeplay,.pspulse-support,.support-section,.donation-card,.help-note,.number-panel){
+ background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.045) 58%,rgba(0,125,220,.10))!important;
+}
+:is(.crystal-fw-card,.fw-card,.version-card,.build-card,.card,.cache-card,.section-card):hover,
+:is(.crystal-fw-card,.fw-card,.version-card,.build-card,.card,.cache-card,.section-card):focus-visible{
+ transform:none!important;
+ box-shadow:0 6px 14px rgba(0,5,20,.28),inset 0 1px 0 rgba(255,255,255,.58)!important;
+}
+button:hover,.grid button:hover,.copy-button:hover,.glass-button:hover,a.button:hover,.btn:hover,.action-button:hover,[role="button"]:hover{
+ transform:none!important;
+ box-shadow:0 5px 12px rgba(0,5,20,.24),inset 0 1px 0 rgba(255,255,255,.55)!important;
+}
+.ps-controller-art{filter:none!important}
+.crystal-hero h1.firmware-title{text-shadow:none!important}
