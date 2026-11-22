@@ -8,6 +8,7 @@ CACHE MANIFEST
 # v4 - startup, AppCache and telemetry reliability 20261003
 
 CACHE:
+../../liquid-glass.css
 ../../modx-clock.css
 ../../modx-clock.js
 index.html
