@@ -7,6 +7,8 @@ CACHE MANIFEST
 # offline-manifests-v1-20261021
 # v10 - goldhen b18.12 cache-error-guard dom-error-target-fix support-link-20261003
 
+# Liquid Glass unified redesign 20261122-v2
+
 CACHE:
 ../../liquid-glass.css
 ../../modx-clock.css
