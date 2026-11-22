@@ -504,3 +504,62 @@ body{
 @media(max-width:700px){
  .crystal-hero,.hero{-webkit-backdrop-filter:blur(26px) saturate(1.6)!important;backdrop-filter:blur(26px) saturate(1.6)!important}
 }
+
+
+/* MODXX4 — Reference-matched Liquid Glass cards
+   Based directly on the supplied .liquid-glass-card HTML/CSS.
+   Keep card layout, links and firmware behavior unchanged. */
+.crystal-fw-card,.version-card,.build-card,.fw-card{
+  position:relative!important;
+  border-radius:28px!important;
+  color:#fff!important;
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.22) 0%,
+    rgba(255,255,255,.06) 50%,
+    rgba(255,255,255,.14) 100%
+  )!important;
+  -webkit-backdrop-filter:blur(18px) saturate(160%)!important;
+  backdrop-filter:blur(18px) saturate(160%)!important;
+  border:1px solid rgba(255,255,255,.35)!important;
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.35),
+    inset 0 1px 1px rgba(255,255,255,.6),
+    inset 0 -1px 2px rgba(255,255,255,.18)!important;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease!important;
+}
+.crystal-fw-card:before,.version-card:before,.build-card:before,.fw-card:before,
+.crystal-fw-card:after,.version-card:after,.build-card:after,.fw-card:after{
+  content:none!important;
+  display:none!important;
+}
+.crystal-fw-card:hover,.version-card:hover,.build-card:hover,.fw-card:hover{
+  transform:translateY(-4px)!important;
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.25) 0%,
+    rgba(255,255,255,.075) 50%,
+    rgba(255,255,255,.17) 100%
+  )!important;
+  box-shadow:
+    0 26px 55px rgba(0,0,0,.42),
+    inset 0 1px 2px rgba(255,255,255,.75),
+    inset 0 -1px 2px rgba(255,255,255,.25)!important;
+}
+.crystal-fw-card:active,.version-card:active,.build-card:active,.fw-card:active{
+  transform:scale(.985)!important;
+}
+.crystal-fw-copy strong{color:#fff!important}
+.crystal-fw-copy small{color:rgba(239,246,255,.78)!important}
+.crystal-arrow{color:rgba(255,255,255,.9)!important}
+.crystal-ps-disc{
+  border-color:rgba(255,255,255,.35)!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.06) 50%,rgba(255,255,255,.14))!important;
+  box-shadow:0 8px 20px rgba(0,0,0,.25),inset 0 1px 1px rgba(255,255,255,.6),inset 0 -1px 2px rgba(255,255,255,.18)!important;
+}
+@media(max-width:700px){
+  .crystal-fw-card,.version-card,.build-card,.fw-card{
+    -webkit-backdrop-filter:blur(18px) saturate(160%)!important;
+    backdrop-filter:blur(18px) saturate(160%)!important;
+  }
+}
