@@ -1,4 +1,4 @@
-const CACHE_NAME = "modxx4-host-v3";
+const CACHE_NAME = "modxx4-host-v4";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -7,8 +7,13 @@ const APP_SHELL = [
   "./support.html",
   "./firmwares/9.00/version-selector.html",
   "./firmwares/9.00/cache.html",
-  "./firmwares/9.00/manifest.json",
-  "./firmwares/9.00/goldhen.bin"
+  "./firmwares/9.00/index.html",
+  "./firmwares/9.00/index5.html",
+  "./firmwares/9.00/cache5.html",
+  "./firmwares/9.00/PSPulse.manifest",
+  "./firmwares/9.00/PSPulse5.manifest",
+  "./firmwares/9.00/goldhen.bin",
+  "./firmwares/9.00/goldhen10.bin"
 ];
 
 self.addEventListener("install", (event) => {
