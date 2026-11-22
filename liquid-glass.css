@@ -36,7 +36,7 @@ h1 span,h1 em,.eyebrow,.kicker,.bar b,.np-name b,.np-open,.section-kicker,.card-
 p,.sub,.intro,.subtitle,.card-description,.section-note,.note,.help-note p,.boot,.muted,.description,.step span,.brand small,.datetime span,.modx-clock span,.np-label,.bar-fw{
   color:var(--lg-muted)!important;
 }
-.topbar,.bar,.shell .topbar,.panel,.status,.status-panel,.controls,.build-card,.firmware-card,.nodeplay,.version-card,.note,.notice,.step,.fw-card,.donation-card,.support-promo,.help-note,.cache-card,.card,.host-card,.section-card,.content-card,.menu-card,.notification,.notification2,#out,.status-meta,.progress-container,.pspulse-support{
+.topbar,.bar,.shell .topbar,.panel,.status,.status-panel,.controls,.build-card,.firmware-card,.nodeplay,.version-card,.note,.notice,.step,.fw-card,.donation-card,.support-promo,.help-note,.cache-card,.card,.host-card,.section-card,.content-card,.menu-card,.notification,.notification2,#out,.status-meta,.progress-container,.pspulse-support,.modx-clock{
   background:var(--lg-glass)!important;
   border:1px solid var(--lg-edge)!important;
   color:var(--lg-ink)!important;
@@ -146,3 +146,7 @@ footer,.foot,.site-footer,.modx-copyright{
 }
 .bar-chain{padding:10px 14px}
 .grid-goldhen button{min-height:46px}
+
+.modx-clock{background:rgba(255,255,255,.68)!important;border:1px solid rgba(255,255,255,.96)!important;color:#347fbd!important;border-radius:15px!important;box-shadow:inset 0 1px 0 #fff,0 7px 20px rgba(76,129,185,.12)!important}
+.modx-clock time{color:#286fae!important;text-shadow:none!important}
+.modx-clock span{color:#71849a!important}
