@@ -393,3 +393,19 @@ input::placeholder,textarea::placeholder{color:#7f8da3!important}
 .foot a,.modx-copyright a,.support-back,.support-github{color:#b4cbed!important}
 :focus-visible{outline-color:#a9c9f3!important}
 @media(prefers-color-scheme:light){html,body{color-scheme:dark}}
+
+/* MODXX4 — Obsidian Aurora Glass background */
+html,body{background-color:#030509!important}
+body{
+ background:
+  linear-gradient(180deg,rgba(3,5,9,.38),rgba(3,5,9,.22) 48%,rgba(3,5,9,.48)),
+  url("./assets/liquid-glass-bg.svg") center center / cover no-repeat fixed,
+  radial-gradient(ellipse at 50% 0%,#172236 0%,#070b12 54%,#030509 100%)!important;
+ background-attachment:fixed!important;
+}
+@media(max-width:700px){
+ body{background:
+  linear-gradient(180deg,rgba(3,5,9,.42),rgba(3,5,9,.28) 48%,rgba(3,5,9,.5)),
+  url("./assets/liquid-glass-bg.svg") center center / auto 100% no-repeat fixed,
+  linear-gradient(145deg,#080d16,#030509)!important;background-attachment:fixed!important}
+}
