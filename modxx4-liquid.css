@@ -695,3 +695,35 @@ button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[rol
     backdrop-filter:blur(18px) saturate(160%)!important;
   }
 }
+
+
+/* MODXX4 — FORCE supplied Liquid Glass material above legacy theme rules */
+body :is(.crystal-header,.topbar,.bar,.crystal-hero,.hero,
+.crystal-fw-card,.version-card,.build-card,.fw-card,
+.status,.status-panel,.panel,.controls,.menu,.builds,.note,.number-panel,
+.donation-card,.help-note,.nodeplay,.pspulse-support,.support-section,
+.boot,.boot-status){
+  border:1px solid rgba(255,255,255,.35)!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.05) 50%,rgba(255,255,255,.12))!important;
+  -webkit-backdrop-filter:blur(18px) saturate(160%)!important;
+  backdrop-filter:blur(18px) saturate(160%)!important;
+  box-shadow:0 15px 35px rgba(0,0,0,.4),inset 0 2px 10px rgba(255,255,255,.22),inset 0 -4px 12px rgba(0,0,0,.25)!important;
+}
+body :is(.crystal-header,.topbar,.bar){border-radius:22px!important}
+body :is(.crystal-hero,.hero,.crystal-fw-card,.version-card,.build-card,.fw-card,
+.status,.status-panel,.panel,.controls,.menu,.builds,.note,.number-panel,
+.donation-card,.help-note,.nodeplay,.pspulse-support,.support-section){border-radius:28px!important}
+body :is(.crystal-header,.topbar,.bar,.crystal-hero,.hero,.crystal-fw-card,.version-card,.build-card,.fw-card,
+.status,.status-panel,.panel,.controls,.menu,.builds,.note,.number-panel,.donation-card,.help-note,.nodeplay,.pspulse-support,.support-section,.boot,.boot-status)::before{
+  content:""!important;display:block!important;position:absolute!important;top:6px!important;left:15%!important;width:70%!important;height:18px!important;border:0!important;border-radius:50%!important;
+  background:linear-gradient(to bottom,rgba(255,255,255,.30),rgba(255,255,255,0))!important;box-shadow:none!important;pointer-events:none!important;z-index:0!important;
+}
+body :is(.crystal-header,.topbar,.bar,.crystal-hero,.hero,.crystal-fw-card,.version-card,.build-card,.fw-card,
+.status,.status-panel,.panel,.controls,.menu,.builds,.note,.number-panel,.donation-card,.help-note,.nodeplay,.pspulse-support,.support-section,.boot,.boot-status)>*{position:relative;z-index:1}
+body :is(.crystal-fw-card,.version-card,.build-card,.fw-card,.nodeplay,.pspulse-support,button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[role="button"]):hover{
+  transform:scale(1.035)!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.25),rgba(255,255,255,.08) 50%,rgba(255,255,255,.18))!important;
+  box-shadow:0 20px 40px rgba(0,0,0,.5),inset 0 2px 15px rgba(255,255,255,.38),0 0 20px rgba(0,195,255,.18)!important;
+}
+body :is(.crystal-fw-copy strong,.version-title,.build-card h2,.section-title,.section-head,.section-bar,.panel-head,.menu-top,.donation-head,.card-top,.card-action,.action,.hero h1,.crystal-hero h1){color:#fff!important}
+body :is(.crystal-fw-copy small,.hero p,.crystal-hero p,.subtitle,.sub,.intro,.version-description,.build-card p,.note span,.boot li,.boot-status li){color:rgba(255,255,255,.85)!important}
