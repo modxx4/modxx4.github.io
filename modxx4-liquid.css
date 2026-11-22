@@ -467,3 +467,40 @@ body{
   url("./assets/liquid-glass-bg.svg") center center / auto 100% no-repeat fixed,
   linear-gradient(145deg,#080d16,#030509)!important;background-attachment:fixed!important}
 }
+
+
+/* MODXX4 — Crystal-clear hero glass and controller */
+.crystal-hero,.hero{
+ border:1px solid rgba(222,239,255,.34)!important;
+ background:
+  radial-gradient(ellipse at 78% 12%,rgba(219,237,255,.20),transparent 38%),
+  radial-gradient(ellipse at 12% 100%,rgba(95,145,210,.13),transparent 48%),
+  linear-gradient(128deg,rgba(195,220,250,.14),rgba(25,35,53,.28) 42%,rgba(9,14,24,.34) 72%,rgba(158,143,220,.12))!important;
+ box-shadow:0 28px 72px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.32),inset 1px 0 0 rgba(218,237,255,.12),inset 0 -1px 0 rgba(255,255,255,.10)!important;
+ -webkit-backdrop-filter:blur(38px) saturate(1.8) brightness(1.14)!important;
+ backdrop-filter:blur(38px) saturate(1.8) brightness(1.14)!important;
+}
+.crystal-hero:before,.hero:before{
+ background:
+  linear-gradient(112deg,rgba(255,255,255,.30),rgba(220,239,255,.075) 24%,transparent 48%,rgba(177,199,245,.07) 76%,rgba(255,255,255,.13))!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.3),inset 0 0 34px rgba(210,231,255,.035)!important;
+}
+.crystal-hero:after,.hero:after{
+ border:1px solid rgba(226,241,255,.25)!important;
+ background:
+  radial-gradient(ellipse at 32% 30%,rgba(238,248,255,.22),rgba(145,181,232,.075) 38%,rgba(168,151,229,.055) 60%,transparent 74%)!important;
+ box-shadow:inset 14px 10px 34px rgba(255,255,255,.11),inset -12px -10px 28px rgba(124,159,216,.055),0 0 76px rgba(131,173,230,.10)!important;
+}
+.crystal-hero-art{position:relative;isolation:isolate}
+.crystal-hero-art:before{
+ content:"";position:absolute;inset:8% 5%;border-radius:50%;z-index:-1;pointer-events:none;
+ background:radial-gradient(ellipse,rgba(154,199,255,.23),rgba(111,139,204,.10) 42%,rgba(165,145,235,.08) 60%,transparent 74%);
+ filter:blur(22px);
+}
+.ps-controller-art{
+ opacity:.94;
+ filter:drop-shadow(0 18px 24px rgba(0,0,0,.28)) drop-shadow(0 0 22px rgba(155,199,255,.22)) saturate(1.18) brightness(1.06)!important;
+}
+@media(max-width:700px){
+ .crystal-hero,.hero{-webkit-backdrop-filter:blur(26px) saturate(1.6)!important;backdrop-filter:blur(26px) saturate(1.6)!important}
+}
