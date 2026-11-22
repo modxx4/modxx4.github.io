@@ -1,0 +1,51 @@
+/* MODXX4 — Apple-inspired Light Liquid Glass
+   Lightweight CSS-only treatment with solid fallbacks for older PS4 browsers. */
+:root{
+  color-scheme:light;
+  --lg-ink:#182333;--lg-muted:#65758a;--lg-blue:#3989e8;
+  --lg-glass:rgba(255,255,255,.58);--lg-glass-strong:rgba(255,255,255,.78);
+  --lg-edge:rgba(255,255,255,.88);--lg-shadow:0 18px 48px rgba(68,104,145,.13);
+}
+html,body{background-color:#edf4fb!important;color:var(--lg-ink)!important}
+body{
+ background-image:
+ radial-gradient(ellipse at 12% 0%,rgba(255,255,255,.98),transparent 42%),
+ radial-gradient(ellipse at 88% 12%,rgba(175,216,255,.48),transparent 38%),
+ radial-gradient(ellipse at 52% 100%,rgba(207,224,255,.72),transparent 46%),
+ linear-gradient(145deg,#f7fbff 0%,#eaf2fb 52%,#e4edf8 100%)!important;
+ background-attachment:fixed!important;
+ color:var(--lg-ink)!important;
+}
+body:before{opacity:.22!important;background-image:radial-gradient(rgba(255,255,255,.9) .7px,transparent .7px)!important;background-size:5px 5px!important}
+.topbar,.firmware-card,.support-promo,.help-note,.shell .topbar,.panel,.card,.host-card,.version-card,.cache-card,.status-card,.payload-card,.section-card,.menu-card,.content-card,.brand,.mark,.pill,.online,.ready-indicator,.datetime,.modx-clock{
+ background:var(--lg-glass)!important;
+ border:1px solid var(--lg-edge)!important;
+ color:var(--lg-ink)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(122,157,194,.10),var(--lg-shadow)!important;
+ -webkit-backdrop-filter:blur(18px) saturate(1.55);
+ backdrop-filter:blur(18px) saturate(1.55);
+}
+.topbar,.shell .topbar{border-radius:22px!important}
+.firmware-card,.support-promo,.help-note,.panel,.card,.host-card,.version-card,.cache-card,.status-card,.payload-card,.section-card,.menu-card,.content-card{border-radius:22px!important}
+.firmware-card:hover,.host-card:hover,.version-card:hover,.cache-card:hover,.payload-card:hover{
+ background:rgba(255,255,255,.82)!important;transform:translateY(-2px);
+ box-shadow:inset 0 1px 0 #fff,0 22px 52px rgba(63,111,167,.18)!important
+}
+h1,h2,h3,strong,.brand,.brand-copy,.section-kicker,.card-index,.card-status,.section-hint,.eyebrow,.footer-brand{color:#1c2c40!important}
+p,small,.intro-copy,.card-description,.section-note,.help-note,.muted,.description{color:var(--lg-muted)!important}
+a,button,.btn,[role=button]{-webkit-tap-highlight-color:transparent}
+button,.btn,.pill,.online,.ready-indicator,.card-bottom,.support-promo>a{
+ border-radius:999px!important;border:1px solid rgba(255,255,255,.92)!important;
+ background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(220,237,255,.58))!important;
+ color:#236bb5!important;box-shadow:inset 0 1px 0 #fff,0 8px 22px rgba(76,129,185,.13)!important
+}
+a{color:#287bc5}
+input,select,textarea{background:rgba(255,255,255,.72)!important;color:#1b2a3b!important;border:1px solid rgba(255,255,255,.95)!important;border-radius:14px!important}
+.ready-indicator i,.online i{filter:drop-shadow(0 0 5px rgba(35,190,135,.6))}
+.mark,.brand-mark{background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(194,224,255,.58))!important;color:#2678c4!important;border-color:rgba(255,255,255,.95)!important}
+.site-footer,.footer{color:#708096!important}
+hr,.divider{border-color:rgba(100,133,169,.18)!important}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@media(max-width:600px){.topbar,.shell .topbar{border-radius:18px!important}.firmware-card,.panel,.card,.host-card,.version-card,.cache-card{border-radius:18px!important}}
+/* Keep exploit progress and status text readable over glass. */
+.progress,.progress-bar,.progress-fill{border-radius:999px!important}
