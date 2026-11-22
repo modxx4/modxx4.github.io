@@ -118,3 +118,31 @@ footer,.foot,.site-footer,.modx-copyright{
   .firmware-card,.build-card,.panel,.status,.controls,.nodeplay,.version-card,.cache-card,.host-card,.card,.fw-card,.donation-card{border-radius:18px!important}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* Shared glass treatments for legacy host structures, now using the same new identity. */
+.menu,.version-grid,.hero,.top-meta,.bar-chain,.version-card,.version-badge,.fw-card,.status-panel,.grid-goldhen,.online,.pill,.latest,.card-action{
+  background:var(--lg-glass)!important;
+  border:1px solid var(--lg-edge)!important;
+  color:var(--lg-ink)!important;
+  border-radius:20px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.98),var(--lg-shadow)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.5);
+  backdrop-filter:blur(18px) saturate(1.5);
+}
+.version-number,.version-title,.menu-title,.menu-top,.card-action,.version-description,.np-label,.bar-fw,.bar-chain,.kicker,.section-head span{
+  color:var(--lg-muted)!important;
+}
+.version-number,.version-title,.menu-title,.np-name,.version-card strong,.fw-card strong{
+  color:#1b3049!important;
+}
+.version-badge,.latest,.online,.pill{
+  border-radius:999px!important;
+  background:rgba(255,255,255,.72)!important;
+}
+.build-card:before,.version-card:before,.menu:before,.hero:before{
+  background:linear-gradient(135deg,rgba(255,255,255,.75),rgba(145,202,246,.10))!important;
+  opacity:.42!important;
+  filter:none!important;
+}
+.bar-chain{padding:10px 14px}
+.grid-goldhen button{min-height:46px}
