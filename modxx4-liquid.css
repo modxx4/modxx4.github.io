@@ -855,3 +855,61 @@ button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[rol
     backdrop-filter:blur(14px) saturate(150%)!important;
   }
 }
+
+
+/* MODXX4 — PlayStation Blue Liquid Glass theme, adapted from user reference */
+html,body{min-height:100%;background-color:#001845!important}
+body{
+  background:
+    radial-gradient(circle at 20% 20%,rgba(0,112,209,.75) 0%,transparent 50%),
+    radial-gradient(circle at 80% 85%,rgba(0,174,255,.55) 0%,transparent 55%),
+    linear-gradient(135deg,#001233 0%,#003791 50%,#001845 100%)!important;
+  background-attachment:fixed!important;
+}
+/* Rebuild the large backdrop in PlayStation blue */
+body::before{
+  background:linear-gradient(145deg,rgba(255,255,255,.14) 0%,rgba(0,112,209,.08) 100%)!important;
+  border-top:1.5px solid rgba(255,255,255,.35)!important;
+  border-left:1.5px solid rgba(255,255,255,.25)!important;
+  border-right:1px solid rgba(255,255,255,.10)!important;
+  border-bottom:1px solid rgba(255,255,255,.10)!important;
+  box-shadow:0 25px 55px rgba(0,10,30,.65),inset 0 2px 20px rgba(255,255,255,.2)!important;
+}
+/* Blue/cyan light orbs replace the previous violet accents */
+body::after{
+  background:
+    radial-gradient(circle 210px at 8% 12%,rgba(0,162,255,.65),transparent 72%),
+    radial-gradient(circle 250px at 92% 88%,rgba(0,85,212,.7),transparent 72%)!important;
+}
+/* Each surface now follows the supplied blue-tinted liquid card */
+:where(.crystal-fw-card,.version-card,.build-card,.fw-card,.card,.payload-card,.tool-card,.cache-card,
+.panel,.status,.status-panel,.controls,.menu,.builds,.note,.number-panel,
+.donation-card,.help-note,.nodeplay,.pspulse-support,.support-section,
+.crystal-header,.topbar,.bar,.crystal-hero,.hero,.boot,.boot-status){
+  background:linear-gradient(135deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.06) 50%,rgba(0,162,255,.16) 100%)!important;
+  border-top:1.5px solid rgba(255,255,255,.6)!important;
+  border-left:1.5px solid rgba(255,255,255,.45)!important;
+  border-right:1px solid rgba(255,255,255,.18)!important;
+  border-bottom:1px solid rgba(255,255,255,.18)!important;
+  box-shadow:0 15px 35px rgba(0,15,45,.45),inset 0 2px 12px rgba(255,255,255,.4),inset 0 -4px 12px rgba(0,30,80,.3)!important;
+}
+:where(.crystal-fw-card,.version-card,.build-card,.fw-card,.card,.payload-card,.tool-card,.cache-card,
+.panel,.status,.status-panel,.controls,.menu,.builds,.note,.number-panel,.donation-card,.help-note,
+.nodeplay,.pspulse-support,.support-section,.crystal-header,.topbar,.bar,.crystal-hero,.hero,.boot,.boot-status)::before{
+  background:linear-gradient(to bottom,rgba(255,255,255,.55),rgba(255,255,255,0))!important;
+}
+:where(.crystal-fw-card,.version-card,.build-card,.fw-card,button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[role="button"]):hover,
+:where(.crystal-fw-card,.version-card,.build-card,.fw-card,button,.grid button,.copy-button):focus-visible{
+  background:linear-gradient(135deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,.1) 50%,rgba(0,195,255,.25) 100%)!important;
+  box-shadow:0 20px 40px rgba(0,15,45,.55),inset 0 2px 16px rgba(255,255,255,.7),0 0 25px rgba(0,195,255,.65)!important;
+}
+:where(button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[role="button"]){
+  background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.06) 50%,rgba(0,162,255,.16))!important;
+  box-shadow:0 10px 24px rgba(0,15,45,.38),inset 0 2px 12px rgba(255,255,255,.35),inset 0 -4px 10px rgba(0,30,80,.24)!important;
+}
+:where(input,select,textarea,#console,.track){
+  background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.045) 50%,rgba(0,162,255,.12))!important;
+}
+@media(max-width:700px){
+  body::before{width:96%;border-radius:26px}
+}
