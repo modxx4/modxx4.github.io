@@ -151,30 +151,79 @@ footer,.foot,.site-footer,.modx-copyright{
 .modx-clock time{color:#286fae!important;text-shadow:none!important}
 .modx-clock span{color:#71849a!important}
 
-/* MODXX4 — LIQUID GLASS / BLUE OCEAN EDITION */
-:root{--lg-ink:#f7fbff;--lg-muted:rgba(239,247,255,.78);--lg-glass:rgba(91,165,244,.22);--lg-edge:rgba(239,249,255,.72)}
-html,body{background:#0750a9!important;color:#f7fbff!important}
-body{position:relative!important;isolation:isolate;background-color:#0750a9!important;background-image:radial-gradient(ellipse at 16% 12%,rgba(128,218,255,.96),rgba(80,164,255,.45) 23%,transparent 48%),radial-gradient(ellipse at 88% 18%,rgba(173,205,255,.92),rgba(69,120,255,.48) 28%,transparent 52%),radial-gradient(ellipse at 50% 100%,rgba(42,160,255,.86),transparent 48%),linear-gradient(135deg,#123b91,#167bd2 42%,#123d9a 72%,#061c65)!important;background-attachment:fixed!important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;color:#f7fbff!important}
-body:before{content:""!important;display:block!important;position:fixed!important;inset:-12%!important;z-index:-1!important;pointer-events:none!important;opacity:1!important;background:radial-gradient(ellipse 42% 13% at 18% 42%,rgba(255,255,255,.48),rgba(139,218,255,.20) 38%,transparent 72%),radial-gradient(ellipse 55% 15% at 72% 60%,rgba(255,255,255,.56),rgba(84,178,255,.20) 42%,transparent 74%),radial-gradient(ellipse 45% 12% at 48% 88%,rgba(185,231,255,.52),rgba(50,139,255,.12) 55%,transparent 75%),linear-gradient(153deg,transparent 34%,rgba(255,255,255,.22) 35%,rgba(255,255,255,.06) 38%,transparent 42%),linear-gradient(24deg,transparent 53%,rgba(255,255,255,.20) 54%,rgba(255,255,255,.04) 57%,transparent 61%)!important;filter:blur(2px)}
-body:after{content:""!important;position:fixed!important;inset:0!important;z-index:-1!important;pointer-events:none!important;background:radial-gradient(ellipse at 50% -12%,rgba(255,255,255,.72),transparent 34%),linear-gradient(115deg,transparent,rgba(255,255,255,.08) 44%,transparent 52%),radial-gradient(ellipse at 50% 115%,rgba(0,24,100,.38),transparent 48%)!important}
-.app,.shell,.page,.layout,main{position:relative;z-index:1}
-.topbar,.bar,.shell .topbar{background:linear-gradient(135deg,rgba(255,255,255,.30),rgba(184,224,255,.12) 48%,rgba(255,255,255,.22))!important;border:1px solid rgba(255,255,255,.64)!important;border-radius:25px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(255,255,255,.20),0 18px 48px rgba(0,35,110,.24)!important;-webkit-backdrop-filter:blur(22px) saturate(1.8);backdrop-filter:blur(22px) saturate(1.8)}
-.panel,.status,.status-panel,.controls,.build-card,.firmware-card,.nodeplay,.version-card,.note,.notice,.step,.fw-card,.donation-card,.support-promo,.help-note,.cache-card,.card,.host-card,.section-card,.content-card,.menu-card,.notification,.notification2,#out,.status-meta,.progress-container,.pspulse-support,.modx-clock,.menu,.hero,.menu-top{background:linear-gradient(145deg,rgba(255,255,255,.34),rgba(194,225,255,.16) 48%,rgba(66,147,239,.18))!important;border:1px solid rgba(255,255,255,.68)!important;border-radius:25px!important;color:#f8fcff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(255,255,255,.18),inset 1px 0 0 rgba(255,255,255,.30),0 20px 52px rgba(0,28,93,.28)!important;-webkit-backdrop-filter:blur(22px) saturate(1.85);backdrop-filter:blur(22px) saturate(1.85)}
-.firmware-card,.build-card,.nodeplay,.version-card,.cache-card,.host-card,.card,.fw-card,.grid button{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.38),rgba(190,224,255,.16) 58%,rgba(67,148,255,.20))!important;transition:transform .2s ease,box-shadow .2s ease,background .2s ease!important}
-.firmware-card:before,.version-card:before,.fw-card:before,.card:before,.cache-card:before{content:"";position:absolute;left:-15%;top:-55%;width:130%;height:75%;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.40),rgba(255,255,255,.02),transparent);transform:rotate(-8deg);border-radius:50%}
-.firmware-card:hover,.build-card:hover,.nodeplay:hover,.version-card:hover,.cache-card:hover,.host-card:hover,.card:hover,.fw-card:hover{background:linear-gradient(145deg,rgba(255,255,255,.52),rgba(194,228,255,.26),rgba(77,161,255,.30))!important;transform:translateY(-3px);box-shadow:inset 0 1px 0 #fff,0 25px 58px rgba(0,25,95,.34)!important}
-h1,h2,h3,h4,strong,b,.brand,.brand-copy,.footer-brand,.panel-title,.section-title,.section-head,.np-name,.bar b,.kicker,.eyebrow,.card-top,.tag,.action,.fw,.fw-display,.section-bar h2,.version-title{color:#fff!important;text-shadow:0 2px 18px rgba(0,32,100,.18)!important}
-h1 span,h1 em,.eyebrow,.kicker,.bar b,.np-name b,.np-open,.section-kicker,.card-index,.action b,.version-number{color:#d8f3ff!important}
-p,.sub,.intro,.subtitle,.card-description,.section-note,.note,.help-note p,.boot,.muted,.description,.step span,.brand small,.datetime span,.modx-clock span,.np-label,.bar-fw,.section-hint,.version-description{color:var(--lg-muted)!important}
-.mark,.brand-mark{background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(153,211,255,.28))!important;border:1px solid rgba(255,255,255,.85)!important;color:#fff!important;border-radius:15px!important;box-shadow:inset 0 1px 0 #fff,0 10px 28px rgba(0,37,112,.24)!important}
-.fw,.fw-display,.pill,.tag,.ready-indicator,.online,.status-pass,.donation-status,.version-badge,.card-status{background:linear-gradient(135deg,rgba(255,255,255,.42),rgba(167,220,255,.20))!important;border:1px solid rgba(255,255,255,.72)!important;color:#fff!important;border-radius:999px!important}
-button,.btn,.copy-button,.grid button,.grid-goldhen button,.language-toggle,.support-promo>a,[role=button],.card-action{background:linear-gradient(145deg,rgba(255,255,255,.58),rgba(171,219,255,.24))!important;border:1px solid rgba(255,255,255,.82)!important;border-radius:999px!important;color:#fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.98),0 10px 26px rgba(0,35,105,.22)!important}
-input,select,textarea{background:rgba(255,255,255,.22)!important;color:#fff!important;border:1px solid rgba(255,255,255,.70)!important;border-radius:15px!important}
-.track,.progress-wrapper,.progress-bar{background:rgba(8,48,130,.30)!important;border:1px solid rgba(255,255,255,.60)!important;border-radius:999px!important}
-#myBar,.progress-fill,#progressBar{background:linear-gradient(90deg,#a7eaff,#fff 48%,#72c8ff)!important;border-radius:999px!important;box-shadow:0 0 20px rgba(150,225,255,.65)!important}
-#progressText,#state,.jailbreak-status,.ok,.boot b,.status-pass{color:#e4f8ff!important}
-.bad,.status-fail{color:#ffd0d8!important}.warn{color:#ffe3a5!important}
-footer,.foot,.site-footer,.modx-copyright{color:rgba(240,248,255,.76)!important;border-color:rgba(255,255,255,.42)!important}
-a{color:#effaff!important}
-@media(max-width:760px){.topbar,.bar,.shell .topbar{border-radius:20px!important}.firmware-card,.build-card,.panel,.status,.controls,.nodeplay,.version-card,.cache-card,.host-card,.card,.fw-card,.donation-card{border-radius:21px!important}}
+
+/* MODXX4 — APPLE CRYSTAL LIQUID GLASS / APPROVED CARD DESIGN */
+:root{
+ --lg-ink:#101d32;--lg-muted:#52647d;--lg-blue:#368fe8;
+ --lg-glass:rgba(255,255,255,.34);--lg-glass-strong:rgba(255,255,255,.58);
+ --lg-edge:rgba(255,255,255,.88);--lg-shadow:0 18px 44px rgba(74,105,148,.13)
+}
+html,body{background:#eaf1fc!important;color:#101d32!important}
+body{
+ position:relative!important;isolation:isolate;
+ background:radial-gradient(ellipse at 18% 12%,rgba(255,255,255,.98),transparent 38%),
+ radial-gradient(ellipse at 84% 20%,rgba(189,215,250,.72),transparent 42%),
+ radial-gradient(ellipse at 50% 100%,rgba(255,255,255,.8),transparent 48%),
+ linear-gradient(145deg,#f9fbff 0%,#e8effb 48%,#dce8fa 100%)!important;
+ background-attachment:fixed!important;color:#101d32!important
+}
+body:before{content:"";position:fixed;inset:-8%;z-index:-1;pointer-events:none;opacity:.9;
+ background:linear-gradient(112deg,transparent 27%,rgba(255,255,255,.68) 31%,rgba(255,255,255,.08) 35%,transparent 40%),
+ linear-gradient(18deg,transparent 52%,rgba(255,255,255,.62) 55%,rgba(255,255,255,.08) 59%,transparent 64%),
+ radial-gradient(ellipse at 72% 35%,rgba(255,255,255,.72),transparent 34%);
+ filter:blur(2px)}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+ background:radial-gradient(ellipse at 50% -20%,rgba(255,255,255,.75),transparent 42%),
+ linear-gradient(125deg,transparent 42%,rgba(255,255,255,.18) 48%,transparent 54%)}
+h1,h2,h3,h4,strong,b,.brand,.brand-copy,.footer-brand,.panel-title,.section-title,.section-head,.np-name,.bar b,.kicker,.eyebrow,.card-top,.tag,.action,.fw,.fw-display{color:#14243b!important;text-shadow:none!important}
+p,.sub,.intro,.subtitle,.card-description,.section-note,.note,.help-note p,.boot,.muted,.description,.step span,.brand small,.datetime span,.modx-clock span,.np-label,.bar-fw{color:#61738b!important}
+.topbar,.bar,.shell .topbar,.panel,.status,.status-panel,.controls,.build-card,.firmware-card,.nodeplay,.version-card,.note,.notice,.step,.fw-card,.donation-card,.support-promo,.help-note,.cache-card,.card,.host-card,.section-card,.content-card,.menu-card,.notification,.notification2,#out,.status-meta,.progress-container,.pspulse-support,.modx-clock,.menu,.hero,.top-meta{
+ background:linear-gradient(145deg,rgba(255,255,255,.62),rgba(255,255,255,.22) 52%,rgba(205,225,250,.20))!important;
+ border:1px solid rgba(255,255,255,.92)!important;border-radius:25px!important;color:#14243b!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(122,158,201,.12),0 18px 46px rgba(66,100,145,.14)!important;
+ -webkit-backdrop-filter:blur(22px) saturate(1.65);backdrop-filter:blur(22px) saturate(1.65)
+}
+.firmware-card,.version-card,.fw-card,.cache-card,.host-card,.build-card,.nodeplay,.card{
+ position:relative;overflow:hidden;min-height:148px;
+ background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(255,255,255,.30) 48%,rgba(202,224,250,.28))!important;
+ border:1px solid rgba(255,255,255,.96)!important;border-radius:28px!important;
+ box-shadow:inset 0 1px 0 #fff,inset 0 -2px 0 rgba(116,153,196,.12),0 16px 38px rgba(67,101,148,.14)!important;
+ -webkit-backdrop-filter:blur(24px) saturate(1.75);backdrop-filter:blur(24px) saturate(1.75);
+ transition:transform .2s ease,box-shadow .2s ease,filter .2s ease!important
+}
+.firmware-card:before,.version-card:before,.fw-card:before,.cache-card:before,.host-card:before,.build-card:before,.card:before{
+ content:"";position:absolute;pointer-events:none;inset:0;border-radius:inherit;
+ background:linear-gradient(160deg,rgba(255,255,255,.88),transparent 26%,transparent 68%,rgba(255,255,255,.28)),
+ radial-gradient(ellipse at 18% 0%,rgba(255,255,255,.68),transparent 54%);
+ opacity:.78!important
+}
+.firmware-card:after,.version-card:after,.fw-card:after,.cache-card:after,.host-card:after,.build-card:after,.card:after{
+ content:"";position:absolute;pointer-events:none;left:8%;right:8%;bottom:8%;height:1px;
+ background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),rgba(112,169,226,.28),rgba(255,255,255,.9),transparent);
+ box-shadow:0 0 14px rgba(255,255,255,.85)
+}
+.firmware-card:hover,.version-card:hover,.fw-card:hover,.cache-card:hover,.host-card:hover,.build-card:hover,.nodeplay:hover,.card:hover{
+ transform:translateY(-3px);filter:brightness(1.035);
+ box-shadow:inset 0 1px 0 #fff,0 23px 52px rgba(65,108,164,.20),0 0 0 1px rgba(255,255,255,.55)!important
+}
+.mark,.brand-mark{background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(204,225,249,.58))!important;border:1px solid #fff!important;color:#2e79c0!important;box-shadow:inset 0 1px 0 #fff,0 8px 24px rgba(75,115,166,.16)!important;border-radius:18px!important}
+.fw,.fw-display,.pill,.tag,.ready-indicator,.online,.status-pass,.donation-status,.version-badge,.card-status{
+ background:rgba(255,255,255,.62)!important;border:1px solid rgba(255,255,255,.96)!important;color:#317ec4!important;border-radius:999px!important;
+ box-shadow:inset 0 1px 0 #fff,0 5px 16px rgba(74,122,180,.10)!important
+}
+button,.btn,.copy-button,.grid button,.grid-goldhen button,.language-toggle,.support-promo>a,[role=button],.card-action{
+ background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(218,234,252,.72))!important;border:1px solid rgba(255,255,255,.98)!important;
+ color:#286fae!important;border-radius:999px!important;box-shadow:inset 0 1px 0 #fff,0 8px 22px rgba(75,119,174,.14)!important
+}
+button:hover,.btn:hover,.copy-button:hover,.grid button:hover,.grid-goldhen button:hover{background:#fff!important;border-color:#a9d5fb!important;box-shadow:0 0 18px rgba(111,190,255,.24),0 8px 22px rgba(75,119,174,.14)!important}
+input,select,textarea{background:rgba(255,255,255,.76)!important;color:#14243b!important;border:1px solid rgba(255,255,255,.98)!important;border-radius:15px!important}
+.track,.progress-wrapper,.progress-bar{background:rgba(207,222,241,.62)!important;border:1px solid #fff!important;border-radius:999px!important}
+#myBar,.progress-fill,#progressBar{background:linear-gradient(90deg,#78baf1,#c4e6ff,#fff)!important;border-radius:999px!important;box-shadow:0 0 15px rgba(102,174,234,.3)!important}
+#progressText,#state,.jailbreak-status,.ok,.boot b{color:#347fbd!important;text-shadow:none!important}
+.bad,.status-fail{color:#c65e68!important}.warn{color:#a77727!important}
+a{color:#347fbd}
+footer,.foot,.site-footer,.modx-copyright{color:#71849a!important;border-color:rgba(255,255,255,.8)!important}
+.modx-clock{background:rgba(255,255,255,.68)!important;color:#286fae!important}
+.modx-clock time{color:#286fae!important;text-shadow:none!important}
+@media(max-width:760px){.firmware-card,.version-card,.fw-card,.cache-card,.host-card,.build-card,.nodeplay,.card{min-height:124px;border-radius:21px!important}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
