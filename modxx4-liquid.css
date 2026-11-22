@@ -262,3 +262,91 @@ button:disabled,.grid button:disabled,.copy-button:disabled{
 @media(prefers-reduced-motion:reduce){
  button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[role="button"]{transition:none!important}
 }
+
+
+/* MODXX4 • True layered Apple Liquid Glass — SVG refraction + overlay + specular */
+.crystal-fw-card,.version-card,.build-card,.crystal-header,.crystal-hero,
+.crystal-footer,.topbar,.bar,.panel,.status,.status-panel,.menu,
+.donation-card,.support-section,.help-note,.number-panel{
+  background:linear-gradient(135deg,rgba(255,255,255,.19),rgba(255,255,255,.065) 48%,rgba(184,207,244,.12))!important;
+  border:1px solid rgba(255,255,255,.76)!important;
+  -webkit-backdrop-filter:blur(9px) saturate(1.32);
+  backdrop-filter:blur(9px) saturate(1.32);
+  box-shadow:0 14px 34px rgba(53,82,128,.12),inset 0 1px 0 rgba(255,255,255,.88),inset 0 -1px 0 rgba(128,160,207,.14)!important;
+}
+.crystal-fw-card:before,.version-card:before,.build-card:before,
+.crystal-header:before,.crystal-hero:before,.crystal-footer:before,
+.topbar:before,.bar:before,.panel:before,.status:before,
+.status-panel:before,.menu:before,.donation-card:before,
+.support-section:before,.help-note:before,.number-panel:before{
+  z-index:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.045) 44%,rgba(166,198,242,.12));
+  -webkit-backdrop-filter:blur(7px) saturate(1.38);
+  backdrop-filter:blur(7px) saturate(1.38);
+  -webkit-filter:url(#modxx4-glass-distortion) saturate(1.14) brightness(1.06);
+  filter:url(#modxx4-glass-distortion) saturate(1.14) brightness(1.06);
+}
+.crystal-fw-card:after,.version-card:after,.build-card:after,
+.crystal-header:after,.crystal-hero:after,.crystal-footer:after,
+.topbar:after,.bar:after,.panel:after,.status:after,
+.status-panel:after,.menu:after,.donation-card:after,
+.support-section:after,.help-note:after,.number-panel:after{
+  z-index:1;
+  background:
+    linear-gradient(128deg,rgba(255,255,255,.64) 0%,rgba(255,255,255,.16) 19%,transparent 43%),
+    radial-gradient(ellipse at 88% 0%,rgba(255,255,255,.27),transparent 43%),
+    linear-gradient(315deg,rgba(159,190,237,.12),transparent 42%);
+  box-shadow:inset 1px 1px 1px rgba(255,255,255,.86),inset -1px -1px 1px rgba(126,158,204,.18);
+}
+.crystal-fw-card>*,.version-card>*,.build-card>*,
+.crystal-header>*,.crystal-hero>*,.crystal-footer>*,
+.topbar>*,.bar>*,.panel>*,.status>*,.status-panel>*,
+.menu>*,.donation-card>*,.support-section>*,.help-note>*,.number-panel>*{
+  position:relative;z-index:2;
+}
+
+/* Glass buttons use the same three optical layers as the cards. */
+button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[role="button"]{
+  background:linear-gradient(135deg,rgba(255,255,255,.20),rgba(255,255,255,.065) 55%,rgba(177,205,245,.13))!important;
+  border-color:rgba(255,255,255,.78)!important;
+  -webkit-backdrop-filter:blur(7px) saturate(1.4);
+  backdrop-filter:blur(7px) saturate(1.4);
+  box-shadow:0 7px 18px rgba(59,89,137,.12),inset 0 1px 0 rgba(255,255,255,.92),inset 0 -1px 0 rgba(125,157,205,.16)!important;
+}
+button:before,.grid button:before,.copy-button:before,.glass-button:before,
+a.button:before,.btn:before,.action-button:before,[role="button"]:before{
+  background:linear-gradient(135deg,rgba(255,255,255,.34),rgba(255,255,255,.045) 52%,rgba(165,196,239,.15));
+  -webkit-backdrop-filter:blur(5px) saturate(1.35);
+  backdrop-filter:blur(5px) saturate(1.35);
+  -webkit-filter:url(#modxx4-glass-distortion) saturate(1.12) brightness(1.05);
+  filter:url(#modxx4-glass-distortion) saturate(1.12) brightness(1.05);
+}
+button:after,.grid button:after,.copy-button:after,.glass-button:after,
+a.button:after,.btn:after,.action-button:after,[role="button"]:after{
+  background:linear-gradient(115deg,rgba(255,255,255,.40),transparent 46%,rgba(255,255,255,.12));
+  box-shadow:inset 1px 1px 1px rgba(255,255,255,.82),inset -1px -1px 1px rgba(126,158,205,.12);
+}
+button:active,.grid button:active,.copy-button:active,.glass-button:active,
+a.button:active,.btn:active,.action-button:active,[role="button"]:active{
+  transform:scale(.975);
+  background:rgba(192,216,249,.24)!important;
+}
+@supports not (filter:url(#modxx4-glass-distortion)){
+  .crystal-fw-card:before,.version-card:before,.build-card:before,
+  .crystal-header:before,.crystal-hero:before,.crystal-footer:before,
+  .topbar:before,.bar:before,.panel:before,.status:before,
+  .status-panel:before,.menu:before,.donation-card:before,
+  .support-section:before,.help-note:before,.number-panel:before,
+  button:before,.grid button:before,.copy-button:before,.glass-button:before,
+  a.button:before,.btn:before,.action-button:before,[role="button"]:before{
+    -webkit-filter:none;filter:none;
+  }
+}
+@media(max-width:700px){
+  .crystal-fw-card,.version-card,.build-card,.crystal-header,.crystal-hero,
+  .crystal-footer,.topbar,.bar,.panel,.status,.status-panel,.menu,
+  .donation-card,.support-section,.help-note,.number-panel{
+    -webkit-backdrop-filter:blur(6px) saturate(1.2);
+    backdrop-filter:blur(6px) saturate(1.2);
+  }
+}
