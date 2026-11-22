@@ -96,3 +96,19 @@ footer{min-height:58px;display:flex;align-items:center;justify-content:center;ga
 .site-footer .footer-copyright{color:#aeb6c2;font:500 9px/1.6 Consolas,monospace;letter-spacing:.25px}
 .site-footer .footer-tagline{color:#77818e;font:italic 9px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.2px}
 @media(max-width:540px){.site-footer{gap:6px;padding:15px 14px}.site-footer .footer-copyright{max-width:330px;font-size:8px}.site-footer .footer-tagline{font-size:8px}}
+
+
+/* MODXX4 LIGHT LIQUID GLASS — homepage theme */
+:root{color-scheme:light;--bg:#eaf0f7;--panel:rgba(255,255,255,.62);--panel2:rgba(255,255,255,.78);--line:rgba(255,255,255,.9);--text:#29394f;--muted:#687a90;--accent:#6b93c5;--green:#398e70}
+html,body{background:#eaf0f7!important;color:#29394f!important}
+body{background:radial-gradient(ellipse at 12% 5%,#fff,transparent 42%),radial-gradient(ellipse at 88% 12%,rgba(190,215,245,.72),transparent 38%),linear-gradient(145deg,#edf3fa,#e5edf6 55%,#f5f7fb)!important}
+.topbar,footer{background:rgba(255,255,255,.55)!important;border-color:rgba(255,255,255,.9)!important;box-shadow:0 8px 28px rgba(76,101,135,.08),inset 0 1px 0 #fff!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.brand-mark{background:linear-gradient(145deg,#fff,rgba(216,230,247,.7))!important;border-color:#fff!important;color:#456b9d!important;box-shadow:0 5px 15px rgba(77,112,157,.13)!important}
+.brand-copy small,.datetime span,.section-kicker,.section-hint,.card-index,.section-note{color:#73849a!important}.datetime time,.brand-copy strong,.section-bar h2,.help-note strong{color:#2c405a!important}
+.ready-indicator{background:rgba(255,255,255,.62)!important;border-color:rgba(255,255,255,.95)!important;color:#398e70!important;text-shadow:none!important;box-shadow:0 4px 14px rgba(76,103,142,.08),inset 0 1px 0 #fff!important}
+.intro{border-color:rgba(255,255,255,.85)!important}.eyebrow{color:#6389bd!important}h1{color:#29394f!important}h1 span{color:#7096c6!important}.intro-copy{color:#687a90!important}
+.firmware-card,.help-note,.support-promo,.donation-card{background:rgba(255,255,255,.58)!important;border:1px solid rgba(255,255,255,.92)!important;border-radius:17px!important;box-shadow:0 12px 30px rgba(76,101,135,.09),inset 0 1px 0 #fff!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.firmware-card.featured{background:rgba(255,255,255,.76)!important;border-color:#c6d7ec!important}.firmware-card>strong,.support-promo h2,.donation-head strong{color:#29394f!important}.firmware-card>strong small,.card-description,.help-note p,.support-promo p,.donation-copy{color:#687a90!important}.card-bottom{border-color:rgba(120,146,178,.2)!important;color:#49688f!important}.card-bottom b,.card-description i,.footer-brand span{color:#6b93c5!important}
+.support-promo>a,.copy-button{background:linear-gradient(145deg,#fff,rgba(226,236,248,.75))!important;border:1px solid #fff!important;border-radius:12px!important;color:#385779!important;box-shadow:0 5px 15px rgba(76,103,142,.1),inset 0 1px 0 #fff!important}
+.help-mark{border-color:#b8c9dd!important;color:#6485ad!important}.site-footer .footer-copyright{color:#73849a!important}.site-footer .footer-tagline{color:#8b98a9!important}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
