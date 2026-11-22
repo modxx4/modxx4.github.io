@@ -3,7 +3,7 @@ CACHE MANIFEST
 # MODXX4 original cache design refresh 20261122
 # resource-path-fix-20261021-main-v4
 # offline-manifests-v1-20261021
-#VERSION 3.2 - MODXX4 9.00 cache visual sync 20261122
+#VERSION 3.3 - MODXX4 9.00 full host visual refresh 20261122
 
 CACHE:
 alert.js
