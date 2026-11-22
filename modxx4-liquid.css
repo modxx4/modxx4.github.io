@@ -1019,3 +1019,18 @@ body :is(a,.crystal-arrow,.support-back){color:#9bdfff}
     backdrop-filter:blur(16px) saturate(155%)!important;
   }
 }
+
+
+/* MODXX4 copyright footer */
+.crystal-copyright{
+  flex-basis:100%;
+  width:100%;
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.18);
+  color:rgba(235,247,255,.66);
+  font-size:11px;
+  letter-spacing:.45px;
+  text-align:center;
+  text-shadow:0 1px 8px rgba(0,20,55,.45);
+}
