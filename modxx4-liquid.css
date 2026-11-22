@@ -159,3 +159,51 @@ button,.grid button,.copy-button{background:linear-gradient(145deg,rgba(255,255,
 @media(max-width:560px){
  .crystal-fw-card:before,.version-card:before,.build-card:before{filter:none;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 }
+
+
+/* Snipzy-style layered glass surface: filter / overlay / specular */
+.glass-distortion-defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+.crystal-fw-card,.version-card,.build-card,.crystal-header,.crystal-hero,
+.crystal-footer,.topbar,.bar,.panel,.status,.status-panel,.menu,
+.donation-card,.support-section,.help-note,.number-panel{
+ position:relative;isolation:isolate;overflow:hidden;
+}
+.crystal-fw-card:before,.version-card:before,.build-card:before,
+.crystal-header:before,.crystal-hero:before,.crystal-footer:before,
+.topbar:before,.bar:before,.panel:before,.status:before,
+.status-panel:before,.menu:before,.donation-card:before,
+.support-section:before,.help-note:before,.number-panel:before{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ border-radius:inherit;
+ background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.035) 45%,rgba(175,207,250,.10));
+ -webkit-backdrop-filter:blur(5px) saturate(1.25);
+ backdrop-filter:blur(5px) saturate(1.25);
+}
+.crystal-fw-card:after,.version-card:after,.build-card:after,
+.crystal-header:after,.crystal-hero:after,.crystal-footer:after,
+.topbar:after,.bar:after,.panel:after,.status:after,
+.status-panel:after,.menu:after,.donation-card:after,
+.support-section:after,.help-note:after,.number-panel:after{
+ content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+ border-radius:inherit;
+ background:
+  radial-gradient(ellipse at 16% 0%,rgba(255,255,255,.58),transparent 42%),
+  radial-gradient(ellipse at 90% 100%,rgba(190,218,255,.18),transparent 48%),
+  linear-gradient(115deg,rgba(255,255,255,.25),transparent 34%,rgba(255,255,255,.10));
+ box-shadow:inset 1px 1px 1px rgba(255,255,255,.82),inset -1px -1px 1px rgba(128,163,213,.16);
+}
+.crystal-fw-card>* ,.version-card>*,.build-card>*,
+.crystal-header>*,.crystal-hero>*,.crystal-footer>*,
+.topbar>*,.bar>*,.panel>*,.status>*,.status-panel>*,
+.menu>*,.donation-card>*,.support-section>*,.help-note>*,.number-panel>*{
+ position:relative;z-index:2;
+}
+.crystal-fw-card{background-color:rgba(255,255,255,.16)!important}
+@supports not ((backdrop-filter:blur(2px)) or (-webkit-backdrop-filter:blur(2px))){
+ .crystal-fw-card:before,.version-card:before,.build-card:before{
+  background:linear-gradient(135deg,rgba(255,255,255,.62),rgba(189,214,248,.28));
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .crystal-fw-card,.version-card,.build-card{transition:none!important}
+}
