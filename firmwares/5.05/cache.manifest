@@ -6,6 +6,7 @@ CACHE MANIFEST
 # MODX PS4 5.05 HOST
 
 CACHE:
+../../liquid-glass.css
 ../../modx-clock.css
 ../../modx-clock.js
 # NEXUS cache installer
