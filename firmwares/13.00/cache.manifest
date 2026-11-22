@@ -6,6 +6,8 @@ CACHE MANIFEST
 # v15 - poops: no auto-reload, cache-only (no online fallback) 20261010
 # v16 - add 11.52 lapse routing 20261022
 
+# Liquid Glass unified redesign 20261122-v2
+
 CACHE:
 ../../liquid-glass.css
 ../../modx-clock.css
