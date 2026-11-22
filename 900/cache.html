@@ -93,6 +93,29 @@
                 return;
             }
 
+            // Watch AppCache state as a fallback in case the PS4 browser misses
+            // the final cached/updateready event after reaching 100%.
+            function checkCacheCompletion() {
+                if (redirectPending || cacheFailed) return;
+                try {
+                    if (appCache.status === appCache.UPDATEREADY) {
+                        try { appCache.swapCache(); } catch (e) {}
+                        openHost('Cache updated successfully.');
+                    } else if (appCache.status === appCache.IDLE && progressText.textContent === '100%') {
+                        openHost('Offline cache ready.');
+                    }
+                } catch (e) {}
+            }
+
+            appCache.addEventListener('cached', checkCacheCompletion, false);
+            appCache.addEventListener('updateready', checkCacheCompletion, false);
+            appCache.addEventListener('noupdate', checkCacheCompletion, false);
+            appCache.addEventListener('error', function () {
+                // Keep the existing error handler below as the single failure path.
+            }, false);
+            appCache.addEventListener('statuschange', checkCacheCompletion, false);
+            var completionWatch = window.setInterval(checkCacheCompletion, 500);
+
             // Register listeners before asking AppCache to update, so fast events are not missed.
             appCache.addEventListener('checking', function () {
                 cacheStatus.textContent = 'Checking for host updates...';
