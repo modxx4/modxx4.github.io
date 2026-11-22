@@ -1,4 +1,4 @@
-const CACHE_NAME = "modxx4-host-v5";
+const CACHE_NAME = "modxx4-host-v6";
 const APP_SHELL = [
   "./",
   "./index.html",
