@@ -1074,3 +1074,208 @@ body.crystal-dashboard .crystal-footer-project strong,body.crystal-dashboard .cr
 body.crystal-dashboard .crystal-footer-project small{color:rgba(235,247,255,.65)!important}
 body.crystal-dashboard .crystal-copyright{border-top-color:rgba(255,255,255,.18)!important;color:rgba(235,247,255,.62)!important}
 @media(max-width:760px){body.crystal-dashboard .crystal-header{border-radius:28px;flex-wrap:wrap;justify-content:center}body.crystal-dashboard .crystal-main{padding:18px 14px 22px;border-radius:30px}body.crystal-dashboard .crystal-hero{padding:20px 8px;min-height:unset;flex-direction:column;text-align:center}body.crystal-dashboard .crystal-hero-art{width:min(88%,360px)}body.crystal-dashboard .crystal-firmware-grid{grid-template-columns:1fr}body.crystal-dashboard .crystal-nav{order:3;flex-wrap:wrap;justify-content:center}}
+
+
+/* MODXX4 — Approved Apple Liquid Glass blue host redesign 20261123-r10
+   Adapted from the user's supplied visionOS-style reference.
+   Preserve firmware links, payload actions, exploit scripts and cache behavior. */
+:root{color-scheme:dark}
+html,body{min-height:100%;background:#010a1a!important}
+body{
+  position:relative!important;isolation:isolate;overflow-x:hidden!important;
+  color:#fff!important;
+  background:
+    radial-gradient(circle at 15% 15%,rgba(0,85,212,.58) 0%,transparent 43%),
+    radial-gradient(circle at 85% 85%,rgba(0,153,255,.42) 0%,transparent 48%),
+    linear-gradient(160deg,#001233 0%,#002868 50%,#000c24 100%)!important;
+  background-attachment:fixed!important;
+}
+/* Organic liquid light sources */
+body::before{
+  content:"";position:fixed;z-index:-1;pointer-events:none;
+  width:500px;height:500px;top:-120px;left:4%;
+  border-radius:42% 58% 70% 30% / 45% 45% 55% 55%;
+  background:radial-gradient(circle at 30% 30%,rgba(0,195,255,.65),rgba(0,85,212,.25) 65%,transparent 75%);
+  filter:blur(2px);
+}
+body::after{
+  content:"";position:fixed;z-index:-1;pointer-events:none;
+  width:560px;height:560px;right:2%;bottom:-150px;
+  border-radius:60% 40% 30% 70% / 60% 30% 70% 40%;
+  background:radial-gradient(circle at 60% 40%,rgba(0,132,255,.62),rgba(0,45,130,.22) 65%,transparent 75%);
+}
+.crystal-dashboard::marker{display:none}
+/* Floating navigation capsule */
+.crystal-header,.topbar,.bar{
+  border:1px solid rgba(255,255,255,.35)!important;
+  border-radius:999px!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.055))!important;
+  box-shadow:0 14px 34px rgba(0,5,20,.42),inset 0 1.5px 1px rgba(255,255,255,.68),inset 0 -1px 3px rgba(255,255,255,.12)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(1.65)!important;
+  backdrop-filter:blur(22px) saturate(1.65)!important;
+}
+.crystal-header:before,.topbar:before,.bar:before{
+  background:linear-gradient(115deg,rgba(255,255,255,.25),rgba(255,255,255,.035) 42%,transparent 70%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45)!important;
+}
+.crystal-brand,.brand,.crystal-brand-copy strong,.brand-copy strong{color:#fff!important}
+.crystal-brand-copy small,.brand-copy small,.crystal-time small,.modx-clock span{color:rgba(255,255,255,.72)!important}
+.crystal-ps-logo,.mark,.brand-mark{
+  border-color:rgba(255,255,255,.5)!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.34),rgba(0,162,255,.15))!important;
+  box-shadow:0 8px 18px rgba(0,10,35,.35),inset 0 1.5px 1px rgba(255,255,255,.75),inset 0 -2px 4px rgba(0,112,209,.3)!important;
+}
+.crystal-nav{border-color:rgba(255,255,255,.25)!important;background:rgba(0,15,45,.22)!important}
+.crystal-nav a{color:rgba(255,255,255,.76)!important}
+.crystal-nav a:hover,.crystal-nav a.active{
+  color:#fff!important;background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,.08))!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 5px 14px rgba(0,10,35,.2)!important;
+}
+.crystal-goldhen,.fw,.bar-fw,.pill,.online,.ready-indicator{
+  border-color:rgba(255,255,255,.34)!important;background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.06))!important;
+  color:#fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 7px 18px rgba(0,10,35,.25)!important;
+}
+.crystal-goldhen small{color:rgba(255,255,255,.7)!important}
+.crystal-time,.modx-clock{color:#fff!important}
+/* Main glass window */
+.crystal-main{
+  position:relative;isolation:isolate;overflow:hidden;
+  width:min(1020px,94%)!important;max-width:1020px!important;
+  margin:30px auto 0!important;padding:34px 32px 32px!important;
+  border-radius:44px!important;border:1px solid rgba(255,255,255,.35)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.04) 42%,rgba(255,255,255,.09) 100%)!important;
+  box-shadow:0 35px 70px rgba(0,5,20,.58),inset 0 1.5px 1px rgba(255,255,255,.68),inset 0 -1.5px 2px rgba(255,255,255,.2),inset 0 0 35px rgba(255,255,255,.06)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(1.7)!important;
+  backdrop-filter:blur(28px) saturate(1.7)!important;
+}
+.crystal-main:before{
+  content:"";position:absolute;inset:1px;border-radius:inherit;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle at 50% 0%,rgba(56,215,255,.13),transparent 42%),linear-gradient(115deg,rgba(255,255,255,.22),transparent 48%);
+}
+.crystal-hero,.hero{
+  min-height:0!important;padding:12px 12px 24px!important;gap:14px!important;
+  border:0!important;border-radius:0!important;background:transparent!important;
+  box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+.crystal-hero:before,.crystal-hero:after,.hero:before,.hero:after{display:none!important}
+.crystal-hero-copy{text-align:center!important;flex:1}
+.crystal-hero .eyebrow{color:rgba(255,255,255,.72)!important;letter-spacing:.2em}
+.crystal-hero h1,.hero h1,.layout h1,.page h1,.shell main h1{
+  color:#fff!important;text-shadow:0 2px 14px rgba(0,195,255,.28)!important;
+}
+.crystal-hero h1.firmware-title{
+  background:linear-gradient(100deg,#fff 0%,#c8eaff 55%,#8edfff 100%)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.crystal-hero p,.hero p,.sub,.subtitle,.intro-copy{color:rgba(255,255,255,.86)!important}
+.crystal-hero-art{width:min(34%,300px)!important}
+.ps-controller-art{filter:drop-shadow(0 18px 24px rgba(0,5,25,.42)) drop-shadow(0 0 24px rgba(0,195,255,.2))!important}
+.crystal-library-title{margin:14px 4px 18px!important;color:#fff!important}
+.crystal-library-title strong{color:#fff!important;letter-spacing:.18em}
+.crystal-library-title span{color:rgba(255,255,255,.7)!important}
+/* Firmware cards: same six real destinations, arranged like the supplied 3×2 reference */
+.crystal-firmware-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important}
+.crystal-fw-card,.version-card,.build-card,.fw-card{
+  min-height:184px!important;padding:22px 16px!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+  gap:10px!important;text-align:center!important;overflow:hidden!important;
+  border-radius:30px!important;border:1px solid rgba(255,255,255,.38)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.045) 55%,rgba(255,255,255,.14) 100%)!important;
+  box-shadow:0 18px 36px rgba(0,8,28,.44),inset 0 1.5px 1.5px rgba(255,255,255,.78),inset 0 -2px 4px rgba(255,255,255,.22),inset 0 10px 25px rgba(255,255,255,.08)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(1.7)!important;backdrop-filter:blur(22px) saturate(1.7)!important;
+  transition:transform .22s cubic-bezier(.25,1,.5,1),box-shadow .22s ease,background .22s ease!important;
+}
+.crystal-fw-card:before,.version-card:before,.build-card:before,.fw-card:before{
+  content:""!important;display:block!important;position:absolute!important;top:2px!important;left:12%!important;width:76%!important;height:36%!important;
+  border-radius:50% 50% 45% 45% / 60% 60% 40% 40%!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.015) 85%,transparent)!important;
+  box-shadow:none!important;pointer-events:none!important;z-index:0!important;
+}
+.crystal-fw-card:after,.version-card:after,.build-card:after,.fw-card:after{
+  content:""!important;display:block!important;position:absolute!important;inset:0!important;border-radius:inherit!important;
+  background:radial-gradient(ellipse at 16% 0%,rgba(255,255,255,.12),transparent 48%)!important;
+  border:0!important;box-shadow:inset 0 -14px 28px rgba(255,255,255,.035)!important;pointer-events:none!important;z-index:0!important;
+}
+.crystal-fw-card>* ,.version-card>* ,.build-card>* ,.fw-card>*{position:relative!important;z-index:1!important}
+.crystal-fw-card:hover,.version-card:hover,.build-card:hover,.fw-card:hover,
+.crystal-fw-card:focus-visible,.version-card:focus-visible,.build-card:focus-visible,.fw-card:focus-visible{
+  transform:scale(1.035)!important;border-color:rgba(255,255,255,.78)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.32),rgba(255,255,255,.08) 50%,rgba(0,195,255,.2))!important;
+  box-shadow:0 24px 48px rgba(0,8,28,.58),inset 0 2px 2px rgba(255,255,255,.9),inset 0 -2px 6px rgba(255,255,255,.35),0 0 28px rgba(0,195,255,.32)!important;
+  outline:none!important;
+}
+.crystal-ps-disc,.crystal-ps-logo,.mark,.brand-mark{
+  width:58px!important;height:58px!important;flex:0 0 58px!important;border-radius:19px!important;
+  border:1px solid rgba(255,255,255,.58)!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.34),rgba(0,162,255,.18))!important;
+  box-shadow:0 8px 18px rgba(0,10,35,.35),inset 0 1.5px 1px rgba(255,255,255,.82),inset 0 -2px 4px rgba(0,112,209,.34)!important;
+}
+.crystal-ps-disc .ps-symbol{width:30px!important;height:30px!important}
+.crystal-fw-copy{align-items:center!important;gap:6px!important}
+.crystal-fw-copy strong{color:#fff!important;font-size:19px!important;letter-spacing:-.01em!important;line-height:1.2!important}
+.crystal-fw-copy small{color:rgba(255,255,255,.86)!important;font-size:11px!important;line-height:1.45!important}
+.crystal-arrow{display:none!important}
+.crystal-footer,.foot,.modx-copyright{
+  width:min(1020px,94%)!important;margin:24px auto 0!important;
+  color:rgba(255,255,255,.72)!important;border-color:rgba(255,255,255,.2)!important;
+}
+.crystal-footer-project strong,.crystal-footer-project span,.crystal-footer-love span{color:rgba(255,255,255,.88)!important}
+.crystal-copyright{color:rgba(255,255,255,.68)!important}
+/* Shared glass surfaces across firmware hosts and offline cache installers */
+.status,.status-panel,.panel,.controls,.nodeplay,.pspulse-support,.support-section,.donation-card,.help-note,.number-panel,.menu,.builds,.note,.boot,.boot-status{
+  border:1px solid rgba(255,255,255,.34)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.19),rgba(255,255,255,.045) 54%,rgba(255,255,255,.12))!important;
+  box-shadow:0 16px 36px rgba(0,8,28,.42),inset 0 1.5px 1px rgba(255,255,255,.62),inset 0 -2px 4px rgba(255,255,255,.16)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(1.6)!important;backdrop-filter:blur(20px) saturate(1.6)!important;
+}
+.status:before,.status-panel:before,.panel:before,.controls:before,.nodeplay:before,.pspulse-support:before,.support-section:before,.donation-card:before,.help-note:before,.number-panel:before{
+  background:linear-gradient(115deg,rgba(255,255,255,.25),rgba(255,255,255,.025) 45%,transparent 70%)!important;
+}
+.section-title,.section-head,.section-bar,.panel-head,.menu-top,.donation-head,.card-top,.card-action,.action{color:#fff!important}
+.section-bar h2,.donation-head strong,.number-panel strong{color:#fff!important}
+.hero p,.layout p,.page p,.shell p,.notification,.donation-copy,.donation-steps,.donation-note,.help-note p,.boot li,.boot-status li{color:rgba(255,255,255,.84)!important}
+.boot,.boot-status{color:rgba(255,255,255,.82)!important;border-color:rgba(255,255,255,.25)!important;background:rgba(255,255,255,.09)!important}
+button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[role="button"]{
+  border:1px solid rgba(255,255,255,.38)!important;color:#fff!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.22),rgba(255,255,255,.055) 55%,rgba(255,255,255,.14))!important;
+  box-shadow:0 9px 20px rgba(0,8,28,.36),inset 0 1.5px 1px rgba(255,255,255,.72),inset 0 -2px 4px rgba(255,255,255,.16)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(1.55)!important;backdrop-filter:blur(16px) saturate(1.55)!important;
+}
+button:before,.grid button:before,.copy-button:before,.glass-button:before,a.button:before,.btn:before,.action-button:before,[role="button"]:before{
+  background:linear-gradient(115deg,rgba(255,255,255,.28),rgba(255,255,255,.025) 48%,transparent 70%)!important;
+}
+button:hover,.grid button:hover,.copy-button:hover{box-shadow:0 13px 26px rgba(0,8,28,.48),inset 0 1.5px 1px rgba(255,255,255,.85),0 0 18px rgba(0,195,255,.22)!important}
+input,select,textarea,#console,.track{
+  border:1px solid rgba(255,255,255,.32)!important;color:#fff!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.035) 55%,rgba(255,255,255,.09))!important;
+  box-shadow:inset 0 1px 5px rgba(255,255,255,.18),inset 0 -3px 8px rgba(0,0,0,.18)!important;
+}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.6)!important}
+#console{color:rgba(255,255,255,.88)!important}
+a,.support-back,.support-github{color:#c5eaff}
+:focus-visible{outline:2px solid rgba(160,230,255,.9)!important;outline-offset:3px!important}
+@media(max-width:900px){
+  .crystal-main{width:95%!important;padding:28px 22px!important;border-radius:34px!important}
+  .crystal-firmware-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:700px){
+  body::before{width:340px;height:340px;top:-90px;left:-80px}
+  body::after{width:380px;height:380px;right:-120px;bottom:-110px}
+  .crystal-header,.topbar,.bar{width:95%!important;min-height:62px!important;padding:10px 14px!important;border-radius:24px!important;flex-wrap:wrap!important}
+  .crystal-nav{order:3;width:100%;justify-content:center}
+  .crystal-main{margin:18px auto 0!important;padding:22px 16px!important;border-radius:28px!important}
+  .crystal-hero{padding:4px 4px 18px!important}
+  .crystal-hero-art{width:min(48%,210px)!important}
+  .crystal-firmware-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  .crystal-fw-card{min-height:156px!important;padding:17px 10px!important;border-radius:24px!important}
+  .crystal-fw-copy strong{font-size:16px!important}
+  .crystal-fw-copy small{font-size:10px!important}
+  .crystal-footer{flex-wrap:wrap!important;justify-content:center!important;text-align:center!important}
+}
+@media(max-width:420px){
+  .crystal-firmware-grid{grid-template-columns:1fr!important}
+  .crystal-fw-card{min-height:136px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .crystal-fw-card,.version-card,.build-card,.fw-card,button{transition:none!important}
+}
