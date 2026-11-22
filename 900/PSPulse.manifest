@@ -7,6 +7,7 @@ CACHE MANIFEST
 #VERSION 3.3 - MODXX4 9.00 full host visual refresh 20261122
 
 CACHE:
+../liquid-glass.css
 alert.js
 cache.html
 config.js
