@@ -6,56 +6,6 @@
 <meta name="theme-color" content="#eaf2fb">
 <title>MODXX4 // PS4 9.00 HOST / CACHE</title>
 
-<link rel="stylesheet" href="../modx-clock.css">
-
-<style>
-:root{color-scheme:dark;--bg:#080b17;--panel:#10172a;--line:#293653;--text:#f3f6ff;--muted:#9ba9c7;--blue:#7897ff;--violet:#a58bff;--cyan:#67dff2;--green:#63e2bd;--red:#ff7185}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
-body{min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 78% 8%,#334f9b35,transparent 34%),radial-gradient(ellipse at 12% 42%,#573d9b28,transparent 32%),linear-gradient(145deg,#080b17 0%,#0b1020 52%,#090d1b 100%)}
-body:before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.16;background-image:linear-gradient(#8aa5ff0b 1px,transparent 1px),linear-gradient(90deg,#8aa5ff0b 1px,transparent 1px);background-size:48px 48px}
-.shell{position:relative;z-index:1;width:min(100% - 36px,900px);min-height:100vh;margin:auto;display:flex;flex-direction:column;padding:20px 0 16px}
-.topbar{height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 17px;border:1px solid #9aafff22;border-radius:11px;background:#080d1bd9;box-shadow:0 12px 40px #0003}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:2px;font-size:19px}
-.mark{position:relative;width:37px;height:37px;border:1px solid #7897ff88;border-radius:10px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,#7897ff25,#9a70ff20);font-size:15px;letter-spacing:-2px;box-shadow:0 0 24px #647fff20}
-.mark:after{content:"";position:absolute;width:5px;height:5px;right:5px;top:5px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
-.brand small{display:block;color:var(--muted);font-size:8px;letter-spacing:1.5px;font-weight:600;margin-top:4px}
-.fw{border:1px solid #7897ff66;background:#7897ff12;border-radius:7px;padding:8px 11px;color:#aebfff;font:500 9px monospace;letter-spacing:1.1px;white-space:nowrap}
-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:44px 0}
-.eyebrow{display:flex;align-items:center;gap:9px;color:var(--cyan);font:500 9px monospace;letter-spacing:1.5px;text-transform:uppercase}
-.eyebrow:before{content:"";width:22px;height:1px;background:var(--blue)}
-h1{font-size:clamp(38px,6vw,61px);line-height:.98;letter-spacing:-2.8px;margin:14px 0 12px;font-weight:800}
-h1 span{color:var(--blue);text-shadow:0 5px 35px #718dff45}
-.intro{color:#aab7d2;font-size:12px;line-height:1.9;max-width:620px;margin:0}
-.panel{margin-top:28px;padding:22px;border:1px solid #293958;border-radius:12px;background:linear-gradient(115deg,#121c32 0%,#101729 65%,#12182b 100%);box-shadow:0 22px 70px #0004}
-.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
-.panel-title{font:600 10px monospace;letter-spacing:1.2px;color:#e8edff}
-.state{display:flex;align-items:center;gap:8px;color:var(--muted);font:500 8px monospace;letter-spacing:1px;text-transform:uppercase}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--blue);animation:pulse 1.5s infinite}
-@keyframes pulse{50%{opacity:.35;box-shadow:0 0 3px var(--blue)}}
-.progress-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
-.progress-meta span:first-child{font-size:11px;color:var(--text);font-weight:700}
-#progressText{font-size:12px;color:var(--cyan);font-weight:800;font-variant-numeric:tabular-nums}
-.track{height:11px;padding:2px;border-radius:99px;background:#080d1b;border:1px solid #293958;overflow:hidden}
-#myBar{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,#718dff,#a58bff 65%,#67dff2);box-shadow:0 0 18px #7897ff66;transition:width .25s ease}
-#progress{font-size:13px;font-weight:700;margin:17px 0 6px}
-#cacheStatus{color:var(--muted);font-size:11px;line-height:1.7;min-height:20px}
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:18px;max-width:690px}
-.step{padding:8px 7px;border:1px solid #293958;border-radius:7px;background:#080d1b80}
-.step b{display:block;color:var(--blue);font:500 7px monospace;letter-spacing:.8px;margin-bottom:4px}
-.step span{font-size:8px;color:#a6b4d0}
-.notice{margin-top:15px;padding:11px 13px;border-left:2px solid var(--blue);background:#718dff0d;color:#a6b4d0;font-size:10px;line-height:1.7}
-footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #9aafff22;padding:14px 3px 0;color:#8290ad;font:500 8px monospace;letter-spacing:1.1px}
-@media(max-width:620px){.shell{width:calc(100% - 24px);padding-top:11px}.topbar{height:62px;padding:0 12px}.brand{font-size:16px}.mark{width:34px;height:34px}.fw{font-size:8px;padding:7px 8px}main{padding:38px 0}.panel{padding:17px 14px;margin-top:23px}.steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.step{display:block;padding:8px 7px}.step b{margin:0 0 4px;min-width:0}footer{font-size:7px;letter-spacing:.7px}}
-h1 span,h1 em{color:var(--accent)}
-.boot{color:var(--muted);font:500 10px monospace;list-style:none;margin:13px 0 0;padding:0}.boot li{margin:4px 0}.boot b{color:var(--green);font-weight:500}
-</style>
-
-
-
-<link rel="stylesheet" href="../liquid-glass.css">
-
-<link rel="stylesheet" href="../apple-liquid-glass.css">
 </head>
 <body>
 <div class="shell">
@@ -76,7 +26,7 @@ h1 span,h1 em{color:var(--accent)}
     <div id="cacheStatus" data-i18n="initializingCache">Initializing cache system...</div>
   </section>
 </main>
-<footer class="modx-copyright" style="margin:32px auto 18px;padding:16px 12px;text-align:center;border-top:1px solid rgba(150,165,185,.16);display:flex;flex-direction:column;align-items:center;gap:6px;color:#aeb6c2;font:500 9px/1.6 Consolas,monospace;letter-spacing:.25px"><span>© 2026 MODXX4 — Built for the PlayStation 4 community. All Rights Reserved.</span><span style="color:#77818e;font:italic 9px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.2px">Designed with passion. Powered by the community.</span></footer>
+<footer class="modx-copyright"><span>© 2026 MODXX4 — Built for the PlayStation 4 community. All Rights Reserved.</span><span>Designed with passion. Powered by the community.</span></footer>
 </div>
 <script>
 (function(){

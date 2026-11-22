@@ -15,9 +15,6 @@ CACHE MANIFEST
 # Apple Crystal Light Glass cards refresh 20261122-v5
 
 CACHE:
-../../apple-liquid-glass.css
-../../liquid-glass.css
-../../modx-clock.css
 ../../modx-clock.js
 index.html
 jb.html

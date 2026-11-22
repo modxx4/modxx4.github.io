@@ -5,84 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MODXX4 // PS4 13.02–13.52 GOLDHEN</title>
 
-<style>
-    :root {
-        --bg: #080B17;
-        --panel: #0D1324;
-        --panel-2: #121B31;
-        --line: #1D2A45;
-        --line-bright: #2A3B5D;
-        --text: #F4F7FF;
-        --muted: #A6B2CC;
-        --dim: #7583A1;
-        --accent: #8796FF;
-        --red: #ff9b9b;
-        --amber: #e1bd72;
-    }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { background: var(--bg); }
-    html, body { min-height: 100%; }
-    body {
-        background-color: var(--bg);
-        background-image: linear-gradient(rgba(124, 140, 255, .05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(162, 148, 255, .05) 1px, transparent 1px);
-        background-size: 36px 36px;
-        color: var(--text);
-        font: 16px/1.45 Consolas, "Liberation Mono", monospace;
-        min-height: 100vh;
-        overflow: hidden;
-    }
-
-    .app { margin: 0 auto; padding: 14px 26px 12px; width: min(100% - 52px, 1220px); }
-
-    /* Top status bar */
-    .bar {
-        align-items: center;
-        border: 1px solid var(--line-bright);
-        display: flex;
-        font-size: 14px;
-        justify-content: space-between;
-        letter-spacing: .1em;
-        padding: 10px 16px;
-        text-transform: uppercase;
-    }
-    .bar b { color: var(--accent); font-weight: 400; }
-    .bar-chain { color: var(--dim); }
-    .bar-chain::before { color: var(--accent); content: "\25CF "; }
-
-    #state { color: var(--accent); font-size: 22px; font-weight: 400; line-height: 1.25; margin: 18px 0 10px; }
-    .ok { color: var(--accent); }
-    .bad { color: var(--red); }
-    .warn { color: var(--amber); }
-
-    /* chain JS scrolls this element - keep overflow and a fixed height */
-    #out {
-        background: var(--panel);
-        border: 1px solid var(--line-bright);
-        color: var(--text);
-        font: inherit;
-        font-size: 13px;
-        line-height: 1.45;
-        height: calc(100vh - 150px);
-        overflow-y: auto;
-        padding: 12px 14px;
-        white-space: pre-wrap;
-    }
-
-    @media (max-width: 760px) {
-        .app { padding: 8px 10px; width: min(100% - 20px, 560px); }
-        .bar { font-size: 12px; padding: 8px 12px; }
-        #state { font-size: 19px; margin: 14px 0 8px; }
-        #out { height: calc(100vh - 120px); font-size: 12px; }
-    }
-</style>
-<link rel="stylesheet" href="../../modx-clock.css">
-
-
-<link rel="stylesheet" href="../../liquid-glass.css">
-
-<link rel="stylesheet" href="../../apple-liquid-glass.css">
 </head>
 <body>
     <div class="app">
@@ -160,6 +83,6 @@
 })();
 </script>
 <script src="../../modx-clock.js"></script>
-<footer class="modx-copyright" style="margin:32px auto 18px;padding:16px 12px;text-align:center;border-top:1px solid rgba(150,165,185,.16);display:flex;flex-direction:column;align-items:center;gap:6px;color:#aeb6c2;font:500 9px/1.6 Consolas,monospace;letter-spacing:.25px"><span>© 2026 MODXX4 — Built for the PlayStation 4 community. All Rights Reserved.</span><span style="color:#77818e;font:italic 9px/1.5 Arial,Helvetica,sans-serif;letter-spacing:.2px">Designed with passion. Powered by the community.</span></footer>
+<footer class="modx-copyright"><span>© 2026 MODXX4 — Built for the PlayStation 4 community. All Rights Reserved.</span><span>Designed with passion. Powered by the community.</span></footer>
 </body>
 </html>

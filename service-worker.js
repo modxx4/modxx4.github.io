@@ -1,10 +1,7 @@
-const CACHE_NAME = "modxx4-host-v7";
+const CACHE_NAME = "modxx4-host-plain-v1";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./style.css",
-  "./liquid-glass.css",
-  "./apple-liquid-glass.css",
   "./app.js",
   "./support.html",
   "./firmwares/9.00/version-selector.html",
