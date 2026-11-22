@@ -451,3 +451,19 @@ body{
   backdrop-filter:blur(24px) saturate(1.5)!important;
  }
 }
+
+/* MODXX4 — Liquid Glass scenery reveal */
+html,body{background-color:#03050b!important}
+body{
+ background:
+  linear-gradient(180deg,rgba(2,5,11,.16),rgba(2,5,11,.08) 48%,rgba(2,5,11,.24)),
+  url("./assets/liquid-glass-bg.svg") center center / cover no-repeat fixed,
+  radial-gradient(ellipse at 50% 0%,#172236 0%,#070b12 54%,#030509 100%)!important;
+ background-attachment:fixed!important;
+}
+@media(max-width:700px){
+ body{background:
+  linear-gradient(180deg,rgba(2,5,11,.22),rgba(2,5,11,.12) 48%,rgba(2,5,11,.3)),
+  url("./assets/liquid-glass-bg.svg") center center / auto 100% no-repeat fixed,
+  linear-gradient(145deg,#080d16,#030509)!important;background-attachment:fixed!important}
+}
