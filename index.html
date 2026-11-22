@@ -19,8 +19,7 @@
   <div class="crystal-welcome" role="status"><span class="crystal-welcome-mark" aria-hidden="true">✦</span><span>Welcome to MODXX4</span></div>
   <div class="crystal-header-right">
     <div class="crystal-goldhen"><span><strong>READY</strong></span></div>
-    <div class="crystal-time"><time id="hostClock">--:--</time><small id="hostDate">---</small></div>
-  </div>
+</div>
 </header>
 
 <main class="crystal-main">
@@ -67,13 +66,5 @@
   <div class="crystal-copyright">© 2026 MODXX4. All rights reserved.</div>
 </footer>
 <script src="app.js"></script>
-<script>
-(function(){
- const date=document.getElementById("hostDate");
- if(!date)return;
- try{date.textContent=new Intl.DateTimeFormat("en-GB",{timeZone:"Africa/Cairo",day:"2-digit",month:"short",year:"numeric"}).format(new Date()).toUpperCase();}
- catch(e){date.textContent="MODXX4";}
-})();
-</script>
 </body>
 </html>

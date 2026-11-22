@@ -1496,3 +1496,7 @@ button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[rol
 @media(hover:none){.crystal-fw-card:hover,.fw-card:hover,.version-card:hover,.build-card:hover,.card:hover,.cache-card:hover,.section-card:hover{transform:none!important}}
 @media(max-width:700px){body{background-attachment:scroll!important}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* r19 — remove clock/date header widget; keep header spacing balanced */
+.crystal-header-right{display:flex;align-items:center;gap:0}
+.crystal-time{display:none!important}
