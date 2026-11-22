@@ -2,22 +2,21 @@ CACHE MANIFEST
 # MODXX4 cache pages synchronized to 5.05 template 20261122-r1
 # MODX Minimal Console cache restore 20261122
 # MODXX4 original cache design refresh 20261122
-# MODXX4 cache branding refresh 20261122 — legacy b18.10
-# resource-path-fix-20261021-main-v2
+# resource-path-fix-20261021-main-v4
 # offline-manifests-v1-20261021
-#VERSION 2.9 - goldhen b18.10 reliability-final support-link-20261003
+#VERSION 3.3 - MODXX4 9.00 full host visual refresh 20261122
 
 CACHE:
-goldhen10.bin
-alert5.js
-cache5.html
+alert.js
+cache.html
 config.js
-index5.html
-lapse5.js
-loader5.js
+goldhen.bin
+index.html
+lapse.js
+loader.js
 payloads.js
-psfree5.js
-PSPulse5.manifest
+psfree.js
+PSPulse.manifest
 send.js
 kpatch/900.elf
 kpatch/9001.elf
