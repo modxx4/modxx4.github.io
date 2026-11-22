@@ -350,3 +350,80 @@ a.button:active,.btn:active,.action-button:active,[role="button"]:active{
     backdrop-filter:blur(6px) saturate(1.2);
   }
 }
+
+
+/* Actual MODXX4 page components — stronger Apple Liquid Glass treatment */
+.controls,.fw-card,.hero,.nodeplay,.pspulse-support,
+.section-head,.panel-head,.section-bar,.crystal-library-title,
+.crystal-goldhen,.crystal-time,.boot-status,.status-meta,
+.progress-meta,.state,.fw-display,.section-title{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.82)!important;
+  border-radius:20px;
+  background:
+    linear-gradient(132deg,rgba(255,255,255,.25) 0%,rgba(255,255,255,.085) 43%,rgba(156,192,241,.17) 100%)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(1.42);
+  backdrop-filter:blur(12px) saturate(1.42);
+  box-shadow:0 12px 30px rgba(56,87,137,.14),
+    inset 0 1px 0 rgba(255,255,255,.96),
+    inset 0 -1px 0 rgba(125,158,207,.22)!important;
+}
+.controls:before,.fw-card:before,.hero:before,.nodeplay:before,
+.pspulse-support:before,.section-head:before,.panel-head:before,
+.section-bar:before,.crystal-library-title:before,.crystal-goldhen:before,
+.crystal-time:before,.boot-status:before,.status-meta:before,
+.progress-meta:before,.state:before,.fw-display:before,.section-title:before{
+  content:"";
+  position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:inherit;
+  background:
+    linear-gradient(125deg,rgba(255,255,255,.42),rgba(255,255,255,.035) 46%,rgba(161,194,239,.17));
+  -webkit-backdrop-filter:blur(8px) saturate(1.35);
+  backdrop-filter:blur(8px) saturate(1.35);
+  -webkit-filter:url(#modxx4-glass-distortion) saturate(1.2) brightness(1.08);
+  filter:url(#modxx4-glass-distortion) saturate(1.2) brightness(1.08);
+}
+.controls:after,.fw-card:after,.hero:after,.nodeplay:after,
+.pspulse-support:after,.section-head:after,.panel-head:after,
+.section-bar:after,.crystal-library-title:after,.crystal-goldhen:after,
+.crystal-time:after,.boot-status:after,.status-meta:after,
+.progress-meta:after,.state:after,.fw-display:after,.section-title:after{
+  content:"";
+  position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
+  background:
+    linear-gradient(118deg,rgba(255,255,255,.72) 0%,rgba(255,255,255,.18) 16%,transparent 42%),
+    radial-gradient(ellipse at 90% 0%,rgba(255,255,255,.34),transparent 48%),
+    linear-gradient(315deg,rgba(151,188,239,.17),transparent 48%);
+  box-shadow:inset 1px 1px 1px rgba(255,255,255,.9),inset -1px -1px 1px rgba(113,151,205,.18);
+}
+.controls>*,.fw-card>*,.hero>*,.nodeplay>*,.pspulse-support>*,
+.section-head>*,.panel-head>*,.section-bar>*,.crystal-library-title>*,
+.crystal-goldhen>*,.crystal-time>*,.boot-status>*,.status-meta>*,
+.progress-meta>*,.state>*,.fw-display>*,.section-title>*{
+  position:relative;z-index:2;
+}
+.crystal-fw-card,.version-card,.build-card,.fw-card{
+  background:linear-gradient(132deg,rgba(255,255,255,.27),rgba(255,255,255,.075) 48%,rgba(150,190,245,.18))!important;
+  border:1px solid rgba(255,255,255,.9)!important;
+  box-shadow:0 16px 36px rgba(59,91,145,.16),inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(118,155,207,.2)!important;
+}
+button,.grid button,.copy-button,.glass-button,a.button,.btn,.action-button,[role="button"]{
+  background:linear-gradient(132deg,rgba(255,255,255,.34),rgba(255,255,255,.10) 52%,rgba(158,193,242,.2))!important;
+  border:1px solid rgba(255,255,255,.9)!important;
+  box-shadow:0 9px 22px rgba(58,91,145,.14),inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(121,157,207,.2)!important;
+}
+button:before,.grid button:before,.copy-button:before,.glass-button:before,
+a.button:before,.btn:before,.action-button:before,[role="button"]:before{
+  -webkit-filter:url(#modxx4-glass-distortion) saturate(1.2) brightness(1.1);
+  filter:url(#modxx4-glass-distortion) saturate(1.2) brightness(1.1);
+}
+@media(max-width:700px){
+  .controls,.fw-card,.hero,.nodeplay,.pspulse-support,
+  .section-head,.panel-head,.section-bar,.crystal-library-title,
+  .crystal-goldhen,.crystal-time,.boot-status,.status-meta,
+  .progress-meta,.state,.fw-display,.section-title{
+    -webkit-backdrop-filter:blur(7px) saturate(1.25);
+    backdrop-filter:blur(7px) saturate(1.25);
+  }
+}
