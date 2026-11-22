@@ -1279,3 +1279,51 @@ a,.support-back,.support-github{color:#c5eaff}
 @media(prefers-reduced-motion:reduce){
   .crystal-fw-card,.version-card,.build-card,.fw-card,button{transition:none!important}
 }
+
+
+/* MODXX4 — Center hero copy above controller, as requested */
+.crystal-hero{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  width:100%!important;
+}
+.crystal-hero-copy{
+  order:0!important;
+  width:100%!important;
+  max-width:760px!important;
+  margin:0 auto!important;
+  text-align:center!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+}
+.crystal-hero-copy .eyebrow{margin-left:auto!important;margin-right:auto!important}
+.crystal-hero-copy h1,.crystal-hero-copy .firmware-title{
+  width:100%!important;text-align:center!important;
+  margin-left:auto!important;margin-right:auto!important;
+}
+.crystal-hero-copy p{
+  width:100%!important;max-width:680px!important;
+  margin:10px auto 0!important;text-align:center!important;
+}
+.crystal-hero-art{
+  order:1!important;
+  width:min(360px,72%)!important;
+  max-width:360px!important;
+  margin:12px auto 0!important;
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+}
+.crystal-hero-art .ps-controller-art{
+  display:block!important;width:100%!important;height:auto!important;margin:0 auto!important;
+}
+@media(max-width:700px){
+  .crystal-hero{flex-direction:column!important;align-items:center!important}
+  .crystal-hero-copy{width:100%!important;text-align:center!important}
+  .crystal-hero-copy p{max-width:100%!important}
+  .crystal-hero-art{width:min(280px,78%)!important;margin:8px auto 0!important}
+}
