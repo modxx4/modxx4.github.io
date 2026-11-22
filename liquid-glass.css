@@ -1,51 +1,120 @@
-/* MODXX4 — Apple-inspired Light Liquid Glass
-   Lightweight CSS-only treatment with solid fallbacks for older PS4 browsers. */
+/* MODXX4 — Apple Light Liquid Glass System
+   Unified visual identity for every host, cache, selector and support page.
+   PS4-safe fallbacks are declared before optional backdrop blur. */
 :root{
   color-scheme:light;
-  --lg-ink:#182333;--lg-muted:#65758a;--lg-blue:#3989e8;
-  --lg-glass:rgba(255,255,255,.58);--lg-glass-strong:rgba(255,255,255,.78);
-  --lg-edge:rgba(255,255,255,.88);--lg-shadow:0 18px 48px rgba(68,104,145,.13);
+  --lg-ink:#17283d;
+  --lg-muted:#657991;
+  --lg-blue:#3988df;
+  --lg-blue-soft:#78b6f4;
+  --lg-glass:rgba(255,255,255,.60);
+  --lg-glass-strong:rgba(255,255,255,.80);
+  --lg-edge:rgba(255,255,255,.92);
+  --lg-shadow:0 18px 48px rgba(55,91,133,.13);
 }
-html,body{background-color:#edf4fb!important;color:var(--lg-ink)!important}
+*{box-sizing:border-box}
+html,body{background:#eaf2fb!important;color:var(--lg-ink)!important}
 body{
- background-image:
- radial-gradient(ellipse at 12% 0%,rgba(255,255,255,.98),transparent 42%),
- radial-gradient(ellipse at 88% 12%,rgba(175,216,255,.48),transparent 38%),
- radial-gradient(ellipse at 52% 100%,rgba(207,224,255,.72),transparent 46%),
- linear-gradient(145deg,#f7fbff 0%,#eaf2fb 52%,#e4edf8 100%)!important;
- background-attachment:fixed!important;
- color:var(--lg-ink)!important;
+  color:var(--lg-ink)!important;
+  background-color:#eaf2fb!important;
+  background-image:
+    radial-gradient(ellipse at 12% 0%,rgba(255,255,255,.98),transparent 43%),
+    radial-gradient(ellipse at 88% 10%,rgba(173,213,250,.55),transparent 39%),
+    radial-gradient(ellipse at 50% 100%,rgba(211,228,249,.78),transparent 48%),
+    linear-gradient(145deg,#f8fbff 0%,#eaf2fb 53%,#e3edf8 100%)!important;
+  background-attachment:fixed!important;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+  -webkit-font-smoothing:antialiased;
 }
-body:before{opacity:.22!important;background-image:radial-gradient(rgba(255,255,255,.9) .7px,transparent .7px)!important;background-size:5px 5px!important}
-.topbar,.firmware-card,.support-promo,.help-note,.shell .topbar,.panel,.card,.host-card,.version-card,.cache-card,.status-card,.payload-card,.section-card,.menu-card,.content-card,.brand,.mark,.pill,.online,.ready-indicator,.datetime,.modx-clock{
- background:var(--lg-glass)!important;
- border:1px solid var(--lg-edge)!important;
- color:var(--lg-ink)!important;
- box-shadow:inset 0 1px 0 rgba(255,255,255,.96),inset 0 -1px 0 rgba(122,157,194,.10),var(--lg-shadow)!important;
- -webkit-backdrop-filter:blur(18px) saturate(1.55);
- backdrop-filter:blur(18px) saturate(1.55);
-}
-.topbar,.shell .topbar{border-radius:22px!important}
-.firmware-card,.support-promo,.help-note,.panel,.card,.host-card,.version-card,.cache-card,.status-card,.payload-card,.section-card,.menu-card,.content-card{border-radius:22px!important}
-.firmware-card:hover,.host-card:hover,.version-card:hover,.cache-card:hover,.payload-card:hover{
- background:rgba(255,255,255,.82)!important;transform:translateY(-2px);
- box-shadow:inset 0 1px 0 #fff,0 22px 52px rgba(63,111,167,.18)!important
-}
-h1,h2,h3,strong,.brand,.brand-copy,.section-kicker,.card-index,.card-status,.section-hint,.eyebrow,.footer-brand{color:#1c2c40!important}
-p,small,.intro-copy,.card-description,.section-note,.help-note,.muted,.description{color:var(--lg-muted)!important}
-a,button,.btn,[role=button]{-webkit-tap-highlight-color:transparent}
-button,.btn,.pill,.online,.ready-indicator,.card-bottom,.support-promo>a{
- border-radius:999px!important;border:1px solid rgba(255,255,255,.92)!important;
- background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(220,237,255,.58))!important;
- color:#236bb5!important;box-shadow:inset 0 1px 0 #fff,0 8px 22px rgba(76,129,185,.13)!important
-}
+body:before{opacity:0!important;background-image:none!important}
 a{color:#287bc5}
-input,select,textarea{background:rgba(255,255,255,.72)!important;color:#1b2a3b!important;border:1px solid rgba(255,255,255,.95)!important;border-radius:14px!important}
-.ready-indicator i,.online i{filter:drop-shadow(0 0 5px rgba(35,190,135,.6))}
-.mark,.brand-mark{background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(194,224,255,.58))!important;color:#2678c4!important;border-color:rgba(255,255,255,.95)!important}
-.site-footer,.footer{color:#708096!important}
-hr,.divider{border-color:rgba(100,133,169,.18)!important}
-@media (prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
-@media(max-width:600px){.topbar,.shell .topbar{border-radius:18px!important}.firmware-card,.panel,.card,.host-card,.version-card,.cache-card{border-radius:18px!important}}
-/* Keep exploit progress and status text readable over glass. */
-.progress,.progress-bar,.progress-fill{border-radius:999px!important}
+h1,h2,h3,h4,strong,b,.brand,.brand-copy,.footer-brand,.panel-title,.section-title,.section-head,.np-name,.bar b,.kicker,.eyebrow,.card-top,.tag,.action,.fw,.fw-display{
+  color:#1b3049!important;
+}
+h1{font-weight:750!important;letter-spacing:-.045em!important}
+h1 span,h1 em,.eyebrow,.kicker,.bar b,.np-name b,.np-open,.section-kicker,.card-index,.action b{color:#438bd0!important;text-shadow:none!important}
+p,.sub,.intro,.subtitle,.card-description,.section-note,.note,.help-note p,.boot,.muted,.description,.step span,.brand small,.datetime span,.modx-clock span,.np-label,.bar-fw{
+  color:var(--lg-muted)!important;
+}
+.topbar,.bar,.shell .topbar,.panel,.status,.status-panel,.controls,.build-card,.firmware-card,.nodeplay,.version-card,.note,.notice,.step,.fw-card,.donation-card,.support-promo,.help-note,.cache-card,.card,.host-card,.section-card,.content-card,.menu-card,.notification,.notification2,#out,.status-meta,.progress-container,.pspulse-support{
+  background:var(--lg-glass)!important;
+  border:1px solid var(--lg-edge)!important;
+  color:var(--lg-ink)!important;
+  border-radius:22px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.98),inset 0 -1px 0 rgba(111,151,194,.10),var(--lg-shadow)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(1.55);
+  backdrop-filter:blur(18px) saturate(1.55);
+}
+.topbar,.bar,.shell .topbar{background:rgba(255,255,255,.70)!important}
+.firmware-card,.build-card,.nodeplay,.version-card,.cache-card,.host-card,.card,.fw-card{transition:transform .18s ease,box-shadow .18s ease,background .18s ease!important}
+.firmware-card:hover,.build-card:hover,.nodeplay:hover,.version-card:hover,.cache-card:hover,.host-card:hover,.card:hover,.fw-card:hover{
+  background:var(--lg-glass-strong)!important;
+  transform:translateY(-2px);
+  box-shadow:inset 0 1px 0 #fff,0 22px 52px rgba(63,111,167,.18)!important;
+}
+.mark,.brand-mark{
+  background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(190,222,251,.66))!important;
+  border:1px solid #fff!important;
+  color:#2879bf!important;
+  border-radius:13px!important;
+  box-shadow:inset 0 1px 0 #fff,0 8px 22px rgba(72,119,171,.15)!important;
+}
+.mark:after{background:#55a6eb!important;box-shadow:0 0 10px rgba(55,151,225,.6)!important}
+.fw,.fw-display,.pill,.tag,.ready-indicator,.online,.status-pass,.donation-status{
+  background:rgba(255,255,255,.64)!important;
+  border:1px solid rgba(255,255,255,.96)!important;
+  color:#347bbd!important;
+  border-radius:999px!important;
+  box-shadow:inset 0 1px 0 #fff,0 5px 16px rgba(76,129,185,.10)!important;
+}
+button,.btn,.copy-button,.grid button,.grid-goldhen button,.language-toggle,.support-promo>a,[role=button]{
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(218,236,253,.76))!important;
+  border:1px solid rgba(255,255,255,.98)!important;
+  border-radius:999px!important;
+  color:#236db2!important;
+  box-shadow:inset 0 1px 0 #fff,0 8px 22px rgba(76,129,185,.13)!important;
+  cursor:pointer;
+}
+button:hover,.btn:hover,.copy-button:hover,.grid button:hover,.grid-goldhen button:hover,.support-promo>a:hover{
+  background:rgba(255,255,255,.98)!important;
+  border-color:#b8d9f7!important;
+  color:#145d9f!important;
+}
+button:focus-visible,a:focus-visible{outline:2px solid #65a9e8!important;outline-offset:3px!important}
+.card-bottom,.action,.section-title,.panel-head,.status-meta,.foot,footer,.site-footer{border-color:rgba(108,145,183,.20)!important}
+.track,.progress-wrapper,.progress-bar{
+  background:rgba(211,226,242,.78)!important;
+  border:1px solid rgba(255,255,255,.95)!important;
+  border-radius:999px!important;
+  box-shadow:inset 0 2px 5px rgba(79,111,147,.10)!important;
+}
+#myBar,.progress-fill,#progressBar{
+  background:linear-gradient(90deg,#72b8f2,#8dc9f5 55%,#b1d9fb)!important;
+  border-radius:999px!important;
+  box-shadow:0 0 15px rgba(85,161,226,.25)!important;
+}
+#progressText,#state,.jailbreak-status,.ok,.boot b{color:#347fbd!important;text-shadow:none!important}
+.bad,.status-fail{color:#c65e68!important}
+.warn{color:#a77727!important}
+.notice{border-left:3px solid #83b9e8!important;background:rgba(255,255,255,.55)!important}
+input,select,textarea{
+  background:rgba(255,255,255,.78)!important;color:var(--lg-ink)!important;
+  border:1px solid rgba(255,255,255,.98)!important;border-radius:14px!important;
+  box-shadow:inset 0 1px 3px rgba(70,104,140,.08)!important;
+}
+#log,#out{color:var(--lg-ink)!important}
+#log h1{color:var(--lg-ink)!important}
+footer,.foot,.site-footer,.modx-copyright{
+  color:#71849a!important;
+  border-color:rgba(255,255,255,.85)!important;
+}
+.site-footer .footer-copyright,.footer-copyright{color:#71849a!important}
+.site-footer .footer-tagline,.footer-tagline{color:#8b9bad!important}
+.support-promo>a,.copy-button{white-space:nowrap}
+.datetime,.modx-clock{color:var(--lg-ink)!important}
+.ready-indicator i,.online i{filter:drop-shadow(0 0 5px rgba(35,160,119,.55))}
+@media(max-width:760px){
+  .topbar,.bar,.shell .topbar{border-radius:18px!important}
+  .firmware-card,.build-card,.panel,.status,.controls,.nodeplay,.version-card,.cache-card,.host-card,.card,.fw-card,.donation-card{border-radius:18px!important}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
