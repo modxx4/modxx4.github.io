@@ -1327,3 +1327,7 @@ a,.support-back,.support-github{color:#c5eaff}
   .crystal-hero-copy p{max-width:100%!important}
   .crystal-hero-art{width:min(280px,78%)!important;margin:8px auto 0!important}
 }
+
+
+/* MODXX4 — Remove controller artwork from centered firmware hero */
+.crystal-hero-art{display:none!important}
