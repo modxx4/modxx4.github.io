@@ -3,82 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101216">
-<meta name="description" content="MODX — a clean, lightweight PlayStation 4 firmware host.">
-<title>MODX — PlayStation Host</title>
+<meta name="theme-color" content="#eaf1fc">
+<meta name="description" content="MODXX4 — PlayStation 4 Homebrew Host.">
+<title>MODXX4 — PlayStation Host</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="liquid-glass.css">
 </head>
-<body>
-<header class="topbar">
-  <a class="brand" href="./" aria-label="MODX home"><span class="brand-mark">M<span>X</span></span><span class="brand-copy"><strong>MODX</strong><small data-i18n="brandSub">PLAYSTATION HOST</small></span></a>
-  <div class="header-right">
-    <div class="datetime" aria-label="Egypt local date and time">
-      <time id="hostClock" aria-label="Current time">--:--:--</time>
-      <span id="hostDate">---</span>
-    </div>
-    <span class="ready-indicator" role="status" aria-label="Host status: ready"><i aria-hidden="true"></i>READY</span>
+<body class="crystal-dashboard">
+<header class="crystal-header">
+  <a class="crystal-brand" href="./" aria-label="MODXX4 Home">
+    <span class="crystal-ps-logo" aria-hidden="true">PS</span>
+    <span class="crystal-brand-copy"><strong>MODXX4</strong><small>PS4 HOMEBREW HOST</small></span>
+  </a>
+  <nav class="crystal-nav" aria-label="Main navigation">
+    <a class="active" href="./"><span>⌂</span> Home</a>
+    <a href="#firmwares"><span>▤</span> Files</a>
+    <a href="#host-status"><span>⚙</span> Settings</a>
+    <a href="#about"><span>ⓘ</span> About</a>
+  </nav>
+  <div class="crystal-header-right">
+    <div class="crystal-goldhen"><span class="crystal-crown">♛</span><span><strong>GoldHEN</strong><small>v2.4b18.14</small></span></div>
+    <div class="crystal-time"><time id="hostClock">--:--</time><small id="hostDate">---</small></div>
   </div>
 </header>
-<main class="page">
-  <section class="intro">
-    <p class="eyebrow" data-i18n="artLabel">MODX / HOST SYSTEM</p>
-    <h1 data-i18n="heading">Choose<br><span>firmware.</span></h1>
-    <p class="intro-copy" data-i18n="intro">Pick the host matching the firmware installed on your PlayStation 4.</p>
+
+<main class="crystal-main">
+  <section class="crystal-firmware-grid" id="firmwares" aria-label="Available firmware caches">
+    <a class="crystal-fw-card" href="./firmwares/13.52/index.html" aria-label="Open firmware 13.52 host">
+      <span class="crystal-ps-disc" aria-hidden="true">PS</span>
+      <span class="crystal-fw-copy"><strong>13.52</strong><small>Offline Cache</small></span>
+      <span class="crystal-arrow" aria-hidden="true">›</span>
+    </a>
+    <a class="crystal-fw-card" href="./firmwares/13.00/index.html" aria-label="Open firmware 13.00 host">
+      <span class="crystal-ps-disc" aria-hidden="true">PS</span>
+      <span class="crystal-fw-copy"><strong>13.00</strong><small>Offline Cache</small></span>
+      <span class="crystal-arrow" aria-hidden="true">›</span>
+    </a>
+    <a class="crystal-fw-card" href="./900/version-selector.html" aria-label="Choose firmware 9.00 or 9.60">
+      <span class="crystal-ps-disc" aria-hidden="true">PS</span>
+      <span class="crystal-fw-copy"><strong>9.00</strong><small>Offline Cache</small></span>
+      <span class="crystal-arrow" aria-hidden="true">›</span>
+    </a>
+    <a class="crystal-fw-card" href="./firmwares/7.00/version-selector.html" aria-label="Choose firmware 7.00 through 8.52">
+      <span class="crystal-ps-disc" aria-hidden="true">PS</span>
+      <span class="crystal-fw-copy"><strong>7.00</strong><small>Offline Cache</small></span>
+      <span class="crystal-arrow" aria-hidden="true">›</span>
+    </a>
+    <a class="crystal-fw-card" href="./firmwares/6.72/cache.html" aria-label="Open firmware 6.72 cache">
+      <span class="crystal-ps-disc" aria-hidden="true">PS</span>
+      <span class="crystal-fw-copy"><strong>6.72</strong><small>Offline Cache</small></span>
+      <span class="crystal-arrow" aria-hidden="true">›</span>
+    </a>
+    <a class="crystal-fw-card" href="./firmwares/5.05/cache.html" aria-label="Open firmware 5.05 cache">
+      <span class="crystal-ps-disc" aria-hidden="true">PS</span>
+      <span class="crystal-fw-copy"><strong>5.05</strong><small>Offline Cache</small></span>
+      <span class="crystal-arrow" aria-hidden="true">›</span>
+    </a>
   </section>
-  <section class="firmware-section" aria-label="Available firmware hosts">
-    <div class="section-bar">
-      <div><span class="section-kicker">MODX / 01</span><h2 data-i18n="hostLibrary">AVAILABLE ROUTES</h2></div>
-      <span class="section-hint" data-i18n="systemVersion">↑ ↓ MOVE &nbsp; X SELECT</span>
-    </div>
-    <div class="firmware-grid">
-      <a class="firmware-card ready featured" href="./firmwares/13.52/index.html" aria-label="Open host for firmware 13.02, 13.50 and 13.52">
-        <span class="card-top"><span class="card-index">01 / FIRMWARE</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span>
-        <strong>13.02 <small>/ 13.50 / 13.52</small></strong>
-        <span class="card-description">SlopKit GoldHEN <i>//</i> <span data-i18n="goldhenOffline">offline host</span></span>
-        <span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span><b>↗</b></span>
-      </a>
-      <a class="firmware-card ready" href="./firmwares/13.00/index.html" aria-label="Open host for firmware 11.00 through 12.02 and 12.50 through 13.00">
-        <span class="card-top"><span class="card-index">02 / FIRMWARE</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span>
-        <strong class="compact">11.00 <small>— 12.02 / 12.50 — 13.00</small></strong>
-        <span class="card-description">SlopKit WebKit <i>//</i> <span data-i18n="currentBuild">Current build</span></span>
-        <span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span><b>↗</b></span>
-      </a>
-      <a class="firmware-card ready" href="./900/version-selector.html" aria-label="Choose firmware 9.00 or 9.60">
-        <span class="card-top"><span class="card-index">03 / FIRMWARE</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span>
-        <strong>9.00 <small>— 9.60</small></strong>
-        <span class="card-description">PSFree / Lapse <i>//</i> <span data-i18n="goldhenHost">GoldHEN host</span></span>
-        <span class="card-bottom"><span data-i18n="selectFirmware">SELECT FIRMWARE</span><b>↗</b></span>
-      </a>
-      <a class="firmware-card ready" href="./firmwares/7.00/version-selector.html" aria-label="Choose firmware 7.00 through 8.52">
-        <span class="card-top"><span class="card-index">04 / FIRMWARE</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span>
-        <strong>7.00 <small>— 8.52</small></strong>
-        <span class="card-description">PSFree / Lapse <i>//</i> <span data-i18n="goldhenHost">GoldHEN host</span></span>
-        <span class="card-bottom"><span data-i18n="selectFirmware">SELECT FIRMWARE</span><b>↗</b></span>
-      </a>
-      <a class="firmware-card ready" href="./firmwares/6.72/cache.html">
-        <span class="card-top"><span class="card-index">05 / FIRMWARE</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span>
-        <strong>6.72</strong>
-        <span class="card-description"><span data-i18n="dedicatedHost">Dedicated host</span> <i>//</i> <span data-i18n="utilityPayloads">Utility payloads</span></span>
-        <span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span><b>↗</b></span>
-      </a>
-      <a class="firmware-card ready" href="./firmwares/5.05/cache.html">
-        <span class="card-top"><span class="card-index">06 / FIRMWARE</span><span class="card-status" data-i18n="configuredStatus">● CONFIGURED</span></span>
-        <strong>5.05</strong>
-        <span class="card-description"><span data-i18n="dedicatedHost">Dedicated host</span> <i>//</i> <span data-i18n="utilityPayloads">Utility payloads</span></span>
-        <span class="card-bottom"><span data-i18n="openHost">OPEN HOST</span><b>↗</b></span>
-      </a>
-    </div>
-    <p class="section-note" data-i18n="sectionNote">Only configured routes are clickable. Firmware compatibility and offline-cache behavior still require testing on the matching PS4 system software.</p>
-  </section>
-  <section class="support-promo" aria-label="Support MODXX4"><div><span class="section-kicker">MODXX4 / COMMUNITY</span><h2>SUPPORT THE PROJECT</h2><p>Help keep the host maintained and growing.</p></div><a href="./support.html">SUPPORT MODXX4 <b>↗</b></a></section>
-  <aside class="help-note"><span class="help-mark">i</span><p><strong data-i18n="helpTitle">Not sure which firmware you have?</strong> <span data-i18n="helpText">On your PS4, go to Settings → System → System Information.</span></p></aside>
 </main>
-<footer class="site-footer">
-  <span class="footer-brand">MODXX4<span>®</span></span>
-  <span class="footer-copyright">© 2026 MODXX4 — Built for the PlayStation 4 community. All Rights Reserved.</span>
-  <span class="footer-tagline">Designed with passion. Powered by the community.</span>
+
+<footer class="crystal-footer" id="host-status">
+  <div class="crystal-footer-project"><span class="crystal-ps-mini">PS</span><span><strong>MODXX4</strong><small>Enjoy the Ultimate PS4 Experience</small></span></div>
+  <span class="crystal-footer-divider"></span>
+  <div class="crystal-footer-status"><span class="crystal-globe">◎</span><strong>Offline Cache Ready</strong><i>✓</i></div>
+  <span class="crystal-footer-divider"></span>
+  <div class="crystal-footer-hen"><span>♛</span><strong>GoldHEN 2.4b18.14</strong></div>
+  <div class="crystal-footer-love" id="about">♥ <span>Made with ❤️ by MODXX4</span></div>
 </footer>
 <script src="app.js"></script>
+<script>
+(function(){
+ const date=document.getElementById("hostDate");
+ if(!date)return;
+ try{date.textContent=new Intl.DateTimeFormat("en-GB",{timeZone:"Africa/Cairo",day:"2-digit",month:"short",year:"numeric"}).format(new Date()).toUpperCase();}
+ catch(e){date.textContent="MODXX4";}
+})();
+</script>
 </body>
 </html>

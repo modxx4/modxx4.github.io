@@ -227,3 +227,52 @@ footer,.foot,.site-footer,.modx-copyright{color:#71849a!important;border-color:r
 .modx-clock time{color:#286fae!important;text-shadow:none!important}
 @media(max-width:760px){.firmware-card,.version-card,.fw-card,.cache-card,.host-card,.build-card,.nodeplay,.card{min-height:124px;border-radius:21px!important}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* APPROVED REFERENCE — full MODXX4 crystal-glass dashboard */
+body.crystal-dashboard{min-height:100vh;margin:0;display:flex;flex-direction:column;overflow-x:hidden;background:radial-gradient(ellipse at 13% 7%,rgba(255,255,255,.98),transparent 36%),radial-gradient(ellipse at 87% 15%,rgba(184,213,250,.68),transparent 40%),radial-gradient(ellipse at 53% 90%,rgba(255,255,255,.8),transparent 43%),linear-gradient(145deg,#f8fbff 0%,#e8effb 48%,#dce8fa 100%)!important;color:#101d32!important}
+body.crystal-dashboard:before{content:"";position:fixed;inset:-10%;z-index:0;pointer-events:none;background:linear-gradient(112deg,transparent 24%,rgba(255,255,255,.68) 29%,rgba(255,255,255,.08) 34%,transparent 40%),linear-gradient(18deg,transparent 52%,rgba(255,255,255,.58) 56%,rgba(255,255,255,.08) 60%,transparent 65%),radial-gradient(ellipse at 72% 36%,rgba(255,255,255,.78),transparent 34%);filter:blur(2px);opacity:.95}
+.crystal-header,.crystal-main,.crystal-footer{position:relative;z-index:1}
+.crystal-header{width:min(100% - 64px,1500px);min-height:104px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+.crystal-brand{display:flex;align-items:center;gap:18px;color:#101d32!important;text-decoration:none}
+.crystal-ps-logo{font-size:42px;font-weight:900;letter-spacing:-7px;padding-right:12px;border-right:1px solid rgba(70,91,120,.35);line-height:1}
+.crystal-brand-copy,.crystal-goldhen span:last-child{display:flex;flex-direction:column;gap:3px}
+.crystal-brand-copy strong{font-size:30px;letter-spacing:1px;color:#111e33}
+.crystal-brand-copy small{font-size:12px;color:#52647d;letter-spacing:.3px}
+.crystal-nav{display:flex;align-items:center;gap:0;padding:7px;border:1px solid rgba(255,255,255,.94);border-radius:999px;background:linear-gradient(145deg,rgba(255,255,255,.68),rgba(255,255,255,.25));box-shadow:inset 0 1px 0 #fff,0 12px 34px rgba(65,98,145,.14);-webkit-backdrop-filter:blur(24px) saturate(1.7);backdrop-filter:blur(24px) saturate(1.7)}
+.crystal-nav a{padding:13px 19px;border-radius:999px;color:#15243a!important;text-decoration:none;font-size:15px;white-space:nowrap}
+.crystal-nav a+a{border-left:1px solid rgba(95,117,145,.2);border-radius:0}
+.crystal-nav a span{margin-right:7px;font-size:17px}
+.crystal-nav a.active{background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(207,229,253,.65));border:1px solid #fff;box-shadow:inset 0 1px 0 #fff,0 4px 15px rgba(72,115,168,.18);border-radius:999px}
+.crystal-header-right{display:flex;justify-content:flex-end;align-items:center;gap:26px}
+.crystal-goldhen{display:flex;align-items:center;gap:10px;color:#15243a}
+.crystal-crown{font-size:30px;color:#eab83e;text-shadow:0 3px 9px rgba(192,145,40,.28)}
+.crystal-goldhen strong{font-size:16px}.crystal-goldhen small{font-size:12px;color:#52647d}
+.crystal-time{border-left:1px solid rgba(75,99,130,.28);padding-left:24px;display:flex;flex-direction:column;gap:3px;color:#15243a;font-variant-numeric:tabular-nums}
+.crystal-time time{font-size:19px;font-weight:650}.crystal-time small{font-size:10px;color:#657991;text-align:right}
+.crystal-main{width:min(100% - 80px,1500px);margin:auto;display:flex;align-items:center;flex:1;padding:54px 0 46px}
+.crystal-firmware-grid{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 30px}
+.crystal-fw-card{position:relative;min-height:202px;padding:26px 28px;display:flex;align-items:center;gap:28px;overflow:hidden;text-decoration:none!important;color:#101d32!important;border:1px solid rgba(255,255,255,.98)!important;border-radius:34px!important;background:linear-gradient(145deg,rgba(255,255,255,.74),rgba(255,255,255,.31) 52%,rgba(198,222,250,.30))!important;box-shadow:inset 0 1px 0 #fff,inset 0 -2px 0 rgba(114,153,198,.12),0 18px 44px rgba(66,100,145,.16)!important;-webkit-backdrop-filter:blur(25px) saturate(1.8);backdrop-filter:blur(25px) saturate(1.8);transition:transform .2s ease,box-shadow .2s ease}
+.crystal-fw-card:before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(160deg,rgba(255,255,255,.92),transparent 30%,transparent 70%,rgba(255,255,255,.34)),radial-gradient(ellipse at 16% 0%,rgba(255,255,255,.78),transparent 55%)}
+.crystal-fw-card:after{content:"";position:absolute;left:9%;right:9%;bottom:8%;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),rgba(111,169,226,.3),rgba(255,255,255,.95),transparent);box-shadow:0 0 14px rgba(255,255,255,.9)}
+.crystal-fw-card:hover{transform:translateY(-4px);box-shadow:inset 0 1px 0 #fff,0 25px 55px rgba(65,108,164,.22),0 0 0 1px rgba(255,255,255,.55)!important}
+.crystal-ps-disc{position:relative;z-index:1;flex:0 0 104px;width:104px;height:104px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.98);border-radius:50%;background:radial-gradient(circle at 30% 22%,#fff 0%,rgba(255,255,255,.78) 23%,rgba(207,228,251,.48) 58%,rgba(255,255,255,.42) 100%);box-shadow:inset 0 2px 5px #fff,inset 0 -5px 12px rgba(104,149,198,.18),0 8px 23px rgba(68,105,153,.18);font-size:31px;font-weight:900;letter-spacing:-5px;padding-right:5px;color:#17283e;text-shadow:0 2px 3px rgba(255,255,255,.9)}
+.crystal-fw-copy{position:relative;z-index:1;display:flex;flex-direction:column;gap:7px;min-width:0;flex:1}
+.crystal-fw-copy strong{font-size:clamp(30px,3vw,44px);line-height:1;font-weight:750;letter-spacing:-1.5px;color:#111f35}
+.crystal-fw-copy small{font-size:18px;color:#1e2d43;white-space:nowrap}
+.crystal-arrow{position:relative;z-index:1;flex:0 0 58px;width:58px;height:58px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.98);background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(214,231,251,.6));box-shadow:inset 0 1px 0 #fff,0 6px 18px rgba(69,105,151,.15);font-size:39px;line-height:1;color:#1a2a40}
+.crystal-fw-card:hover .crystal-arrow{box-shadow:0 0 20px rgba(103,183,249,.34),inset 0 1px 0 #fff}
+.crystal-footer{width:min(100% - 64px,1500px);min-height:82px;margin:0 auto 22px;display:flex;align-items:center;gap:24px;padding:10px 20px;border:1px solid rgba(255,255,255,.96);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(255,255,255,.28));box-shadow:inset 0 1px 0 #fff,0 14px 35px rgba(65,98,145,.13);-webkit-backdrop-filter:blur(23px) saturate(1.65);backdrop-filter:blur(23px) saturate(1.65);color:#15243a}
+.crystal-footer-project{display:flex;align-items:center;gap:12px;min-width:290px}
+.crystal-ps-mini{font-size:27px;font-weight:900;letter-spacing:-5px;padding-right:10px;border-right:1px solid rgba(70,91,120,.35)}
+.crystal-footer-project>span:last-child{display:flex;flex-direction:column;gap:3px}
+.crystal-footer-project strong{font-size:18px;color:#15243a}.crystal-footer-project small{font-size:10px;color:#52647d}
+.crystal-footer-divider{height:40px;width:1px;background:rgba(75,99,130,.25)}
+.crystal-footer-status,.crystal-footer-hen{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.crystal-footer-status strong,.crystal-footer-hen strong{font-size:15px;color:#15243a}
+.crystal-globe{font-size:28px;color:#253b56}.crystal-footer-status i{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#35d36c;color:white;font-style:normal;font-weight:800;box-shadow:0 4px 12px rgba(44,190,95,.28)}
+.crystal-footer-hen>span{font-size:27px;color:#eab83e;text-shadow:0 3px 8px rgba(192,145,40,.28)}
+.crystal-footer-love{margin-left:auto;display:flex;align-items:center;gap:8px;padding:13px 22px;border:1px solid rgba(255,255,255,.98);border-radius:999px;background:rgba(255,255,255,.56);box-shadow:inset 0 1px 0 #fff,0 6px 18px rgba(69,105,151,.1);font-size:20px;color:#17283e;white-space:nowrap}
+.crystal-footer-love span{font-size:13px;color:#17283e}
+@media(max-width:1050px){.crystal-header{grid-template-columns:1fr auto}.crystal-nav{grid-column:1/-1;grid-row:2;justify-self:center;margin-bottom:12px}.crystal-header-right{grid-column:2;grid-row:1}.crystal-main{padding:34px 0}.crystal-fw-card{min-height:160px;padding:20px;gap:17px}.crystal-ps-disc{width:82px;height:82px;flex-basis:82px}.crystal-arrow{width:48px;height:48px;flex-basis:48px}.crystal-footer{flex-wrap:wrap;justify-content:center}.crystal-footer-project{min-width:unset}}
+@media(max-width:680px){.crystal-header{width:calc(100% - 28px);padding:15px 0;gap:12px}.crystal-ps-logo{font-size:31px}.crystal-brand-copy strong{font-size:20px}.crystal-brand-copy small{font-size:8px}.crystal-header-right{gap:10px}.crystal-crown{font-size:21px}.crystal-goldhen strong{font-size:11px}.crystal-goldhen small{font-size:9px}.crystal-time{padding-left:10px}.crystal-time time{font-size:13px}.crystal-time small{font-size:8px}.crystal-nav{max-width:100%;width:100%;justify-content:space-around;padding:4px}.crystal-nav a{padding:10px 8px;font-size:11px}.crystal-nav a span{margin-right:3px;font-size:13px}.crystal-main{width:calc(100% - 28px);padding:22px 0 28px}.crystal-firmware-grid{grid-template-columns:1fr;gap:13px}.crystal-fw-card{min-height:116px;padding:14px 16px;border-radius:23px!important;gap:15px}.crystal-ps-disc{width:70px;height:70px;flex-basis:70px;font-size:24px}.crystal-fw-copy strong{font-size:29px}.crystal-fw-copy small{font-size:14px}.crystal-arrow{width:42px;height:42px;flex-basis:42px;font-size:30px}.crystal-footer{width:calc(100% - 28px);margin-bottom:14px;padding:13px;gap:12px;border-radius:22px}.crystal-footer-project{width:100%;justify-content:center}.crystal-footer-divider{display:none}.crystal-footer-status,.crystal-footer-hen{font-size:11px}.crystal-footer-status strong,.crystal-footer-hen strong{font-size:11px}.crystal-footer-love{margin:0 auto;padding:9px 14px}.crystal-footer-love span{font-size:11px}}
+@media(min-width:681px) and (max-width:1050px){.crystal-firmware-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
