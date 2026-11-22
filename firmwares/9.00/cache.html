@@ -61,51 +61,85 @@
             var progressText = document.getElementById('progressText');
             var cacheStatus = document.getElementById('cacheStatus');
             var redirectPending = false;
+            var cacheFailed = false;
 
             function setCached(value) {
-                try { localStorage.is900Cached = value ? 'true' : 'false'; } catch (e) {}
+                try { localStorage.setItem('is900Cached', value ? 'true' : 'false'); } catch (e) {}
             }
             function setProgress(value) {
                 var progress = Math.max(0, Math.min(100, value));
                 progressBar.style.width = progress + '%';
-                progressText.innerHTML = progress + '%';
+                progressText.textContent = progress + '%';
             }
             function openHost(message) {
-                if (redirectPending) return;
+                if (redirectPending || cacheFailed) return;
                 redirectPending = true;
                 setCached(true);
                 setProgress(100);
-                progressLabel.innerHTML = message;
-                cacheStatus.innerHTML = 'Opening the cached host...';
-                setTimeout(function () { window.location.replace('index.html'); }, 1200);
+                progressLabel.textContent = message;
+                cacheStatus.textContent = 'Opening the cached host...';
+                setTimeout(function () { window.location.replace('index.html'); }, 900);
             }
+            function failCache(message) {
+                if (redirectPending) return;
+                cacheFailed = true;
+                setCached(false);
+                progressLabel.textContent = 'Offline cache failed.';
+                cacheStatus.textContent = message || 'Stay online and reload this page to retry.';
+            }
+
             if (!appCache) {
-                progressLabel.innerHTML = 'Offline cache is not supported by this browser.';
-                cacheStatus.innerHTML = 'Open this page in the PS4 browser.';
+                failCache('Offline cache is not supported by this browser. Open this page in the PS4 browser.');
                 return;
             }
-            if (appCache.status === appCache.DOWNLOADING) setCached(false);
-            appCache.ondownloading = function () {
+
+            // Register listeners before asking AppCache to update, so fast events are not missed.
+            appCache.addEventListener('checking', function () {
+                cacheStatus.textContent = 'Checking for host updates...';
+            }, false);
+            appCache.addEventListener('downloading', function () {
                 setCached(false);
-                progressLabel.innerHTML = 'Page Caching Started!!';
-                cacheStatus.innerHTML = 'Downloading host files. Do not close the browser.';
-            };
-            appCache.onprogress = function (event) {
-                if (event.lengthComputable && event.total > 0) setProgress(Math.round(100 * event.loaded / event.total));
-                else cacheStatus.innerHTML = 'Downloading host files...';
-            };
-            appCache.oncached = function () { openHost('Page Cached Successfully!!!'); };
-            appCache.onupdateready = function () {
+                progressLabel.textContent = 'Page caching started...';
+                cacheStatus.textContent = 'Downloading host files. Do not close the browser.';
+            }, false);
+            appCache.addEventListener('progress', function (event) {
+                if (event && event.lengthComputable && event.total > 0) {
+                    setProgress(Math.round(100 * event.loaded / event.total));
+                } else {
+                    cacheStatus.textContent = 'Downloading host files...';
+                }
+            }, false);
+            appCache.addEventListener('cached', function () {
+                openHost('Page cached successfully.');
+            }, false);
+            appCache.addEventListener('updateready', function () {
                 try { appCache.swapCache(); } catch (e) {}
-                openHost('Cache Updated Successfully!!!');
-            };
-            appCache.onnoupdate = function () { openHost('Offline Cache Ready'); };
-            appCache.onerror = function () {
-                setCached(false);
-                progressLabel.innerHTML = 'Offline cache failed.';
-                cacheStatus.innerHTML = 'Stay online, clear browser data, and reload this page.';
-            };
-            appCache.onobsolete = appCache.onerror;
+                openHost('Cache updated successfully.');
+            }, false);
+            appCache.addEventListener('noupdate', function () {
+                openHost('Offline cache ready.');
+            }, false);
+            appCache.addEventListener('error', function () {
+                failCache('The browser could not finish caching. Reload this page to retry.');
+            }, false);
+            appCache.addEventListener('obsolete', function () {
+                failCache('The cache manifest is obsolete. Reopen the host and retry the cache install.');
+            }, false);
+
+            // If an update is already ready, use it. Otherwise explicitly start an update
+            // when AppCache is idle/uncached instead of waiting indefinitely for an event.
+            if (appCache.status === appCache.UPDATEREADY) {
+                try { appCache.swapCache(); } catch (e) {}
+                openHost('Cache updated successfully.');
+            } else if (appCache.status === appCache.IDLE || appCache.status === appCache.UNCACHED) {
+                try {
+                    appCache.update();
+                } catch (e) {
+                    failCache('Could not start the cache update. Reload this page to retry.');
+                }
+            } else if (appCache.status === appCache.OBSOLETE) {
+                failCache('The cache manifest is obsolete. Reopen the host and retry the cache install.');
+            }
         }());
     </script>
     <style id="pspulse-support-style">.pspulse-support{position:fixed;right:18px;bottom:18px;z-index:2147483647;display:block;padding:10px 15px;border:1px solid #9b87ff;border-radius:4px;background:#17151f;color:#b7a9ff!important;font:600 13px Arial,sans-serif;letter-spacing:.2px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.32)}.pspulse-support:hover,.pspulse-support:focus{background:#9b87ff;color:#101014!important;outline:none}</style>
