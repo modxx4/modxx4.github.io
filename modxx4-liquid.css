@@ -1469,3 +1469,9 @@ input,select,textarea,#console,.track{
 p,small,label,li,.muted,.description{color:rgba(255,255,255,.9)!important}
 a{color:#c5edff!important}
 @media(max-width:700px){body{background-attachment:scroll!important}}
+
+
+/* MODXX4 welcome header replacing the old navigation */
+.crystal-welcome{display:flex;align-items:center;justify-content:center;gap:11px;min-height:46px;padding:10px 24px;border:1px solid rgba(255,255,255,.42);border-radius:999px;background:linear-gradient(145deg,rgba(255,255,255,.22),rgba(255,255,255,.055) 58%,rgba(0,180,255,.12));box-shadow:0 12px 26px rgba(0,8,28,.34),inset 0 1.5px 1px rgba(255,255,255,.8),inset 0 -2px 4px rgba(255,255,255,.16);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);color:#fff;font-size:15px;font-weight:750;letter-spacing:.035em;text-shadow:0 2px 9px rgba(0,10,35,.48);white-space:nowrap}
+.crystal-welcome-mark{font-size:17px;color:#a9eaff;text-shadow:0 0 12px rgba(0,195,255,.8)}
+@media(max-width:760px){.crystal-welcome{padding:9px 15px;font-size:13px;gap:8px}}
