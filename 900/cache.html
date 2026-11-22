@@ -54,116 +54,56 @@
         <footer class="foot">Author: <a href="https://t.me/sudoBlackArch">BlackArch</a> // Telegram: <a href="https://t.me/PlayStation_Pulse">PlayStation Pulse</a></footer>
     </div>
     <script>
-        (function () {
-            var appCache = window.applicationCache;
-            var progressLabel = document.getElementById('progress');
-            var progressBar = document.getElementById('myBar');
-            var progressText = document.getElementById('progressText');
-            var cacheStatus = document.getElementById('cacheStatus');
-            var redirectPending = false;
-            var cacheFailed = false;
+        // Keep the PSX8 AppCache event flow for the PS4 browser.
+        var appCache = window.applicationCache;
 
-            function setCached(value) {
-                try { localStorage.setItem('is900Cached', value ? 'true' : 'false'); } catch (e) {}
-            }
-            function setProgress(value) {
-                var progress = Math.max(0, Math.min(100, value));
-                progressBar.style.width = progress + '%';
-                progressText.textContent = progress + '%';
-            }
-            function openHost(message) {
-                if (redirectPending || cacheFailed) return;
-                redirectPending = true;
-                setCached(true);
-                setProgress(100);
-                progressLabel.textContent = message;
-                cacheStatus.textContent = 'Opening the cached host...';
-                setTimeout(function () { window.location.replace('index.html'); }, 900);
-            }
-            function failCache(message) {
-                if (redirectPending) return;
-                cacheFailed = true;
-                setCached(false);
-                progressLabel.textContent = 'Offline cache failed.';
-                cacheStatus.textContent = message || 'Stay online and reload this page to retry.';
-            }
+        if (appCache.status === 2) {
+            try { localStorage.setItem('is900Cached', 'true'); } catch (e) {}
+        }
 
-            if (!appCache) {
-                failCache('Offline cache is not supported by this browser. Open this page in the PS4 browser.');
-                return;
+        appCache.ondownloading = function () {
+            document.getElementById('progress').textContent = 'Page caching started...';
+            document.getElementById('cacheStatus').textContent = 'Downloading host files. Do not close the browser.';
+            try { localStorage.setItem('is900Cached', 'false'); } catch (e) {}
+        };
+
+        appCache.onprogress = function (event) {
+            if (event && event.total > 0) {
+                var progress = Math.round(100 * (event.loaded / event.total));
+                document.getElementById('myBar').style.width = progress + '%';
+                document.getElementById('progressText').textContent = progress + '%';
             }
+        };
 
-            // Watch AppCache state as a fallback in case the PS4 browser misses
-            // the final cached/updateready event after reaching 100%.
-            function checkCacheCompletion() {
-                if (redirectPending || cacheFailed) return;
-                try {
-                    if (appCache.status === appCache.UPDATEREADY) {
-                        try { appCache.swapCache(); } catch (e) {}
-                        openHost('Cache updated successfully.');
-                    } else if (appCache.status === appCache.IDLE && progressText.textContent === '100%') {
-                        openHost('Offline cache ready.');
-                    }
-                } catch (e) {}
-            }
+        function finishCache(message) {
+            document.getElementById('progress').textContent = message;
+            document.getElementById('cacheStatus').textContent = 'Opening the cached host...';
+            document.getElementById('myBar').style.width = '100%';
+            document.getElementById('progressText').textContent = '100%';
+            try { localStorage.setItem('is900Cached', 'true'); } catch (e) {}
+            window.setTimeout(function () {
+                window.location.replace('index.html');
+            }, 1200);
+        }
 
-            appCache.addEventListener('cached', checkCacheCompletion, false);
-            appCache.addEventListener('updateready', checkCacheCompletion, false);
-            appCache.addEventListener('noupdate', checkCacheCompletion, false);
-            appCache.addEventListener('error', function () {
-                // Keep the existing error handler below as the single failure path.
-            }, false);
-            appCache.addEventListener('statuschange', checkCacheCompletion, false);
-            var completionWatch = window.setInterval(checkCacheCompletion, 500);
+        appCache.oncached = function () {
+            finishCache('Page cached successfully.');
+        };
 
-            // Register listeners before asking AppCache to update, so fast events are not missed.
-            appCache.addEventListener('checking', function () {
-                cacheStatus.textContent = 'Checking for host updates...';
-            }, false);
-            appCache.addEventListener('downloading', function () {
-                setCached(false);
-                progressLabel.textContent = 'Page caching started...';
-                cacheStatus.textContent = 'Downloading host files. Do not close the browser.';
-            }, false);
-            appCache.addEventListener('progress', function (event) {
-                if (event && event.lengthComputable && event.total > 0) {
-                    setProgress(Math.round(100 * event.loaded / event.total));
-                } else {
-                    cacheStatus.textContent = 'Downloading host files...';
-                }
-            }, false);
-            appCache.addEventListener('cached', function () {
-                openHost('Page cached successfully.');
-            }, false);
-            appCache.addEventListener('updateready', function () {
-                try { appCache.swapCache(); } catch (e) {}
-                openHost('Cache updated successfully.');
-            }, false);
-            appCache.addEventListener('noupdate', function () {
-                openHost('Offline cache ready.');
-            }, false);
-            appCache.addEventListener('error', function () {
-                failCache('The browser could not finish caching. Reload this page to retry.');
-            }, false);
-            appCache.addEventListener('obsolete', function () {
-                failCache('The cache manifest is obsolete. Reopen the host and retry the cache install.');
-            }, false);
+        appCache.onupdateready = function () {
+            try { appCache.swapCache(); } catch (e) {}
+            finishCache('Cache updated successfully.');
+        };
 
-            // If an update is already ready, use it. Otherwise explicitly start an update
-            // when AppCache is idle/uncached instead of waiting indefinitely for an event.
-            if (appCache.status === appCache.UPDATEREADY) {
-                try { appCache.swapCache(); } catch (e) {}
-                openHost('Cache updated successfully.');
-            } else if (appCache.status === appCache.IDLE || appCache.status === appCache.UNCACHED) {
-                try {
-                    appCache.update();
-                } catch (e) {
-                    failCache('Could not start the cache update. Reload this page to retry.');
-                }
-            } else if (appCache.status === appCache.OBSOLETE) {
-                failCache('The cache manifest is obsolete. Reopen the host and retry the cache install.');
-            }
-        }());
+        appCache.onnoupdate = function () {
+            window.location.replace('index.html');
+        };
+
+        appCache.onerror = function () {
+            // Match the PSX8 behavior: return to the host after AppCache ends
+            // its attempt, allowing the cached host to launch.
+            window.location.replace('index.html');
+        };
     </script>
     <style id="pspulse-support-style">.pspulse-support{position:fixed;right:18px;bottom:18px;z-index:2147483647;display:block;padding:10px 15px;border:1px solid #9b87ff;border-radius:4px;background:#17151f;color:#b7a9ff!important;font:600 13px Arial,sans-serif;letter-spacing:.2px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.32)}.pspulse-support:hover,.pspulse-support:focus{background:#9b87ff;color:#101014!important;outline:none}</style>
     <a class="pspulse-support" href="../../support.html" aria-label="Support me">Support MODXX4</a>
