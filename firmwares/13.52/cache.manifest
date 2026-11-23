@@ -1,4 +1,4 @@
-# MODXX4 ZERO-COST CARD FOCUS PS4 mode 20261123-r21
+# MODXX4 clean theme reset 20261123-r34
 CACHE MANIFEST
 # MODXX4 PlayStation Blue Violet Glassmorphism all pages + offline cache 20261123-r15
 # MODXX4 Unified Deep Blue Apple Liquid Glass all pages 20261123-r14
@@ -29,7 +29,6 @@ CACHE MANIFEST
 # Apple Crystal Light Glass cards refresh 20261122-v5
 
 CACHE:
-../../modxx4-liquid.css
 index.html
 jb.html
 cache.html
@@ -45,7 +44,6 @@ patches/1350.bin
 patches/1352.bin
 
 jb.html?log=1
-../../assets/liquid-glass-bg.svg
 
 NETWORK:
 *
