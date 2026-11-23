@@ -1,8 +1,9 @@
 CACHE MANIFEST
+# P4JB text-only header; M crown mark removed 20261123
 # P4JB-Afterglow-14.00-14.02-r7
 
 /p4jb-liquid.css
-/assets/P4JB-mark.svg
+
 cache.html
 jb.html
 index.html
