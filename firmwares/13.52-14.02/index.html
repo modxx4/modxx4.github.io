@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050811">
+<title>MODXX4 — Firmware Selector</title>
+</head>
+<body>
+<p id="status">Detecting PS4 firmware...</p>
+<script>
+(function () {
+  var match = /PlayStation\s+4[\/ ](\d+)\.(\d+)/.exec(navigator.userAgent);
+  var status = document.getElementById("status");
+
+  if (!match) {
+    status.textContent = "Unable to detect PS4 firmware. Open this host on your PS4.";
+    return;
+  }
+
+  var minor = parseInt(match[2], 16);
+  var minorText = minor.toString(16);
+  if (minorText.length < 2) minorText = "0" + minorText;
+
+  var firmware = parseInt(match[1], 10) * 100 + parseInt(minorText, 10);
+  if (firmware === 1352) {
+    location.replace("../13.52/index.html");
+  } else if (firmware === 1400 || firmware === 1402) {
+    location.replace("../14.00-14.02/index.html");
+  } else {
+    status.textContent = "Unsupported firmware: " + match[1] + "." + minorText;
+  }
+}());
+</script>
+</body>
+</html>
