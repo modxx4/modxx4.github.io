@@ -107,3 +107,21 @@ button:hover,button:focus,.grid button:focus{outline:none;border-color:#80e5ff;b
   .ps-controller-art{max-height:220px}
 }
 
+/* Homepage: remove controller and center welcome label */
+.crystal-hero-art{display:none!important}
+.crystal-header{position:relative}
+.crystal-welcome{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  margin:0;
+  white-space:nowrap;
+  justify-content:center;
+  text-align:center;
+}
+@media(max-width:560px){
+  .crystal-welcome{position:static;transform:none;margin:8px auto;order:3}
+  .crystal-header{flex-wrap:wrap;justify-content:space-between}
+}
+
