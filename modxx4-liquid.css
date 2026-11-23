@@ -1991,3 +1991,88 @@ body.crystal-dashboard .crystal-hero {
 body.crystal-dashboard .crystal-firmware-grid {
   contain:layout !important;
 }
+
+
+/* MODXX4 r28 — restore the original firmware card details hidden by r25.
+   Keep the original card structure, PS icons, glass highlights and arrow;
+   retain static rendering so focus/navigation stays light on PS4. */
+body.crystal-dashboard .crystal-fw-card,
+body.crystal-dashboard .crystal-fw-card:link,
+body.crystal-dashboard .crystal-fw-card:visited,
+body.crystal-dashboard .crystal-fw-card:hover,
+body.crystal-dashboard .crystal-fw-card:active,
+body.crystal-dashboard .crystal-fw-card:focus {
+  min-height:112px !important;
+  padding:18px 21px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:16px !important;
+  border-radius:24px !important;
+  border:1px solid rgba(220,239,255,.72) !important;
+  background:linear-gradient(132deg,rgba(205,230,255,.30),rgba(103,151,204,.19) 54%,rgba(117,120,190,.17)) !important;
+  box-shadow:0 7px 16px rgba(0,7,24,.17),inset 0 1px 0 rgba(255,255,255,.66),inset 0 -1px 0 rgba(110,151,208,.18) !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  -webkit-transform:none !important;
+  transform:none !important;
+  -webkit-transition:none !important;
+  transition:none !important;
+}
+body.crystal-dashboard .crystal-fw-card:before {
+  display:block !important;
+  content:"" !important;
+  position:absolute !important;
+  inset:1px !important;
+  border-radius:inherit !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+  background:linear-gradient(120deg,rgba(255,255,255,.52),rgba(255,255,255,.10) 43%,transparent 67%) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.56) !important;
+}
+body.crystal-dashboard .crystal-fw-card:after {
+  display:block !important;
+  content:"" !important;
+  position:absolute !important;
+  right:-42px !important;
+  top:-60px !important;
+  width:155px !important;
+  height:155px !important;
+  border-radius:50% !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+  background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.50),rgba(183,211,249,.17) 37%,rgba(177,164,231,.08) 58%,transparent 72%) !important;
+  border:1px solid rgba(255,255,255,.34) !important;
+  box-shadow:inset 5px 4px 12px rgba(255,255,255,.28) !important;
+}
+body.crystal-dashboard .crystal-fw-card .crystal-ps-disc {
+  display:grid !important;
+  width:56px !important;
+  height:56px !important;
+  flex:0 0 56px !important;
+  place-items:center !important;
+  border-radius:19px !important;
+  border:1px solid rgba(255,255,255,.90) !important;
+  background:linear-gradient(145deg,rgba(255,255,255,.78),rgba(165,199,244,.28)) !important;
+  box-shadow:inset 2px 2px 5px rgba(255,255,255,.78),inset -3px -4px 8px rgba(85,129,193,.12),0 4px 10px rgba(0,8,25,.12) !important;
+}
+body.crystal-dashboard .crystal-fw-card .crystal-arrow {
+  display:block !important;
+  margin-left:auto !important;
+  color:#d6eaff !important;
+  font-size:27px !important;
+  font-weight:300 !important;
+  box-shadow:none !important;
+}
+body.crystal-dashboard .crystal-fw-card .crystal-fw-copy strong {
+  color:#f1f7ff !important;
+  text-shadow:0 1px 2px rgba(0,10,30,.24) !important;
+}
+body.crystal-dashboard .crystal-fw-card .crystal-fw-copy small {
+  color:rgba(222,237,255,.82) !important;
+}
+body.crystal-dashboard .crystal-fw-card:hover,
+body.crystal-dashboard .crystal-fw-card:active,
+body.crystal-dashboard .crystal-fw-card:focus {
+  border-color:rgba(170,226,255,.92) !important;
+  box-shadow:0 8px 18px rgba(0,7,24,.20),inset 0 1px 0 rgba(255,255,255,.72) !important;
+}
