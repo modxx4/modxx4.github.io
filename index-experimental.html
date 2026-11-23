@@ -108,10 +108,10 @@
   var cards=grid.getElementsByTagName("a");
   var total=cards.length;
   function filterFirmware(){
-    var query=(input.value||"").toLowerCase().replace(/\\s+/g,"").replace(/,/g,".");
+    var query=(input.value||"").toLowerCase().replace(/\s+/g,"").replace(/,/g,".");
     var shown=0;
     for(var i=0;i<cards.length;i++){
-      var label=(cards[i].textContent||cards[i].innerText||"").toLowerCase().replace(/\\s+/g,"").replace(/,/g,".");
+      var label=(cards[i].textContent||cards[i].innerText||"").toLowerCase().replace(/\s+/g,"").replace(/,/g,".");
       var match=!query||label.indexOf(query)!==-1;
       cards[i].style.display=match?"":"none";
       if(match){shown++;}
