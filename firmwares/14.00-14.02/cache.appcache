@@ -1,6 +1,8 @@
 CACHE MANIFEST
-# MODXX4-Afterglow-14.00-14.02-r1
+# MODXX4-Afterglow-14.00-14.02-r2
 
+/modxx4-liquid.css
+/assets/modxx4-mark.svg
 cache.html
 jb.html
 index.html
@@ -15,6 +17,7 @@ fb_kevent.js
 fb_tables.js
 rpc_worker.js
 payload.bin
+hen.bin
 welcome-goldhen.jpg
 patches/1352.bin
 patches/1400.bin
@@ -22,4 +25,3 @@ patches/1400.bin
 NETWORK:
 *
 
-FALLBACK:

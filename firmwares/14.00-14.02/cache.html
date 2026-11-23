@@ -1,35 +1,45 @@
-<html manifest="cache.appcache">
+<!doctype html>
+<html lang="en" manifest="cache.appcache">
 <head>
-<meta charset="utf-8" />
-<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#020b1f">
+<title>MODXX4 // FW 14.00–14.02 Offline Cache</title>
+<link rel="stylesheet" href="/modxx4-liquid.css">
 <style>
-body{margin:0;background:#eef5ff;color:#0f172a;font:16px/1.45 system-ui,sans-serif;text-align:center}
-.info{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#1d4ed8}
+.cache-screen{width:min(680px,calc(100% - 36px));margin:12vh auto 0;padding:34px 28px;text-align:center;border-radius:26px;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.045) 55%,rgba(0,162,255,.14));border:1px solid rgba(255,255,255,.3);border-top:1.5px solid rgba(255,255,255,.7);box-shadow:0 8px 20px rgba(0,8,28,.35),inset 0 1px 5px rgba(255,255,255,.2)}
+.cache-brand{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:22px;font-weight:800;letter-spacing:.08em}
+.cache-brand img{width:38px;height:38px;object-fit:contain}
+.cache-title{font-size:clamp(24px,4vw,36px);font-weight:800;margin:0 0 10px}
+.cache-sub{color:rgba(225,240,255,.75);font-size:14px;margin:0}
+#msgs{margin-top:22px;color:#a9e5ff;font-weight:700;min-height:24px}
+.cache-note{margin-top:24px;color:rgba(225,240,255,.55);font-size:11px}
 </style>
-<script>
-history.replaceState(null, null, 'jb.html');
-function pct(e){
-  var m=document.getElementById('msgs');
-  if(!m)return;
-  var p=e.total?Math.round(e.loaded/e.total*100):0;
-  m.textContent=p? (p+'%') : '';
-}
-function go(){
-  setTimeout(function(){ location.replace('jb.html'); }, 700);
-}
-if(window.applicationCache){
-  applicationCache.addEventListener('progress', pct, false);
-  applicationCache.oncached = go;
-  applicationCache.onupdateready = function(){ try{applicationCache.swapCache();}catch(e){} go(); };
-  applicationCache.addEventListener('noupdate', function(){ setTimeout(function(){ location.replace('jb.html'); }, 200); }, false);
-  applicationCache.addEventListener('error', function(){
-    var m=document.getElementById('msgs');
-    if(m) m.textContent='Cache failed';
-  }, false);
-} else {
-  setTimeout(function(){ location.replace('jb.html'); }, 300);
-}
-</script>
 </head>
-<body><div id="msgs" class="info"></div></body>
+<body>
+<main class="cache-screen">
+  <div class="cache-brand"><img src="/assets/modxx4-mark.svg" alt=""> MODXX4 <span style="color:#a9e5ff">/ PS4 HOST</span></div>
+  <h1 class="cache-title">Preparing offline cache</h1>
+  <p class="cache-sub">Firmware 14.00–14.02 · Afterglow WebKit · GoldHEN</p>
+  <div id="msgs" role="status" aria-live="polite">Checking cache...</div>
+  <div class="cache-note">Keep this page open while the host files are cached.</div>
+</main>
+<script>
+(function(){
+  var m=document.getElementById("msgs"),done=false,ac=window.applicationCache;
+  function say(t){if(m)m.textContent=t}
+  function go(){if(done)return;done=true;setTimeout(function(){location.replace("jb.html")},350)}
+  if(!ac){say("Offline cache API unavailable — opening host online");go();return}
+  ac.addEventListener("progress",function(e){if(e&&e.total>0)say("Caching host files "+Math.round(e.loaded/e.total*100)+"%")},false);
+  ac.addEventListener("cached",function(){say("Offline cache ready");go()},false);
+  ac.addEventListener("updateready",function(){try{ac.swapCache()}catch(e){}say("Offline cache updated");go()},false);
+  ac.addEventListener("noupdate",function(){say("Offline cache is ready");go()},false);
+  ac.addEventListener("error",function(){say("Cache failed — clear the browser cache and reopen MODXX4")},false);
+  ac.addEventListener("obsolete",function(){say("Cache obsolete — clear browser data and reopen MODXX4")},false);
+  if(ac.status===ac.UPDATEREADY){try{ac.swapCache()}catch(e){}go()}
+  else if(ac.status===ac.IDLE){say("Checking for host updates...");try{ac.update()}catch(e){}}
+  else if(ac.status===ac.UNCACHED){say("Downloading offline host files...")}
+})();
+</script>
+</body>
 </html>
