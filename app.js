@@ -7,11 +7,9 @@ document.querySelectorAll(".firmware-card.ready").forEach(card => {
 });
 
 
-// Register the host service worker so the homepage and shell can open offline.
+// Register offline service worker cleanly for PS4/PS5 WebKit
 if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js", { scope: "./" })
-      .then(registration => registration.update())
-      .catch(error => console.warn("MODXX4: offline cache registration failed", error));
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./service-worker.js", { scope: "./" }).catch(function () {});
   }, { once: true });
 }
