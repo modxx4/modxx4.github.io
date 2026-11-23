@@ -1540,3 +1540,44 @@ button:hover,.grid button:hover,.copy-button:hover,.glass-button:hover,a.button:
 }
 .ps-controller-art{filter:none!important}
 .crystal-hero h1.firmware-title{text-shadow:none!important}
+
+
+/* MODXX4 r21 — zero-cost directional focus for PS4 controller navigation */
+:is(.crystal-fw-card,.fw-card,.version-card,.build-card,.card,.cache-card,.section-card,.firmware-card,.firmware-card.ready,.firmware-card a,.firmware-tile,.fw-tile){
+ -webkit-backdrop-filter:none!important;
+ backdrop-filter:none!important;
+ filter:none!important;
+ transition:none!important;
+ animation:none!important;
+ transform:none!important;
+}
+:is(.crystal-fw-card,.fw-card,.version-card,.build-card,.card,.cache-card,.section-card,.firmware-card,.firmware-card.ready,.firmware-card a,.firmware-tile,.fw-tile)::before,
+:is(.crystal-fw-card,.fw-card,.version-card,.build-card,.card,.cache-card,.section-card,.firmware-card,.firmware-card.ready,.firmware-card a,.firmware-tile,.fw-tile)::after{
+ animation:none!important;
+ filter:none!important;
+ transition:none!important;
+}
+:is(.crystal-fw-card,.fw-card,.version-card,.build-card,.card,.cache-card,.section-card,.firmware-card,.firmware-card.ready,.firmware-card a,.firmware-tile,.fw-tile):hover,
+:is(.crystal-fw-card,.fw-card,.version-card,.build-card,.card,.cache-card,.section-card,.firmware-card,.firmware-card.ready,.firmware-card a,.firmware-tile,.fw-tile):focus,
+:is(.crystal-fw-card,.fw-card,.version-card,.build-card,.card,.cache-card,.section-card,.firmware-card,.firmware-card.ready,.firmware-card a,.firmware-tile,.fw-tile):focus-visible,
+:is(.crystal-fw-card,.fw-card,.version-card,.build-card,.card,.cache-card,.section-card,.firmware-card,.firmware-card.ready,.firmware-card a,.firmware-tile,.fw-tile).active-card{
+ transform:none!important;
+ filter:none!important;
+ -webkit-backdrop-filter:none!important;
+ backdrop-filter:none!important;
+ background:linear-gradient(145deg,rgba(255,255,255,.22),rgba(255,255,255,.065) 58%,rgba(0,145,220,.10))!important;
+ border-color:rgba(135,225,255,.92)!important;
+ box-shadow:inset 0 0 0 1px rgba(135,225,255,.42)!important;
+ outline:2px solid rgba(135,225,255,.78)!important;
+ outline-offset:1px!important;
+}
+:is(a,button,[role="button"],input[type="button"],input[type="submit"]):focus,
+:is(a,button,[role="button"],input[type="button"],input[type="submit"]):focus-visible{
+ transform:none!important;
+ filter:none!important;
+ transition:none!important;
+ animation:none!important;
+ box-shadow:inset 0 0 0 1px rgba(135,225,255,.48)!important;
+ outline:2px solid rgba(135,225,255,.82)!important;
+ outline-offset:1px!important;
+}
