@@ -2076,3 +2076,44 @@ body.crystal-dashboard .crystal-fw-card:focus {
   border-color:rgba(170,226,255,.92) !important;
   box-shadow:0 8px 18px rgba(0,7,24,.20),inset 0 1px 0 rgba(255,255,255,.72) !important;
 }
+
+
+/* MODXX4 r29 — remove the controller artwork and restore the rich blue
+   PlayStation background that was removed during the ultra-light pass. */
+body.crystal-dashboard .crystal-hero-art {
+  display:none !important;
+}
+body.crystal-dashboard {
+  background-color:#010a1a !important;
+  background-image:
+    radial-gradient(ellipse 38rem 32rem at 13% 12%,rgba(0,195,255,.34),transparent 72%),
+    radial-gradient(ellipse 42rem 38rem at 88% 82%,rgba(0,132,255,.32),transparent 72%),
+    radial-gradient(ellipse 24rem 22rem at 48% 46%,rgba(56,215,255,.14),transparent 72%),
+    linear-gradient(160deg,#001233 0%,#002868 48%,#00091d 100%) !important;
+  background-attachment:scroll !important;
+}
+body.crystal-dashboard:after {
+  display:block !important;
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  min-height:100vh !important;
+  height:100% !important;
+  z-index:0 !important;
+  pointer-events:none !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:
+    radial-gradient(ellipse at 18% 20%,rgba(0,210,255,.15),transparent 34%),
+    radial-gradient(ellipse at 82% 75%,rgba(0,105,255,.16),transparent 38%) !important;
+  box-shadow:none !important;
+  transform:none !important;
+  filter:none !important;
+  -webkit-filter:none !important;
+}
+body.crystal-dashboard .crystal-header,
+body.crystal-dashboard .crystal-main,
+body.crystal-dashboard .crystal-footer {
+  position:relative !important;
+  z-index:1 !important;
+}
