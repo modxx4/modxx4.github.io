@@ -125,3 +125,7 @@ button:hover,button:focus,.grid button:focus{outline:none;border-color:#80e5ff;b
   .crystal-header{flex-wrap:wrap;justify-content:space-between}
 }
 
+
+/* Align system-version prompt to the right */
+.crystal-library-title{display:flex;align-items:center;justify-content:space-between}
+.crystal-library-title span{margin-left:auto;text-align:right}
