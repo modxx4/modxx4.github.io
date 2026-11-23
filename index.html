@@ -7,6 +7,31 @@
 <meta name="description" content="MODXX4 — PlayStation 4 Homebrew Host.">
 <title>MODXX4 — PS4 Host</title>
 <link rel="stylesheet" href="/modxx4-liquid.css?v=fast-60fps">
+<style>
+.modxx4-detect-panel,.modxx4-update-panel{margin:0 0 22px;padding:16px 18px;border:1px solid rgba(151,205,255,.24);border-radius:20px;background:linear-gradient(145deg,rgba(20,65,112,.52),rgba(4,18,42,.78));box-shadow:0 8px 24px rgba(0,0,0,.14)}
+.modxx4-detect-panel{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.modxx4-detect-label,.modxx4-update-kicker{font-size:10px;font-weight:800;letter-spacing:.13em;color:#9bdfff}
+.modxx4-detect-title{margin:5px 0 3px;font-size:17px;font-weight:800;color:#fff}
+.modxx4-detect-copy{margin:0;font-size:12px;line-height:1.55;color:rgba(230,242,255,.78)}
+.modxx4-detect-status,.modxx4-fw-status,.modxx4-match-label{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid rgba(151,205,255,.3);border-radius:999px;padding:5px 9px;font-size:9px;font-weight:800;letter-spacing:.08em;color:#c8eaff;background:rgba(20,75,120,.28)}
+.modxx4-detect-status.is-experimental,.modxx4-fw-status.is-experimental{color:#ffe0a3;border-color:rgba(255,190,90,.38);background:rgba(125,76,18,.2)}
+.modxx4-detect-status.is-unavailable,.modxx4-fw-status.is-unavailable{color:#ffc1c1;border-color:rgba(255,110,110,.35);background:rgba(120,30,30,.2)}
+.modxx4-fw-status.is-supported{color:#b9f5d0;border-color:rgba(90,220,155,.3);background:rgba(20,100,65,.18)}
+.modxx4-fw-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:5px}
+.modxx4-fw-note{font-size:10px;color:rgba(225,240,255,.68)}
+.crystal-fw-card.modxx4-fw-match{border-color:rgba(99,205,255,.78);box-shadow:0 0 0 1px rgba(99,205,255,.18),0 8px 26px rgba(0,0,0,.2)}
+.modxx4-match-label{display:none;color:#bdeaff;border-color:rgba(99,205,255,.5)}
+.crystal-fw-card.modxx4-fw-match .modxx4-match-label{display:inline-flex}
+.modxx4-update-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.modxx4-update-panel h2{margin:4px 0 0;font-size:20px;line-height:1.2;color:#fff}
+.modxx4-update-panel p{margin:8px 0 0;font-size:12px;line-height:1.65;color:rgba(230,242,255,.82)}
+.modxx4-update-panel .modxx4-update-note{color:rgba(220,235,255,.62);font-size:11px}
+.modxx4-goldhen-support{margin-top:12px;padding-top:11px;border-top:1px solid rgba(151,205,255,.16)}
+.modxx4-goldhen-support strong{font-size:11px;color:#c9eaff}
+.modxx4-update-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}
+.modxx4-update-links a{font-size:11px;font-weight:700;color:#8fdcff;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:560px){.modxx4-detect-panel{align-items:flex-start;flex-direction:column}.modxx4-update-head{align-items:flex-start;flex-direction:column}}
+</style>
 </head>
 <body class="crystal-dashboard">
 <header class="crystal-header">
@@ -30,45 +55,71 @@
     </div>
   </section>
 
+  <section class="modxx4-detect-panel" id="modxx4-detection" aria-live="polite">
+    <div>
+      <div class="modxx4-detect-label">AUTOMATIC FIRMWARE DETECTION</div>
+      <h2 class="modxx4-detect-title" id="modxx4-detect-title">Checking your system...</h2>
+      <p class="modxx4-detect-copy" id="modxx4-detect-copy">Your firmware will be detected here when opened in the PS4 browser.</p>
+    </div>
+    <span class="modxx4-detect-status" id="modxx4-detect-status">AUTO DETECT</span>
+  </section>
+
   <div class="crystal-library-title"><strong>FIRMWARE LIBRARY</strong><span>SELECT YOUR SYSTEM VERSION</span></div>
   <section class="crystal-firmware-grid" id="firmwares" aria-label="Available firmware caches">
-    <a class="crystal-fw-card" href="./firmwares/14.00-14.02/index.html" autofocus>
+    <a class="crystal-fw-card" href="./firmwares/14.00-14.02/index.html" data-fw-versions="13.52,14.00,14.02" data-fw-status="experimental">
       <span class="crystal-ps-disc" aria-hidden="true">PS4</span>
-      <span class="crystal-fw-copy"><strong>FW 13.52 / 14.00 - 14.02</strong><small>Afterglow WebKit // GoldHEN host</small></span>
+      <span class="crystal-fw-copy"><strong>FW 13.52 / 14.00 - 14.02</strong><small>Afterglow WebKit // GoldHEN host</small><span class="modxx4-fw-meta"><span class="modxx4-fw-status is-experimental">EXPERIMENTAL</span><span class="modxx4-fw-note">14.01 unavailable</span><span class="modxx4-match-label">YOUR FIRMWARE</span></span></span>
       <span class="crystal-arrow" aria-hidden="true">›</span>
     </a>
-    <a class="crystal-fw-card" href="./firmwares/13.52/index.html">
+    <a class="crystal-fw-card" href="./firmwares/13.52/index.html" data-fw-versions="13.02,13.04,13.50,13.52" data-fw-status="supported">
       <span class="crystal-ps-disc" aria-hidden="true">PS4</span>
-      <span class="crystal-fw-copy"><strong>FW 13.02–13.52</strong><small>SlopKit GoldHEN // offline host</small></span>
+      <span class="crystal-fw-copy"><strong>FW 13.02–13.52</strong><small>SlopKit GoldHEN // offline host</small><span class="modxx4-fw-meta"><span class="modxx4-fw-status is-supported">SUPPORTED</span><span class="modxx4-match-label">YOUR FIRMWARE</span></span></span>
       <span class="crystal-arrow" aria-hidden="true">›</span>
     </a>
-    <a class="crystal-fw-card" href="./firmwares/13.00/index.html">
+    <a class="crystal-fw-card" href="./firmwares/13.00/index.html" data-fw-versions="11.00,11.50,11.52,12.00,12.02,12.50,12.52,13.00" data-fw-status="supported">
       <span class="crystal-ps-disc" aria-hidden="true">PS4</span>
-      <span class="crystal-fw-copy"><strong>FW 11.00–12.02 / 12.50–13.00</strong><small>SlopKit WebKit // current build</small></span>
+      <span class="crystal-fw-copy"><strong>FW 11.00–12.02 / 12.50–13.00</strong><small>SlopKit WebKit // current build</small><span class="modxx4-fw-meta"><span class="modxx4-fw-status is-supported">SUPPORTED</span><span class="modxx4-fw-note">Exact host versions only</span><span class="modxx4-match-label">YOUR FIRMWARE</span></span></span>
       <span class="crystal-arrow" aria-hidden="true">›</span>
     </a>
-    <a class="crystal-fw-card" href="./900/version-selector.html">
+    <a class="crystal-fw-card" href="./900/version-selector.html" data-fw-versions="9.00,9.03,9.04,9.50,9.51,9.60" data-fw-status="supported">
       <span class="crystal-ps-disc" aria-hidden="true">PS4</span>
-      <span class="crystal-fw-copy"><strong>FW 9.00–9.60</strong><small>PSFree / Lapse // GoldHEN host</small></span>
+      <span class="crystal-fw-copy"><strong>FW 9.00–9.60</strong><small>PSFree / Lapse // GoldHEN host</small><span class="modxx4-fw-meta"><span class="modxx4-fw-status is-supported">SUPPORTED</span><span class="modxx4-match-label">YOUR FIRMWARE</span></span></span>
       <span class="crystal-arrow" aria-hidden="true">›</span>
     </a>
-    <a class="crystal-fw-card" href="./firmwares/7.00/version-selector.html">
+    <a class="crystal-fw-card" href="./firmwares/7.00/version-selector.html" data-fw-versions="7.00,7.02,7.50,7.51,7.55,8.00,8.01,8.03,8.50,8.52" data-fw-status="supported">
       <span class="crystal-ps-disc" aria-hidden="true">PS4</span>
-      <span class="crystal-fw-copy"><strong>FW 7.00–8.52</strong><small>PSFree / Lapse // GoldHEN host</small></span>
+      <span class="crystal-fw-copy"><strong>FW 7.00–8.52</strong><small>PSFree / Lapse // GoldHEN host</small><span class="modxx4-fw-meta"><span class="modxx4-fw-status is-supported">SUPPORTED</span><span class="modxx4-match-label">YOUR FIRMWARE</span></span></span>
       <span class="crystal-arrow" aria-hidden="true">›</span>
     </a>
-    <a class="crystal-fw-card" href="./firmwares/6.72/cache.html">
+    <a class="crystal-fw-card" href="./firmwares/6.72/cache.html" data-fw-versions="6.72" data-fw-status="supported">
       <span class="crystal-ps-disc" aria-hidden="true">PS4</span>
-      <span class="crystal-fw-copy"><strong>FW 6.72</strong><small>Dedicated host // utility payloads</small></span>
+      <span class="crystal-fw-copy"><strong>FW 6.72</strong><small>Dedicated host // utility payloads</small><span class="modxx4-fw-meta"><span class="modxx4-fw-status is-supported">SUPPORTED</span><span class="modxx4-match-label">YOUR FIRMWARE</span></span></span>
       <span class="crystal-arrow" aria-hidden="true">›</span>
     </a>
-    <a class="crystal-fw-card" href="./firmwares/5.05/cache.html">
+    <a class="crystal-fw-card" href="./firmwares/5.05/cache.html" data-fw-versions="5.05" data-fw-status="supported">
       <span class="crystal-ps-disc" aria-hidden="true">PS4</span>
-      <span class="crystal-fw-copy"><strong>FW 5.05</strong><small>Dedicated host // utility payloads</small></span>
+      <span class="crystal-fw-copy"><strong>FW 5.05</strong><small>Dedicated host // utility payloads</small><span class="modxx4-fw-meta"><span class="modxx4-fw-status is-supported">SUPPORTED</span><span class="modxx4-match-label">YOUR FIRMWARE</span></span></span>
       <span class="crystal-arrow" aria-hidden="true">›</span>
     </a>
   </section>
 
+  <div class="crystal-library-title"><strong>GOLDHEN UPDATES</strong><span>LATEST AUTHOR-PUBLISHED BETA</span></div>
+  <section class="modxx4-update-panel" aria-label="GoldHEN latest update">
+    <div class="modxx4-update-head">
+      <div><div class="modxx4-update-kicker">LATEST BETA BY SISTRO</div><h2>GoldHEN v2.4b18.14</h2></div>
+      <span class="modxx4-detect-status is-experimental">BETA</span>
+    </div>
+    <p><strong>Latest change:</strong> Added support for PS4 firmware 14.02. Earlier updates in this beta series added 14.00, 13.52, 13.02 / 13.04 / 13.50, and support for earlier firmware families.</p>
+    <div class="modxx4-goldhen-support">
+      <strong>GoldHEN payload firmware support</strong>
+      <p>5.05 · 6.71 / 6.72 · 7.00–8.52 · 9.00–9.60 · 10.00 / 10.01 / 10.50 / 10.70 / 10.71 · 11.00 / 11.50 / 11.52 · 12.00 / 12.02 / 12.50 / 12.52 · 13.00 / 13.02 / 13.04 / 13.50 / 13.52 · 14.00 / 14.02</p>
+    </div>
+    <p class="modxx4-update-note">Important: GoldHEN payload support does not automatically mean the MODXX4 jailbreak route is available for every listed firmware. The compatibility labels above describe the routes currently present in this host. Firmware 14.01 is not supported by the current Afterglow route. v2.4b18.14 is SiSTRo's author-published beta; the GitHub Releases page may still show the older v2.4b18 tag.</p>
+    <div class="modxx4-update-links">
+      <a href="https://ko-fi.com/s/66eac96180" target="_blank" rel="noopener">SiSTRo beta release notes</a>
+      <a href="https://github.com/GoldHEN/GoldHEN/releases" target="_blank" rel="noopener">Official GoldHEN GitHub releases</a>
+    </div>
+  </section>
 </main>
 
 <footer class="crystal-footer" id="host-status">
