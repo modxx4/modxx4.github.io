@@ -6,15 +6,15 @@ const APP_SHELL = [
   "./modxx4-liquid.css",
   "./assets/modxx4-mark.svg",
   "./support.html",
-  "./firmwares/9.00/version-selector.html",
-  "./firmwares/9.00/cache.html",
-  "./firmwares/9.00/index.html",
-  "./firmwares/9.00/index5.html",
-  "./firmwares/9.00/cache5.html",
-  "./firmwares/9.00/PSPulse.manifest",
-  "./firmwares/9.00/PSPulse5.manifest",
-  "./firmwares/9.00/goldhen.bin",
-  "./firmwares/9.00/goldhen10.bin"
+  "./900/version-selector.html",
+  "./900/cache.html",
+  "./900/index.html",
+  "./900/index5.html",
+  "./900/cache5.html",
+  "./900/PSPulse.manifest",
+  "./900/PSPulse5.manifest",
+  "./900/goldhen.bin",
+  "./900/goldhen10.bin"
 ];
 
 self.addEventListener("install", (event) => {
