@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#050811">
-<title>MODXX4 — Support &amp; Help</title>
+<title>MODXX4 — Support &amp; Donate</title>
 <link rel="stylesheet" href="/modxx4-liquid.css?v=fast-60fps">
 </head>
 <body class="crystal-dashboard">
@@ -14,54 +14,36 @@
     <span class="crystal-ps-logo" aria-hidden="true">←</span>
     <span class="crystal-brand-copy"><strong>MODXX4</strong><small>BACK TO HOME</small></span>
   </a>
-  <div class="crystal-welcome"><span>✦ Support &amp; Troubleshooting</span></div>
+  <div class="crystal-welcome"><span>✦ Support &amp; Help</span></div>
   <div class="crystal-header-right">
-    <div class="crystal-goldhen"><strong>ONLINE</strong></div>
+    <div class="crystal-goldhen"><strong>60FPS</strong></div>
   </div>
 </header>
 
 <main class="crystal-main">
   <section class="crystal-hero">
     <div class="crystal-hero-copy">
-      <div class="eyebrow">MODXX4 / HELP CENTER</div>
-      <h1 class="firmware-title">Need Help?</h1>
-      <p>Quick fixes for WebKit errors, cache issues, and direct links to contact MODXX4 support.</p>
+      <div class="eyebrow">MODXX4 / SUPPORT CENTER</div>
+      <h1 class="firmware-title">Keep MODXX4 Alive.</h1>
+      <p>Your support helps keep the host fast, updated, and completely free for everyone.</p>
     </div>
   </section>
 
-  <div class="crystal-library-title"><strong>QUICK FIXES</strong><span>COMMON PS4 / PS5 SOLUTIONS</span></div>
+  <div class="crystal-library-title"><strong>DIRECT DONATION</strong><span>SELECT &amp; COPY ADDRESS</span></div>
   <section class="crystal-firmware-grid">
     <div class="status-panel">
-      <strong>1. Memory Full Error</strong>
-      <p style="margin:8px 0 0;font-size:13px;opacity:.85">Press OK, wait 5 seconds, or close extra browser tabs and try again.</p>
+      <strong>USDT (TRC20 Network)</strong>
+      <p id="usdt-addr" style="margin:10px 0;font-size:13px;word-break:break-all;color:#38bdf8;font-family:monospace">TPSKRjJBFGe1Uk8nxbrpPXK7GjcxFfwiFy</p>
+      <button class="btn" onclick="copyText('usdt-addr', this)">Copy USDT Address</button>
     </div>
-    <div class="status-panel">
-      <strong>2. Refresh Offline Cache</strong>
-      <p style="margin:8px 0 0;font-size:13px;opacity:.85">Browser Options &gt; Settings &gt; Delete Cookies &amp; Clear Website Data.</p>
-    </div>
-    <div class="status-panel">
-      <strong>3. Kernel Panic / Shutdown</strong>
-      <p style="margin:8px 0 0;font-size:13px;opacity:.85">Wait 30 seconds after PS4 boots up before opening the browser.</p>
-    </div>
-  </section>
 
-  <div class="crystal-library-title"><strong>CONTACT &amp; COMMUNITY</strong><span>FOLLOW OR REPORT AN ISSUE</span></div>
-  <section class="crystal-firmware-grid">
-    <a class="crystal-fw-card" href="https://github.com" target="_blank">
-      <span class="crystal-ps-disc" aria-hidden="true">GH</span>
-      <span class="crystal-fw-copy"><strong>GitHub Issues</strong><small>Report bugs or request payloads</small></span>
-      <span class="crystal-arrow">›</span>
-    </a>
-    <a class="crystal-fw-card" href="#telegram">
-      <span class="crystal-ps-disc" aria-hidden="true">TG</span>
-      <span class="crystal-fw-copy"><strong>Telegram Channel</strong><small>@MODXX4 // Latest updates &amp; news</small></span>
-      <span class="crystal-arrow">›</span>
-    </a>
-    <a class="crystal-fw-card" href="#support-dev">
-      <span class="crystal-ps-disc" aria-hidden="true">♥</span>
-      <span class="crystal-fw-copy"><strong>Support MODXX4</strong><small>Keep the host fast &amp; ad-free</small></span>
-      <span class="crystal-arrow">›</span>
-    </a>
+    <div class="status-panel">
+      <strong>Quick Troubleshooting</strong>
+      <p style="margin:10px 0 0;font-size:13px;opacity:.85;line-height:1.6">
+        • <b>Memory Full:</b> Close extra browser tabs &amp; retry.<br>
+        • <b>Refresh Cache:</b> Settings &gt; Clear Website Data.
+      </p>
+    </div>
   </section>
 </main>
 
@@ -70,5 +52,22 @@
   <div class="crystal-copyright">© 2026 MODXX4. All rights reserved.</div>
 </footer>
 
+<script>
+function copyText(id, btn) {
+  var text = document.getElementById(id).textContent.trim();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text);
+  } else {
+    var temp = document.createElement("textarea");
+    temp.value = text;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
+  }
+  btn.textContent = "Copied ✓";
+  setTimeout(function() { btn.textContent = "Copy USDT Address"; }, 2000);
+}
+</script>
 </body>
 </html>
