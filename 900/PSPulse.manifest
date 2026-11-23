@@ -1,4 +1,5 @@
 # MODXX4 clean theme reset 20261123-r34
+# MODXX4 iOS 26 Liquid Glass theme 20261123-r1
 # MODXX4 PS4 offline cache refresh 20261123-r33
 # MODXX4 cache pages synchronized to 5.05 template 20261122-r1
 # MODX Minimal Console cache restore 20261122
@@ -11,6 +12,7 @@
 
 
 CACHE:
+/modxx4-liquid.css
 alert.js
 cache.html
 config.js
