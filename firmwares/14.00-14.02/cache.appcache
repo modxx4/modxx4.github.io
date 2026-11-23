@@ -22,6 +22,22 @@ welcome-goldhen.jpg
 patches/1352.bin
 patches/1400.bin
 
+jb.js?v=fb-stages1
+
+core.js?v=28
+
+ps4_offsets.js?v=5
+
+fb_kevent.js?v=gh13-2
+
+fb_kbase.js?v=stage10s-1
+
+fb_kevent.js?v=stage10s-2
+
+fb_tables.js?v=stage10s-1
+
+hen.bin?v=b18.13
+
 NETWORK:
 *
 
