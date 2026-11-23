@@ -29,12 +29,18 @@
     </div>
   </section>
 
-  <div class="crystal-library-title"><strong>DIRECT DONATION</strong><span>SELECT &amp; COPY ADDRESS</span></div>
+  <div class="crystal-library-title"><strong>DIRECT DONATION</strong><span>SELECT &amp; COPY DETAILS</span></div>
   <section class="crystal-firmware-grid">
     <div class="status-panel">
       <strong>USDT (TRC20 Network)</strong>
       <p id="usdt-addr" style="margin:10px 0;font-size:13px;word-break:break-all;color:#38bdf8;font-family:monospace">TPSKRjJBFGe1Uk8nxbrpPXK7GjcxFfwiFy</p>
-      <button class="btn" onclick="copyText('usdt-addr', this)">Copy USDT Address</button>
+      <button class="btn" onclick="copyText('usdt-addr', this, 'Copy USDT Address')">Copy USDT Address</button>
+    </div>
+
+    <div class="status-panel">
+      <strong>Vodafone Cash (Egypt)</strong>
+      <p id="vcash-num" style="margin:10px 0;font-size:15px;letter-spacing:1px;color:#38bdf8;font-family:monospace">01035400444</p>
+      <button class="btn" onclick="copyText('vcash-num', this, 'Copy Wallet Number')">Copy Wallet Number</button>
     </div>
 
     <div class="status-panel">
@@ -53,7 +59,7 @@
 </footer>
 
 <script>
-function copyText(id, btn) {
+function copyText(id, btn, defaultText) {
   var text = document.getElementById(id).textContent.trim();
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text);
@@ -66,7 +72,7 @@ function copyText(id, btn) {
     document.body.removeChild(temp);
   }
   btn.textContent = "Copied ✓";
-  setTimeout(function() { btn.textContent = "Copy USDT Address"; }, 2000);
+  setTimeout(function() { btn.textContent = defaultText; }, 2000);
 }
 </script>
 </body>
