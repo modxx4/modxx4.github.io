@@ -127,3 +127,62 @@ button:hover,button:focus,.grid button:focus{outline:none;border-color:#80e5ff;b
 /* Align system-version prompt to the right */
 .crystal-library-title{display:flex;align-items:center;justify-content:space-between}
 .crystal-library-title span{margin-left:auto;text-align:right}
+
+
+/* MODXX4 cache cards — unified Liquid Glass list and progress panel */
+.boot{
+  list-style:none;display:grid;gap:9px;margin:14px 0;padding:14px;
+}
+.boot li{
+  display:flex;align-items:center;gap:11px;min-height:48px;padding:11px 14px;
+  border-radius:16px;color:rgba(255,255,255,.94);
+  background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.045) 58%,rgba(0,175,255,.12));
+  border:1px solid rgba(255,255,255,.22);border-top:1px solid rgba(255,255,255,.42);
+  box-shadow:inset 0 1px 3px rgba(255,255,255,.12);
+  font-size:13px;font-weight:600;line-height:1.45;
+}
+.boot li b{
+  display:inline-grid;place-items:center;flex:0 0 24px;width:24px;height:24px;
+  margin:0;border-radius:9px;color:#8ff0d1;font-size:11px;font-weight:800;
+  background:rgba(70,220,175,.13);border:1px solid rgba(110,245,205,.3);
+}
+.panel{
+  padding:20px 22px;border-radius:24px;
+  background:linear-gradient(145deg,rgba(255,255,255,.20),rgba(255,255,255,.055) 56%,rgba(0,162,255,.14));
+  border:1px solid rgba(255,255,255,.28);border-top:1.5px solid rgba(255,255,255,.68);
+  box-shadow:0 9px 22px rgba(0,8,28,.34),inset 0 2px 7px rgba(255,255,255,.22);
+}
+.progress-meta{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin:14px 2px 8px;color:rgba(225,240,255,.78);font-size:12px;font-weight:700;
+}
+#progressText{
+  min-width:48px;padding:5px 9px;text-align:center;border-radius:999px;
+  color:#fff;background:rgba(0,170,255,.16);border:1px solid rgba(130,220,255,.28);
+  font-variant-numeric:tabular-nums;
+}
+.panel .track{height:11px;border-radius:99px;background:rgba(0,8,28,.32)}
+.panel #myBar{border-radius:99px}
+#progress{
+  margin:16px 2px 6px;color:#fff;font-size:15px;font-weight:800;line-height:1.5;
+}
+#cacheStatus{
+  margin:5px 2px 0;color:rgba(225,240,255,.76);font-size:12px;font-weight:600;line-height:1.5;
+}
+.panel .state{
+  display:flex;align-items:center;gap:9px;width:max-content;max-width:100%;
+  margin:0 0 10px;padding:7px 11px;border-radius:999px;
+  color:#dff7ff;background:rgba(0,145,230,.13);
+  border:1px solid rgba(125,220,255,.24);font-size:11px;font-weight:800;letter-spacing:.08em;
+}
+.panel .state[hidden]{display:none!important}
+.panel .dot{
+  display:inline-block;width:8px;height:8px;flex:0 0 8px;border-radius:50%;
+  background:#27b8ff;box-shadow:0 0 7px rgba(39,184,255,.55);
+}
+@media(max-width:560px){
+  .boot{padding:11px}
+  .boot li{padding:10px 11px;font-size:12px}
+  .panel{padding:17px 15px}
+  #progress{font-size:14px}
+}
