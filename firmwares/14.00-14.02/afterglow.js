@@ -1166,7 +1166,8 @@ async function runPatchSet(room) {
     /* One set per firmware. The blob writes fixed kernel addresses -- 57 of
        them on 14.00 -- so the wrong one does not merely fail, it writes into
        a kernel that has those addresses somewhere else. */
-    const r2 = await fetch("./src/kpatches/" + FW_KEY.replace(".", "") + ".bin");
+    const patchFile = FW_KEY === "14.02" ? "1400.bin" : FW_KEY.replace(".", "") + ".bin";
+    const r2 = await fetch("./patches/" + patchFile);
     if (r2.ok) pset = new Uint8Array(await r2.arrayBuffer());
   } catch (e) {}
   if (!pset || !pset.length) {
