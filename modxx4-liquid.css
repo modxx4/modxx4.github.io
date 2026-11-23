@@ -67,3 +67,6 @@ button:hover,button:focus,.grid button:focus{outline:none;border-color:#80e5ff;b
 #myBar{height:100%;width:0;background:linear-gradient(90deg,#00b4ff,#80e5ff)}
 .crystal-footer,.foot,.modx-copyright{width:min(1100px,calc(100% - 48px));margin:18px auto;padding:12px 4px;display:flex;justify-content:space-between;font-size:11px;color:rgba(225,240,255,.68);border-top:1px solid rgba(255,255,255,.2)}
 @media(max-width:750px){.crystal-firmware-grid,.grid{grid-template-columns:1fr}.crystal-hero-art{display:none}}
+
+/* MODXX4 brand mark */
+.crystal-ps-logo img{display:block;width:38px;height:38px;object-fit:contain;}
