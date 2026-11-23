@@ -1,4 +1,4 @@
-const CACHE_NAME = "modxx4-host-liquid-glass-v5";
+const CACHE_NAME = "modxx4-host-liquid-glass-v4";
 const APP_SHELL = [
   "./",
   "./index.html",
