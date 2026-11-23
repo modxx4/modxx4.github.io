@@ -1,4 +1,5 @@
 # MODXX4 clean theme reset 20261123-r34
+# MODXX4 iOS 26 Liquid Glass theme 20261123-r1
 CACHE MANIFEST
 # MODXX4 header READY status 20261123-r13
 # MODXX4 cache pages synchronized to 5.05 template 20261122-r1
@@ -12,6 +13,7 @@ CACHE MANIFEST
 
 
 CACHE:
+/modxx4-liquid.css
 cache.html
 index.html
 manifest.json
