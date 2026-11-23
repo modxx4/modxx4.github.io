@@ -19,13 +19,13 @@ document.querySelectorAll(".firmware-card.ready").forEach(card => {
     var fw = parseFloat(ps4Match[1]);
     var target = "#firmwares";
 
-    if (fw >= 14.00 && fw <= 14.02) target = "./firmwares/14.00-14.02/index.html";
-    else if (fw >= 13.02 && fw <= 13.52) target = "./firmwares/13.52/index.html";
-    else if (fw >= 11.00 && fw <= 13.00) target = "./firmwares/13.00/index.html";
+    if (fw >= 14.00 && fw <= 14.02) target = "./14.00-14.02/index.html";
+    else if (fw >= 13.02 && fw <= 13.52) target = "./13.52/index.html";
+    else if (fw >= 11.00 && fw <= 13.00) target = "./13.00/index.html";
     else if (fw >= 9.00 && fw <= 9.60) target = "./900/version-selector.html";
-    else if (fw >= 7.00 && fw <= 8.52) target = "./firmwares/7.00/version-selector.html";
-    else if (fw === 6.72) target = "./firmwares/6.72/cache.html";
-    else if (fw === 5.05) target = "./firmwares/5.05/cache.html";
+    else if (fw >= 7.00 && fw <= 8.52) target = "./7.00/version-selector.html";
+    else if (fw === 6.72) target = "./6.72/cache.html";
+    else if (fw === 5.05) target = "./5.05/cache.html";
 
     if (target !== "#firmwares") {
       window.location.replace(target);
