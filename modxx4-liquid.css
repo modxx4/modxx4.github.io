@@ -1581,3 +1581,69 @@ button:hover,.grid button:hover,.copy-button:hover,.glass-button:hover,a.button:
  outline:2px solid rgba(135,225,255,.82)!important;
  outline-offset:1px!important;
 }
+
+
+/* MODXX4 r22 — legacy PS4 WebKit-safe card focus.
+   Avoid modern :is()/:focus-visible selectors: older PS4 WebKit may ignore them.
+   Keep focus paint to a single static outline; no glow, movement, filters or shadows. */
+.crystal-fw-card,
+.fw-card,
+.version-card,
+.build-card,
+.card,
+.cache-card,
+.section-card,
+.firmware-card,
+.firmware-tile,
+.fw-tile,
+.crystal-fw-card:hover,
+.fw-card:hover,
+.version-card:hover,
+.build-card:hover,
+.card:hover,
+.cache-card:hover,
+.section-card:hover,
+.firmware-card:hover,
+.firmware-tile:hover,
+.fw-tile:hover {
+  -webkit-transform: none !important;
+  transform: none !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+  -webkit-animation: none !important;
+  animation: none !important;
+  -webkit-filter: none !important;
+  filter: none !important;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.42) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.42) !important;
+}
+.crystal-fw-card:focus,
+.fw-card:focus,
+.version-card:focus,
+.build-card:focus,
+.card:focus,
+.cache-card:focus,
+.section-card:focus,
+.firmware-card:focus,
+.firmware-tile:focus,
+.fw-tile:focus {
+  outline: 2px solid rgba(135,225,255,.85) !important;
+  outline-offset: 1px !important;
+  border-color: rgba(135,225,255,.9) !important;
+  background: rgba(95,175,225,.18) !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+a:focus,
+button:focus,
+[role="button"]:focus,
+input:focus {
+  outline: 2px solid rgba(135,225,255,.85) !important;
+  outline-offset: 1px !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+  -webkit-transform: none !important;
+  transform: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
