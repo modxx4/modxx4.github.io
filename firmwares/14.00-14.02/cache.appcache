@@ -1,0 +1,25 @@
+CACHE MANIFEST
+# MODXX4-Afterglow-14.00-14.02-r1
+
+cache.html
+jb.html
+index.html
+jb.js
+core.js
+mem.js
+int64.js
+ps4_offsets.js
+afterglow.js
+fb_kbase.js
+fb_kevent.js
+fb_tables.js
+rpc_worker.js
+payload.bin
+welcome-goldhen.jpg
+patches/1352.bin
+patches/1400.bin
+
+NETWORK:
+*
+
+FALLBACK:

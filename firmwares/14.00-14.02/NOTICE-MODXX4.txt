@@ -1,0 +1,12 @@
+MODXX4 Afterglow host integration
+
+This directory contains an unmodified import of the PS4 jailbreak host source from:
+https://github.com/X-F1REBALL-X/ps4-jb
+
+Original project: X-F1REBALL-X. The Afterglow exploit implementation retains the copyright notice for well0nez in afterglow.js.
+
+The imported project is licensed under GNU Affero General Public License v3.0 (AGPL-3.0). See LICENSE. Source files retain their upstream notices. Network deployment and distribution must comply with the AGPL terms, including providing corresponding source code.
+
+In ps4_offsets.js, firmware 14.00 and 14.02 have separate firmware entries but share the Afterglow chain, payload.bin and patches/1400.bin.
+
+Imported into MODXX4 for integration. This import alone does not certify successful operation on physical PS4 hardware; test before enabling the home-page card.
