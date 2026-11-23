@@ -7,134 +7,128 @@
 <title>MODXX4 // PS4 13.52 / 14.00–14.02 HOST / CACHE</title>
 <link rel="stylesheet" href="/modxx4-liquid.css">
 <style>
-.cache-shell{width:min(1100px,calc(100% - 48px));margin:16px auto 0}
-.cache-main{width:min(760px,100%);margin:24px auto 0}
-.cache-eyebrow{font-size:12px;font-weight:800;letter-spacing:.12em;color:#9bdfff;margin:0 0 12px}
-.cache-title{font-size:clamp(25px,4vw,38px);line-height:1.15;margin:0 0 18px;font-weight:800;color:#fff}
-.cache-title span{color:#9bdfff}
-.cache-boot{list-style:none;padding:0 18px;margin:0 0 14px}
-.cache-boot li{padding:5px 0;color:rgba(225,240,255,.86);font-size:13px}
-.cache-boot b{color:#80e5ff}
-.cache-panel{margin:14px 0;padding:20px 22px;border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.04) 55%,rgba(0,162,255,.12));border:1px solid rgba(255,255,255,.25);border-top:1.5px solid rgba(255,255,255,.62);box-shadow:0 8px 20px rgba(0,8,28,.32),inset 0 2px 6px rgba(255,255,255,.24)}
-.progress-meta{display:flex;justify-content:flex-end;margin:0 0 8px;color:#a9e5ff;font-size:13px;font-weight:800;font-variant-numeric:tabular-nums}
-.cache-track{height:10px;border-radius:99px;overflow:hidden;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35)}
-#myBar{height:100%;width:0;background:linear-gradient(90deg,#00b4ff,#80e5ff);transition:width .18s linear}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.12em;color:#9bdfff;margin:0 0 12px}
+main h1{font-size:clamp(25px,4vw,38px);line-height:1.15;margin:0 0 18px;font-weight:800;color:#fff}
+main h1 span{color:#9bdfff}
+.boot{list-style:none;padding-left:18px}
+.boot li{padding:5px 0;color:rgba(225,240,255,.86);font-size:13px}
+.boot b{color:#80e5ff}
+.panel{margin:14px 0}
+.progress-meta{display:flex;justify-content:space-between;margin:0 0 8px;color:#a9e5ff;font-size:13px;font-weight:800;font-variant-numeric:tabular-nums}
 #progress{margin-top:16px;color:#fff;font-weight:700;min-height:22px}
 #cacheStatus{margin-top:7px;color:rgba(225,240,255,.68);font-size:12px;min-height:18px}
-@media(max-width:600px){.cache-shell{width:calc(100% - 28px)}.cache-main{margin-top:18px}.cache-panel{padding:17px}}
 </style>
 </head>
 <body>
-<div class="cache-shell">
+<div class="shell">
 <header class="topbar">
   <div class="brand"><div class="mark"><img src="/assets/modxx4-mark.svg" alt="" width="38" height="38" style="display:block;object-fit:contain"></div><div>MODXX4<small>PLAYSTATION 4 HOST</small></div></div>
   <div class="fw">FIRMWARE&nbsp; 13.52 / 14.00–14.02</div>
 </header>
-<main class="cache-main">
-  <div class="cache-eyebrow">$ ./cache --install</div>
-  <h1 class="cache-title">Loading <span>offline cache</span></h1>
-  <ul class="cache-boot">
-    <li>[ <b>ok</b> ] Afterglow WebKit chain ready</li>
-    <li>[ <b>ok</b> ] preparing GoldHEN host files</li>
-  </ul>
-  <section class="cache-panel" aria-live="polite">
-    <div class="progress-meta"><span id="progressText">0%</span></div>
-    <div class="cache-track"><div id="myBar"></div></div>
+<main>
+  <div class="eyebrow">$ ./cache --install</div>
+  <h1>Loading <span>offline cache</span></h1>
+  <ul class="boot"><li>[ <b>ok</b> ] Afterglow WebKit chain ready</li><li>[ <b>ok</b> ] preparing GoldHEN host files</li></ul>
+  <section class="panel" aria-live="polite">
+    <div class="state" hidden><i class="dot" id="statusDot"></i><span id="stateLabel">INITIALIZING</span></div>
+    <div class="progress-meta"><span></span><span id="progressText">0%</span></div>
+    <div class="track"><div id="myBar"></div></div>
     <div id="progress">Loading... Please wait.</div>
-    <div id="cacheStatus">Initializing offline cache system...</div>
+    <div id="cacheStatus">Initializing cache system...</div>
   </section>
 </main>
 <footer class="modx-copyright"><span>© 2026 MODXX4 — Built for the PlayStation 4 community. All Rights Reserved.</span><span>Designed with passion. Powered by the community.</span></footer>
 </div>
 <script>
 (function(){
-  var message=document.getElementById("progress");
+  var cache=window.applicationCache;
+  var progress=document.getElementById("progress");
   var detail=document.getElementById("cacheStatus");
   var bar=document.getElementById("myBar");
-  var percentText=document.getElementById("progressText");
-  var done=false;
-  var ac=window.applicationCache;
+  var progressText=document.getElementById("progressText");
+  var redirected=false;
 
-  function say(text){if(message)message.textContent=text;}
-  function detailText(text){if(detail)detail.textContent=text;}
+  function show(message){if(progress)progress.textContent=message;}
+  function detailShow(message){if(detail)detail.textContent=message;}
   function setProgress(value){
     var percent=Math.max(0,Math.min(100,value));
     if(bar)bar.style.width=percent+"%";
-    if(percentText)percentText.textContent=percent+"%";
+    if(progressText)progressText.textContent=percent+"%";
   }
-  function go(){
-    if(done)return;
-    done=true;
-    setTimeout(function(){location.replace("jb.html");},350);
+  function returnToHost(delay){
+    if(redirected)return;
+    redirected=true;
+    setTimeout(function(){window.location.replace("jb.html");},delay);
   }
 
-  if(!ac){
-    say("Application cache is unavailable.");
-    detailText("Opening the online host...");
-    go();
+  if(!cache||!document.documentElement.hasAttribute("manifest")){
+    show("Application cache is unavailable.");
+    detailShow("Opening the online host...");
+    returnToHost(1200);
     return;
   }
 
-  ac.addEventListener("checking",function(){
-    say("Checking host cache...");
-    detailText("Looking for available offline files.");
+  cache.addEventListener("checking",function(){
+    show("Checking host cache...");
+    detailShow("Looking for available offline files.");
   },false);
-  ac.addEventListener("downloading",function(){
-    say("Page caching started...");
-    detailText("Downloading Afterglow host files. Keep this page open.");
+  cache.addEventListener("downloading",function(){
+    show("Page caching started...");
+    detailShow("Downloading Afterglow host files. Keep this page open.");
   },false);
-  ac.addEventListener("progress",function(event){
+  cache.addEventListener("progress",function(event){
     if(!event||!(event.total>0))return;
-    var value=Math.round(100*event.loaded/event.total);
-    setProgress(value);
-    say("Downloading host files...");
-    detailText("Offline cache progress: "+value+"%");
+    var percent=Math.round(100*event.loaded/event.total);
+    setProgress(percent);
+    show("Downloading host files...");
+    detailShow("Offline cache progress: "+percent+"%");
   },false);
-  ac.addEventListener("cached",function(){
+  cache.addEventListener("cached",function(){
     setProgress(100);
-    say("Page cached successfully.");
-    detailText("Opening the jailbreak host...");
-    go();
+    show("Page cached successfully.");
+    detailShow("Opening the jailbreak host...");
+    returnToHost(750);
   },false);
-  ac.addEventListener("updateready",function(){
-    try{ac.swapCache();}catch(error){}
+  cache.addEventListener("updateready",function(){
+    try{cache.swapCache();}catch(error){}
     setProgress(100);
-    say("Cache updated successfully.");
-    detailText("Opening the updated jailbreak host...");
-    go();
+    show("Cache updated successfully.");
+    detailShow("Opening the updated jailbreak host...");
+    returnToHost(750);
   },false);
-  ac.addEventListener("noupdate",function(){
+  cache.addEventListener("noupdate",function(){
     setProgress(100);
-    say("Offline cache is ready.");
-    detailText("No update is required. Opening the jailbreak host...");
-    go();
+    show("Offline cache is ready.");
+    detailShow("No update is required. Opening the jailbreak host...");
+    returnToHost(250);
   },false);
-  ac.addEventListener("error",function(){
-    say("Offline cache could not be updated.");
-    detailText("Stay online, clear browser cache if needed, then reopen MODXX4.");
+  cache.addEventListener("error",function(){
+    show("Cache failed. Returning to online host...");
+    detailShow("Check your internet connection, then reopen the cache page.");
+    returnToHost(1800);
   },false);
-  ac.addEventListener("obsolete",function(){
-    say("Offline cache is obsolete.");
-    detailText("Clear browser data, then reopen MODXX4 while online.");
+  cache.addEventListener("obsolete",function(){
+    show("Cache is obsolete.");
+    detailShow("Clear browser data, then reopen MODXX4 while online.");
   },false);
 
-  if(ac.status===ac.UPDATEREADY){
-    try{ac.swapCache();}catch(error){}
+  if(cache.status===cache.UPDATEREADY){
+    try{cache.swapCache();}catch(error){}
     setProgress(100);
-    go();
-  }else if(ac.status===ac.IDLE){
-    say("Checking for host updates...");
-    detailText("Please keep the PS4 browser open.");
-    try{ac.update();}catch(error){
-      say("Could not start the cache update.");
-      detailText("Reopen MODXX4 while connected to the internet.");
+    returnToHost(250);
+  }else if(cache.status===cache.IDLE){
+    show("Checking for host updates...");
+    detailShow("Please keep the PS4 browser open.");
+    try{cache.update();}catch(error){
+      show("Could not start the cache update.");
+      detailShow("Reopen MODXX4 while connected to the internet.");
     }
-  }else if(ac.status===ac.DOWNLOADING){
-    say("Downloading host files...");
-    detailText("Keep this page open until caching is complete.");
-  }else if(ac.status===ac.UNCACHED){
-    say("Preparing offline cache...");
-    detailText("Waiting for the first cache download.");
+  }else if(cache.status===cache.DOWNLOADING){
+    show("Downloading host files...");
+    detailShow("Keep this page open until caching is complete.");
+  }else if(cache.status===cache.UNCACHED){
+    show("Preparing offline cache...");
+    detailShow("Waiting for the first cache download.");
   }
 })();
 </script>
