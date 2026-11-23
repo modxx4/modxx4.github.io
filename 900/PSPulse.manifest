@@ -1,20 +1,20 @@
 CACHE MANIFEST
-# MODXX4 PS4 9.00 Liquid Glass cache URL alignment 20261123-r36
-# MODXX4 clean theme reset 20261123-r34
-# MODXX4 iOS 26 Liquid Glass theme 20261123-r1
-# MODXX4 PS4 offline cache refresh 20261123-r33
-# MODXX4 cache pages synchronized to 5.05 template 20261122-r1
+# P4JB PS4 9.00 Liquid Glass cache URL alignment 20261123-r36
+# P4JB clean theme reset 20261123-r34
+# P4JB iOS 26 Liquid Glass theme 20261123-r1
+# P4JB PS4 offline cache refresh 20261123-r33
+# P4JB cache pages synchronized to 5.05 template 20261122-r1
 # MODX Minimal Console cache restore 20261122
-# MODXX4 original cache design refresh 20261122
+# P4JB original cache design refresh 20261122
 # resource-path-fix-20261021-main-v4
 # offline-manifests-v1-20261021
-#VERSION 3.3 - MODXX4 9.00 full host visual refresh 20261122
+#VERSION 3.3 - P4JB 9.00 full host visual refresh 20261122
 
 
 
 
 CACHE:
-/assets/modxx4-mark.svg
+/assets/P4JB-mark.svg
 /p4jb-liquid.css
 alert.js
 cache.html

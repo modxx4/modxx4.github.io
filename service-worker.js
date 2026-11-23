@@ -4,7 +4,7 @@ const APP_SHELL = [
   "./index.html",
   "./app.js",
   "./p4jb-liquid.css",
-  "./assets/modxx4-mark.svg",
+  "./assets/P4JB-mark.svg",
   "./support.html",
   "./900/version-selector.html",
   "./900/cache.html",
