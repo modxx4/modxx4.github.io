@@ -22,20 +22,18 @@ body{
 .crystal-fw-card,.fw-card,.version-card,.build-card,.card{
   position:relative;display:flex;align-items:center;gap:14px;min-height:92px;padding:14px 18px;
   border-radius:24px;overflow:hidden;color:#fff;text-decoration:none;
-  background:linear-gradient(145deg,rgba(255,255,255,.22),rgba(255,255,255,.05) 55%,rgba(0,175,255,.15));
-  border:1px solid rgba(255,255,255,.26);border-top:1.5px solid rgba(255,255,255,.68);border-left:1.5px solid rgba(255,255,255,.48);
-  box-shadow:0 8px 20px rgba(0,8,28,.36),inset 0 2px 6px rgba(255,255,255,.26);
-  -webkit-backdrop-filter:blur(7px) saturate(150%);backdrop-filter:blur(7px) saturate(150%);
+  background:linear-gradient(145deg,rgba(255,255,255,.24),rgba(16,58,128,.38) 52%,rgba(0,175,255,.18));
+  border:1px solid rgba(255,255,255,.28);border-top:1.5px solid rgba(255,255,255,.72);border-left:1.5px solid rgba(255,255,255,.5);
+  box-shadow:0 8px 18px rgba(0,8,28,.35),inset 0 2px 6px rgba(255,255,255,.28);
   -webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);contain:layout style paint;
 }
 .crystal-fw-card:before,.fw-card:before,.version-card:before,.build-card:before,.card:before{
-  content:"";position:absolute;top:0;left:8%;right:8%;height:42%;border-radius:0 0 50% 50%;
-  background:linear-gradient(180deg,rgba(255,255,255,.32),transparent);pointer-events:none;
+  content:"";position:absolute;top:0;left:6%;right:6%;height:44%;border-radius:0 0 50% 50%;
+  background:linear-gradient(180deg,rgba(255,255,255,.36),transparent);pointer-events:none;
 }
 .crystal-fw-card:hover,.crystal-fw-card:focus,.fw-card:focus,.version-card:focus,.build-card:focus,.card:focus{
-  outline:none;border-color:#80e5ff;
-  background:linear-gradient(145deg,rgba(255,255,255,.32),rgba(0,195,255,.16) 55%,rgba(255,255,255,.20));
-  box-shadow:0 10px 24px rgba(0,180,255,.35),inset 0 2px 10px rgba(255,255,255,.65);
+  outline:none;border-color:#9be7ff;
+  background:linear-gradient(145deg,rgba(255,255,255,.36),rgba(0,175,255,.28) 52%,rgba(255,255,255,.22));
 }
 .crystal-ps-logo,.crystal-ps-disc,.mark,.brand-mark{
   width:46px;height:46px;flex:0 0 46px;display:grid;place-items:center;border-radius:15px;
