@@ -1690,3 +1690,78 @@ html, body { scroll-behavior:auto !important; }
   transform:none !important;
   transition:none !important;
 }
+
+
+/* MODXX4 r24 — remove the remaining fixed dashboard overlay and force
+   zero-blur firmware cards using legacy WebKit-compatible selectors. */
+body.crystal-dashboard:before,
+body.crystal-dashboard:after {
+  display:none !important;
+  content:none !important;
+  background:none !important;
+  -webkit-filter:none !important;
+  filter:none !important;
+}
+body.crystal-dashboard {
+  background-attachment:scroll !important;
+  background-image:linear-gradient(155deg,#020b1f 0%,#06234b 52%,#020919 100%) !important;
+}
+.crystal-firmware-grid {
+  background:transparent !important;
+  box-shadow:none !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+}
+.crystal-fw-card,
+.crystal-fw-card:hover,
+.crystal-fw-card:active,
+.crystal-fw-card:focus,
+.crystal-fw-card:visited {
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  -webkit-filter:none !important;
+  filter:none !important;
+  -webkit-transform:none !important;
+  transform:none !important;
+  -webkit-transition:none !important;
+  transition:none !important;
+  -webkit-animation:none !important;
+  animation:none !important;
+  background:rgba(23,39,62,.82) !important;
+  border:1px solid rgba(190,220,255,.25) !important;
+  -webkit-box-shadow:none !important;
+  box-shadow:none !important;
+  text-shadow:none !important;
+}
+.crystal-fw-card:before,
+.crystal-fw-card:after,
+.crystal-fw-card:hover:before,
+.crystal-fw-card:hover:after {
+  display:none !important;
+  content:none !important;
+  background:none !important;
+  -webkit-filter:none !important;
+  filter:none !important;
+  -webkit-box-shadow:none !important;
+  box-shadow:none !important;
+}
+.crystal-fw-card:focus {
+  outline:2px solid rgba(130,210,255,.9) !important;
+  outline-offset:2px !important;
+  border-color:rgba(130,210,255,.9) !important;
+  background:rgba(35,66,98,.96) !important;
+}
+.crystal-fw-card .crystal-ps-disc,
+.crystal-fw-card .crystal-ps-disc *,
+.crystal-fw-card .crystal-fw-copy,
+.crystal-fw-card .crystal-arrow {
+  -webkit-filter:none !important;
+  filter:none !important;
+  -webkit-transition:none !important;
+  transition:none !important;
+  -webkit-transform:none !important;
+  transform:none !important;
+  text-shadow:none !important;
+  -webkit-box-shadow:none !important;
+  box-shadow:none !important;
+}
