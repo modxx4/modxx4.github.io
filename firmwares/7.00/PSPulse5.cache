@@ -1,4 +1,5 @@
 CACHE MANIFEST
+# MODXX4 removed missing optional pspulse image 20261123-r6
 # MODXX4 all-view Liquid Glass + single GoldHEN 2.4b18.14 20261123-r4
 # MODXX4 Crystal Optics Pass 2026-11-22
 # MODXX4 Liquid Glass Ocean Edition 2026-11-22
@@ -65,7 +66,6 @@ payloads/restore.bin
 payloads/rif-renamer.bin
 payloads/WebRTE_900.bin
 
-../pspulse.png
 cache5.html
 
 NETWORK:
