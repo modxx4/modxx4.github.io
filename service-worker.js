@@ -1,9 +1,9 @@
-const CACHE_NAME = "modxx4-host-liquid-glass-v4";
+const CACHE_NAME = "p4jb-host-liquid-glass-v5";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./app.js",
-  "./modxx4-liquid.css",
+  "./p4jb-liquid.css",
   "./assets/modxx4-mark.svg",
   "./support.html",
   "./900/version-selector.html",
@@ -36,7 +36,7 @@ self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
     const names = await caches.keys();
     await Promise.all(names
-      .filter(name => name.startsWith("modxx4-host-") && name !== CACHE_NAME)
+      .filter(name => name.startsWith("p4jb-host-") && name !== CACHE_NAME)
       .map(name => caches.delete(name)));
     await self.clients.claim();
   })());
