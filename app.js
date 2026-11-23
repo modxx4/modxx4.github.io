@@ -6,7 +6,7 @@ document.querySelectorAll(".firmware-card.ready").forEach(card => {
   });
 });
 
-// 1. Auto-Detect PS4 / PS5 Firmware & Link to MODXX4 Host Folders
+// 1. Auto-Detect PS4 / PS5 Firmware & Automatically Open MODXX4 Host
 (function () {
   var btn = document.getElementById("auto-fw-btn");
   if (!btn) return;
@@ -27,9 +27,13 @@ document.querySelectorAll(".firmware-card.ready").forEach(card => {
     else if (fw === 6.72) target = "./firmwares/6.72/cache.html";
     else if (fw === 5.05) target = "./firmwares/5.05/cache.html";
 
-    btn.textContent = "Launch PS4 FW " + ps4Match[1] + " →";
+    if (target !== "#firmwares") {
+      window.location.replace(target);
+      return;
+    }
+
+    btn.textContent = "PS4 FW " + ps4Match[1] + " — Select Firmware Manually";
     btn.href = target;
-    btn.focus();
   } else if (ps5Match && ps5Match[1]) {
     btn.textContent = "PS5 FW " + ps5Match[1] + " Detected";
   } else {
