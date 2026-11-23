@@ -1,44 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" manifest="cache.appcache">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#020b1f">
-<title>MODXX4 // FW 14.00–14.02 Offline Cache</title>
+<title>MODXX4 // PS4 13.52 / 14.00–14.02 HOST / CACHE</title>
 <link rel="stylesheet" href="/modxx4-liquid.css">
 <style>
-.cache-screen{width:min(680px,calc(100% - 36px));margin:12vh auto 0;padding:34px 28px;text-align:center;border-radius:26px;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.045) 55%,rgba(0,162,255,.14));border:1px solid rgba(255,255,255,.3);border-top:1.5px solid rgba(255,255,255,.7);box-shadow:0 8px 20px rgba(0,8,28,.35),inset 0 1px 5px rgba(255,255,255,.2)}
-.cache-brand{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:22px;font-weight:800;letter-spacing:.08em}
-.cache-brand img{width:38px;height:38px;object-fit:contain}
-.cache-title{font-size:clamp(24px,4vw,36px);font-weight:800;margin:0 0 10px}
-.cache-sub{color:rgba(225,240,255,.75);font-size:14px;margin:0}
-#msgs{margin-top:22px;color:#a9e5ff;font-weight:700;min-height:24px}
-.cache-note{margin-top:24px;color:rgba(225,240,255,.55);font-size:11px}
+.cache-shell{width:min(1100px,calc(100% - 48px));margin:16px auto 0}
+.cache-main{width:min(760px,100%);margin:24px auto 0}
+.cache-eyebrow{font-size:12px;font-weight:800;letter-spacing:.12em;color:#9bdfff;margin:0 0 12px}
+.cache-title{font-size:clamp(25px,4vw,38px);line-height:1.15;margin:0 0 18px;font-weight:800;color:#fff}
+.cache-title span{color:#9bdfff}
+.cache-boot{list-style:none;padding:0 18px;margin:0 0 14px}
+.cache-boot li{padding:5px 0;color:rgba(225,240,255,.86);font-size:13px}
+.cache-boot b{color:#80e5ff}
+.cache-panel{margin:14px 0;padding:20px 22px;border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.04) 55%,rgba(0,162,255,.12));border:1px solid rgba(255,255,255,.25);border-top:1.5px solid rgba(255,255,255,.62);box-shadow:0 8px 20px rgba(0,8,28,.32),inset 0 2px 6px rgba(255,255,255,.24)}
+.progress-meta{display:flex;justify-content:flex-end;margin:0 0 8px;color:#a9e5ff;font-size:13px;font-weight:800;font-variant-numeric:tabular-nums}
+.cache-track{height:10px;border-radius:99px;overflow:hidden;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35)}
+#myBar{height:100%;width:0;background:linear-gradient(90deg,#00b4ff,#80e5ff);transition:width .18s linear}
+#progress{margin-top:16px;color:#fff;font-weight:700;min-height:22px}
+#cacheStatus{margin-top:7px;color:rgba(225,240,255,.68);font-size:12px;min-height:18px}
+@media(max-width:600px){.cache-shell{width:calc(100% - 28px)}.cache-main{margin-top:18px}.cache-panel{padding:17px}}
 </style>
 </head>
 <body>
-<main class="cache-screen">
-  <div class="cache-brand"><img src="/assets/modxx4-mark.svg" alt=""> MODXX4 <span style="color:#a9e5ff">/ PS4 HOST</span></div>
-  <h1 class="cache-title">Preparing offline cache</h1>
-  <p class="cache-sub">Firmware 14.00–14.02 · Afterglow WebKit · GoldHEN</p>
-  <div id="msgs" role="status" aria-live="polite">Checking cache...</div>
-  <div class="cache-note">Keep this page open while the host files are cached.</div>
+<div class="cache-shell">
+<header class="topbar">
+  <div class="brand"><div class="mark"><img src="/assets/modxx4-mark.svg" alt="" width="38" height="38" style="display:block;object-fit:contain"></div><div>MODXX4<small>PLAYSTATION 4 HOST</small></div></div>
+  <div class="fw">FIRMWARE&nbsp; 13.52 / 14.00–14.02</div>
+</header>
+<main class="cache-main">
+  <div class="cache-eyebrow">$ ./cache --install</div>
+  <h1 class="cache-title">Loading <span>offline cache</span></h1>
+  <ul class="cache-boot">
+    <li>[ <b>ok</b> ] Afterglow WebKit chain ready</li>
+    <li>[ <b>ok</b> ] preparing GoldHEN host files</li>
+  </ul>
+  <section class="cache-panel" aria-live="polite">
+    <div class="progress-meta"><span id="progressText">0%</span></div>
+    <div class="cache-track"><div id="myBar"></div></div>
+    <div id="progress">Loading... Please wait.</div>
+    <div id="cacheStatus">Initializing offline cache system...</div>
+  </section>
 </main>
+<footer class="modx-copyright"><span>© 2026 MODXX4 — Built for the PlayStation 4 community. All Rights Reserved.</span><span>Designed with passion. Powered by the community.</span></footer>
+</div>
 <script>
 (function(){
-  var m=document.getElementById("msgs"),done=false,ac=window.applicationCache;
-  function say(t){if(m)m.textContent=t}
-  function go(){if(done)return;done=true;setTimeout(function(){location.replace("jb.html")},350)}
-  if(!ac){say("Offline cache API unavailable — opening host online");go();return}
-  ac.addEventListener("progress",function(e){if(e&&e.total>0)say("Caching host files "+Math.round(e.loaded/e.total*100)+"%")},false);
-  ac.addEventListener("cached",function(){say("Offline cache ready");go()},false);
-  ac.addEventListener("updateready",function(){try{ac.swapCache()}catch(e){}say("Offline cache updated");go()},false);
-  ac.addEventListener("noupdate",function(){say("Offline cache is ready");go()},false);
-  ac.addEventListener("error",function(){say("Cache failed — clear the browser cache and reopen MODXX4")},false);
-  ac.addEventListener("obsolete",function(){say("Cache obsolete — clear browser data and reopen MODXX4")},false);
-  if(ac.status===ac.UPDATEREADY){try{ac.swapCache()}catch(e){}go()}
-  else if(ac.status===ac.IDLE){say("Checking for host updates...");try{ac.update()}catch(e){}}
-  else if(ac.status===ac.UNCACHED){say("Downloading offline host files...")}
+  var message=document.getElementById("progress");
+  var detail=document.getElementById("cacheStatus");
+  var bar=document.getElementById("myBar");
+  var percentText=document.getElementById("progressText");
+  var done=false;
+  var ac=window.applicationCache;
+
+  function say(text){if(message)message.textContent=text;}
+  function detailText(text){if(detail)detail.textContent=text;}
+  function setProgress(value){
+    var percent=Math.max(0,Math.min(100,value));
+    if(bar)bar.style.width=percent+"%";
+    if(percentText)percentText.textContent=percent+"%";
+  }
+  function go(){
+    if(done)return;
+    done=true;
+    setTimeout(function(){location.replace("jb.html");},350);
+  }
+
+  if(!ac){
+    say("Application cache is unavailable.");
+    detailText("Opening the online host...");
+    go();
+    return;
+  }
+
+  ac.addEventListener("checking",function(){
+    say("Checking host cache...");
+    detailText("Looking for available offline files.");
+  },false);
+  ac.addEventListener("downloading",function(){
+    say("Page caching started...");
+    detailText("Downloading Afterglow host files. Keep this page open.");
+  },false);
+  ac.addEventListener("progress",function(event){
+    if(!event||!(event.total>0))return;
+    var value=Math.round(100*event.loaded/event.total);
+    setProgress(value);
+    say("Downloading host files...");
+    detailText("Offline cache progress: "+value+"%");
+  },false);
+  ac.addEventListener("cached",function(){
+    setProgress(100);
+    say("Page cached successfully.");
+    detailText("Opening the jailbreak host...");
+    go();
+  },false);
+  ac.addEventListener("updateready",function(){
+    try{ac.swapCache();}catch(error){}
+    setProgress(100);
+    say("Cache updated successfully.");
+    detailText("Opening the updated jailbreak host...");
+    go();
+  },false);
+  ac.addEventListener("noupdate",function(){
+    setProgress(100);
+    say("Offline cache is ready.");
+    detailText("No update is required. Opening the jailbreak host...");
+    go();
+  },false);
+  ac.addEventListener("error",function(){
+    say("Offline cache could not be updated.");
+    detailText("Stay online, clear browser cache if needed, then reopen MODXX4.");
+  },false);
+  ac.addEventListener("obsolete",function(){
+    say("Offline cache is obsolete.");
+    detailText("Clear browser data, then reopen MODXX4 while online.");
+  },false);
+
+  if(ac.status===ac.UPDATEREADY){
+    try{ac.swapCache();}catch(error){}
+    setProgress(100);
+    go();
+  }else if(ac.status===ac.IDLE){
+    say("Checking for host updates...");
+    detailText("Please keep the PS4 browser open.");
+    try{ac.update();}catch(error){
+      say("Could not start the cache update.");
+      detailText("Reopen MODXX4 while connected to the internet.");
+    }
+  }else if(ac.status===ac.DOWNLOADING){
+    say("Downloading host files...");
+    detailText("Keep this page open until caching is complete.");
+  }else if(ac.status===ac.UNCACHED){
+    say("Preparing offline cache...");
+    detailText("Waiting for the first cache download.");
+  }
 })();
 </script>
 </body>
