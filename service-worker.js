@@ -1,4 +1,4 @@
-const CACHE_NAME = "p4jb-host-liquid-glass-v7";
+const CACHE_NAME = "p4jb-host-liquid-glass-v8";
 const APP_SHELL = [
   "./",
   "./index.html",
