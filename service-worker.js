@@ -1,10 +1,10 @@
-const CACHE_NAME = "p4jb-host-liquid-glass-v6";
+const CACHE_NAME = "p4jb-host-liquid-glass-v7";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./app.js",
   "./p4jb-liquid.css",
-  "./assets/P4JB-mark.svg",
+
   "./support.html",
   "./900/version-selector.html",
   "./900/cache.html",
