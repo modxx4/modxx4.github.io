@@ -1,13 +1,13 @@
 CACHE MANIFEST
-# MODXX4 removed missing optional pspulse image 20261123-r6
-# MODXX4 GoldHEN b18.14 auto-host + alert module correction 20261123-r5
-# MODXX4 all-view Liquid Glass + single GoldHEN 2.4b18.14 20261123-r4
-# MODXX4 Crystal Optics Pass 2026-11-22
-# MODXX4 Liquid Glass Ocean Edition 2026-11-22
-# MODXX4 cache pages synchronized to 5.05 template 20261122-r1
+# P4JB removed missing optional pspulse image 20261123-r6
+# P4JB GoldHEN b18.14 auto-host + alert module correction 20261123-r5
+# P4JB all-view Liquid Glass + single GoldHEN 2.4b18.14 20261123-r4
+# P4JB Crystal Optics Pass 2026-11-22
+# P4JB Liquid Glass Ocean Edition 2026-11-22
+# P4JB cache pages synchronized to 5.05 template 20261122-r1
 # MODX Minimal Console cache restore 20261122
-# MODXX4 original cache design refresh 20261122
-# MODXX4 cache visual refresh 20261122 — 7.00-8.52 GoldHEN b18.14
+# P4JB original cache design refresh 20261122
+# P4JB cache visual refresh 20261122 — 7.00-8.52 GoldHEN b18.14
 # resource-path-fix-20261021-main-v2 + MODX Cairo clock
 # offline-manifests-v1-20261021
 # v10 - goldhen b18.12 cache-error-guard dom-error-target-fix support-link-20261003
