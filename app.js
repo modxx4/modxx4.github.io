@@ -6,7 +6,7 @@ document.querySelectorAll(".firmware-card.ready").forEach(card => {
   });
 });
 
-// 1. Auto-Detect PS4 / PS5 Firmware & Automatically Open MODXX4 Host
+// 1. Auto-Detect PS4 / PS5 Firmware & Automatically Open P4JB Host
 (function () {
   var btn = document.getElementById("auto-fw-btn");
   if (!btn) return;
