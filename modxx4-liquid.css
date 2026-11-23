@@ -1765,3 +1765,71 @@ body.crystal-dashboard {
   -webkit-box-shadow:none !important;
   box-shadow:none !important;
 }
+
+
+/* MODXX4 r25 — PS4 homepage ultra-smooth card mode.
+   Static surfaces only: no blur, gradients, decorative SVG paint or hover repaint. */
+body.crystal-dashboard .glass-distortion-defs,
+body.crystal-dashboard .crystal-hero-art,
+body.crystal-dashboard .crystal-ps-disc,
+body.crystal-dashboard .crystal-arrow {
+  display:none !important;
+}
+body.crystal-dashboard .crystal-hero {
+  grid-template-columns:1fr !important;
+}
+body.crystal-dashboard .crystal-fw-card,
+body.crystal-dashboard .crystal-fw-card:link,
+body.crystal-dashboard .crystal-fw-card:visited,
+body.crystal-dashboard .crystal-fw-card:hover,
+body.crystal-dashboard .crystal-fw-card:active,
+body.crystal-dashboard .crystal-fw-card:focus {
+  display:flex !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  background:#142b49 !important;
+  background-image:none !important;
+  border:1px solid #355273 !important;
+  border-radius:16px !important;
+  -webkit-box-shadow:none !important;
+  box-shadow:none !important;
+  -webkit-text-shadow:none !important;
+  text-shadow:none !important;
+  outline-offset:2px !important;
+  opacity:1 !important;
+}
+body.crystal-dashboard .crystal-fw-card:before,
+body.crystal-dashboard .crystal-fw-card:after {
+  display:none !important;
+  content:none !important;
+}
+body.crystal-dashboard .crystal-fw-card:hover,
+body.crystal-dashboard .crystal-fw-card:active {
+  background:#193756 !important;
+  border-color:#52769a !important;
+}
+body.crystal-dashboard .crystal-fw-card:focus {
+  outline:2px solid #83d7ff !important;
+  background:#193756 !important;
+}
+body.crystal-dashboard .crystal-fw-card *,
+body.crystal-dashboard .crystal-fw-card:hover * {
+  -webkit-transform:none !important;
+  transform:none !important;
+  -webkit-transition:none !important;
+  transition:none !important;
+  -webkit-animation:none !important;
+  animation:none !important;
+  -webkit-filter:none !important;
+  filter:none !important;
+  -webkit-box-shadow:none !important;
+  box-shadow:none !important;
+}
+body.crystal-dashboard .crystal-fw-copy,
+body.crystal-dashboard .crystal-fw-copy strong,
+body.crystal-dashboard .crystal-fw-copy small {
+  text-shadow:none !important;
+}
+body.crystal-dashboard .crystal-firmware-grid {
+  contain:layout style !important;
+}
