@@ -2117,3 +2117,16 @@ body.crystal-dashboard .crystal-footer {
   position:relative !important;
   z-index:1 !important;
 }
+
+
+/* MODXX4 r30 — clear, lightweight selection state for PS4 controller navigation.
+   Uses a crisp outline and static glass tint; no blur, transform or animation. */
+body.crystal-dashboard .crystal-fw-card:hover,
+body.crystal-dashboard .crystal-fw-card:focus,
+body.crystal-dashboard .crystal-fw-card:active {
+  outline:2px solid rgba(91,220,255,.98) !important;
+  outline-offset:3px !important;
+  border-color:rgba(190,241,255,.98) !important;
+  background:linear-gradient(132deg,rgba(220,244,255,.46),rgba(113,177,230,.30) 54%,rgba(126,145,220,.27)) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.88),inset 0 0 0 1px rgba(107,218,255,.22) !important;
+}
