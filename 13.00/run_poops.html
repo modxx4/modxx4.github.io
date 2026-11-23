@@ -32,5 +32,62 @@
 // run_lapse.html keeps its own monitor; this file intentionally has none.
 </script>
 <footer class="modx-copyright"><span>© 2026 P4JB — Built for the PlayStation 4 community. All Rights Reserved.</span><span>Designed with passion. Powered by the community.</span></footer>
+<script>
+(function () {
+  var endpoint = "https://faramawi.goatcounter.com/count";
+  var storageKey = "p4jb_analytics_offline_v1";
+
+  function readQueue() {
+    try { return JSON.parse(localStorage.getItem(storageKey) || "[]"); }
+    catch (e) { return []; }
+  }
+
+  function writeQueue(queue) {
+    try {
+      if (queue.length) localStorage.setItem(storageKey, JSON.stringify(queue));
+      else localStorage.removeItem(storageKey);
+    } catch (e) {}
+  }
+
+  function queueOfflineVisit() {
+    var queue = readQueue();
+    queue.push({
+      path: location.pathname + location.search,
+      title: document.title || "P4JB",
+      referrer: document.referrer || ""
+    });
+    if (queue.length > 500) queue = queue.slice(-500);
+    writeQueue(queue);
+  }
+
+  function flushQueue() {
+    if (!navigator.onLine) return;
+    var queue = readQueue();
+    function sendNext() {
+      if (!queue.length) { writeQueue([]); return; }
+      var hit = queue[0];
+      var pixel = new Image();
+      pixel.onload = function () {
+        queue.shift();
+        writeQueue(queue);
+        sendNext();
+      };
+      pixel.onerror = function () {};
+      pixel.src = endpoint + "?p=" + encodeURIComponent(hit.path) +
+        "&t=" + encodeURIComponent(hit.title) +
+        "&r=" + encodeURIComponent(hit.referrer) +
+        "&rnd=" + Date.now() + "-" + Math.floor(Math.random() * 1000000);
+    }
+    sendNext();
+  }
+
+  if (!navigator.onLine) queueOfflineVisit();
+  window.addEventListener("online", flushQueue);
+  window.addEventListener("pageshow", function () {
+    if (navigator.onLine) flushQueue();
+  });
+})();
+</script>
+<script data-goatcounter="https://faramawi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
