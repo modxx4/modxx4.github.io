@@ -1,0 +1,1246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MODXX4 GoldHEN Host — Experimental V1</title>
+<style>
+*{margin:0;padding:0;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font:16px/1.4 "Segoe UI","SF Pro Display","Helvetica Neue",system-ui,sans-serif;
+  color:#ffe566;
+  background:#1848c8;
+  min-height:100%;
+  overflow-x:hidden;
+}
+.wrap{
+  display:-webkit-box;display:-webkit-flex;display:flex;
+  -webkit-flex-direction:column;flex-direction:column;
+  min-height:100vh;padding:1.1rem 1.4rem 2.8rem;padding-right:24.4rem;
+}
+#splash{
+  -webkit-box-flex:1;-webkit-flex:1 0 auto;flex:1 0 auto;
+  display:-webkit-box;display:-webkit-flex;display:flex;
+  -webkit-flex-direction:column;flex-direction:column;
+  -webkit-justify-content:center;justify-content:center;
+}
+#splash[hidden],#loader[hidden]{display:none!important}
+.main{
+  display:-webkit-box;display:-webkit-flex;display:flex;
+  -webkit-flex-direction:column;flex-direction:column;
+  -webkit-align-items:center;align-items:center;
+  padding:0 0 .5rem;
+}
+.ver-pill{
+  position:fixed;top:1rem;right:24.2rem;z-index:30;
+  padding:.32rem .9rem;border-radius:999px;background:#1239a8;
+  border:2px solid #ffe566;color:#ffe566;font-size:.9rem;font-weight:800;
+  letter-spacing:.02em;box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+#homeCard{
+  width:min(720px,100%);margin:0 auto .35rem;padding:1.1rem 2rem 1rem;text-align:center;
+  background:#1239a8;border:2px solid #2a5fd4;border-radius:26px;
+  box-shadow:0 8px 28px rgba(0,0,0,.28);
+  display:-webkit-box;display:-webkit-flex;display:flex;
+  -webkit-flex-direction:column;flex-direction:column;
+}
+.home-deco{text-align:center;margin-bottom:.6rem;-webkit-box-ordinal-group:0;order:-2}
+.home-title{
+  font-size:3.2rem;font-weight:900;letter-spacing:.01em;line-height:1.05;color:#ffe566;
+  text-shadow:0 2px 0 #c9a400,0 4px 0 #a68600,0 6px 10px rgba(0,0,0,.35);
+}
+.home-title .wk{color:#fff;-webkit-text-fill-color:#fff;text-shadow:0 2px 0 #0a1f66,0 4px 0 #07164a,0 6px 10px rgba(0,0,0,.35)}
+.home-div{
+  display:-webkit-box;display:-webkit-flex;display:flex;
+  -webkit-align-items:center;align-items:center;
+  -webkit-justify-content:center;justify-content:center;
+  margin:.4rem auto 0;color:#ffe566;
+}
+.home-div i{display:block;width:120px;height:2px;background:#ffe566;border-radius:2px;margin:0 .5rem;opacity:.85}
+.home-div .home-lock{display:block;width:22px;height:22px}
+.startrow{width:100%;max-width:30rem;margin:.2rem auto .5rem;-webkit-box-ordinal-group:0;order:-1}
+#run{
+  display:block;position:relative;width:100%;border:0;border-radius:999px;
+  background:#ffe566;background:-webkit-linear-gradient(0deg,#ffe566,#ffd000);
+  background:linear-gradient(90deg,#ffe566,#ffd000);
+  color:#1239a8;font:inherit;font-size:1.7rem;font-weight:800;padding:.85rem 3.4rem;
+  cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.28);
+}
+#run:disabled{opacity:.75;cursor:default}
+#run.retry{background:#ffd000;background:-webkit-linear-gradient(0deg,#ffd000,#ffe566);background:linear-gradient(90deg,#ffd000,#ffe566)}
+#sub{margin:.55rem 0 0;color:#d7e2ff;font-size:.86rem;font-weight:700}
+#homeInfo{
+  width:min(720px,100%);margin:.6rem auto 0;padding:.75rem 1.4rem .7rem;text-align:center;
+  background:#1239a8;border:2px solid #2a5fd4;border-radius:22px;
+  box-shadow:0 6px 20px rgba(0,0,0,.22);
+}
+#homeInfo .label,#loaderInfo .label{
+  margin:0 0 .4rem;font-size:.78rem;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:#ffe566;
+}
+.hi-row{
+  display:-webkit-box;display:-webkit-flex;display:flex;
+  -webkit-flex-wrap:wrap;flex-wrap:wrap;
+  -webkit-justify-content:center;justify-content:center;margin:-.3rem;
+}
+.hi-chip{
+  margin:.3rem;padding:.4rem .9rem;border:1.5px solid #2a5fd4;border-radius:999px;
+  background:#1848c8;font-size:1rem;white-space:nowrap;
+}
+.hi-chip .k{color:#ffe566;font-weight:800;margin-right:.45rem}
+.hi-chip b{color:#fff;font-weight:800}
+.hi-br{-webkit-flex-basis:100%;flex-basis:100%;width:100%;height:0}
+.hi-chip.ok{background:rgba(255,229,102,.16);border-color:#ffe566}
+.hi-chip.ok .k,.hi-chip.ok b{color:#ffe566}
+.hi-chip.off b{color:#b8c7ef}
+
+/* Loader */
+#loader{
+  position:relative;width:100%;min-height:70vh;
+  padding:1.5rem 2rem 3.2rem;
+  display:-webkit-box;display:-webkit-flex;display:flex;
+  -webkit-flex-direction:column;flex-direction:column;
+  -webkit-align-items:center;align-items:center;
+  -webkit-justify-content:center;justify-content:center;
+}
+#loader .postjb-card{
+  width:min(720px,100%);margin:0 auto;padding:1.1rem 2rem 1rem;text-align:center;
+  background:#1239a8;border:2px solid #2a5fd4;border-radius:26px;
+  box-shadow:0 8px 28px rgba(0,0,0,.28);
+}
+#status.pill-run,#statusMsg .pill-run{
+  display:block;width:100%;max-width:30rem;margin:.1rem auto .55rem;
+  border:0;border-radius:999px;
+  background:#ffe566;background:-webkit-linear-gradient(0deg,#ffe566,#ffd000);
+  background:linear-gradient(90deg,#ffe566,#ffd000);
+  color:#1239a8;font-size:1.55rem;font-weight:800;padding:.7rem 3.2rem;
+  box-shadow:0 8px 20px rgba(0,0,0,.28);
+}
+#status{display:none}
+body.running #status{display:block}
+#progWrap{display:none !important}
+#progTrack,#progBar,#progressPct,#progLabel{display:none !important}
+#elapsedMsg{
+  margin:.55rem 0 .65rem;color:#ffe566;font-weight:800;font-size:1.55rem;
+  letter-spacing:.04em;display:none;font-variant-numeric:tabular-nums;
+}
+/* No live clock during jailbreak - only final time on done/fail */
+body.done #elapsedMsg,body.fail #elapsedMsg{display:block}
+#msg{display:none;margin:.1rem auto .35rem;font-size:1.55rem;font-weight:800}
+#msg.ok{color:#ffe566}
+#msg.bad{color:#ff8a8a}
+#successMsg,#failMsg{display:none;margin:.1rem auto .55rem;font-size:1.15rem;font-weight:800}
+#successMsg{
+  width:100%;max-width:30rem;border:0;border-radius:999px;
+  background:#ffe566;background:-webkit-linear-gradient(0deg,#ffe566,#ffd000);
+  background:linear-gradient(90deg,#ffe566,#ffd000);
+  color:#1239a8;font-size:1.55rem;padding:.7rem 3.2rem;
+  box-shadow:0 8px 20px rgba(0,0,0,.28);text-align:center;
+}
+#successMsg .check{display:inline-block;width:14px;height:8px;margin:0 8px 3px 0;border-left:3px solid #1239a8;border-bottom:3px solid #1239a8;-webkit-transform:rotate(45deg);transform:rotate(45deg)}
+#failMsg{
+  padding:.55rem 1.2rem;border-radius:999px;
+  background:rgba(248,113,113,.18);border:1px solid rgba(248,113,113,.45);
+  color:#ffb4b4;
+}
+body.done #status,body.fail #status{display:none!important}
+body.done #msg,body.done #successMsg{display:block}
+body.fail #msg,body.fail #failMsg{display:block}
+body.done #progWrap,body.fail #progWrap{display:none}
+body.done #progBar{width:100%!important;background:#ffe566;background:-webkit-linear-gradient(0deg,#ffe566,#ffd000);background:linear-gradient(90deg,#ffe566,#ffd000)}
+#loaderInfo{
+  width:min(720px,100%);margin:.7rem auto 0;padding:.75rem 1.4rem .7rem;text-align:center;
+  background:#1239a8;border:2px solid #2a5fd4;border-radius:22px;
+  box-shadow:0 6px 20px rgba(0,0,0,.22);
+}
+#loaderInfo .label + .hi-row + .label{margin-top:.55rem}
+
+/* Options rail */
+.settings{
+  position:fixed;top:0;right:0;bottom:0;width:23rem;z-index:40;
+  overflow-y:auto;padding:1.35rem 1.25rem 1.8rem;text-align:left;
+  background:#1239a8;background:-webkit-linear-gradient(top,#1848c8 0%,#1239a8 55%,#0d2b7a 100%);
+  background:linear-gradient(180deg,#1848c8 0%,#1239a8 55%,#0d2b7a 100%);
+  border-left:1px solid rgba(255,229,102,.28);
+  box-shadow:-10px 0 28px rgba(0,0,0,.28);
+}
+.settings .label{margin:0 0 .85rem;font-size:1.15rem;font-weight:800;color:#ffe566;letter-spacing:.01em}
+.settings .label.slim{margin:1.15rem 0 .45rem;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#ffe566}
+.settings .hint{color:#d7e2ff;opacity:.9;font-size:.84rem;font-weight:700;margin:.45rem 0 0}
+.settings .opt{
+  display:block;width:100%;min-height:3.3rem;padding:.85rem 1rem;margin:0;
+  border-radius:14px;text-align:center;font:inherit;cursor:default;
+  background:rgba(255,229,102,.12);border:1.5px solid #ffe566;
+  box-shadow:0 2px 10px rgba(0,0,0,.18);color:#ffe566;
+}
+.settings .opt .t{display:block;font-size:1.05rem;font-weight:800}
+.settings .opt .d{display:block;font-size:.78rem;color:#d7e2ff;margin-top:.2rem;font-weight:700}
+.settings .chip-row{margin:.35rem 0 0}
+.settings .mini{
+  display:inline-block;margin:.25rem .25rem 0 0;padding:.45rem .75rem;border-radius:999px;
+  background:#1848c8;border:1.5px solid #2a5fd4;color:#ffe566;font-weight:800;font-size:.85rem;
+}
+.settings .mini.on{background:#ffe566;color:#1239a8;border-color:#ffe566}
+
+#footer{
+  position:fixed;left:0;right:23rem;bottom:.7rem;margin:0;padding:0;z-index:2;
+  text-align:center;color:#d7e2ff;font-size:.85rem;font-weight:700;pointer-events:none;
+}
+#footer a{pointer-events:auto;color:#ffe566;text-decoration:none}
+#footer b{font-weight:800}
+.footer-host{display:block;margin-top:.2rem;font-size:.78rem;opacity:.86}
+
+#wrap,#out,#state,#ramBox,#spin{display:none!important}
+body.running #splash,body.done #splash,body.fail #splash{display:none!important}
+body.running #loader,body.done #loader,body.fail #loader{display:-webkit-box;display:-webkit-flex;display:flex}
+
+/* Welcome splash after GoldHEN - img (PS4 WebKit often skips CSS backgrounds) */
+#ghWelcome{
+  display:none;position:fixed;left:0;top:0;right:0;bottom:0;z-index:99999;
+  margin:0;padding:0;background:#1848c8;overflow:hidden;
+}
+#ghWelcome img{
+  display:block;width:100%;height:100%;border:0;
+  object-fit:cover; /* ignored on old WK; width/height still fill */
+}
+body.welcome #ghWelcome{display:block!important}
+body.welcome #splash,body.welcome #loader,body.welcome .settings,body.welcome .ver-pill,body.welcome #footer,body.welcome .wrap{display:none!important}
+
+@media (max-width:1100px){
+  .wrap{padding-right:1.4rem}
+  .settings{display:none}
+  .ver-pill{right:1rem}
+  #footer{right:0}
+  .home-title{font-size:2.4rem}
+}
+
+.recent-head{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:space-between;justify-content:space-between;gap:.5rem;margin:1.15rem 0 .45rem}
+.recent-head .label.slim{margin:0}
+.recent-head .mini{cursor:pointer;-webkit-user-select:none;user-select:none}
+.history{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:0;margin:.35rem 0 0}
+.hrow{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:space-between;justify-content:space-between;padding:.42rem 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.92rem}
+.hrow:last-child{border:0}
+.hrow .ok{color:#7dffb3}.hrow .fail{color:#ff8a8a}.hrow .hang{color:#ffc857}
+.hrow .hmeta{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:.1rem;min-width:0}
+.hrow .hdate{display:block;font-weight:600;color:#9db0d8;font-variant-numeric:tabular-nums;font-size:.82rem}
+.hrow .hdur{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:800}
+#historyEmpty{margin:.35rem 0 0;color:#9db0d8;font-size:.9rem}
+#historyEmpty[hidden]{display:none!important}
+.settings .mini.model-pick.on{background:#ffe566;color:#1239a8;border-color:#ffe566}
+
+/* MODXX4 Liquid Glass integration — lightweight, no backdrop-filter */
+body{color:#fff;background:radial-gradient(ellipse at 50% 0%,rgba(0,114,255,.35),transparent 58%),linear-gradient(160deg,#010817 0%,#041e4a 55%,#010815 100%)}
+.ver-pill{background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(0,145,255,.16));border:1px solid rgba(255,255,255,.38);border-top:1.5px solid rgba(255,255,255,.7);color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+#homeCard,#homeInfo,#loader .postjb-card{background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.045) 55%,rgba(0,162,255,.14));border:1px solid rgba(255,255,255,.3);border-top:1.5px solid rgba(255,255,255,.68);box-shadow:0 8px 20px rgba(0,8,28,.35),inset 0 1px 5px rgba(255,255,255,.2)}
+.home-title,.home-div,.home-div i,#homeInfo .label,#loaderInfo .label,#elapsedMsg{color:#fff;text-shadow:none}
+.home-title .wk{color:#a9e5ff;-webkit-text-fill-color:#a9e5ff;text-shadow:none}
+#sub{color:rgba(225,240,255,.8)}
+.hi-chip{background:rgba(0,65,145,.28);border:1px solid rgba(255,255,255,.24);color:#fff}
+.hi-chip .k,.hi-chip.ok .k,.hi-chip.ok b{color:#a9e5ff}
+#run,#status.pill-run,#statusMsg .pill-run,#successMsg{background:linear-gradient(100deg,#b8eaff,#55baff);color:#03152f;box-shadow:0 6px 16px rgba(0,8,28,.3);border:1px solid rgba(255,255,255,.6)}
+#run.retry{background:linear-gradient(100deg,#d9f3ff,#82d1ff);color:#03152f}
+#failMsg{background:rgba(248,113,113,.14);border:1px solid rgba(248,113,113,.45);color:#ffb4b4}
+#msg.ok{color:#9fe4ff}
+#msg.bad{color:#ff9b9b}
+
+
+/* MODXX4 Experimental Original Design — V1 */
+:root{color-scheme:dark}
+html,body{min-height:100%;background:#030916}
+body{
+  color:#eef8ff;
+  background:radial-gradient(ellipse at 50% -12%,rgba(0,166,255,.22),transparent 52%),linear-gradient(145deg,#030916 0%,#071a32 52%,#020812 100%);
+  font-family:"Segoe UI",Arial,sans-serif;
+}
+.wrap{padding:5.2rem 2rem 4rem;padding-right:26rem;max-width:1600px;margin:0 auto}
+.wrap:before{
+  content:"MODXX4  /  GOLDHEN HOST";
+  position:absolute;top:1.55rem;left:2rem;
+  color:#dff5ff;font-size:.9rem;font-weight:900;letter-spacing:.18em;
+}
+.wrap:after{
+  content:"EXPERIMENTAL BUILD  •  V1";
+  position:absolute;top:1.62rem;right:26rem;
+  color:rgba(190,225,245,.58);font-size:.68rem;font-weight:800;letter-spacing:.13em;
+}
+.ver-pill{
+  top:1.35rem;right:2rem;padding:.55rem 1rem;
+  background:rgba(27,160,225,.12);border:1px solid rgba(112,211,255,.38);
+  border-radius:12px;color:#aeeaff;box-shadow:none;font-size:.78rem;letter-spacing:.08em
+}
+#homeCard,#homeInfo,#loader .postjb-card,#loaderInfo{
+  background:linear-gradient(145deg,rgba(17,47,76,.92),rgba(7,22,40,.94));
+  border:1px solid rgba(102,190,235,.25);border-top:1px solid rgba(173,229,255,.38);
+  border-radius:22px;box-shadow:0 18px 45px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.045)
+}
+#homeCard{max-width:760px;padding:2.2rem 2rem 1.8rem}
+.home-deco{margin-bottom:1.25rem}
+.home-title{font-size:clamp(2rem,4vw,3.15rem);line-height:1.15;font-weight:850;letter-spacing:-.035em;color:#f4fbff}
+.home-title .wk{-webkit-text-fill-color:#78d8ff;color:#78d8ff}
+.home-div{margin-top:1rem}
+.home-div i{width:90px;background:rgba(132,218,255,.45)}
+.home-div .home-lock rect:first-child{fill:#79d9ff}
+.home-div .home-lock path{stroke:#79d9ff}
+#run{
+  padding:1rem 2rem;border-radius:14px;
+  background:linear-gradient(100deg,#8be2ff,#38b8f0);
+  color:#031321;border:1px solid rgba(225,249,255,.72);
+  box-shadow:0 8px 24px rgba(0,150,220,.2);font-size:1.25rem;font-weight:900;
+  text-transform:uppercase;letter-spacing:.1em
+}
+#run.retry{background:linear-gradient(100deg,#c8f2ff,#74d5ff)}
+#run:focus{outline:2px solid #b8edff;outline-offset:4px}
+#sub{color:rgba(215,239,251,.68);font-weight:600}
+#homeInfo,#loaderInfo{max-width:760px;padding:1.15rem 1.3rem}
+#homeInfo .label,#loaderInfo .label{color:#83dcff;letter-spacing:.16em}
+.hi-chip{
+  background:rgba(4,17,31,.56);border:1px solid rgba(112,193,230,.2);
+  border-radius:10px;padding:.5rem .8rem;color:#eaf8ff;font-size:.9rem
+}
+.hi-chip .k,.hi-chip.ok .k,.hi-chip.ok b{color:#80dcff}
+.hi-chip.ok{background:rgba(26,151,111,.13);border-color:rgba(88,225,175,.35)}
+.settings{
+  top:1rem;right:1rem;bottom:1rem;width:23rem;padding:1.4rem;
+  background:linear-gradient(160deg,rgba(13,37,60,.97),rgba(4,15,28,.98));
+  border:1px solid rgba(110,194,232,.24);border-radius:22px;
+  box-shadow:0 16px 40px rgba(0,0,0,.35);overflow-y:auto
+}
+.settings .label{color:#f0faff;font-size:1.1rem}
+.settings .label.slim{color:#7edaff;font-size:.7rem;letter-spacing:.17em}
+.settings .hint{color:rgba(211,234,246,.64);font-size:.78rem;font-weight:500}
+.settings .opt{
+  min-height:3.5rem;border-radius:12px;text-align:left;padding:.85rem 1rem;
+  background:rgba(69,174,220,.09);border:1px solid rgba(117,203,240,.24);
+  box-shadow:none;color:#eaf8ff
+}
+.settings .opt .d{color:rgba(215,239,251,.62)}
+.settings .mini{
+  background:rgba(69,174,220,.08);border:1px solid rgba(117,203,240,.22);
+  color:#ccefff;border-radius:9px;padding:.42rem .7rem
+}
+.settings .mini.on,.settings .mini.model-pick.on{
+  background:#83ddff;border-color:#bceeff;color:#031321
+}
+.hrow{border-bottom-color:rgba(166,218,242,.1)}
+.hrow .ok{color:#82efbd}.hrow .fail{color:#ff9caa}.hrow .hang{color:#ffd18a}
+.hrow .hdate,#historyEmpty{color:rgba(206,230,243,.48)}
+#status.pill-run,#statusMsg .pill-run,#successMsg{
+  background:linear-gradient(100deg,#8be2ff,#38b8f0);color:#031321;
+  border-radius:13px;box-shadow:0 8px 24px rgba(0,150,220,.2)
+}
+#elapsedMsg{color:#a9e9ff}
+#msg.ok{color:#8ce5ff}
+#failMsg{border-radius:12px}
+#footer{
+  right:24rem;bottom:.8rem;color:rgba(205,230,243,.55);
+  font-size:.72rem;letter-spacing:.04em
+}
+#footer a{color:#8cddff}
+.footer-host{opacity:1}
+#loader{padding-top:1rem}
+#loader .postjb-card{padding:2rem}
+#loaderInfo{margin-top:.8rem}
+@media(max-width:1100px){
+  .wrap{padding:5rem 1rem 4rem}
+  .wrap:before{left:1rem;font-size:.75rem}
+  .wrap:after{display:none}
+  .ver-pill{right:1rem;top:1rem}
+  .settings{
+    position:relative;top:auto;right:auto;bottom:auto;width:100%;max-width:760px;
+    margin:1rem auto 0;padding:1.2rem
+  }
+  #footer{position:static;margin:1.4rem auto 0;padding:0 0 .5rem}
+}
+@media(max-width:600px){
+  .wrap{padding:4.5rem .75rem 2rem}
+  .wrap:before{top:1.35rem;font-size:.66rem;letter-spacing:.12em}
+  .ver-pill{top:3.15rem;left:.75rem;right:auto}
+  #homeCard{padding:1.5rem 1rem}
+  .home-title{font-size:1.85rem}
+  #run{font-size:1.05rem}
+  .hi-chip{font-size:.82rem}
+}
+
+</style>
+  <link rel="preload" as="image" href="welcome-goldhen.jpg">
+</head>
+<body>
+<script>
+window.__fbShowWelcomeNow = function () {
+  try {
+    var w = document.getElementById('ghWelcome');
+    if (w) {
+      w.setAttribute('aria-hidden', 'false');
+      w.style.display = 'block';
+      w.style.zIndex = '99999';
+      var img = w.getElementsByTagName('img')[0];
+      if (img && !img.__fbShown) {
+        img.__fbShown = 1;
+        try { img.src = 'welcome-goldhen.jpg'; } catch (e2) {}
+      }
+    }
+  } catch (e) {}
+  try { document.body.className = 'welcome'; } catch (e3) {}
+};
+window.jailbreakSuccess = function () {
+  try { sessionStorage.setItem('fb_jb_done', '1'); } catch (e) {}
+  try { if (typeof window.__fbShowWelcomeNow === 'function') window.__fbShowWelcomeNow(); } catch (e0) {}
+  try {
+    if (typeof window.__fbOnDone === 'function') {
+      window.__fbOnDone();
+      return;
+    }
+  } catch (e) {}
+  // __fbOnDone not ready yet; finishUI will show welcome
+};
+</script>
+<script>try{document.title='';}catch(e){}</script>
+<div id="ghWelcome" aria-hidden="true"><img src="welcome-goldhen.jpg" alt="Welcome to GoldHEN by SiSTRo" width="1280" height="720"></div>
+<div class="wrap">
+  <div class="ver-pill" id="appVer">14.00-14.02</div>
+
+  <div id="splash" aria-hidden="false">
+    <main class="main">
+      <section class="hero card home-panel" id="homeCard">
+        <div class="home-deco" aria-hidden="true">
+          <div class="home-title"><span class="wk">PS4</span> 13.52 / 14.00 / 14.02 Jailbreak</div>
+          <div class="home-div">
+            <i></i>
+            <svg class="home-lock" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <rect x="4.5" y="10.5" width="15" height="11" rx="2.5" fill="#ffe566"/>
+              <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" fill="none" stroke="#ffe566" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="12" cy="15.3" r="1.6" fill="#fff"/>
+              <rect x="11.3" y="15.8" width="1.4" height="3" rx=".7" fill="#fff"/>
+            </svg>
+            <i></i>
+          </div>
+        </div>
+        <div class="startrow">
+          <button id="run" type="button">Start</button>
+        </div>
+        <p id="sub">Press Start when ready</p>
+      </section>
+
+      <section class="card home-info" id="homeInfo" aria-label="Console info">
+        <p class="label">Console</p>
+        <div class="hi-row">
+          <div class="hi-chip"><span class="k">Model</span><b id="hiModel">-</b></div>
+          <div class="hi-chip"><span class="k">FW</span><b id="hiFw">-</b></div>
+          <div class="hi-chip"><span class="k">Chain</span><b id="hiChain">-</b></div>
+          <span class="hi-br" aria-hidden="true"></span>
+          <div class="hi-chip"><span class="k">Auto-start</span><b id="hiAuto">-</b></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <main id="loader" hidden>
+    <section class="hero card center postjb-card home-panel">
+      <div class="home-deco" aria-hidden="true">
+        <div class="home-title" id="titleMsg"><span class="wk">PS4</span> 13.52 / 14.00 / 14.02 Jailbreak</div>
+        <div class="home-div">
+          <i></i>
+          <svg class="home-lock" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <rect x="4.5" y="10.5" width="15" height="11" rx="2.5" fill="#ffe566"/>
+            <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" fill="none" stroke="#ffe566" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="12" cy="15.3" r="1.6" fill="#fff"/>
+            <rect x="11.3" y="15.8" width="1.4" height="3" rx=".7" fill="#fff"/>
+          </svg>
+          <i></i>
+        </div>
+      </div>
+      <p class="pill-run" id="status">Jailbreak started</p>
+      <div id="progWrap" hidden aria-hidden="true">
+        <div id="progTrack"><div id="progBar"></div></div>
+        <div id="progressPct">0%</div>
+        <div id="progLabel">Ready</div>
+      </div>
+      <p id="elapsedMsg">0s</p>
+      <p id="msg">DONE</p>
+      <div id="successMsg"><span class="check"></span> Jailbroken</div>
+      <div id="failMsg">Jailbreak failed - refresh the page and try again</div>
+    </section>
+
+    <section class="card postjb-info" id="loaderInfo" aria-label="Payloads and console">
+      <p class="label">Payloads</p>
+      <div id="payloadList" class="hi-row">
+        <div id="plGoldhen" class="hi-chip off"><span class="k">GoldHEN</span><b id="plGoldhenTag">WAIT</b></div>
+      </div>
+      <p class="label">Console</p>
+      <div class="hi-row postjb-meta">
+        <div class="hi-chip"><span class="k">Model</span><b id="ldModel">-</b></div>
+        <div class="hi-chip"><span class="k">FW</span><b id="ldFw">-</b></div>
+        <div class="hi-chip"><span class="k">Chain</span><b id="ldChain">-</b></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="settings card" id="settingsPanel" aria-label="Options">
+    <p class="label">Options</p>
+    <p class="label slim">Payload</p>
+    <div class="opt" id="payloadTile">
+      <span class="t">GoldHEN</span>
+      <span class="d" id="payloadVer">v2.4b18.14</span>
+    </div>
+    <p class="hint" id="payloadHint">GoldHEN for FW 14.00 / 14.02</p>
+    <p class="label slim">Timing</p>
+    <div class="chip-row">
+      <span class="mini" id="autoStartTile" tabindex="0" role="button" style="cursor:pointer">Auto-start <span id="autoStartState">Off</span></span>
+    </div>
+    <p class="hint" id="autoHint">Press to turn on. Starts the jailbreak 3 seconds after the page opens.</p>
+    <div class="recent-head">
+      <p class="label slim">Recent</p>
+      <span class="mini" id="historyClear" tabindex="0" role="button">Clear Log</span>
+    </div>
+    <div id="historyList" class="history"></div>
+    <p class="hint" id="historyEmpty">No runs yet</p>
+  </section>
+
+  <footer id="footer"><b>Developed by <a href="https://github.com/X-F1REBALL-X" target="_blank" rel="noopener">X-F1REBALL-X</a></b><span class="footer-host">Hosted &amp; Maintained by <a href="https://github.com/modxx4" target="_blank" rel="noopener">MODXX4</a></span></footer>
+</div>
+
+<div id="wrap" style="display:none"><div id="state"></div><div id="out"></div></div>
+<div id="ramBox" style="display:none"></div>
+<div id="spin"></div>
+
+<script>
+(function(){
+  var PAYLOAD = 'GoldHEN v2.4b18.14';
+  var CHAIN = 'Afterglow';
+  var b = document.getElementById('run');
+  var bar = document.getElementById('progBar');
+  var label = document.getElementById('progLabel');
+  var pctEl = document.getElementById('progressPct');
+  var elapsedMsgEl = document.getElementById('elapsedMsg');
+  var msgEl = document.getElementById('msg');
+  var successMsgEl = document.getElementById('successMsg');
+  var failMsgEl = document.getElementById('failMsg');
+  var statusEl = document.getElementById('status');
+  var splash = document.getElementById('splash');
+  var loader = document.getElementById('loader');
+  if (!b) return;
+
+  var maxPct = 0;
+  var KEY = 'fb-started';
+  var COUNT = 'fb-auto-n';
+  var AUTOKEY = 'ps4jb-autostart';
+  var MODELKEY = 'ps4jb-model';
+  var IPKEY = 'ps4jb-ip';
+  var autoTimer = 0;
+  function autoEnabled() { try { return localStorage.getItem(AUTOKEY) === '1'; } catch (e) { return false; } }
+  var LIMIT = 10;
+  var starting = false;
+  var elapsedTimer = 0;
+  var elapsedStart = 0;
+
+  var elapsedFrozen = false;
+  var elapsedFinalMs = 0;
+  var HISTORY_KEY = 'ps4jb-run-history';
+  function formatElapsed(ms) {
+    var sec = Math.floor(Math.max(0, +ms) / 1000);
+    return sec + 's';
+  }
+  function formatLocalDateTime(ms) {
+    var d = new Date(typeof ms === 'number' ? ms : Date.now());
+    function p(n) { return (n < 10 ? '0' : '') + n; }
+    return p(d.getMonth() + 1) + '-' + p(d.getDate())
+      + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+  }
+  function paintElapsed(str) {
+    if (elapsedMsgEl) elapsedMsgEl.textContent = str || '';
+  }
+  function startElapsed() {
+    if (elapsedFrozen) return;
+    if (elapsedStart && elapsedTimer) return;
+    elapsedFrozen = false;
+    elapsedFinalMs = 0;
+    elapsedStart = Date.now();
+    paintElapsed(formatElapsed(0));
+    if (elapsedTimer) { clearInterval(elapsedTimer); elapsedTimer = 0; }
+    elapsedTimer = setInterval(function () {
+      if (!elapsedStart || elapsedFrozen) return;
+      paintElapsed(formatElapsed(Date.now() - elapsedStart));
+    }, 1000);
+  }
+  function freezeElapsed() {
+    if (elapsedFrozen) return;
+    if (!elapsedStart) return;
+    elapsedFrozen = true;
+    if (elapsedTimer) { clearInterval(elapsedTimer); elapsedTimer = 0; }
+    elapsedFinalMs = Math.max(0, Date.now() - elapsedStart);
+    paintElapsed(formatElapsed(elapsedFinalMs));
+  }
+  function stopElapsed() {
+    if (elapsedFrozen) {
+      paintElapsed(formatElapsed(elapsedFinalMs || 0));
+      return;
+    }
+    if (elapsedTimer) { clearInterval(elapsedTimer); elapsedTimer = 0; }
+    if (elapsedStart) paintElapsed(formatElapsed(Date.now() - elapsedStart));
+  }
+
+  window.__fbStartElapsed = function () {
+    try {
+      elapsedFrozen = false;
+      elapsedFinalMs = 0;
+      elapsedStart = 0;
+      if (elapsedTimer) { clearInterval(elapsedTimer); elapsedTimer = 0; }
+      startElapsed();
+      if (statusEl) statusEl.textContent = 'Jailbreaking';
+    } catch (e) {}
+  };
+
+  function loadHistory() {
+    try {
+      var raw = localStorage.getItem(HISTORY_KEY) || '[]';
+      var arr = JSON.parse(raw);
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) { return []; }
+  }
+  function saveHistoryEntry(entry) {
+    var arr = loadHistory();
+    if (entry && !entry.ts) entry.ts = Date.now();
+    arr.unshift(entry);
+    if (arr.length > 12) arr = arr.slice(0, 12);
+    try { localStorage.setItem(HISTORY_KEY, JSON.stringify(arr)); } catch (e) {}
+    renderHistory();
+  }
+  function recordRun(result) {
+    var ms = elapsedFinalMs || (elapsedStart ? (Date.now() - elapsedStart) : 0);
+    var fw = '-';
+    try {
+      var el = document.getElementById('hiFw');
+      if (el && el.textContent) fw = el.textContent;
+    } catch (e) {}
+    saveHistoryEntry({
+      ts: Date.now(),
+      chain: CHAIN || 'Afterglow',
+      fw: fw,
+      result: result,
+      ms: ms,
+      duration: formatElapsed(ms)
+    });
+  }
+  function renderHistory() {
+    var list = document.getElementById('historyList');
+    var empty = document.getElementById('historyEmpty');
+    if (!list) return;
+    var arr = loadHistory();
+    list.innerHTML = '';
+    if (!arr.length) {
+      if (empty) empty.hidden = false;
+      return;
+    }
+    if (empty) empty.hidden = true;
+    for (var i = 0; i < Math.min(arr.length, 6); i++) {
+      var e = arr[i];
+      var row = document.createElement('div');
+      row.className = 'hrow';
+      var left = document.createElement('span');
+      left.className = 'hmeta';
+      if (e.ts) {
+        var ds = document.createElement('span');
+        ds.className = 'hdate';
+        ds.textContent = formatLocalDateTime(e.ts);
+        left.appendChild(ds);
+      }
+      var right = document.createElement('span');
+      var cls = e.result === 'ok' ? 'ok' : 'fail';
+      right.className = cls + ' hdur';
+      var dur = e.duration || (e.ms != null ? formatElapsed(e.ms) : '');
+      right.textContent = (e.result === 'ok' ? 'OK' : 'FAIL') + (dur ? ('  ' + dur) : '');
+      row.appendChild(left);
+      row.appendChild(right);
+      list.appendChild(row);
+    }
+  }
+  window.__fbRecordRun = recordRun;
+
+  function clearHistory() {
+    try { localStorage.setItem(HISTORY_KEY, '[]'); } catch (e) {}
+    renderHistory();
+  }
+  (function bindHistoryClear() {
+    var btn = document.getElementById('historyClear');
+    if (!btn) return;
+    function go() { clearHistory(); }
+    btn.onclick = go;
+    btn.onkeydown = function (e) {
+      var k = e.keyCode || e.which;
+      if (k === 13 || k === 32) { go(); if (e.preventDefault) e.preventDefault(); }
+    };
+  })();
+
+  function setText(id, v) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = v || '-';
+  }
+
+  function cookieGet(name) {
+    try {
+      var parts = String(document.cookie || '').split(';');
+      for (var i = 0; i < parts.length; i++) {
+        var p = parts[i].replace(/^\s+/, '');
+        if (p.indexOf(name + '=') === 0) return decodeURIComponent(p.slice(name.length + 1));
+      }
+    } catch (e) {}
+    return '';
+  }
+  function cookieSet(name, val) {
+    var s = name + '=' + encodeURIComponent(val) + '; path=/; max-age=31536000';
+    try { if (location.protocol === 'https:') s += '; Secure'; } catch (e) {}
+    try { document.cookie = s; } catch (e2) {}
+  }
+  function qsGet(name) {
+    try {
+      var q = location.search || '';
+      if (q.charAt(0) === '?') q = q.slice(1);
+      if (!q) return '';
+      var parts = q.split('&');
+      for (var i = 0; i < parts.length; i++) {
+        var kv = parts[i].split('=');
+        var k = kv[0] || '';
+        try { k = decodeURIComponent(k); } catch (e0) {}
+        if (k === name) {
+          var v = kv.length > 1 ? kv.slice(1).join('=') : '';
+          try { return decodeURIComponent(v); } catch (e1) { return v; }
+        }
+      }
+    } catch (e) {}
+    return '';
+  }
+  function qsSet(model, ip) {
+    try {
+      var q = location.search || '';
+      if (q.charAt(0) === '?') q = q.slice(1);
+      var map = {};
+      if (q) {
+        var parts = q.split('&');
+        for (var i = 0; i < parts.length; i++) {
+          if (!parts[i]) continue;
+          var kv = parts[i].split('=');
+          var k = kv[0] || '';
+          try { k = decodeURIComponent(k); } catch (e0) {}
+          var v = kv.length > 1 ? kv.slice(1).join('=') : '';
+          try { v = decodeURIComponent(v); } catch (e1) {}
+          map[k] = v;
+        }
+      }
+      if (model) map.m = model; else if (model === '') delete map.m;
+      if (ip) map.ip = ip; else if (ip === '') delete map.ip;
+      var out = [];
+      for (var k2 in map) {
+        if (!Object.prototype.hasOwnProperty.call(map, k2)) continue;
+        out.push(encodeURIComponent(k2) + '=' + encodeURIComponent(map[k2]));
+      }
+      var search = out.length ? ('?' + out.join('&')) : '';
+      history.replaceState(null, '', location.pathname + search + (location.hash || ''));
+    } catch (e) {}
+  }
+  var IDB_NAME = 'ps4jb';
+  var IDB_STORE = 'kv';
+  function idbOpen(cb) {
+    try {
+      if (!window.indexedDB) { cb(null); return; }
+      var req = indexedDB.open(IDB_NAME, 1);
+      req.onupgradeneeded = function (e) {
+        var db = e.target.result;
+        if (!db.objectStoreNames.contains(IDB_STORE)) db.createObjectStore(IDB_STORE);
+      };
+      req.onsuccess = function (e) { cb(e.target.result); };
+      req.onerror = function () { cb(null); };
+    } catch (e) { cb(null); }
+  }
+  function idbSet(key, val) {
+    idbOpen(function (db) {
+      if (!db) return;
+      try {
+        var tx = db.transaction(IDB_STORE, 'readwrite');
+        tx.objectStore(IDB_STORE).put(String(val || ''), key);
+      } catch (e) {}
+    });
+  }
+  function idbGet(key, cb) {
+    idbOpen(function (db) {
+      if (!db) { cb(''); return; }
+      try {
+        var tx = db.transaction(IDB_STORE, 'readonly');
+        var r = tx.objectStore(IDB_STORE).get(key);
+        r.onsuccess = function () { cb(r.result ? String(r.result) : ''); };
+        r.onerror = function () { cb(''); };
+      } catch (e) { cb(''); }
+    });
+  }
+  function normalizeModel(v) {
+    if (!v) return '';
+    v = String(v);
+    try { v = decodeURIComponent(v); } catch (e) {}
+    v = v.replace(/\s+/g, ' ').trim();
+    if (v === 'Fat' || v === 'Slim' || v === 'Pro') return v;
+    var pipe = /^(CUH-[A-Z0-9]+)\|(Fat|Slim|Pro)$/i.exec(v);
+    if (pipe) return pipe[1].toUpperCase() + '|' + pipe[2];
+    var spaced = /^(CUH-[A-Z0-9]+)\s*[--\-]?\s*(Fat|Slim|Pro)$/i.exec(v);
+    if (spaced) return spaced[1].toUpperCase() + '|' + spaced[2];
+    var only = /(CUH-?[A-Z0-9]+)/i.exec(v);
+    if (only) {
+      var code = only[1].toUpperCase().replace(/^CUH(?!-)/, 'CUH-');
+      var k = (typeof kindFromCuh === 'function') ? kindFromCuh(code) : '';
+      return k ? (code + '|' + k) : code;
+    }
+    return '';
+  }
+  function kindFromCuh(code) {
+    var m = /CUH-?(\d{2})/i.exec(String(code || ''));
+    if (!m) return '';
+    var n = parseInt(m[1], 10);
+    if (n >= 70) return 'Pro';
+    if (n >= 20) return 'Slim';
+    if (n >= 10) return 'Fat';
+    return '';
+  }
+  function displayModel(v) {
+    if (!v) return '';
+    if (v === 'Fat' || v === 'Slim' || v === 'Pro') return v;
+    var pipe = /^(CUH-[A-Z0-9]+)\|(Fat|Slim|Pro)$/i.exec(v);
+    if (pipe) return pipe[1].toUpperCase() + ' - ' + pipe[2];
+    var spaced = /^(CUH-[A-Z0-9]+)\s+(Fat|Slim|Pro)$/i.exec(v);
+    if (spaced) return spaced[1].toUpperCase() + ' - ' + spaced[2];
+    var only = /^(CUH-[A-Z0-9]+)$/i.exec(v);
+    if (only) {
+      var code = only[1].toUpperCase();
+      var k = kindFromCuh(code);
+      return k ? (code + ' - ' + k) : code;
+    }
+    return String(v);
+  }
+  function cachedModel() {
+    try {
+      var v = normalizeModel(localStorage.getItem(MODELKEY) || '');
+      if (v) return v;
+    } catch (e) {}
+    return normalizeModel(cookieGet(MODELKEY));
+  }
+  function syncPersistUrl() {
+    var m = cachedModel() || '';
+    var ip = '';
+    try { ip = window.__fbIp || localStorage.getItem(IPKEY) || ''; } catch (e) { ip = window.__fbIp || ''; }
+    if (!ip) ip = cookieGet(IPKEY) || '';
+    qsSet(m || null, ip || null);
+  }
+  function saveModel(kind) {
+    var v = normalizeModel(kind);
+    if (!v) return;
+    try { localStorage.setItem(MODELKEY, v); } catch (e) {}
+    cookieSet(MODELKEY, v);
+    idbSet(MODELKEY, v);
+    syncPersistUrl();
+    detectInfo();
+  }
+  function saveIp(ip) {
+    if (!ip || ip === '-' || ip === '0.0.0.0' || String(ip).indexOf('127.') === 0) return;
+    try { localStorage.setItem(IPKEY, ip); } catch (e) {}
+    cookieSet(IPKEY, ip);
+    idbSet(IPKEY, ip);
+    window.__fbIp = ip;
+    syncPersistUrl();
+    detectInfo();
+  }
+  window.__fbSaveModel = saveModel;
+  window.__fbSaveIp = saveIp;
+  (function loadPersisted() {
+    var m = cachedModel();
+    var ip = '';
+    try { ip = localStorage.getItem(IPKEY) || ''; } catch (e) {}
+    if (!ip) ip = cookieGet(IPKEY) || '';
+    if (!m) {
+      var um = normalizeModel(qsGet('m'));
+      if (um) {
+        try { localStorage.setItem(MODELKEY, um); } catch (e1) {}
+        cookieSet(MODELKEY, um);
+        idbSet(MODELKEY, um);
+        m = um;
+      }
+    }
+    if (!ip) {
+      var uip = qsGet('ip');
+      if (uip && uip !== '0.0.0.0' && String(uip).indexOf('127.') !== 0) {
+        try { localStorage.setItem(IPKEY, uip); } catch (e2) {}
+        cookieSet(IPKEY, uip);
+        idbSet(IPKEY, uip);
+        ip = uip;
+      }
+    }
+    if (ip) window.__fbIp = ip;
+    if (!m) {
+      idbGet(MODELKEY, function (vm) {
+        vm = normalizeModel(vm);
+        if (!vm || cachedModel()) return;
+        try { localStorage.setItem(MODELKEY, vm); } catch (e3) {}
+        cookieSet(MODELKEY, vm);
+        detectInfo();
+      });
+    }
+    if (!ip) {
+      idbGet(IPKEY, function (vi) {
+        if (!vi || window.__fbIp) return;
+        if (vi === '0.0.0.0' || String(vi).indexOf('127.') === 0) return;
+        try { localStorage.setItem(IPKEY, vi); } catch (e4) {}
+        cookieSet(IPKEY, vi);
+        window.__fbIp = vi;
+        detectInfo();
+      });
+    }
+  })();
+
+  function detectInfo() {
+    var ua = navigator.userAgent || '';
+    var fw = '-';
+    var model = '-';
+    var m = /PlayStation\s*4[\/\s]+(\d+\.\d+)/i.exec(ua);
+    if (m) { fw = m[1]; model = 'PlayStation 4'; }
+    else if (/PlayStation\s*4/i.test(ua)) { model = 'PlayStation 4'; }
+    else if (/PlayStation\s*5/i.test(ua)) {
+      model = 'PlayStation 5';
+      var m5 = /PlayStation\s*5[\/\s]+(\d+\.\d+)/i.exec(ua);
+      if (m5) fw = m5[1];
+    }
+    var kind = cachedModel();
+    if (kind) model = displayModel(kind) || kind;
+    else if (!model || model === '-') model = 'PlayStation 4';
+    var autoOn = autoEnabled();
+
+    setText('hiModel', model);
+    setText('hiFw', fw);
+    setText('hiChain', CHAIN);
+    setText('hiAuto', autoOn ? 'On' : 'Off');
+    setText('ldModel', model);
+    setText('ldFw', fw);
+    setText('ldChain', CHAIN);
+    setText('autoStartState', autoOn ? 'On' : 'Off');
+    if (fw && fw !== '-') {
+      setText('appVer', '14.00-14.02');
+      var ht = document.querySelector('.home-title');
+      if (ht) ht.innerHTML = '<span class="wk">PS4</span> ' + fw + ' Jailbreak';
+      var tm = document.getElementById('titleMsg');
+      if (tm) tm.innerHTML = '<span class="wk">PS4</span> ' + fw + ' Jailbreak';
+      var ph = document.getElementById('payloadHint');
+      if (ph) ph.textContent = 'GoldHEN for FW ' + fw;
+    }
+    var tile = document.getElementById('autoStartTile');
+    if (tile) {
+      if (autoOn) tile.className = 'mini on';
+      else tile.className = 'mini';
+    }
+  }
+  detectInfo();
+
+  renderHistory();
+
+  (function detectIp() {
+    var RTC = window.RTCPeerConnection || window.webkitRTCPeerConnection;
+    if (!RTC) return;
+    var pc;
+    try {
+      pc = new RTC({ iceServers: [] });
+    } catch (e) { return; }
+    function take(c) {
+      if (!c) return;
+      var m = /([0-9]{1,3}(?:\.[0-9]{1,3}){3})/.exec(c);
+      if (!m) return;
+      var ip = m[1];
+      if (ip === '0.0.0.0' || ip.indexOf('127.') === 0) return;
+      window.__fbIp = ip;
+      detectInfo();
+    }
+    try {
+      pc.createDataChannel('x');
+      pc.onicecandidate = function (ev) {
+        if (ev && ev.candidate && ev.candidate.candidate) take(ev.candidate.candidate);
+      };
+      pc.createOffer().then(function (o) { return pc.setLocalDescription(o); }).catch(function () {});
+      setTimeout(function () {
+        try {
+          var s = pc.localDescription && pc.localDescription.sdp;
+          if (s) {
+            var lines = s.split('\n');
+            for (var i = 0; i < lines.length; i++) {
+              if (lines[i].indexOf('c=IN IP4 ') === 0) take(lines[i]);
+            }
+          }
+        } catch (e2) {}
+        try { pc.close(); } catch (e3) {}
+      }, 800);
+    } catch (e4) {
+      try { pc.close(); } catch (e5) {}
+    }
+  })();
+
+  function showLoader() {
+    if (splash) { splash.hidden = true; splash.setAttribute('aria-hidden', 'true'); }
+    if (loader) { loader.hidden = false; }
+  }
+
+  function setPayloadTag(tag, cls) {
+    var el = document.getElementById('plGoldhenTag');
+    var chip = document.getElementById('plGoldhen');
+    if (el) el.textContent = tag;
+    if (chip) chip.className = 'hi-chip' + (cls ? (' ' + cls) : ' off');
+  }
+  window.__fbSetPayload = function (ok) {
+    if (ok) setPayloadTag('LOADED', 'on');
+    else setPayloadTag('FAIL', 'off');
+  };
+
+  window.__fbResetProgress = function () {
+    maxPct = 0;
+    if (bar) bar.style.width = '0%';
+    if (pctEl) pctEl.textContent = '0%';
+    if (label) label.textContent = 'Ready';
+  };
+  window.__fbProgress = function (pct, text) {
+    /* Timer-only UI: ignore percent, keep status label soft. */
+    if (statusEl && text) statusEl.textContent = text;
+  };
+
+  function clearAuto() {
+    try { sessionStorage.removeItem(KEY); } catch (e) {}
+    try { sessionStorage.removeItem(COUNT); } catch (e) {}
+  }
+  function markStarted() {
+    try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+  }
+  function wasStarted() {
+    try { return sessionStorage.getItem(KEY) === '1'; } catch (e) { return false; }
+  }
+  function autoCount() {
+    try { return parseInt(sessionStorage.getItem(COUNT) || '0', 10) || 0; } catch (e) { return 0; }
+  }
+  function bumpAuto() {
+    var n = autoCount() + 1;
+    try { sessionStorage.setItem(COUNT, String(n)); } catch (e) {}
+    return n;
+  }
+  function applyRetryStyle() {
+    if (!wasStarted()) return;
+    b.textContent = 'Auto Retry';
+    b.className = 'retry';
+    var sub = document.getElementById('sub');
+    if (sub) sub.textContent = 'Press Auto Retry when ready';
+    detectInfo();
+  }
+  window.__fbShowRetry = function () { applyRetryStyle(); };
+
+  function startOnce() {
+    if (starting || b.disabled) return;
+    if (document.body.className.indexOf('done') >= 0 || document.body.className.indexOf('welcome') >= 0) return;
+    starting = true;
+    b.disabled = true;
+    document.body.className = 'running';
+    showLoader();
+    maxPct = 0;
+    setPayloadTag('WAIT', 'off');
+    if (elapsedMsgEl) elapsedMsgEl.textContent = '';
+    if (statusEl) statusEl.textContent = 'Preparing...';
+    /* Timer starts only when the real jailbreak chain begins (__fbStartElapsed). */
+    detectInfo();
+    var s = document.createElement('script');
+    s.type = 'module';
+    s.src = './jb.js?v=fb-stages1';
+    s.onerror = function () {
+      starting = false;
+      freezeElapsed();
+      try { recordRun('fail'); } catch (eR) {}
+      stopElapsed();
+      document.body.className = 'fail';
+      showLoader();
+      setPayloadTag('FAIL', 'off');
+      if (msgEl) { msgEl.textContent = 'FAILED'; msgEl.className = 'bad'; }
+      if (failMsgEl) failMsgEl.style.display = 'block';
+      clearAuto();
+      detectInfo();
+    };
+    document.body.appendChild(s);
+  }
+
+  function cancelAutoTimer() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = 0; }
+    var sub = document.getElementById('sub');
+    if (sub && !wasStarted()) sub.textContent = 'Press Start when ready';
+  }
+  function beginAutoCountdown() {
+    if (autoTimer || starting || wasStarted()) return;
+    if (document.body.className.indexOf('done') >= 0 || document.body.className.indexOf('welcome') >= 0) return;
+    var left = 3;
+    var sub = document.getElementById('sub');
+    if (sub) sub.textContent = 'Auto-start in ' + left + 's';
+    autoTimer = setInterval(function () {
+      left--;
+      if (left > 0) { if (sub) sub.textContent = 'Auto-start in ' + left + 's'; return; }
+      clearInterval(autoTimer); autoTimer = 0;
+      if (b.disabled) return;
+      try { sessionStorage.setItem(COUNT, '0'); } catch (e) {}
+      markStarted();
+      startOnce();
+    }, 1000);
+  }
+  var autoTile = document.getElementById('autoStartTile');
+  function toggleAuto() {
+    if (starting) return;
+    var on = !autoEnabled();
+    try { if (on) localStorage.setItem(AUTOKEY, '1'); else localStorage.removeItem(AUTOKEY); } catch (e) {}
+    detectInfo();
+    if (on) beginAutoCountdown(); else cancelAutoTimer();
+  }
+  if (autoTile) {
+    autoTile.onclick = toggleAuto;
+    autoTile.onkeydown = function (e) { var k = e.keyCode || e.which; if (k === 13 || k === 32) { toggleAuto(); if (e.preventDefault) e.preventDefault(); } };
+  }
+
+  b.onclick = function () {
+    try { if (sessionStorage.getItem('fb_jb_done') === '1') { var s=document.getElementById('sub'); if (s) s.textContent='Already jailbroken this session. Close browser to retry.'; return; } } catch (e) {}
+
+    if (b.disabled) return;
+    cancelAutoTimer();
+    try { sessionStorage.setItem(COUNT, '0'); } catch (e) {}
+    markStarted();
+    startOnce();
+  };
+
+  window.__fbOnSoftFail = function () {
+    if (!wasStarted()) return;
+    if (document.body.className.indexOf('done') >= 0 || document.body.className.indexOf('welcome') >= 0) { clearAuto(); return; }
+    freezeElapsed();
+    stopElapsed();
+    setPayloadTag('WAIT', 'off');
+    applyRetryStyle();
+    var n = bumpAuto();
+    if (n > LIMIT) {
+      try { recordRun('fail'); } catch (eR) {}
+      starting = false;
+      try {
+        var bb = document.getElementById('run');
+        if (bb) { bb.disabled = false; applyRetryStyle(); }
+      } catch (e) {}
+      return;
+    }
+    /* Only log the final give-up - intermediate auto-retries clutter Recent. */
+    if (statusEl) statusEl.textContent = 'Retrying (' + n + '/' + LIMIT + ')...';
+    /* Same short gap as origin/master (repo almost lands first try). */
+    setTimeout(function () {
+      try { location.reload(); } catch (e) {}
+    }, 100);
+  };
+
+  window.__fbOnDone = function () {
+    if (window.__fbDoneOnce) return;
+    window.__fbDoneOnce = 1;
+    clearAuto();
+    freezeElapsed();
+    try { recordRun('ok'); } catch (eR) {}
+    stopElapsed();
+    try {
+      if (typeof window.__fbSetPayload === 'function') window.__fbSetPayload(true);
+    } catch (e) {}
+    try { if (typeof window.__fbShowWelcomeNow === 'function') window.__fbShowWelcomeNow(); } catch (e) {}
+    detectInfo();
+    // Show SiSTRo welcome briefly, then force a blank page (PS4 often ignores back/close).
+    function leaveWelcome() {
+      try { window.close(); } catch (e0) {}
+      try {
+        if (typeof history !== 'undefined' && history.length > 1) history.go(-1);
+      } catch (e1) {}
+      try { history.back(); } catch (e2) {}
+      setTimeout(function () {
+        try {
+          document.open();
+          document.write('<!doctype html><html><head><meta charset="utf-8"><title></title><style>html,body{margin:0;background:#000;height:100%;width:100%}
+/* MODXX4 unified Liquid Glass finish — visual only */
+.settings{
+  background:linear-gradient(155deg,rgba(255,255,255,.17),rgba(255,255,255,.045) 58%,rgba(0,162,255,.13))!important;
+  border-left:1px solid rgba(255,255,255,.28)!important;
+  box-shadow:-8px 0 24px rgba(0,8,28,.28),inset 1px 0 0 rgba(255,255,255,.16)!important;
+  color:#fff;
+}
+.settings .label,.settings .label.slim{color:#fff}
+.settings .hint{color:rgba(225,240,255,.76)}
+.settings .opt{
+  background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(0,145,255,.12))!important;
+  border:1px solid rgba(255,255,255,.32)!important;
+  border-top:1.5px solid rgba(255,255,255,.62)!important;
+  color:#fff!important;box-shadow:0 5px 14px rgba(0,8,28,.22),inset 0 1px 4px rgba(255,255,255,.18)!important;
+}
+.settings .opt .d{color:rgba(225,240,255,.78)}
+.settings .mini{
+  background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(0,145,255,.12))!important;
+  border:1px solid rgba(255,255,255,.3)!important;color:#fff!important;
+}
+.settings .mini.on,.settings .mini.model-pick.on{
+  background:linear-gradient(100deg,#b8eaff,#55baff)!important;
+  border-color:rgba(255,255,255,.65)!important;color:#03152f!important;
+}
+.hrow{border-bottom-color:rgba(255,255,255,.12)}
+.hrow .ok{color:#9fffd0}.hrow .fail{color:#ffaaaa}.hrow .hang{color:#ffd98a}
+.hrow .hdate,#historyEmpty{color:rgba(225,240,255,.65)}
+#footer{color:rgba(225,240,255,.72)}
+#footer a{color:#a9e5ff}
+.home-div i{background:rgba(255,255,255,.72)}
+.home-div .home-lock rect:first-child{fill:#a9e5ff}
+.home-div .home-lock path{stroke:#a9e5ff}
+#run:focus,.settings .mini:focus{outline:2px solid #a9e5ff;outline-offset:2px}
+@media(max-width:1100px){
+  .settings{background:linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.045) 58%,rgba(0,162,255,.13))!important}
+}
+</style></head><body></body></html>');
+          document.close();
+        } catch (e3) {
+          try {
+            document.body.className = 'done';
+            var w = document.getElementById('ghWelcome');
+            if (w) { w.style.display = 'none'; w.setAttribute('aria-hidden', 'true'); }
+            var splash = document.getElementById('splash');
+            if (splash) { splash.hidden = true; }
+            var loader = document.getElementById('loader');
+            if (loader) { loader.hidden = false; }
+          } catch (e4) {}
+        }
+      }, 250);
+    }
+    setTimeout(leaveWelcome, 2500);
+    try {
+      var wTap = document.getElementById('ghWelcome');
+      if (wTap && !wTap.__fbLeaveBound) {
+        wTap.__fbLeaveBound = 1;
+        wTap.onclick = function () { leaveWelcome(); };
+      }
+    } catch (eT) {}
+  };
+  var hide = function () {
+    var w = document.getElementById('wrap');
+    var o = document.getElementById('out');
+    var r = document.getElementById('ramBox');
+    if (w) { w.style.display = 'none'; w.hidden = true; }
+    if (o) { o.style.display = 'none'; }
+    if (r) { r.style.display = 'none'; }
+    if (document.body.className.indexOf('log') >= 0) {
+      document.body.className = document.body.className.replace(/\blog\b/g, '').replace(/^\s+|\s+$/g, '');
+      if (document.body.className.indexOf('done') < 0 && document.body.className.indexOf('fail') < 0) {
+        document.body.className = (document.body.className + ' running').replace(/^\s+/, '');
+      }
+    }
+  };
+  hide();
+  if (typeof MutationObserver !== 'undefined') {
+    new MutationObserver(hide).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  }
+
+  if (wasStarted() && document.body.className.indexOf('done') < 0 && document.body.className.indexOf('welcome') < 0) {
+    applyRetryStyle();
+    setTimeout(function () { startOnce(); }, 250);
+  } else if (autoEnabled()) {
+    beginAutoCountdown();
+  }
+})();
+</script>
+</body>
+</html>
