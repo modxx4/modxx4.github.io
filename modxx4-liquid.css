@@ -127,3 +127,13 @@ button:hover,button:focus,.grid button:focus{outline:none;border-color:#80e5ff;b
 /* Align system-version prompt to the right */
 .crystal-library-title{display:flex;align-items:center;justify-content:space-between}
 .crystal-library-title span{margin-left:auto;text-align:right}
+
+/* Keep the Support link color consistent in PS4 Browser */
+.crystal-header-right .btn,
+.crystal-header-right .btn:link,
+.crystal-header-right .btn:visited,
+.crystal-header-right .btn:hover,
+.crystal-header-right .btn:active{
+  color:#fff!important;
+  text-decoration:none!important;
+}
