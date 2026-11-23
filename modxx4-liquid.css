@@ -2215,3 +2215,35 @@ body.crystal-dashboard .crystal-fw-card:active {
   body.crystal-dashboard .crystal-ps-disc { width:38px !important; height:38px !important; flex-basis:38px !important; }
   body.crystal-dashboard .crystal-footer { margin-bottom:3px !important; padding:5px 10px !important; }
 }
+
+
+/* MODXX4 r32 — small rendering-cost reduction, preserving the Liquid Glass look.
+   Simplify stacked shadow/ornament paint; keep translucent fills and focus rim. */
+body.crystal-dashboard .crystal-header,
+body.crystal-dashboard .crystal-hero,
+body.crystal-dashboard .crystal-main {
+  box-shadow:0 5px 12px rgba(0,8,25,.13),inset 0 1px 0 rgba(255,255,255,.72) !important;
+}
+body.crystal-dashboard .crystal-fw-card,
+body.crystal-dashboard .crystal-fw-card:link,
+body.crystal-dashboard .crystal-fw-card:visited {
+  box-shadow:0 3px 8px rgba(0,7,24,.13),inset 0 1px 0 rgba(255,255,255,.58) !important;
+}
+body.crystal-dashboard .crystal-fw-card:after {
+  background:rgba(205,225,255,.075) !important;
+  box-shadow:none !important;
+}
+body.crystal-dashboard .crystal-fw-card:before {
+  box-shadow:none !important;
+}
+body.crystal-dashboard .crystal-ps-disc {
+  box-shadow:inset 0 1px 2px rgba(255,255,255,.58),0 2px 5px rgba(0,8,25,.09) !important;
+}
+body.crystal-dashboard .crystal-fw-card:hover,
+body.crystal-dashboard .crystal-fw-card:active,
+body.crystal-dashboard .crystal-fw-card:focus {
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.82),inset 0 0 0 1px rgba(107,218,255,.18) !important;
+}
+body.crystal-dashboard .crystal-footer {
+  text-shadow:none !important;
+}
