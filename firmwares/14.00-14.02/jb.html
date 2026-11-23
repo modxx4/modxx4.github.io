@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title></title>
+<title>MODXX4 GoldHEN Host — Experimental V1</title>
 <style>
 *{margin:0;padding:0;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{height:100%}
@@ -243,6 +243,124 @@ body{color:#fff;background:radial-gradient(ellipse at 50% 0%,rgba(0,114,255,.35)
 #failMsg{background:rgba(248,113,113,.14);border:1px solid rgba(248,113,113,.45);color:#ffb4b4}
 #msg.ok{color:#9fe4ff}
 #msg.bad{color:#ff9b9b}
+
+
+/* MODXX4 Experimental Original Design — V1 */
+:root{color-scheme:dark}
+html,body{min-height:100%;background:#030916}
+body{
+  color:#eef8ff;
+  background:radial-gradient(ellipse at 50% -12%,rgba(0,166,255,.22),transparent 52%),linear-gradient(145deg,#030916 0%,#071a32 52%,#020812 100%);
+  font-family:"Segoe UI",Arial,sans-serif;
+}
+.wrap{padding:5.2rem 2rem 4rem;padding-right:26rem;max-width:1600px;margin:0 auto}
+.wrap:before{
+  content:"MODXX4  /  GOLDHEN HOST";
+  position:absolute;top:1.55rem;left:2rem;
+  color:#dff5ff;font-size:.9rem;font-weight:900;letter-spacing:.18em;
+}
+.wrap:after{
+  content:"EXPERIMENTAL BUILD  •  V1";
+  position:absolute;top:1.62rem;right:26rem;
+  color:rgba(190,225,245,.58);font-size:.68rem;font-weight:800;letter-spacing:.13em;
+}
+.ver-pill{
+  top:1.35rem;right:2rem;padding:.55rem 1rem;
+  background:rgba(27,160,225,.12);border:1px solid rgba(112,211,255,.38);
+  border-radius:12px;color:#aeeaff;box-shadow:none;font-size:.78rem;letter-spacing:.08em
+}
+#homeCard,#homeInfo,#loader .postjb-card,#loaderInfo{
+  background:linear-gradient(145deg,rgba(17,47,76,.92),rgba(7,22,40,.94));
+  border:1px solid rgba(102,190,235,.25);border-top:1px solid rgba(173,229,255,.38);
+  border-radius:22px;box-shadow:0 18px 45px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.045)
+}
+#homeCard{max-width:760px;padding:2.2rem 2rem 1.8rem}
+.home-deco{margin-bottom:1.25rem}
+.home-title{font-size:clamp(2rem,4vw,3.15rem);line-height:1.15;font-weight:850;letter-spacing:-.035em;color:#f4fbff}
+.home-title .wk{-webkit-text-fill-color:#78d8ff;color:#78d8ff}
+.home-div{margin-top:1rem}
+.home-div i{width:90px;background:rgba(132,218,255,.45)}
+.home-div .home-lock rect:first-child{fill:#79d9ff}
+.home-div .home-lock path{stroke:#79d9ff}
+#run{
+  padding:1rem 2rem;border-radius:14px;
+  background:linear-gradient(100deg,#8be2ff,#38b8f0);
+  color:#031321;border:1px solid rgba(225,249,255,.72);
+  box-shadow:0 8px 24px rgba(0,150,220,.2);font-size:1.25rem;font-weight:900;
+  text-transform:uppercase;letter-spacing:.1em
+}
+#run.retry{background:linear-gradient(100deg,#c8f2ff,#74d5ff)}
+#run:focus{outline:2px solid #b8edff;outline-offset:4px}
+#sub{color:rgba(215,239,251,.68);font-weight:600}
+#homeInfo,#loaderInfo{max-width:760px;padding:1.15rem 1.3rem}
+#homeInfo .label,#loaderInfo .label{color:#83dcff;letter-spacing:.16em}
+.hi-chip{
+  background:rgba(4,17,31,.56);border:1px solid rgba(112,193,230,.2);
+  border-radius:10px;padding:.5rem .8rem;color:#eaf8ff;font-size:.9rem
+}
+.hi-chip .k,.hi-chip.ok .k,.hi-chip.ok b{color:#80dcff}
+.hi-chip.ok{background:rgba(26,151,111,.13);border-color:rgba(88,225,175,.35)}
+.settings{
+  top:1rem;right:1rem;bottom:1rem;width:23rem;padding:1.4rem;
+  background:linear-gradient(160deg,rgba(13,37,60,.97),rgba(4,15,28,.98));
+  border:1px solid rgba(110,194,232,.24);border-radius:22px;
+  box-shadow:0 16px 40px rgba(0,0,0,.35);overflow-y:auto
+}
+.settings .label{color:#f0faff;font-size:1.1rem}
+.settings .label.slim{color:#7edaff;font-size:.7rem;letter-spacing:.17em}
+.settings .hint{color:rgba(211,234,246,.64);font-size:.78rem;font-weight:500}
+.settings .opt{
+  min-height:3.5rem;border-radius:12px;text-align:left;padding:.85rem 1rem;
+  background:rgba(69,174,220,.09);border:1px solid rgba(117,203,240,.24);
+  box-shadow:none;color:#eaf8ff
+}
+.settings .opt .d{color:rgba(215,239,251,.62)}
+.settings .mini{
+  background:rgba(69,174,220,.08);border:1px solid rgba(117,203,240,.22);
+  color:#ccefff;border-radius:9px;padding:.42rem .7rem
+}
+.settings .mini.on,.settings .mini.model-pick.on{
+  background:#83ddff;border-color:#bceeff;color:#031321
+}
+.hrow{border-bottom-color:rgba(166,218,242,.1)}
+.hrow .ok{color:#82efbd}.hrow .fail{color:#ff9caa}.hrow .hang{color:#ffd18a}
+.hrow .hdate,#historyEmpty{color:rgba(206,230,243,.48)}
+#status.pill-run,#statusMsg .pill-run,#successMsg{
+  background:linear-gradient(100deg,#8be2ff,#38b8f0);color:#031321;
+  border-radius:13px;box-shadow:0 8px 24px rgba(0,150,220,.2)
+}
+#elapsedMsg{color:#a9e9ff}
+#msg.ok{color:#8ce5ff}
+#failMsg{border-radius:12px}
+#footer{
+  right:24rem;bottom:.8rem;color:rgba(205,230,243,.55);
+  font-size:.72rem;letter-spacing:.04em
+}
+#footer a{color:#8cddff}
+.footer-host{opacity:1}
+#loader{padding-top:1rem}
+#loader .postjb-card{padding:2rem}
+#loaderInfo{margin-top:.8rem}
+@media(max-width:1100px){
+  .wrap{padding:5rem 1rem 4rem}
+  .wrap:before{left:1rem;font-size:.75rem}
+  .wrap:after{display:none}
+  .ver-pill{right:1rem;top:1rem}
+  .settings{
+    position:relative;top:auto;right:auto;bottom:auto;width:100%;max-width:760px;
+    margin:1rem auto 0;padding:1.2rem
+  }
+  #footer{position:static;margin:1.4rem auto 0;padding:0 0 .5rem}
+}
+@media(max-width:600px){
+  .wrap{padding:4.5rem .75rem 2rem}
+  .wrap:before{top:1.35rem;font-size:.66rem;letter-spacing:.12em}
+  .ver-pill{top:3.15rem;left:.75rem;right:auto}
+  #homeCard{padding:1.5rem 1rem}
+  .home-title{font-size:1.85rem}
+  #run{font-size:1.05rem}
+  .hi-chip{font-size:.82rem}
+}
 
 </style>
   <link rel="preload" as="image" href="welcome-goldhen.jpg">
