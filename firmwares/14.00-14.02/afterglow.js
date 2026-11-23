@@ -1320,7 +1320,7 @@ const GH_STEPS = [
   [0x2a4d,  "testkit fake, kernel patches, ShellCore/ShellUI patches"],
   [0x244e,  "syscalls 11/0xc5/0xc6 -- the door runs through GoldHEN from here"],
   [0x3306,  "0x2695 (54 kernel patches) + SceRemotePlay + exec handler"],
-  [0x12f53, "notice 'GoldHEN v2.4b18.12 loaded!'", { rdi: 0x99ef3, esi: 0 }],
+  [0x12f53, "notice 'GoldHEN v2.4b18.14 loaded!'", { rdi: 0x99ef3, esi: 0 }],
   [0x32c4,  "inject klog      -> 3232"],
   [0x325a,  "inject FTP       -> 2121"],
   [0x328f,  "inject BinLoader -> 9090"],
