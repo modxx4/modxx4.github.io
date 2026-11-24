@@ -1,7 +1,7 @@
 CACHE MANIFEST
 # P4JB Analytics offline queue 20261124
 # P4JB text-only header; M crown mark removed 20261123
-# P4JB-Afterglow-14.00-14.02-r7
+# P4JB-Afterglow-14.00-14.02-r8
 
 /p4jb-liquid.css
 
@@ -23,6 +23,7 @@ hen.bin
 welcome-goldhen.jpg
 patches/1352.bin
 patches/1400.bin
+patches/1402.bin
 
 jb.js?v=fb-stages1
 
