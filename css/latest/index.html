@@ -220,12 +220,22 @@
     </script>
 
 
-<!-- P4JB support link: intentionally lightweight for the PS4 browser. -->
+<!-- P4JB native support link -->
 <style id="P4JB-support-style">
-.P4JB-support{position:fixed;right:18px;bottom:18px;z-index:2147483647;display:block;padding:10px 15px;border:1px solid #9b87ff;border-radius:4px;background:#17151f;color:#b7a9ff!important;font:600 13px Arial,sans-serif;letter-spacing:.2px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.32)}
-.P4JB-support:hover,.P4JB-support:focus{background:#9b87ff;color:#101014!important;outline:none}
+.P4JB-support{
+  position:fixed;right:18px;bottom:18px;z-index:2147483647;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:11px 16px;border:1px solid rgba(142,223,255,.65);
+  border-radius:15px;
+  background:linear-gradient(145deg,rgba(255,255,255,.22),rgba(0,120,220,.35));
+  color:#fff!important;text-decoration:none!important;
+  font:700 12px -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  box-shadow:0 8px 20px rgba(0,8,28,.35),inset 0 1px 4px rgba(255,255,255,.3);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)
+}
+.P4JB-support:hover,.P4JB-support:focus{background:rgba(0,150,230,.5);color:#fff!important;outline:none}
 </style>
-<a class="P4JB-support" href="https://sudoblackarch.github.io/support/" aria-label="Support me">Support me!</a>
+<a class="P4JB-support" href="/support.html" aria-label="P4JB Support">? Support</a>
 </body>
 <script>
 window.addEventListener("load", function () {
