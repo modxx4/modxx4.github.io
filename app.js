@@ -1,12 +1,4 @@
-// Lightweight firmware card logging.
-document.querySelectorAll(".firmware-card.ready").forEach(card => {
-  card.addEventListener("click", () => {
-    const version = card.querySelector("strong")?.textContent?.trim() || "unknown";
-    console.info("P4JB: opening firmware host", version);
-  });
-});
-
-// 1. Auto-Detect PS4 / PS5 Firmware & Automatically Open P4JB Host
+// 1. Auto-Detect PS4 / PS5 Firmware
 (function () {
   var btn = document.getElementById("auto-fw-btn");
   if (!btn) return;
@@ -24,11 +16,16 @@ document.querySelectorAll(".firmware-card.ready").forEach(card => {
     else if (fw >= 11.00 && fw <= 13.00) target = "./13.00/index.html";
     else if (fw >= 9.00 && fw <= 9.60) target = "./900/version-selector.html";
     else if (fw >= 7.00 && fw <= 8.52) target = "./7.00/version-selector.html";
-    else if (fw === 6.72) target = "./6.72/cache.html";
-    else if (fw === 5.05) target = "./5.05/cache.html";
+    else if (fw === 6.72) target = "./6.72/index.html"; // تأكد إن الاسم index.html أو cache.html حسب الموجود عندك
+    else if (fw === 5.05) target = "./5.05/index.html";
 
     if (target !== "#firmwares") {
-      window.location.replace(target);
+      btn.textContent = "Detected PS4 " + ps4Match[1] + " — Loading...";
+      btn.href = target;
+      // تأخير التحويل 1.5 ثانية لضمان استقرار المتصفح
+      setTimeout(function () {
+        window.location.href = target;
+      }, 1500);
       return;
     }
 
@@ -40,16 +37,3 @@ document.querySelectorAll(".firmware-card.ready").forEach(card => {
     btn.textContent = "Browse Firmware Library ↓";
   }
 })();
-
-// 2. Offline Service Worker & Live Cache Status Indicator
-if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./service-worker.js", { scope: "./" }).then(function (reg) {
-      var badge = document.getElementById("cache-badge");
-      if (!badge) return;
-      if (navigator.serviceWorker.controller || reg.active) {
-        badge.textContent = "CACHED ✓";
-      }
-    }).catch(function () {});
-  }, { once: true });
-}
