@@ -3,23 +3,47 @@
 
 <head>
     <link rel="stylesheet" href="/p4jb-liquid.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P4JB // PS4 6.00-11.02 HOST / 2.4B18.14</title>
     <style>
-<link rel="stylesheet" href="/p4jb-liquid.css">
-<style>
-    #console { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 10px; max-height: 130px; overflow: auto; white-space: pre-wrap; font-size: 13px; }
-    #kernel-options { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
-    #kernel-options input[type="radio"] { position: absolute; opacity: 0; }
-    .chain-option, #jeilbrek, #reloadBtn, .auto-jb-label {
-        background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18);
-        border-radius: 8px; color: inherit; cursor: pointer; padding: 10px 14px;
-    }
-    #kernel-options input[type="radio"]:checked + .chain-option,
-    #jeilbrek:hover, #reloadBtn:hover { background: rgba(255,255,255,0.2); border-color: #fff; }
-    .auto-jb { display: flex; align-items: center; gap: 6px; }
-</style>
+        #UA { font-size: 12px; opacity: 0.7; margin-top: 8px; overflow-wrap: anywhere; }
+        #cache { font-size: 13px; margin-top: 4px; opacity: 0.85; }
+        #cache.cacheok { color: #00ff88; font-weight: bold; }
+        #console {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            color: inherit;
+            font: inherit;
+            font-size: 13px;
+            line-height: 1.45;
+            max-height: 130px;
+            min-height: 44px;
+            overflow: auto;
+            padding: 10px 14px;
+            white-space: pre-wrap;
+            margin-top: 10px;
+        }
+        #kernel-options { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
+        .chain-label { font-size: 13px; text-transform: uppercase; opacity: 0.75; letter-spacing: 0.08em; }
+        .chain-options { display: flex; gap: 8px; }
+        #kernel-options input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; }
+        .chain-option, #jeilbrek, #reloadBtn, .auto-jb-label {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 10px;
+            color: inherit;
+            cursor: pointer;
+            font: inherit;
+            padding: 10px 16px;
+            transition: 0.2s;
+        }
+        #kernel-options input[type="radio"]:checked + .chain-option,
+        #jeilbrek:hover, #reloadBtn:hover, .auto-jb-label:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #fff;
+        }
+        #jeilbrek:disabled { opacity: 0.5; cursor: wait; }
+        .auto-jb { display: flex; align-items: center; gap: 8px; }
+        #autoJbInput { width: 18px; height: 18px; cursor: pointer; }
     </style>
 </head>
 
