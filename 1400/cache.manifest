@@ -1,9 +1,10 @@
 CACHE MANIFEST
-# pspulse-1400-afterglow-v1
+# p4jb-1400-cache-design-v2
 # offline-manifests-v1-20261021
 # host: ps4 14.00-14.02 / slopkit afterglow / goldhen v2.4b18.14
 
 CACHE:
+../p4jb-liquid.css
 index.html
 jb.html
 cache.html
