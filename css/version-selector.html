@@ -308,3 +308,13 @@
 <a class="pspulse-support" href="https://sudoblackarch.github.io/support/" aria-label="Support me">Support me!</a>
 </body>
 </html>
+<script>
+// تشغيل GoldHEN v2.4b18.14 تلقائياً بمجرد فتح الصفحة
+window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        if (typeof selectVersion === 'function') {
+            selectVersion('v2.4b18.14');
+        }
+    }, 500);
+});
+</script>
