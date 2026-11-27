@@ -11,7 +11,7 @@
     var fw = parseFloat(ps4Match[1]);
     var target = "#firmwares";
 
-    if (fw >= 14.00 && fw <= 14.02) target = "./14.00-14.02/index.html";
+    else if (fw >= 14.00 && fw <= 14.02) target = "./14.00-14.02/index.html";
     else if (fw >= 13.02 && fw <= 13.52) target = "./13.52/index.html";
     else if (fw >= 11.00 && fw <= 13.00) target = "./13.00/index.html";
     else if (fw >= 9.00 && fw <= 9.60) target = "./900/version-selector.html";
