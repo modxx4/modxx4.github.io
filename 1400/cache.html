@@ -1,74 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" manifest="cache.manifest">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P4JB // PS4 14.00-14.02 HOST / CACHE</title>
-    <link rel="icon" type="image/png" href="../P4JB.png">
-    <style>
-:root{color-scheme:dark;--text:#fff;--muted:rgba(225,240,255,.76);--blue:#00b4ff}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{min-height:100%;background:#020b1f;color:var(--text)}
-body{min-height:100vh;display:flex;flex-direction:column;overflow:auto;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased;background:radial-gradient(ellipse at 50% 0%,rgba(0,114,255,.62),transparent 65%),linear-gradient(160deg,#010a1a 0%,#041e4a 52%,#010815 100%)}
-a{color:inherit}
-.app{width:min(1100px,calc(100% - 48px));min-height:100vh;margin:0 auto;padding:16px 0 12px;display:flex;flex-direction:column}
-.bar{width:100%;min-height:64px;margin:0;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-radius:24px;background:linear-gradient(135deg,rgba(255,255,255,.20),rgba(255,255,255,.04) 55%,rgba(0,162,255,.14));border:1px solid rgba(255,255,255,.25);border-top:1.5px solid rgba(255,255,255,.65);border-left:1.5px solid rgba(255,255,255,.45);box-shadow:0 10px 24px rgba(0,8,28,.35),inset 0 2px 8px rgba(255,255,255,.28);-webkit-backdrop-filter:blur(8px) saturate(150%);backdrop-filter:blur(8px) saturate(150%);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
-.bar b{color:#8fe4ff;font-weight:800}.bar-fw{color:rgba(225,240,255,.72)}.bar-fw:before{color:#63e6ff;content:"● "}
-.layout{flex:1;display:flex;flex-direction:column;justify-content:center;padding:34px 0 24px}
-.kicker{color:#8fe4ff;font-size:12px;letter-spacing:.16em;margin:0 0 14px}
-h1{font-size:clamp(32px,5vw,54px);font-weight:750;letter-spacing:-.045em;line-height:1.08;margin:0}
-h1 em{font-style:normal;background:linear-gradient(90deg,#fff,#80dfff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.boot{list-style:none;margin:18px 0 0;padding:18px 22px;border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.04) 55%,rgba(0,162,255,.12));border:1px solid rgba(255,255,255,.24);border-top:1.5px solid rgba(255,255,255,.58);box-shadow:0 8px 20px rgba(0,8,28,.30),inset 0 2px 6px rgba(255,255,255,.2);color:var(--muted);font-size:14px}
-.boot li{margin:5px 0}.boot b{color:#63e6b0}
-.progress-container{width:100%;margin-top:16px;padding:22px;border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.04) 55%,rgba(0,162,255,.12));border:1px solid rgba(255,255,255,.25);border-top:1.5px solid rgba(255,255,255,.62);box-shadow:0 8px 20px rgba(0,8,28,.32),inset 0 2px 6px rgba(255,255,255,.24)}
-.progress-label{color:#9be7ff;font-size:14px;font-weight:700;margin-bottom:12px}
-.progress-wrapper{padding:5px;border:1px solid rgba(255,255,255,.30);border-radius:16px;background:rgba(255,255,255,.07)}
-.progress-bar{height:18px;position:relative;overflow:hidden;border-radius:99px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18)}
-.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#00b4ff,#80e5ff);box-shadow:0 0 18px rgba(0,180,255,.5);transition:width .2s ease}
-.progress-text{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;color:#fff;font-size:12px;font-weight:800;text-shadow:0 1px 5px #001}
-.status-message{margin-top:12px;color:var(--muted);font-size:13px}
-.foot{margin-top:auto;padding:16px 6px 4px;border-top:1px solid rgba(255,255,255,.18);color:rgba(225,240,255,.62);font-size:11px;text-align:center}
-.foot a{color:#a9e9ff;text-decoration:none}.foot a:hover,.foot a:focus{color:#fff}
-.P4JB-support{position:fixed;right:18px;bottom:18px;z-index:2147483647;display:block;padding:10px 15px;border:1px solid rgba(255,255,255,.42);border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.24),rgba(0,145,255,.18));color:#fff!important;font:700 12px Arial,sans-serif;text-decoration:none;box-shadow:0 6px 16px rgba(0,0,0,.3),inset 0 1px 4px rgba(255,255,255,.25);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.P4JB-support:hover,.P4JB-support:focus{border-color:#8fe4ff;outline:none}
-@media(max-width:700px){.app{width:calc(100% - 24px);padding-top:10px}.bar{min-height:56px;padding:12px 14px;font-size:11px}.layout{padding:24px 0 18px}h1{font-size:38px}.progress-container{padding:16px}.boot{padding:15px 16px}.foot{padding-bottom:64px}}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#eaf2fb">
+<title>P4JB // PS4 14.00-14.02 HOST / CACHE</title>
+<link rel="icon" type="image/png" href="../P4JB.png">
+<link rel="stylesheet" href="/p4jb-liquid.css">
 </head>
-
 <body>
-    <div class="app">
-        <header class="bar">
-            <span><b>P4JB</b> // ps4 hosts</span>
-            <span class="bar-fw">cache update</span>
-        </header>
-
-        <main class="layout">
-            <p class="kicker">$ ./cache --install</p>
-            <h1>Loading <em>offline cache</em></h1>
-            <ul class="boot">
-                <li>[ <b>ok</b> ] afterglow chain ready</li>
-                <li>[ <b>..</b> ] downloading host files</li>
-            </ul>
-
-            <section class="progress-container">
-                <div class="progress-label" id="progress">Loading.. Please Wait !!!</div>
-                <div class="progress-wrapper">
-                    <div class="progress-bar" id="myProgress">
-                        <div class="progress-fill" id="myBar"></div>
-                        <div class="progress-text" id="progressText">0%</div>
-                    </div>
-                </div>
-                <div class="status-message">Initializing cache system...</div>
-            </section>
-        </main>
-
-        <footer class="foot">
-            Author: <a href="https://t.me/sudoBlackArch">BlackArch</a> // Telegram: <a href="https://t.me/PlayStation_Pulse">PlayStation Pulse</a>
-        </footer>
-    </div>
-
-    <script>
+<div class="shell">
+<header class="topbar">
+  <div class="brand"><div>P4JB<small>PLAYSTATION 4 HOST</small></div></div>
+  <div class="fw">FIRMWARE&nbsp; 14.00–14.02</div>
+  <a class="btn" href="../support.html">? Support</a>
+</header>
+<main>
+  <div class="eyebrow">$ ./cache --install</div>
+  <h1>Loading <span>offline cache</span></h1>
+  <ul class="boot">
+    <li>[ <b>ok</b> ] Afterglow host selected</li>
+    <li>[ <b>..</b> ] Downloading host files</li>
+  </ul>
+  <section class="panel" aria-live="polite">
+    <div class="progress-meta"><span>Cache installation progress</span><span id="progressText">0%</span></div>
+    <div class="track"><div id="myBar"></div></div>
+    <div id="progress">Loading.. Please Wait !!!</div>
+    <div id="cacheStatus">Initializing cache system...</div>
+  </section>
+</main>
+<footer class="modx-copyright">
+  <span>© 2026 P4JB — All rights reserved.</span>
+  <span>PS4 HOMEBREW HOST</span>
+</footer>
+</div>
+<script>
 (function () {
     var cache = window.applicationCache;
     var progress = document.getElementById("progress");
@@ -139,13 +105,5 @@ h1 em{font-style:normal;background:linear-gradient(90deg,#fff,#80dfff);-webkit-b
     }
 }());
     </script>
-
-<!-- P4JB support link: intentionally lightweight for the PS4 browser. -->
-<style id="P4JB-support-style">
-.P4JB-support{position:fixed;right:18px;bottom:18px;z-index:2147483647;display:block;padding:10px 15px;border:1px solid #9b87ff;border-radius:4px;background:#17151f;color:#b7a9ff!important;font:600 13px Arial,sans-serif;letter-spacing:.2px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.32)}
-.P4JB-support:hover,.P4JB-support:focus{background:#9b87ff;color:#101014!important;outline:none}
-</style>
-<a class="P4JB-support" href="https://sudoblackarch.github.io/support/" aria-label="Support me">Support me!</a>
 </body>
-
 </html>
