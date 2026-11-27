@@ -413,11 +413,21 @@
             PLfile = "history-blocker.bin";
             loadScript1();
         }
-
         function load_pupDecrypt() {
             msgs.innerHTML = "Loading PUP Decrypt ...";
             LoadedMSG = "PUP Decrypt Loaded ✔";
             PLfile = "pup-decrypt.bin";
             loadScript1();
         }
+                // Auto-Load GoldHEN v2.4b18.14 when offline cache is ready
+        window.addEventListener("load", function () {
+            var cacheStatus = window.applicationCache ? window.applicationCache.status : 0;
+            // لو الكاش متثبت وجاهز أوفلاين هيشغل GoldHEN تلقائياً بعد ثانيتين
+            if (cacheStatus === 1 || !navigator.onLine) {
+                setTimeout(function () {
+                    load_goldhen18();
+                }, 2000);
+            }
+        });
+
     </script>
