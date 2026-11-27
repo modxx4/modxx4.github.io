@@ -7,26 +7,34 @@
 <title>P4JB // PS4 6.72 HOST / CACHE</title>
 
 
-<link rel="stylesheet" href="/p4jb-liquid.css?v=ios26-r1">
-<style>
-/* P4JB unified Liquid Glass styling — visual-only overrides */
-body{background:radial-gradient(ellipse at 50% 0%,rgba(0,114,255,.65),transparent 65%),linear-gradient(160deg,#010a1a 0%,#041e4a 52%,#010815 100%)!important;color:#fff!important}
-.shell{width:min(1100px,calc(100% - 32px));margin:18px auto}
-.topbar,.panel,.boot{border-radius:26px!important;background:linear-gradient(145deg,rgba(255,255,255,.20),rgba(255,255,255,.05) 55%,rgba(0,162,255,.15))!important;border:1px solid rgba(255,255,255,.28)!important;border-top:1.5px solid rgba(255,255,255,.68)!important;box-shadow:0 10px 24px rgba(0,8,28,.35),inset 0 2px 8px rgba(255,255,255,.24)!important;-webkit-backdrop-filter:blur(8px) saturate(150%);backdrop-filter:blur(8px) saturate(150%)}
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 22px!important;min-height:68px}
-.brand{color:#fff!important;font-weight:800;letter-spacing:.03em}.brand small{display:block;color:rgba(225,240,255,.78)!important;font-size:10px}
-.fw{color:#fff!important;font-weight:700}
-main{padding:10px 4px}
-h1{color:#fff!important;font-weight:750;letter-spacing:-.025em}
-.eyebrow{color:#9be7ff!important}
-.boot{padding:16px 20px!important;color:rgba(255,255,255,.9)!important}
-.panel{padding:22px!important;color:#fff!important}
-.progress-meta,#progressText,#progress,#cacheStatus,.state{color:rgba(255,255,255,.9)!important}
-.track{height:12px!important;border-radius:99px!important;background:rgba(255,255,255,.13)!important;border:1px solid rgba(255,255,255,.3)!important;overflow:hidden}
-#myBar{border-radius:99px;background:linear-gradient(90deg,#00b4ff,#80e5ff)!important}
-.modx-copyright{width:100%;color:rgba(225,240,255,.65)!important;border-top:1px solid rgba(255,255,255,.18)!important;gap:12px;flex-wrap:wrap}
-@media(max-width:650px){.shell{width:calc(100% - 24px)}.topbar{padding:14px!important}.panel{padding:18px!important}.modx-copyright{flex-direction:column}}
-</style>
+    <link rel="stylesheet" href="p4jb-liquid.css">
+    <style>
+        .status-meta { display: flex; gap: 16px; margin-top: 10px; font-size: 14px; opacity: 0.85; }
+        .section-title { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin: 16px 0 10px; }
+        .grid-goldhen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px; }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .grid-goldhen button, .grid button {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            color: inherit;
+            cursor: pointer;
+            font: inherit;
+            padding: 12px 14px;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .grid-goldhen button:hover, .grid-goldhen button:focus,
+        .grid button:hover, .grid button:focus {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: #fff;
+            outline: none;
+        }
+        @media (max-width: 820px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-goldhen { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 <div class="shell">
@@ -47,19 +55,19 @@ h1{color:#fff!important;font-weight:750;letter-spacing:-.025em}
     <div id="cacheStatus" data-i18n="initializingCache">Initializing cache system...</div>
   </section>
 </main>
-<footer class="modx-copyright"><span>© 2026 P4JB — Built for the PlayStation 4 community. All Rights Reserved.</span><span>Designed with passion. Powered by the community.</span></footer>
+<footer class="P4JB-copyright"><span>© 2026 P4JB — Built for the PlayStation 4 community. All Rights Reserved.</span><span>Designed with passion. Powered by the community.</span></footer>
 </div>
 <script>
 (function(){
   var translations={"command":{"en":"$ ./cache --install"},"heading":{"en":"Loading <em>offline cache</em>"},"intro":{"en":"Preparing the P4JB host for offline use. Keep the PS4 browser open and connected to the internet until the cache process finishes."},"cacheTitle":{"en":"CACHE DEPLOYMENT"},"initializing":{"en":"INITIALIZING"},"downloadProgress":{"en":"Download progress"},"starting":{"en":"Loading.. Please Wait !!!"},"waiting":{"en":"Initializing cache system..."},"check":{"en":"01 / CHECK"},"checkManifest":{"en":"Check cache manifest"},"sync":{"en":"02 / SYNC"},"downloadResources":{"en":"Download host resources"},"readyStep":{"en":"03 / READY"},"openHost":{"en":"Open offline host"},"notice":{"en":"Do not close this page or turn off the console during cache installation. The host will open automatically when caching is complete."},"project":{"en":"P4JB HOST PROJECT"},"cacheSystem":{"en":"CACHE SYSTEM"},"cacheUpdate":{"en":"CACHE UPDATE"},"bootReady":{"en":"exploit chain ready"},"bootDownload":{"en":"offline cache ready"},"loadingWait":{"en":"Loading.. Please Wait !!!"},"initializingCache":{"en":"Initializing cache system..."},"checking":{"en":"Checking host files..."},"contacting":{"en":"Initializing cache system..."},"installing":{"en":"Page Caching Started!!"},"downloading":{"en":"Downloading host files. Do not close the browser."},"receiving":{"en":"Downloading host files..."},"installed":{"en":"Page Cached Successfully!!!"},"updated":{"en":"Cache Updated Successfully!!!"},"upToDate":{"en":"Offline Cache Ready"},"opening":{"en":"Opening the cached host..."},"completeOpen":{"en":"Opening the cached host..."},"unavailable":{"en":"Offline cache is not supported by this browser."},"openPS4":{"en":"Open this page in the PS4 browser."},"failed":{"en":"Offline cache failed."},"stayOnline":{"en":"Stay online, clear browser data, and reload this page."},"cacheEngineUnavailable":{"en":"Cache engine unavailable."},"supportedBrowser":{"en":"Open this page in the PS4 browser that supports Application Cache."},"checkingUpdates":{"en":"Checking for host updates..."},"manifestContact":{"en":"Initializing cache system..."},"downloadingResources":{"en":"Downloading host files. Do not close the browser."},"installationFailed":{"en":"Offline cache failed."},"manifestFailed":{"en":"Stay online, clear browser data, and reload this page."},"manifestUnavailable":{"en":"Offline cache failed."},"manifestObsolete":{"en":"Stay online, clear browser data, and reload this page."},"manifestCouldNotUse":{"en":"Stay online, clear browser data, and reload this page."},"alreadyInstalled":{"en":"Offline Cache Ready"},"alreadyUpdated":{"en":"Offline Cache Ready"},"timedOut":{"en":"Offline cache failed."},"timeoutDetail":{"en":"Stay online, clear browser data, and reload this page."},"keepOpen":{"en":"Downloading host files. Do not close the browser."},"ready":{"en":"READY"},"error":{"en":"ERROR"},"stateChecking":{"en":"CHECKING"},"stateDownloading":{"en":"DOWNLOADING"}};
   var language='en';
-  window.modxT=function(key){return (translations[key]&&translations[key][language])||key;};
-  window.modxSetText=function(el,key){if(el){el.setAttribute('data-i18n-current',key);el.innerHTML=window.modxT(key);}};
+  window.P4JBT=function(key){return (translations[key]&&translations[key][language])||key;};
+  window.P4JBSetText=function(el,key){if(el){el.setAttribute('data-i18n-current',key);el.innerHTML=window.P4JBT(key);}};
   function applyLanguage(){
     document.documentElement.lang='en';
     document.documentElement.dir='ltr';
-    document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n'));});
-    document.querySelectorAll('[data-i18n-current]').forEach(function(el){el.innerHTML=window.modxT(el.getAttribute('data-i18n-current'));});
+    document.querySelectorAll('[data-i18n]').forEach(function(el){el.innerHTML=window.P4JBT(el.getAttribute('data-i18n'));});
+    document.querySelectorAll('[data-i18n-current]').forEach(function(el){el.innerHTML=window.P4JBT(el.getAttribute('data-i18n-current'));});
   }
   applyLanguage();
 })();
@@ -69,14 +77,14 @@ h1{color:#fff!important;font-weight:750;letter-spacing:-.025em}
  var appCache=window.applicationCache,progressLabel=document.getElementById('progress'),bar=document.getElementById('myBar'),pct=document.getElementById('progressText'),status=document.getElementById('cacheStatus'),state=document.getElementById('stateLabel'),dot=document.getElementById('statusDot'),redirecting=false;
  function cached(v){try{localStorage.is672Cached=v?'true':'false';}catch(e){}}
  function progress(v){v=Math.max(0,Math.min(100,v));bar.style.width=v+'%';pct.textContent=v+'%';}
- function setState(s,c){window.modxSetText(state,s);dot.style.background=c;dot.style.boxShadow='0 0 12px '+c;}
- function fail(msg,detail){cached(false);setState('error','#ff7185');window.modxSetText(progressLabel,msg);window.modxSetText(status,detail);}
- function openHost(msg){if(redirecting)return;redirecting=true;cached(true);progress(100);setState('ready','#63e2bd');progressLabel.textContent=window.modxT(msg);window.modxSetText(status,'completeOpen');setTimeout(function(){location.replace('index.html');},1000);}
+ function setState(s,c){window.p4jbSetText(state,s);dot.style.background=c;dot.style.boxShadow='0 0 12px '+c;}
+ function fail(msg,detail){cached(false);setState('error','#ff7185');window.P4JBSetText(progressLabel,msg);window.P4JBSetText(status,detail);}
+ function openHost(msg){if(redirecting)return;redirecting=true;cached(true);progress(100);setState('ready','#63e2bd');progressLabel.textContent=window.P4JBT(msg);window.P4JBSetText(status,'completeOpen');setTimeout(function(){location.replace('index.html');},1000);}
  if(!appCache){fail('cacheEngineUnavailable','supportedBrowser');return;}
  if(appCache.status===appCache.DOWNLOADING){cached(false);setState('stateDownloading','#27b8ff');}
- appCache.onchecking=function(){setState('stateChecking','#27b8ff');window.modxSetText(progressLabel,'checking');status.textContent=window.modxT('manifestContact');};
- appCache.ondownloading=function(){cached(false);setState('stateDownloading','#27b8ff');window.modxSetText(progressLabel,'installing');status.textContent=window.modxT('downloadingResources');};
- appCache.onprogress=function(e){if(e.lengthComputable&&e.total>0)progress(Math.round(100*e.loaded/e.total));status.textContent=window.modxT('receiving');};
+ appCache.onchecking=function(){setState('stateChecking','#27b8ff');window.P4JBSetText(progressLabel,'checking');status.textContent=window.P4JBT('manifestContact');};
+ appCache.ondownloading=function(){cached(false);setState('stateDownloading','#27b8ff');window.P4JBSetText(progressLabel,'installing');status.textContent=window.P4JBT('downloadingResources');};
+ appCache.onprogress=function(e){if(e.lengthComputable&&e.total>0)progress(Math.round(100*e.loaded/e.total));status.textContent=window.P4JBT('receiving');};
  appCache.oncached=function(){openHost('installed');};
  appCache.onupdateready=function(){try{appCache.swapCache();}catch(e){}openHost('updated');};
  appCache.onnoupdate=function(){openHost('alreadyUpdated');};
