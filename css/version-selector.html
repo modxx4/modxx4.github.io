@@ -143,5 +143,15 @@
             if (cards.length) focusCard(0);
         }());
     </script>
+<script>
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        var latestBtn = document.getElementById("latestCard");
+        if (latestBtn) {
+            latestBtn.click();
+        }
+    }, 1000);
+});
+</script>
 </body>
 </html>
