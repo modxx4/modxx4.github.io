@@ -1,157 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" manifest="../navigation.manifest">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P4JB // PS4 6.00-11.02 HOST / VERSION</title>
+    <meta http-equiv="refresh" content="0;url=latest/index.html">
+    <title>P4JB // Loading Latest GoldHEN</title>
     <link rel="icon" type="image/png" href="../P4JB.png">
     <link rel="stylesheet" href="/p4jb-liquid.css">
     <style>
-        .version-grid { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); margin-top: 14px; }
-        .version-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            padding: 16px;
-            transition: 0.2s;
-            width: 100%;
-            color: inherit;
-            font: inherit;
-            text-align: left;
+        .redirect-message { text-align: center; padding: 48px 20px; }
+        .redirect-message p { opacity: .75; }
+        .redirect-spinner {
+            width: 28px; height: 28px; margin: 22px auto;
+            border: 3px solid rgba(255,255,255,.2);
+            border-top-color: #8edfff; border-radius: 50%;
+            animation: p4jb-spin .8s linear infinite;
         }
-        .version-card:hover, .version-card:focus {
-            background: rgba(255, 255, 255, 0.14);
-            border-color: #8edfff;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(142,223,255,.15);
-        }
-        .card-index { font-size: 16px; opacity: 0.5; min-width: 38px; }
-        .version-badge { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; display: block; margin-bottom: 4px; }
-        .version-title { font-size: 20px; font-weight: bold; display: block; }
-        .version-number { color: #8edfff; }
-        .version-description { font-size: 13px; opacity: 0.75; display: block; margin-top: 6px; line-height: 1.4; }
-        .card-action { margin-left: auto; padding-left: 12px; font-size: 13px; font-weight: bold; white-space: nowrap; }
-        .version-card.latest { border-color: rgba(142,223,255,.42); background: linear-gradient(135deg,rgba(0,130,220,.16),rgba(255,255,255,.05)); }
-        .version-card.latest .version-badge { color: #8edfff; }
-        .version-card > span:nth-child(2) { min-width: 0; }
-        .P4JB-support {
-            position: fixed; right: 18px; bottom: 18px; z-index: 1000;
-            display: inline-flex; align-items: center; justify-content: center;
-            padding: 11px 16px; border: 1px solid rgba(142,223,255,.65);
-            border-radius: 15px;
-            background: linear-gradient(145deg,rgba(255,255,255,.22),rgba(0,120,220,.35));
-            color: #fff !important; text-decoration: none !important;
-            font: 700 12px -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-            box-shadow: 0 8px 20px rgba(0,8,28,.35),inset 0 1px 4px rgba(255,255,255,.3);
-            -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-        }
-        .P4JB-support:hover, .P4JB-support:focus { background: rgba(0,150,230,.5); outline: none; }
-        @media (max-width: 760px) {
-            .version-grid { grid-template-columns: 1fr; }
-            .version-card { padding: 14px 12px; }
-            .card-action { font-size: 11px; }
-        }
+        @keyframes p4jb-spin { to { transform: rotate(360deg); } }
     </style>
-</head>
-
-<body>
-<div class="shell">
-    <header class="topbar">
-        <div class="brand"><div>P4JB<small>PLAYSTATION 4 HOST</small></div></div>
-        <div class="fw">FIRMWARE&nbsp; 6.00-11.02</div>
-    </header>
-
-    <main>
-        <div class="eyebrow">$ select --goldhen</div>
-        <h1>Choose <span>GoldHEN</span></h1>
-        <ul class="boot">
-            <li>[ <b>ok</b> ] cssfontface chain ready</li>
-            <li>[ <b>ok</b> ] auto-selecting latest build...</li>
-        </ul>
-
-        <section class="panel" aria-label="GoldHEN versions">
-            <div class="version-grid">
-                <button type="button" class="version-card latest" id="latestCard" onclick="selectVersion('v2.4b18.14')" data-version="latest">
-                    <span class="card-index">01</span>
-                    <span>
-                        <span class="version-badge latest">Latest (Auto)</span>
-                        <span class="version-title">GoldHEN <span class="version-number">v2.4b18.14</span></span>
-                        <span class="version-description">Latest release with improved stability, new features, and better compatibility.</span>
-                    </span>
-                    <span class="card-action">[ SELECT ]</span>
-                </button>
-
-                <button type="button" class="version-card" onclick="selectVersion('v2.4b18.10')" data-version="stable">
-                    <span class="card-index">02</span>
-                    <span>
-                        <span class="version-badge">Stable</span>
-                        <span class="version-title">GoldHEN <span class="version-number">v2.4b18.10</span></span>
-                        <span class="version-description">Previous stable release with proven reliability.</span>
-                    </span>
-                    <span class="card-action">[ SELECT ]</span>
-                </button>
-            </div>
-        </section>
-    </main>
-
-    <footer class="modx-copyright">
-        <span>© 2026 P4JB — Built for the PlayStation 4 community. All Rights Reserved.</span>
-        <span>Designed with passion. Powered by the community.</span>
-    </footer>
-</div>
-
-<a class="P4JB-support" href="/support.html" aria-label="P4JB Support">? Support</a>
-
     <script>
-        function selectVersion(version) {
-            try { localStorage.setItem('selectedGoldHENVersion', version); } catch (error) {}
-            if (version === 'v2.4b18.14') {
-                window.location.href = 'latest/index.html';
-            } else if (version === 'v2.4b18.10') {
-                window.location.href = 'stable/index.html';
-            }
-        }
-
-        (function () {
-            var cards = document.querySelectorAll('.version-card');
-            var currentFocus = 0;
-            function keyName(event) { return event.key || event.keyIdentifier || ''; }
-            function keyCode(event) { return event.which || event.keyCode || 0; }
-            function previous(k,c) { return k === 'ArrowLeft' || k === 'ArrowUp' || k === 'Left' || k === 'Up' || k === 'UIKeyInputLeftArrow' || k === 'UIKeyInputUpArrow' || c === 37 || c === 38; }
-            function next(k,c) { return k === 'ArrowRight' || k === 'ArrowDown' || k === 'Right' || k === 'Down' || k === 'UIKeyInputRightArrow' || k === 'UIKeyInputDownArrow' || c === 39 || c === 40; }
-            function select(k,c) { return k === 'Enter' || k === ' ' || k === 'Spacebar' || k === 'U+000D' || c === 13 || c === 32; }
-            function focusCard(i) { if (cards.length) { currentFocus = i; cards[i].focus(); } }
-            for (var i = 0; i < cards.length; i++) {
-                (function(card, index) {
-                    card.addEventListener('focus', function(){ currentFocus = index; }, false);
-                    card.addEventListener('mousedown', function(){ card.style.transform = 'translateY(-2px) scale(.98)'; }, false);
-                    card.addEventListener('mouseup', function(){ card.style.transform = 'translateY(0) scale(1)'; }, false);
-                    card.addEventListener('mouseleave', function(){ card.style.transform = 'translateY(0) scale(1)'; }, false);
-                    card.addEventListener('blur', function(){ card.style.transform = 'translateY(0) scale(1)'; }, false);
-                }(cards[i], i));
-            }
-            document.addEventListener('keydown', function(event) {
-                var k = keyName(event), c = keyCode(event);
-                if (previous(k,c)) { event.preventDefault(); focusCard(currentFocus > 0 ? currentFocus - 1 : cards.length - 1); }
-                else if (next(k,c)) { event.preventDefault(); focusCard(currentFocus < cards.length - 1 ? currentFocus + 1 : 0); }
-                else if (select(k,c)) { event.preventDefault(); if (cards[currentFocus]) cards[currentFocus].click(); }
-            }, false);
-            if (cards.length) focusCard(0);
-        }());
+        window.location.replace("latest/index.html");
     </script>
-<script>
-window.addEventListener("load", function () {
-    setTimeout(function () {
-        var latestBtn = document.getElementById("latestCard");
-        if (latestBtn) {
-            latestBtn.click();
-        }
-    }, 1000);
-});
-</script>
+</head>
+<body>
+    <div class="shell">
+        <header class="topbar">
+            <div class="brand"><div>P4JB<small>PLAYSTATION 4 HOST</small></div></div>
+            <div class="fw">FIRMWARE&nbsp; 6.00-11.02</div>
+        </header>
+        <main class="panel redirect-message">
+            <h1>Loading <span>Latest GoldHEN</span></h1>
+            <div class="redirect-spinner" aria-hidden="true"></div>
+            <p>Redirecting to GoldHEN v2.4b18.14...</p>
+            <p><a href="latest/index.html">Continue if you are not redirected</a></p>
+        </main>
+        <footer class="modx-copyright">
+            <span>© 2026 P4JB — All Rights Reserved.</span>
+        </footer>
+    </div>
 </body>
 </html>
