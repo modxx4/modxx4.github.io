@@ -2,6 +2,7 @@
 <html lang="en" manifest="cache.manifest">
 
 <head>
+    <link rel="stylesheet" href="/p4jb-liquid.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/P4JB.png">
@@ -194,6 +195,83 @@
             .chain-option { flex: 1; }
         }
     </style>
+
+    <style id="p4jb-liquid-host-skin">
+        html, body { min-height:100%; }
+        body {
+            margin:0; color:#fff; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+            background:radial-gradient(ellipse at 50% 0%,rgba(0,114,255,.65),transparent 65%),linear-gradient(160deg,#010a1a 0%,#041e4a 52%,#010815 100%) !important;
+        }
+        .app { width:min(1100px,calc(100% - 48px)); min-height:100vh; margin:0 auto; padding:14px 0 12px; display:flex; flex-direction:column; }
+        .bar {
+            width:100%; min-height:64px; margin:0; padding:16px 24px; box-sizing:border-box;
+            border-radius:26px; border:1px solid rgba(255,255,255,.25); border-top:1.5px solid rgba(255,255,255,.65);
+            background:linear-gradient(135deg,rgba(255,255,255,.20),rgba(255,255,255,.04) 55%,rgba(0,162,255,.14));
+            box-shadow:0 10px 24px rgba(0,8,28,.35),inset 0 2px 8px rgba(255,255,255,.28);
+            -webkit-backdrop-filter:blur(8px) saturate(150%); backdrop-filter:blur(8px) saturate(150%);
+            color:#fff; font:700 13px -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+        }
+        .bar b { color:#8edfff; font-weight:800; }
+        .bar-fw { color:rgba(225,240,255,.78); }
+        .bar-fw::before { color:#00ffad; }
+        .layout { width:100%; max-width:none; margin:14px 0 0; padding:20px 0 0; display:flex; flex:1 0 auto; flex-direction:column; }
+        .layout .kicker { color:#8edfff; font-size:11px; font-weight:700; letter-spacing:.16em; margin:0 0 12px; }
+        .layout h1 { color:#fff; font:800 clamp(30px,5vw,46px)/1.12 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; letter-spacing:-.04em; margin:0; }
+        .layout h1 em { color:#8edfff; font-style:normal; }
+        .layout .sub { color:rgba(235,246,255,.82); font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; margin:13px 0 0; }
+        .layout .boot { margin:14px 0 0; padding:16px 22px 16px 40px; border-radius:22px; list-style:none; }
+        .layout .boot li { color:rgba(240,248,255,.88); font:13px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; }
+        .layout .boot b { color:#00ffad; }
+        #UA, #cache { color:rgba(225,240,255,.75); font:12px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; }
+        #cache.cacheok { color:#00ffad; }
+        .status, .controls, .nodeplay {
+            margin:14px 0; padding:18px 22px; border-radius:24px;
+            background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.04) 55%,rgba(0,162,255,.12));
+            border:1px solid rgba(255,255,255,.25); border-top:1.5px solid rgba(255,255,255,.62);
+            box-shadow:0 8px 20px rgba(0,8,28,.32),inset 0 2px 6px rgba(255,255,255,.24);
+        }
+        .status-label, .section-title { color:#9bdfff; border-color:rgba(255,255,255,.2); font:700 11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; letter-spacing:.13em; }
+        #console { width:100%; box-sizing:border-box; border-radius:14px; background:rgba(0,0,0,.28); border:1px solid rgba(255,255,255,.16); color:#c9f3ff; font:13px/1.5 Consolas,monospace; }
+        #kernel-options { display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; }
+        .chain-label { color:rgba(225,240,255,.8); font:700 11px -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; }
+        .chain-option, #jeilbrek, #reloadBtn, .auto-jb-label {
+            min-height:44px; padding:10px 16px; border-radius:15px; color:#fff; cursor:pointer;
+            background:linear-gradient(145deg,rgba(255,255,255,.24),rgba(255,255,255,.05) 55%,rgba(0,175,255,.16));
+            border:1px solid rgba(255,255,255,.32); border-top:1.5px solid rgba(255,255,255,.72);
+            box-shadow:0 6px 14px rgba(0,8,28,.3),inset 0 1px 4px rgba(255,255,255,.35);
+            font:700 12px -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+        }
+        #kernel-options input[type="radio"]:checked + .chain-option { border-color:#80e5ff; background:linear-gradient(145deg,rgba(0,180,255,.42),rgba(0,90,190,.2)); }
+        #jeilbrek { background:linear-gradient(135deg,#087fcb,#0752a5); border-color:rgba(142,223,255,.7); }
+        #jeilbrek:disabled { opacity:.5; cursor:wait; }
+        .auto-jb { display:flex; align-items:center; gap:8px; }
+        .auto-jb-label { display:inline-flex; align-items:center; }
+        #autoJbInput { width:18px; height:18px; }
+        .nodeplay { display:flex; align-items:center; justify-content:space-between; gap:16px; color:#fff; text-decoration:none; }
+        .np-label { display:block; color:rgba(225,240,255,.7); font:10px -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; letter-spacing:.1em; }
+        .np-name { color:#fff; font-size:20px; }
+        .np-name b, .np-open { color:#8edfff; }
+        .foot { width:100%; box-sizing:border-box; margin:18px 0; padding:12px 4px; border-top:1px solid rgba(255,255,255,.2); color:rgba(225,240,255,.68); font:11px/1.8 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; text-align:center; }
+        .foot a { color:#8edfff; }
+        .P4JB-support {
+            position:fixed; right:18px; bottom:18px; z-index:2147483647; display:inline-flex; align-items:center; justify-content:center;
+            padding:11px 16px; border:1px solid rgba(142,223,255,.65); border-radius:15px;
+            background:linear-gradient(145deg,rgba(255,255,255,.22),rgba(0,120,220,.35));
+            color:#fff!important; text-decoration:none!important; font:700 12px -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+            box-shadow:0 8px 20px rgba(0,8,28,.35),inset 0 1px 4px rgba(255,255,255,.3);
+            -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+        }
+        .P4JB-support:hover, .P4JB-support:focus { background:rgba(0,150,230,.5); outline:none; }
+        @media(max-width:760px) {
+            .app { width:calc(100% - 24px); padding-top:8px; }
+            .bar { padding:12px 14px; font-size:11px; }
+            .layout { padding-top:14px; }
+            #kernel-options { align-items:flex-start; flex-direction:column; }
+            .chain-options { width:100%; }
+            .chain-option { flex:1; }
+        }
+    </style>
+
 </head>
 
 <body>
