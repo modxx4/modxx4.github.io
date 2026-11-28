@@ -11,13 +11,13 @@
     var fw = parseFloat(ps4Match[1]);
     var target = "#firmwares";
 
-    else if (fw >= 14.00 && fw <= 14.02) target = "./14.00-14.02/index.html";
+    if (fw >= 14.00 && fw <= 14.02) target = "./1400/index.html";
     else if (fw >= 13.02 && fw <= 13.52) target = "./13.52/index.html";
     else if (fw >= 11.00 && fw <= 13.00) target = "./13.00/index.html";
     else if (fw >= 9.00 && fw <= 9.60) target = "./900/version-selector.html";
     else if (fw >= 7.00 && fw <= 8.52) target = "./7.00/version-selector.html";
-    else if (fw === 6.72) target = "./6.72/index.html"; // تأكد إن الاسم index.html أو cache.html حسب الموجود عندك
-    else if (fw === 5.05) target = "./5.05/index.html";
+    else if (fw === 6.72) target = "./6.72/cache.html";
+    else if (fw === 5.05) target = "./5.05/cache.html";
 
     if (target !== "#firmwares") {
       btn.textContent = "Detected PS4 " + ps4Match[1] + " — Loading...";
